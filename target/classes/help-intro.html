@@ -1,0 +1,18 @@
+<h3>Introduction</h3>
+<p>
+<strong>Critter</strong> is the HTTP testing proxy for simulating network traffic problems.
+</p>
+
+<p>
+<strong>Critter</strong> provides two services: proxy service and a traffic control service.
+The proxy service is a pass-through server that usually sits between a http client and a http server.
+The traffic control service is used to change the behavior of the proxy service with respect to request and response handling.
+Information about what to do with a request or a response is specified into rules which are managed through a Web or REST interface.
+</p>
+
+<p>
+<strong>Critter</strong> uses rules (xml) to specify what should happen to a request that it receives or response that it returns.
+For each incoming http request, the proxy service will ask the traffic manager for a rule that matches that request.
+A rule matches if all its conditions are met. A rule can use conditions that look at the host, port, path, header or a combination thereof.
+If such a rule is found then all its actions are performed.
+</p>

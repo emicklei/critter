@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<selfdiagnose>
+	<tasks>
+		<reportjvmruntimememory comment="Java VM Memory" />
+		<reportjamonmonitors />
+	</tasks>
+</selfdiagnose>
