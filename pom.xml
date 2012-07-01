@@ -71,20 +71,6 @@
 			<version>2.7</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.seleniumhq.webdriver</groupId>
-			<artifactId>webdriver-selenium</artifactId>
-			<version>0.9.7376</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.seleniumhq.webdriver</groupId>
-			<artifactId>webdriver-chrome</artifactId>
-			<version>0.9.7376</version>
-			<scope>test</scope>
-		</dependency>
-
 	</dependencies>
 
 	<repositories>
@@ -92,8 +78,6 @@
 			<id>jamon</id>
 			<url>http://maven.jahia.org/maven2</url>
 		</repository>
-
-
 
 		<repository>
 			<id>rendershark-repo</id>
