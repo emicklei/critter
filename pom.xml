@@ -25,7 +25,7 @@
 		<dependency>
 			<groupId>org.rendershark</groupId>
 			<artifactId>rendershark</artifactId>
-			<version>0.5-SNAPSHOT</version>
+			<version>0.5</version>
 		</dependency>
 
 		<dependency>
