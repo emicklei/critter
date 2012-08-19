@@ -12,8 +12,6 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.name.Names;
-import com.mongodb.DBCollection;
-import com.mongodb.Mongo;
 import com.philemonworks.critter.dao.RuleDao;
 import com.philemonworks.critter.dao.RuleDaoMemoryImpl;
 import com.philemonworks.critter.dao.mongo.MongoModule;
@@ -34,7 +32,6 @@ public class Launcher {
     	jersey.setLevel(java.util.logging.Level.OFF);
     	    	
     	final Properties mainProperties = createProperties(args[0]);
-
     	
         final TrafficManager manager = new TrafficManager();
         Module managerModule = new AbstractModule() {
@@ -53,7 +50,7 @@ public class Launcher {
             }
         };
         LOG.info("Starting Proxy Server...");
-        final HttpServer proxyServer = startProxyServer(mainProperties, managerModule);        
+        final HttpServer proxyServer = startProxyServer(createProperties(args[0]), managerModule);        
         Module proxyServerModule = new AbstractModule() {
             protected void configure() {                
                 this.bind(HttpServer.class)
@@ -62,7 +59,7 @@ public class Launcher {
             }
         };        
         LOG.info("Starting Traffic Server...");
-        startTrafficServer(mainProperties, managerModule, proxyServerModule);
+        startTrafficServer(createProperties(args[0]), managerModule, proxyServerModule);
     }
 
 	private static void startTrafficServer(Properties trafficProperties, Module managerModule, Module proxyServerModule) {
