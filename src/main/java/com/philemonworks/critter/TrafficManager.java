@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.google.inject.Inject;
+import com.philemonworks.critter.dao.RuleDao;
 import com.philemonworks.critter.rule.Rule;
 import com.philemonworks.critter.rule.RuleContext;
 import com.sun.jersey.api.NotFoundException;
 import com.sun.jersey.api.core.HttpContext;
 
 public class TrafficManager {
+    @Inject RuleDao ruleDao;
+    
     private List<Rule> rules = Collections.synchronizedList(new ArrayList<Rule>());
 
     public Rule detectRule(HttpContext context) {

@@ -12,6 +12,12 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.name.Names;
+import com.mongodb.DBCollection;
+import com.mongodb.Mongo;
+import com.philemonworks.critter.dao.RuleDao;
+import com.philemonworks.critter.dao.RuleDaoMemoryImpl;
+import com.philemonworks.critter.dao.mongo.MongoModule;
+import com.philemonworks.critter.dao.mongo.RuleDaoMongoImpl;
 import com.philemonworks.critter.ui.AdminUIResource;
 import com.sun.jersey.api.core.ClassNamesResourceConfig;
 import com.sun.jersey.server.impl.container.netty.NettyHandlerContainer;
@@ -26,15 +32,28 @@ public class Launcher {
     	}    
     	java.util.logging.Logger jersey = java.util.logging.Logger.getLogger("com.sun.jersey");
     	jersey.setLevel(java.util.logging.Level.OFF);
+    	    	
+    	final Properties mainProperties = createProperties(args[0]);
+
     	
         final TrafficManager manager = new TrafficManager();
         Module managerModule = new AbstractModule() {
-            protected void configure() {                
+            protected void configure() {        
+                RuleDao ruleDao;
+                if (mainProperties.containsKey("rule.database.mongo.host")) {
+                    LOG.info("Using MongoDB rules database");
+                    this.install(new MongoModule());
+                    ruleDao = new RuleDaoMongoImpl();
+                } else {
+                    LOG.info("Using in memory rules database");
+                    ruleDao = new RuleDaoMemoryImpl();
+                }                
                 this.bind(TrafficManager.class).toInstance(manager);
+                this.bind(RuleDao.class).toInstance(ruleDao);
             }
         };
         LOG.info("Starting Proxy Server...");
-        final HttpServer proxyServer = startProxyServer(args, managerModule);        
+        final HttpServer proxyServer = startProxyServer(mainProperties, managerModule);        
         Module proxyServerModule = new AbstractModule() {
             protected void configure() {                
                 this.bind(HttpServer.class)
@@ -43,11 +62,10 @@ public class Launcher {
             }
         };        
         LOG.info("Starting Traffic Server...");
-        startTrafficServer(args, managerModule, proxyServerModule);
+        startTrafficServer(mainProperties, managerModule, proxyServerModule);
     }
 
-	private static void startTrafficServer(String[] args, Module managerModule, Module proxyServerModule) {
-		Properties trafficProperties = createProperties(args[0]);
+	private static void startTrafficServer(Properties trafficProperties, Module managerModule, Module proxyServerModule) {
         trafficProperties.put(ClassNamesResourceConfig.PROPERTY_CLASSNAMES,
                 TrafficResource.class.getName() + " " +
         		AdminUIResource.class.getName());
@@ -62,8 +80,7 @@ public class Launcher {
                 new TrafficModule());
 	}
 
-	private static HttpServer startProxyServer(String[] args, Module managerModule) {
-		Properties proxyProperties = createProperties(args[0]);
+	private static HttpServer startProxyServer(Properties proxyProperties, Module managerModule) {
         proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CLASSNAMES,ProxyResource.class.getName());
         proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS,ProxyFilter.class.getName());
         String proxyPort = proxyProperties.getProperty("proxy.port");

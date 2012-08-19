@@ -6,6 +6,10 @@
 		<!-- true if the hostname of the request matches the given value -->
 		<host matches="test.critter" />
 		
+		<!-- true if the Http methods matches. Rules that do not contain
+		     this condition will accept any method -->
+		<method matches="GET" />
+		
 		<!-- true if the URL path of the request matches the given value -->
 		<path matches="/here/BOL" />
 		

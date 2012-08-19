@@ -1,13 +1,14 @@
 package com.philemonworks.critter.ui;
 
+import static org.rendersnake.HtmlAttributesFactory.dataRole;
+import static org.rendersnake.HtmlAttributesFactory.id;
+
 import java.io.IOException;
 
 import org.rendersnake.HtmlCanvas;
 import org.rendersnake.Renderable;
 import org.rendersnake.RenderableWrapper;
 import org.rendersnake.ext.jquery.JQueryLibrary;
-import static org.rendersnake.ext.jquery.JQueryAttributesFactory.*;
-import static org.rendersnake.HtmlAttributesFactory.*; 
 
 public class SiteLayout extends RenderableWrapper {
 

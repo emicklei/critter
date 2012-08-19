@@ -1,6 +1,10 @@
 package com.philemonworks.critter.ui;
 
-import static org.rendersnake.HtmlAttributesFactory.*;
+import static org.rendersnake.HtmlAttributesFactory.NO_ESCAPE;
+import static org.rendersnake.HtmlAttributesFactory.class_;
+import static org.rendersnake.HtmlAttributesFactory.dataRole;
+import static org.rendersnake.HtmlAttributesFactory.dataTheme;
+import static org.rendersnake.HtmlAttributesFactory.href;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,11 +13,6 @@ import org.rendersnake.HtmlCanvas;
 import org.rendersnake.Renderable;
 
 import com.philemonworks.critter.rule.Rule;
-import static org.rendersnake.ext.jquery.JQueryAttributesFactory.*;
-import static org.rendersnake.HtmlAttributesFactory.*;
-import static org.rendersnake.ext.jquery.JQueryAttributesFactory.*;
-import static org.rendersnake.HtmlAttributesFactory.*;
-import static org.rendersnake.ext.jquery.JQueryAttributesFactory.*;
 
 public class RulesUI implements Renderable {
     private static final int MAX_DESC_LENGTH = 200;
