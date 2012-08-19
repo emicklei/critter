@@ -11,27 +11,18 @@ import java.net.URLDecoder;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.ws.rs.GET;
-import javax.ws.rs.HeaderParam;
-import javax.ws.rs.HttpMethod;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 
-import org.apache.commons.io.IOUtils;
 import org.rendershark.http.HttpServer;
 import org.rendersnake.HtmlCanvas;
 import org.rendersnake.StringResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import sun.misc.CharacterDecoder;
-import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
-
-import com.philemonworks.critter.ProxyResource;
 import com.philemonworks.critter.TrafficManager;
 import com.philemonworks.critter.rule.Rule;
 import com.philemonworks.critter.rule.RuleConverter;
@@ -55,6 +46,18 @@ public class AdminUIResource {
 		html.render(new SiteLayout(new EditRulePage()));
 		return Response.ok().entity(html.toHtml()).build();
 	}
+	
+    @GET
+    @Path("/newresponse")
+    @Produces("text/html")
+    public Response newFixedResponse() throws IOException {
+        HtmlCanvas html = new HtmlCanvas();
+        html.getPageContext()
+            .withObject("rule", new Rule())
+            .withBoolean("proxy.started", this.proxyServer.isStarted());
+        html.render(new SiteLayout(new EditFixedResponsePage()));
+        return Response.ok().entity(html.toHtml()).build();
+    }	
 	
 	@POST
 	@Path("/toggleproxy")
