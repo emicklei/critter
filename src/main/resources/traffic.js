@@ -22,3 +22,22 @@ function changeEnablementRule(name,enable) {
 function changeEnablementRule_ok(data,textStatus,jqXHR) {
 	location.reload();
 }
+
+function clickedMethod(method) {
+	if ('method-get' == method) {
+		$('.get-post').show();
+		$('.post-put').hide();
+	}
+	if ('method-post' == method) {
+		$('.get-post').show();
+		$('.post-put').show();
+	}	
+	if ('method-put' == method) {
+		$('.get-post').hide();
+		$('.post-put').show();
+	}	
+	if ('method-delete' == method) {
+		$('.get-post').hide();
+		$('.post-put').hide();
+	}	
+}

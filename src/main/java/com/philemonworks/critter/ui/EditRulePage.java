@@ -32,15 +32,7 @@ public class EditRulePage implements Renderable {
 				.content(rulexml)				
 			._div();
 		
-        html.div(dataRole("controlgroup").dataType("horizontal"))
-            .a(dataRole("button").dataTheme("b")
-            		.href("javascript:document.forms['newrule'].submit();"))
-            		.content("Ok")
-            .a(dataRole("button").dataTheme("b")
-                    .href("javascript:window.history.back();"))
-                    .content("Cancel")                    
-            		
-        	._div();
+        html.render(new SubmitCancel("newrule"));
         
         html._form();
 	}
