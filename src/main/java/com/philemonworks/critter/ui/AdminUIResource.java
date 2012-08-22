@@ -92,6 +92,13 @@ public class AdminUIResource {
 		return Response.seeOther(new URI("http://"+publicHostname)).build();
 	}	
 	
+	@POST
+	@Path("/newresponse")
+	@Produces("text/html")
+	public Response saveFixedResponse(InputStream input) throws Exception {
+	    return Response.ok().build();
+	}
+	
     @GET
     @Path("/traffic.css")
     @Produces("text/css")
