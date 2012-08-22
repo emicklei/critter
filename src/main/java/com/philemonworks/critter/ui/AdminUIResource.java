@@ -75,7 +75,7 @@ public class AdminUIResource {
 	@Produces("text/html")
 	public Response saveRule(InputStream input) throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-		String decoded = URLDecoder.decode(reader.readLine(),"utf8");
+		String decoded = URLDecoder.decode(reader.readLine(),"utf8"); // Despite the name, this utility class is for HTML form decoding
 		int eq = decoded.indexOf('=');
 		String rulexml = null;
 		try {
@@ -96,6 +96,9 @@ public class AdminUIResource {
 	@Path("/newresponse")
 	@Produces("text/html")
 	public Response saveFixedResponse(InputStream input) throws Exception {
+	    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+	    String decoded = URLDecoder.decode(reader.readLine(),"utf8"); // Despite the name, this utility class is for HTML form decoding
+	    System.out.println(new FixedResponseFormDecoder().decode(decoded));
 	    return Response.ok().build();
 	}
 	

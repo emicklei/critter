@@ -24,19 +24,19 @@ function changeEnablementRule_ok(data,textStatus,jqXHR) {
 }
 
 function clickedMethod(method) {
-	if ('method-get' == method) {
+	if ('get' == method) {
 		$('.get-post').show();
 		$('.post-put').hide();
 	}
-	if ('method-post' == method) {
+	if ('post' == method) {
 		$('.get-post').show();
 		$('.post-put').show();
 	}	
-	if ('method-put' == method) {
+	if ('put' == method) {
 		$('.get-post').hide();
 		$('.post-put').show();
 	}	
-	if ('method-delete' == method) {
+	if ('delete' == method) {
 		$('.get-post').hide();
 		$('.post-put').hide();
 	}	
