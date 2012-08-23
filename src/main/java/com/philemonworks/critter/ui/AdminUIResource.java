@@ -98,8 +98,18 @@ public class AdminUIResource {
 	public Response saveFixedResponse(InputStream input) throws Exception {
 	    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 	    String decoded = URLDecoder.decode(reader.readLine(),"utf8"); // Despite the name, this utility class is for HTML form decoding
-	    System.out.println(new FixedResponseFormDecoder().decode(decoded));
-	    return Response.ok().build();
+	    try {
+	        FixedResponseFormDecoder formDecoder = new FixedResponseFormDecoder();
+            Rule rule = formDecoder.buildRuleFrom(formDecoder.decode(decoded));
+            this.trafficManager.addOrReplaceRule(rule);        
+        } catch (Exception ex) {
+            LOG.error("save fixed response failed", ex);
+            HtmlCanvas html = new HtmlCanvas();
+            html.getPageContext().withString("alert","This definition is not valid, please correct.");
+            html.render(new SiteLayout(new EditFixedResponsePage()));
+            return Response.ok().entity(html.toHtml()).build();
+        }
+	    return Response.seeOther(new URI("http://"+publicHostname)).build();
 	}
 	
     @GET

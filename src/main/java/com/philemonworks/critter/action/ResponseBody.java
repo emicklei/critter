@@ -6,7 +6,7 @@ import com.philemonworks.critter.rule.RuleContext;
 
 public class ResponseBody extends RuleIngredient implements Action { 
 
-    String body;
+    public String body;
     
     @Override
     public void perform(RuleContext context) {
