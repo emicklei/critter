@@ -22,7 +22,7 @@ public class XPath implements Condition {
     
     @Override
     public String explain() {
-        return "xpath expression [" + expression + "] on the request XML body matches [" + matches + "]";
+        return "the xpath expression [" + expression + "] on the request XML body matches [" + matches + "]";
     }
 
     public XPathExpression getXPathExpression() {
@@ -33,7 +33,7 @@ public class XPath implements Condition {
                 cachedXPathExpression = xpath.compile(this.expression);
             } catch (XPathExpressionException e) {
                 LOG.error("xpath compile failed",e);
-                this.badExpression = true;
+                this.badExpression = true;  // TODO notify the user somehow
             }
         }
         return cachedXPathExpression;
@@ -41,8 +41,13 @@ public class XPath implements Condition {
     
     @Override
     public boolean test(RuleContext ctx) {
+        String contentType = ctx.httpContext.getRequest().getHeaderValue("Content-Type");
+        if (!"application/xml".equals(contentType)) {
+            return false;
+        }
         XPathExpression xExp = this.getXPathExpression();
-        if (this.badExpression) return false;
+        if (this.badExpression) 
+            return false;
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();

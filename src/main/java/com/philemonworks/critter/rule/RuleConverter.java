@@ -8,7 +8,6 @@ import com.philemonworks.critter.action.Forward;
 import com.philemonworks.critter.action.Respond;
 import com.philemonworks.critter.action.ResponseBody;
 import com.philemonworks.critter.action.ResponseHeader;
-import com.philemonworks.critter.action.RuleIngredient;
 import com.philemonworks.critter.action.StatusCode;
 import com.philemonworks.critter.action.Trace;
 import com.philemonworks.critter.condition.BasicAuthentication;
@@ -19,6 +18,8 @@ import com.philemonworks.critter.condition.Method;
 import com.philemonworks.critter.condition.Not;
 import com.philemonworks.critter.condition.Path;
 import com.philemonworks.critter.condition.Port;
+import com.philemonworks.critter.condition.RequestBody;
+import com.philemonworks.critter.condition.XPath;
 import com.thoughtworks.xstream.XStream;
 
 public class RuleConverter {
@@ -55,6 +56,12 @@ public class RuleConverter {
 		
         xs.alias("not", Not.class);
         xs.registerConverter(new NotConverter());
+        
+        xs.alias("xpath", XPath.class);
+        xs.useAttributeFor(XPath.class, "expression");
+        xs.useAttributeFor(XPath.class, "matches");
+        
+        xs.alias("requestbody", RequestBody.class);
         
 		// actions
 		xs.alias("forward", Forward.class);

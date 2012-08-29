@@ -19,7 +19,7 @@ public class EditFixedResponsePage implements Renderable {
         if (alert != null) {
             html.div(id("alertmessage")).content(alert);
         }
-        html.h3().content("Edit the rule for a fixed HTTP Response");
+        html.h3().content("Edit a HTTP Request and Response recording");
                 
         html.form(id("newresponse").action("/ui/newresponse").method("post"));  
 
@@ -32,16 +32,16 @@ public class EditFixedResponsePage implements Renderable {
         html.div(dataRole("fieldcontain"))
             .fieldset(dataRole("controlgroup").dataType("horizontal"))
                 .legend().content("Method")
-                .input(type("radio").name("critter_method").id("radio-get").value("get").checked("checked").onChange("clickedMethod(this.value);"))
+                .input(type("radio").name("critter_method").id("radio-get").value("GET").checked("checked").onChange("clickedMethod(this.value);"))
                 .label(for_("radio-get")).content("GET")
                 
-                .input(type("radio").name("critter_method").id("radio-post").value("post").onChange("clickedMethod(this.value);"))
+                .input(type("radio").name("critter_method").id("radio-post").value("POST").onChange("clickedMethod(this.value);"))
                 .label(for_("radio-post")).content("POST")
                 
-                .input(type("radio").name("critter_method").id("radio-put").value("put").onChange("clickedMethod(this.value);"))
+                .input(type("radio").name("critter_method").id("radio-put").value("PUT").onChange("clickedMethod(this.value);"))
                 .label(for_("radio-put")).content("PUT")
                 
-                .input(type("radio").name("critter_method").id("radio-delete").value("delete").onChange("clickedMethod(this.value);"))
+                .input(type("radio").name("critter_method").id("radio-delete").value("DELETE").onChange("clickedMethod(this.value);"))
                 .label(for_("radio-delete")).content("DELETE")
             ._fieldset()
             ._div();

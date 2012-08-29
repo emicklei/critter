@@ -8,12 +8,20 @@ public class RequestBody implements Condition {
     
     @Override
     public String explain() {
-        return "equal to a fixed request body";
+        return "the request body matches [" + body + "]";
     }
 
     @Override
     public boolean test(RuleContext ctx) {
-        // TODO Auto-generated method stub
+        // Depending on content type, use different match strategy
+        String contentType = ctx.httpContext.getRequest().getHeaderValue("Content-Type");
+        if ("application/xml".equals(contentType.toLowerCase())) {
+            // Parse Xml
+        } else if ("application/json".equals(contentType.toLowerCase())) {
+            // Parse Json
+        } else if ("application/octet-stream".equals(contentType.toLowerCase())) {
+            // Use HEX compare
+        }
         return false;
     }
 

@@ -7,6 +7,8 @@ import java.util.Properties;
 
 import javax.ws.rs.core.HttpHeaders;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.philemonworks.critter.action.Action;
 import com.philemonworks.critter.action.ResponseBody;
 import com.philemonworks.critter.condition.Condition;
@@ -23,6 +25,9 @@ public class FixedResponseFormDecoder {
         Rule r = new Rule();
         r.actions = new ArrayList<Action>();
         r.conditions = new ArrayList<Condition>();
+        
+        boolean hasRequestContent = props.containsKey("requestcontent") && !StringUtils.isEmpty(props.getProperty("requestcontent"));
+        
         if (props.containsKey("id")) {
             r.id = props.getProperty("id");
         }
@@ -45,7 +50,7 @@ public class FixedResponseFormDecoder {
             r.conditions.add(h);
             r.conditions.add(p);
         }
-        if (props.containsKey("contenttype")) {
+        if (props.containsKey("contenttype") && hasRequestContent) {
             Header h = new Header();
             h.name = HttpHeaders.CONTENT_TYPE;
             h.matches = props.getProperty("contenttype");
@@ -61,8 +66,8 @@ public class FixedResponseFormDecoder {
             ResponseBody rb = new ResponseBody();
             rb.body = props.getProperty("responsecontent");
             r.actions.add(rb);
-        }        
-        if (props.containsKey("requestcontent")) {
+        }                
+        if (hasRequestContent) {
             RequestBody rb = new RequestBody();
             rb.body = props.getProperty("requestcontent");
             r.conditions.add(rb);

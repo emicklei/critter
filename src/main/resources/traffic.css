@@ -15,8 +15,8 @@ pre {
 }
 #alertmessage {
 	font-size:large;
-	color: yellow;
+	color: yellow  ;
 }
-h3 { color: yellow; }
+h3 { color: lightblue; }
 
 pre { font-size:large ; background-color:gray; padding: 4px}
