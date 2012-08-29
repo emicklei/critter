@@ -22,6 +22,9 @@
 		<!-- true if the Authorization header matches the Base64 encoded version of username:password combination -->
 		<basicauthentication username="Aladdin" password="open sesame" />	
 		
+		<!-- true if the Xpath expression matches the body of the request (content-type must be application/xml -->
+		<xpath expression="/root/node/value/text()" matches="1234"/>
+		
 		<!-- you can wrap any condition in a not element -->
 		<not>
 		  <host matches="not.test.critter" />
