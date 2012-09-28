@@ -5,10 +5,16 @@ import java.net.URI;
 import java.util.Properties;
 
 public class Utils {
+    /**
+     * If no forward URI is given then return null.
+     * @param requestURI
+     * @return
+     */
     public static URI extractForwardURIFrom(URI requestURI) {
         // http://localhost:8888http://boldapp26.dev.bol.com:9998/testspecs
         int http = requestURI.toString().indexOf("http",4);
-        if (http == -1) http = 0;
+        if (http == -1) 
+            return null;
         return URI.create(requestURI.toString().substring(http));
     }
     public static String getMavenVersion() {

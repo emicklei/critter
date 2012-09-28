@@ -4,7 +4,7 @@ import javax.ws.rs.core.Response;
 
 import com.philemonworks.critter.rule.RuleContext;
 
-public class ResponseBody extends RuleIngredient implements Action { 
+public class ResponseBody extends StatusCode implements Action { 
 
     public String body;
     
@@ -13,6 +13,7 @@ public class ResponseBody extends RuleIngredient implements Action {
         if (context.forwardResponse != null) {
             context.forwardResponse = Response
                     .fromResponse(context.forwardResponse)
+                    .status(this.code)
                     .entity(body).build();
             return;
         } else {

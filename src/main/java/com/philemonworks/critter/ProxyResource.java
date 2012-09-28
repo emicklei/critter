@@ -24,6 +24,7 @@ import com.jamonapi.Monitor;
 import com.jamonapi.MonitorFactory;
 import com.philemonworks.critter.action.Forward;
 import com.philemonworks.critter.action.Respond;
+import com.philemonworks.critter.action.ResponseBody;
 import com.philemonworks.critter.rule.Rule;
 import com.philemonworks.critter.rule.RuleContext;
 import com.sun.jersey.api.core.HttpContext;
@@ -61,24 +62,30 @@ public class ProxyResource {
 
     private Response performActionsFor(HttpContext httpContext, HttpRequestBase requestBase) {        
         ContainerRequest containerRequest = (ContainerRequest) httpContext.getRequest();
-        URI destination = Utils.extractForwardURIFrom((URI)containerRequest.getProperties().get(ProxyFilter.PROXY_FILTER_URI));
-        String label = requestBase.getMethod() + " " + destination;
+        URI destinationOrNull = Utils.extractForwardURIFrom((URI)containerRequest.getProperties().get(ProxyFilter.PROXY_FILTER_URI));
+        String label = requestBase.getMethod() + " " + destinationOrNull;
         LOG.trace(label);
-        Monitor proxyMon = MonitorFactory.start(destination.getHost());
+        Monitor proxyMon = MonitorFactory.start(destinationOrNull == null ? "/" : destinationOrNull.getHost());
         
         RuleContext ruleContext = new RuleContext();
         ruleContext.httpClient = httpClient;
         ruleContext.httpContext = httpContext;
         ruleContext.forwardMethod = requestBase;
 
-        Rule rule = this.trafficManager.detectRule(httpContext);
-        if (null == rule) {
-            new Forward().perform(ruleContext);
-            new Respond().perform(ruleContext);
-        } else {
-            Monitor mon = MonitorFactory.start("--critter.rule."+rule.id);
-            this.trafficManager.performRule(rule, ruleContext);
-            mon.stop();
+        if (null == destinationOrNull) {
+            new ResponseBody()
+        } else {        
+            Rule rule = this.trafficManager.detectRule(httpContext);
+            if (null == rule) {
+                Monitor mon = MonitorFactory.start("--critter.passthrough");
+                new Forward().perform(ruleContext);
+                new Respond().perform(ruleContext);
+                mon.stop();
+            } else {
+                Monitor mon = MonitorFactory.start("--critter.rule."+rule.id);
+                this.trafficManager.performRule(rule, ruleContext);
+                mon.stop();
+            }
         }
         
         proxyMon.stop();        

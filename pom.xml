@@ -4,7 +4,7 @@
 
 	<groupId>com.philemonworks</groupId>
 	<artifactId>critter</artifactId>
-	<version>0.22</version>
+	<version>0.23</version>
 	<packaging>jar</packaging>
 
 	<name>critter</name>
@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>org.rendershark</groupId>
 			<artifactId>rendershark</artifactId>
-			<version>0.5</version>
+			<version>0.6</version>
 		</dependency>
 
 		<dependency>
