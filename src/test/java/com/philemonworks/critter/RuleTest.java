@@ -1,4 +1,4 @@
-package com.philemonworks;
+package com.philemonworks.critter;
 
 import org.junit.Assert;
 import org.junit.Test;

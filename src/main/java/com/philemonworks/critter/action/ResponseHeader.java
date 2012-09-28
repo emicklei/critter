@@ -37,5 +37,11 @@ public class ResponseHeader extends RuleIngredient implements Action {
 			return "remove the http header named ["+remove+"]";
 		else
 			return "add the http header named ["+add+"] with value ["+ value +"]";
-	}    
+	}
+	
+	public ResponseHeader with(String name, String value) {
+	    this.add = name;
+	    this.value = value;
+	    return this;
+	}
 }

@@ -22,4 +22,5 @@ public class StatusCode extends RuleIngredient implements Action {
 	public String explain() {
 		return "set the response status code to ["+code+"]";
 	}	
+	public StatusCode withCode(int code) { this.code = code; return this;}
 }

@@ -1,5 +1,6 @@
 package com.philemonworks.critter;
 
+import java.io.IOException;
 import java.net.URI;
 
 import javax.inject.Inject;
@@ -17,6 +18,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpRequestBase;
+import org.rendersnake.HtmlCanvas;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +27,7 @@ import com.jamonapi.MonitorFactory;
 import com.philemonworks.critter.action.Forward;
 import com.philemonworks.critter.action.Respond;
 import com.philemonworks.critter.action.ResponseBody;
+import com.philemonworks.critter.action.ResponseHeader;
 import com.philemonworks.critter.rule.Rule;
 import com.philemonworks.critter.rule.RuleContext;
 import com.sun.jersey.api.core.HttpContext;
@@ -73,22 +76,47 @@ public class ProxyResource {
         ruleContext.forwardMethod = requestBase;
 
         if (null == destinationOrNull) {
-            new ResponseBody()
+            this.handleEmptyDestination(ruleContext);
         } else {        
-            Rule rule = this.trafficManager.detectRule(httpContext);
-            if (null == rule) {
-                Monitor mon = MonitorFactory.start("--critter.passthrough");
-                new Forward().perform(ruleContext);
-                new Respond().perform(ruleContext);
-                mon.stop();
-            } else {
-                Monitor mon = MonitorFactory.start("--critter.rule."+rule.id);
-                this.trafficManager.performRule(rule, ruleContext);
-                mon.stop();
-            }
-        }
-        
+            detectAndApplyRule(httpContext, ruleContext);
+        }        
         proxyMon.stop();        
         return ruleContext.proxyResponse;
+    }
+
+    private void detectAndApplyRule(HttpContext httpContext, RuleContext ruleContext) {
+        Rule rule = this.trafficManager.detectRule(httpContext);
+        if (null == rule) {
+            Monitor mon = MonitorFactory.start("--critter.passthrough");
+            new Forward().perform(ruleContext);
+            new Respond().perform(ruleContext);
+            mon.stop();
+        } else {
+            Monitor mon = MonitorFactory.start("--critter.rule."+rule.id);
+            this.trafficManager.performRule(rule, ruleContext);
+            mon.stop();
+        }
+    }
+
+    private void handleEmptyDestination(RuleContext ruleContext) {
+        new ResponseHeader()
+            .with("Content-Type", "text/html")
+            .perform(ruleContext);
+        HtmlCanvas canvas = new HtmlCanvas(); 
+        try {
+            canvas.html().body()
+                .p().write("You have reached the endpoint of the")
+                    .h2().content("Critter Http Proxy Server.")
+                    .br()
+                    .write("If you are looking for the Admin console then use a different port (probably 8899).")
+                ._p()
+                .p().content("Have a nice day")
+                ._body()._html();            
+        } catch (IOException ex) {} //eat it
+        new ResponseBody()
+            .withBody(canvas.toHtml())
+            .perform(ruleContext);
+        new Respond()
+            .perform(ruleContext);
     }
 }
