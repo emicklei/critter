@@ -7,6 +7,7 @@ import static org.rendersnake.HtmlAttributesFactory.name;
 import static org.rendersnake.HtmlAttributesFactory.type;
 
 import java.io.IOException;
+import java.util.Properties;
 
 import org.rendersnake.HtmlCanvas;
 import org.rendersnake.Renderable;
@@ -82,5 +83,35 @@ public class EditFixedResponsePage implements Renderable {
         html.render(new SubmitCancel("newresponse"));        
         
         html._form();
+    }
+    
+    public static Properties decode(String input) {
+        Properties props = new Properties();
+        String[] tokens = new String[]{"critter_id","critter_method","critter_url","critter_contenttype","critter_accepttype","critter_responsecontent","critter_requestcontent"};
+        for (String each : tokens) {
+            int begin = input.indexOf(each);
+            if (begin != -1) {
+                int end = input.indexOf("critter",begin+1);
+                int slash = each.indexOf('_');
+                String key = each.substring(slash+1);
+                String value = "";
+                if (begin + each.length() + 1 < input.length()) {
+                  value = input.substring(begin + each.length() + 1, end == -1 ? input.length() - 1 : end - 1);
+                }
+                props.put(key, value);
+            }
+        }
+        return props;
+    }
+    public static RecordingInput toInput(Properties props) {
+        RecordingInput input = new RecordingInput();
+        input.id = props.getProperty("id");
+        input.method = props.getProperty("method");
+        input.contenttype = props.getProperty("contenttype");
+        input.accepttype = props.getProperty("accepttype");
+        input.requestcontent = props.getProperty("requestcontent");
+        input.responsecontent = props.getProperty("responsecontent");
+        input.url = props.getProperty("url");
+        return input;
     }
 }

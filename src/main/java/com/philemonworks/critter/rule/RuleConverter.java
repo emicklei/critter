@@ -5,6 +5,7 @@ import java.io.InputStream;
 import com.philemonworks.critter.action.Close;
 import com.philemonworks.critter.action.Delay;
 import com.philemonworks.critter.action.Forward;
+import com.philemonworks.critter.action.Record;
 import com.philemonworks.critter.action.Respond;
 import com.philemonworks.critter.action.ResponseBody;
 import com.philemonworks.critter.action.ResponseHeader;
@@ -81,7 +82,9 @@ public class RuleConverter {
 		xs.useAttributeFor(ResponseHeader.class, "value");
 		
 		xs.alias("close",Close.class);
-		xs.alias("trace",Trace.class);
+		xs.alias("trace",Trace.class);		
+		xs.alias("record", Record.class);
+		
 		return xs;
 	}
 

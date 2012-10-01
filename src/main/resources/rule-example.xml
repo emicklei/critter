@@ -59,5 +59,8 @@
 		<!-- dump information about the request or response (depends on location w.r.t forward)-->
 		<trace />
 		
+		<!-- create or overwrite a new disabled recording -->
+		<record />
+		
 	</actions>
 </rule>

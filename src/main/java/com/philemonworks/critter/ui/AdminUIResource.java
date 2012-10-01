@@ -99,8 +99,8 @@ public class AdminUIResource {
 	    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 	    String decoded = URLDecoder.decode(reader.readLine(),"utf8"); // Despite the name, this utility class is for HTML form decoding
 	    try {
-	        FixedResponseFormDecoder formDecoder = new FixedResponseFormDecoder();
-            Rule rule = formDecoder.buildRuleFrom(formDecoder.decode(decoded));
+	        FixedResponseBuilder formDecoder = new FixedResponseBuilder();
+            Rule rule = formDecoder.buildRuleFrom(EditFixedResponsePage.toInput(EditFixedResponsePage.decode(decoded)));
             this.trafficManager.addOrReplaceRule(rule);        
         } catch (Exception ex) {
             LOG.error("save fixed response failed", ex);
