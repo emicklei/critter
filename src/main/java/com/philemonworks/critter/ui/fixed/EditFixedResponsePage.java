@@ -1,4 +1,4 @@
-package com.philemonworks.critter.ui;
+package com.philemonworks.critter.ui.fixed;
 
 import static org.rendersnake.HtmlAttributesFactory.dataRole;
 import static org.rendersnake.HtmlAttributesFactory.for_;
@@ -11,6 +11,8 @@ import java.util.Properties;
 
 import org.rendersnake.HtmlCanvas;
 import org.rendersnake.Renderable;
+
+import com.philemonworks.critter.ui.SubmitCancel;
 
 public class EditFixedResponsePage implements Renderable {
 

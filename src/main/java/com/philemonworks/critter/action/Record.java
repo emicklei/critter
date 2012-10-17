@@ -1,7 +1,7 @@
 package com.philemonworks.critter.action;
 
 import com.philemonworks.critter.rule.RuleContext;
-import com.philemonworks.critter.ui.RecordingInput;
+import com.philemonworks.critter.ui.fixed.RecordingInput;
 
 public class Record implements Action {
 

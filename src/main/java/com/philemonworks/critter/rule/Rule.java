@@ -1,5 +1,6 @@
 package com.philemonworks.critter.rule;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -13,8 +14,8 @@ public class Rule implements Condition, Action {
 	
 	public String id;
 	public boolean enabled;
-	public List<Condition> conditions;
-	public List<Action> actions;
+	public List<Condition> conditions = new ArrayList<Condition>();
+	public List<Action> actions = new ArrayList<Action>();
 	
 	// XStream hook for post constructor initialization
 	// be disabled on default

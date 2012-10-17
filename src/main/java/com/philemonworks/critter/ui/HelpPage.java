@@ -33,10 +33,6 @@ public class HelpPage implements Renderable {
             html.li();
             this.renderDiagnoseOn(html);
             html._li(); 
-            
-            html.li();
-            this.renderStatsOn(html);
-            html._li(); 
         html._ul();
     }
     private void renderWADLOn(HtmlCanvas html) throws IOException {
@@ -47,8 +43,5 @@ public class HelpPage implements Renderable {
     }
     private void renderDiagnoseOn(HtmlCanvas html) throws IOException {
         html.a(href("/internal/selfdiagnose.html").rel("external")).content("SelfDiagnose : includes summary of proxied traffic");
-    }
-    private void renderStatsOn(HtmlCanvas html) throws IOException {
-        html.a(href("/internal/stats.html").rel("external")).content("Monitor Stats");
-    }      
+    }    
 }

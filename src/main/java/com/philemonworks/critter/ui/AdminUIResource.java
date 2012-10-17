@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
+import java.net.URL;
 import java.net.URLDecoder;
+import java.util.Properties;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,8 +26,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.philemonworks.critter.TrafficManager;
+import com.philemonworks.critter.action.Delay;
+import com.philemonworks.critter.action.Forward;
+import com.philemonworks.critter.action.Respond;
+import com.philemonworks.critter.condition.Host;
 import com.philemonworks.critter.rule.Rule;
 import com.philemonworks.critter.rule.RuleConverter;
+import com.philemonworks.critter.ui.fixed.EditFixedResponsePage;
+import com.philemonworks.critter.ui.fixed.FixedResponseBuilder;
 
 @Path("/ui")
 public class AdminUIResource {
@@ -46,6 +54,18 @@ public class AdminUIResource {
 		html.render(new SiteLayout(new EditRulePage()));
 		return Response.ok().entity(html.toHtml()).build();
 	}
+	
+    @GET
+    @Path("/newdelay")
+    @Produces("text/html")
+    public Response newDelay() throws IOException {
+        HtmlCanvas html = new HtmlCanvas();
+        html.getPageContext()
+            .withObject("rule", new Rule())
+            .withBoolean("proxy.started", this.proxyServer.isStarted());
+        html.render(new SiteLayout(new EditDelayPage()));
+        return Response.ok().entity(html.toHtml()).build();
+    }	
 	
     @GET
     @Path("/newresponse")
@@ -111,6 +131,50 @@ public class AdminUIResource {
         }
 	    return Response.seeOther(new URI("http://"+publicHostname)).build();
 	}
+	
+    @POST
+    @Path("/newdelay")
+    @Produces("text/html")
+    public Response saveDelay(InputStream input) throws Exception {
+        try {
+            // TODO put this in util
+            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+            String decoded = URLDecoder.decode(reader.readLine(),"utf8"); // Despite the name, this utility class is for HTML form decoding
+            Properties props = new Properties();
+            for (String keyvalue : decoded.split("&")) {
+                String[] pair = keyvalue.split("=");
+                props.put(pair[0], pair[1]);
+            }            
+            Rule rule = new Rule();
+            rule.id = props.getProperty("critter_id");
+            
+            URL url = new URL(props.getProperty("critter_url"));
+            
+            Host host = new Host();
+            host.matches = url.getHost();
+            rule.conditions.add(host);
+            
+            com.philemonworks.critter.condition.Path path = new com.philemonworks.critter.condition.Path();
+            path.matches = url.getPath();
+            rule.conditions.add(path);
+            
+            Delay delay = new Delay();
+            delay.milliSeconds = Long.parseLong(props.getProperty("critter_delay"));
+            rule.actions.add(delay);
+            
+            rule.actions.add(new Forward());
+            rule.actions.add(new Respond());
+            
+            this.trafficManager.addOrReplaceRule(rule);        
+        } catch (Exception ex) {
+            LOG.error("save new delay failed", ex);
+            HtmlCanvas html = new HtmlCanvas();
+            html.getPageContext().withString("alert","This definition is not valid, please correct.");
+            html.render(new SiteLayout(new EditDelayPage()));
+            return Response.ok().entity(html.toHtml()).build();
+        }
+        return Response.seeOther(new URI("http://"+publicHostname)).build();
+    }	
 	
     @GET
     @Path("/traffic.css")

@@ -9,8 +9,9 @@ import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
-
+@Ignore
 public class SystemTest {
     private static boolean ENABLED = true;
     private static HttpClient HTTP;

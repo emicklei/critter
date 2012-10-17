@@ -1,4 +1,4 @@
-package com.philemonworks.critter.ui;
+package com.philemonworks.critter.ui.fixed;
 
 import org.apache.commons.lang3.StringUtils;
 

@@ -14,12 +14,15 @@ public class HomePage implements Renderable {
 		html.render(new RulesUI());
 		
         html.div(dataRole("controlgroup").dataType("horizontal"))
-        	.a(dataRole("button").dataTheme("b").dataTest("newrule")
-        		.href("/ui/newrule"))
-        		.content("New Rule") 
+            .a(dataRole("button").dataTheme("b").dataTest("newrule")
+                .href("/ui/newdelay"))
+                .content("New Delay") 
             .a(dataRole("button").dataTheme("b").dataTest("newrule")
                 .href("/ui/newresponse"))
-                .content("New Recording")          		
+                .content("New Recording") 
+            .a(dataRole("button").dataTheme("b").dataTest("newrule")
+                .href("/ui/newrule"))
+                .content("New Generic Rule")                 
         	._div();
 	}
 }
