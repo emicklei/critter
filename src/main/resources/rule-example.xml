@@ -62,5 +62,8 @@
 		<!-- create or overwrite a new disabled recording -->
 		<record />
 		
+		<!-- change the scheme of the request, e.g.  http->https. Must be put before a forward -->
+		<scheme name="https" />
+		
 	</actions>
 </rule>

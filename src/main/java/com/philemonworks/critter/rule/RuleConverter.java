@@ -9,6 +9,7 @@ import com.philemonworks.critter.action.Record;
 import com.philemonworks.critter.action.Respond;
 import com.philemonworks.critter.action.ResponseBody;
 import com.philemonworks.critter.action.ResponseHeader;
+import com.philemonworks.critter.action.Scheme;
 import com.philemonworks.critter.action.StatusCode;
 import com.philemonworks.critter.action.Trace;
 import com.philemonworks.critter.condition.BasicAuthentication;
@@ -72,6 +73,9 @@ public class RuleConverter {
 		
 		xs.alias("status", StatusCode.class);
 		xs.useAttributeFor(StatusCode.class, "code");
+		
+        xs.alias("scheme", Scheme.class);
+        xs.useAttributeFor(Scheme.class, "name");		
 		
 		xs.alias("respond", Respond.class);
 		xs.alias("responsebody",ResponseBody.class);

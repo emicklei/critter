@@ -24,7 +24,6 @@ import javax.ws.rs.core.Response;
 import org.rendershark.core.logging.LoggerManager;
 import org.rendershark.http.HttpServer;
 import org.rendersnake.HtmlCanvas;
-import org.rendersnake.StringResource;
 
 import com.jamonapi.MonitorFactory;
 import com.philemonworks.critter.rule.Rule;
@@ -48,9 +47,15 @@ public class TrafficResource {
     @GET
     @Produces("text/html")
     public Response home() throws IOException {
+        List<Rule> rules;
+        try {
+            rules = trafficManager.getAllRules();
+        } catch (Exception ex) {
+            return Response.serverError().entity(ex.getMessage()).build();
+        }        
         HtmlCanvas html = new HtmlCanvas();
         html.getPageContext()
-            .withObject("rules",trafficManager.getAllRules())
+            .withObject("rules",rules)
             .withBoolean("proxy.started", this.proxyServer.isStarted());
         html.render(new SiteLayout(new HomePage()));
         return Response.ok().entity(html.toHtml()).build();

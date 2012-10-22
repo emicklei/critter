@@ -1,0 +1,217 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="rule">
+    <xs:annotation>
+      <xs:documentation>Critter example Rule  if all the conditions are met then perform all the actions</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="conditions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="host">
+                <xs:annotation>
+                  <xs:documentation>true if the hostname of the request matches the given value</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="matches"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="method">
+                <xs:annotation>
+                  <xs:documentation>true if the Http methods matches. Rules that do not contain
+             this condition will accept any method</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="matches"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="path">
+                <xs:annotation>
+                  <xs:documentation>true if the URL path of the request matches the given value</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="matches"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="port">
+                <xs:annotation>
+                  <xs:documentation>true if the URL port of the request matches the given value</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:short" name="matches"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="header">
+                <xs:annotation>
+                  <xs:documentation>true if the specified Header (by name) of the request matches the given value</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name"/>
+                      <xs:attribute type="xs:string" name="matches"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="basicauthentication">
+                <xs:annotation>
+                  <xs:documentation>true if the Authorization header matches the Base64 encoded version of username:password combination</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="username"/>
+                      <xs:attribute type="xs:string" name="password"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="xpath">
+                <xs:annotation>
+                  <xs:documentation>true if the Xpath expression matches the body of the request (content-type must be application/xml</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="expression"/>
+                      <xs:attribute type="xs:short" name="matches"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="not">
+                <xs:annotation>
+                  <xs:documentation>you can wrap any condition in a not element</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="host">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:string" name="matches"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="actions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="delay">
+                <xs:annotation>
+                  <xs:documentation>make the proxy wait for a number of milliseconds during processing of the request</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:short" name="ms"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="responseheader">
+                <xs:annotation>
+                  <xs:documentation>remove or add the specified Header with the given value</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="remove"/>
+                      <xs:attribute type="xs:string" name="add"/>
+                      <xs:attribute type="xs:string" name="value"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="forward">
+                <xs:annotation>
+                  <xs:documentation>forward the request to the host as defined by the request</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="status">
+                <xs:annotation>
+                  <xs:documentation>set the status code of the response that will be send back to the client</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:short" name="code"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="responsebody">
+                <xs:annotation>
+                  <xs:documentation>set the response body that will be send back to the client , status code is optional</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="body"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:short" name="code"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="close">
+                <xs:annotation>
+                  <xs:documentation>close the outputstream of the response (not really a disconnect)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="respond">
+                <xs:annotation>
+                  <xs:documentation>send the response back to the client</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="trace">
+                <xs:annotation>
+                  <xs:documentation>dump information about the request or response (depends on location w.r.t forward)</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="record">
+                <xs:annotation>
+                  <xs:documentation>create or overwrite a new disabled recording</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="scheme">
+                <xs:annotation>
+                  <xs:documentation>change the scheme of the request, e.g.  http->https. Must be put before a forward</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:string" name="name"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="id"/>
+      <xs:attribute type="xs:string" name="enabled"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
