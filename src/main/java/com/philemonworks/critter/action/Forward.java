@@ -10,6 +10,6 @@ public class Forward extends RuleIngredient implements Action {
 	}
 	@Override
 	public String explain() {
-		return "forward the request to the host";
+		return "forward the request to the remote host";
 	}	
 }

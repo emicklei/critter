@@ -8,7 +8,9 @@ public class Host extends RuleIngredient implements Condition {
 	
 	@Override
 	public boolean test(RuleContext ctx) {
-		String host = ctx.httpContext.getRequest().getHeaderValue("Host");
+		String hostAndPort = ctx.httpContext.getRequest().getHeaderValue("Host");
+		int colon = hostAndPort.indexOf(':');
+		String host = colon != -1 ? hostAndPort.substring(0,colon) : hostAndPort;
 		return matches.matches(host);
 	}
 	@Override

@@ -87,11 +87,13 @@ public class ProxyResource {
     private void detectAndApplyRule(HttpContext httpContext, RuleContext ruleContext) {
         Rule rule = this.trafficManager.detectRule(httpContext);
         if (null == rule) {
+            LOG.trace("No rule detected");
             Monitor mon = MonitorFactory.start("--critter.passthrough");
             new Forward().perform(ruleContext);
             new Respond().perform(ruleContext);
             mon.stop();
         } else {
+            LOG.trace("Apply rule {}", rule.id);
             Monitor mon = MonitorFactory.start("--critter.rule."+rule.id);
             this.trafficManager.performRule(rule, ruleContext);
             mon.stop();

@@ -51,6 +51,7 @@ public class RuleConverter {
 		
         xs.alias("port", Port.class);
         xs.useAttributeFor(Port.class, "matches");
+        xs.useAttributeFor(Port.class, "value");
         
         xs.alias("basicauthentication", BasicAuthentication.class);
         xs.useAttributeFor(BasicAuthentication.class, "username");        

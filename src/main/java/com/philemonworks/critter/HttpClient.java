@@ -47,8 +47,8 @@ public class HttpClient {
     public Response forward(HttpContext ctx, HttpRequestBase forwardRequest) {
         // get
         ContainerRequest containerRequest = (ContainerRequest) ctx.getRequest();
-        URI requestURI = (URI) containerRequest.getProperties().get(ProxyFilter.PROXY_FILTER_URI);
-        forwardRequest.setURI(Utils.extractForwardURIFrom(requestURI));
+        URI forwardURI = (URI) containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
+        forwardRequest.setURI(forwardURI);
         
         if (forwardRequest instanceof HttpEntityEnclosingRequestBase) {
             HttpEntityEnclosingRequestBase encloser = (HttpEntityEnclosingRequestBase) forwardRequest;

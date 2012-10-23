@@ -13,20 +13,16 @@ public class Rule implements Condition, Action {
 	private static final Logger LOG = LoggerFactory.getLogger(Rule.class);
 	
 	public String id;
-	public boolean enabled;
+	public boolean enabled = false;
 	public List<Condition> conditions = new ArrayList<Condition>();
 	public List<Action> actions = new ArrayList<Action>();
-	
-	// XStream hook for post constructor initialization
-	// be disabled on default
-	private Object readResolve() { this.enabled = false; return this; }
 	
 	@Override
 	public boolean test(RuleContext context) {
 		if (conditions == null) return true;
 		for (Condition each : conditions) {
 			final boolean matches = each.test(context);
-			LOG.trace("condition [{}] matches:{}",each,matches);
+			LOG.trace("condition [{}] matches:{}",each.explain(),matches);
 			if (!matches) return false;
 		}
 		return true;
@@ -36,7 +32,7 @@ public class Rule implements Condition, Action {
 	public void perform(RuleContext context) {
 		if (actions == null) return;
 		for (Action each : actions) {
-			LOG.trace("perform [{}]",each);
+			LOG.trace("perform [{},{}]",each,each.explain());
 			each.perform(context);
 		}
 	}

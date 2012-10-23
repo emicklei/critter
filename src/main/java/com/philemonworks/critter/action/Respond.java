@@ -10,6 +10,6 @@ public class Respond extends RuleIngredient implements Action {
 	}
 	@Override
 	public String explain() {
-		return "send back the response (new or from host)";
+		return "send back the response (new or from remote host)";
 	}	
 }

@@ -3,6 +3,7 @@ package com.philemonworks.critter.action;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import com.philemonworks.critter.ProxyFilter;
 import com.philemonworks.critter.rule.RuleContext;
 import com.sun.jersey.spi.container.ContainerRequest;
 
@@ -12,20 +13,19 @@ public class Scheme extends RuleIngredient implements Action {
 
     @Override
     public String explain() {
-        return "changes the schema of the request URL";
+        return "change the scheme of the request URL to ["+name+"]";
     }
 
     @Override
     public void perform(RuleContext context) {
         ContainerRequest containerRequest = (ContainerRequest) context.httpContext.getRequest();
-        URI baseUri = containerRequest.getBaseUri();
-        URI requestUri = null;
+        URI forwardUri = (URI)containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
         try {
-            requestUri = new URI(name, baseUri.getUserInfo(), baseUri.getHost(), baseUri.getPort(), baseUri.getPath(), baseUri.getQuery(), baseUri.getFragment());
+            forwardUri = new URI(name, forwardUri.getUserInfo(), forwardUri.getHost(), forwardUri.getPort(), forwardUri.getPath(), forwardUri.getQuery(), forwardUri.getFragment());
         } catch (URISyntaxException e) {
             // TODO record this
             return;
         }
-        containerRequest.setUris(requestUri, requestUri);
+        containerRequest.getProperties().put(ProxyFilter.UNPROXIED_URI, forwardUri);
     }
 }
