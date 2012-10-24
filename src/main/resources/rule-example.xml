@@ -65,5 +65,8 @@
 		<!-- change the scheme of the request, e.g.  http->https. Must be put before a forward -->
 		<scheme name="https" />
 		
+		<!-- change the port of the request -->
+		<port value="443" />
+		
 	</actions>
 </rule>

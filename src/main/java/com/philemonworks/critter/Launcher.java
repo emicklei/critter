@@ -37,9 +37,9 @@ public class Launcher {
         Module managerModule = new AbstractModule() {
             protected void configure() {        
                 RuleDao ruleDao;
-                if (mainProperties.containsKey("rule.database.mongo.host")) {
+                if (mainProperties.containsKey(MongoModule.HOST)) {
                     LOG.info("Using MongoDB rules database");
-                    this.install(new MongoModule());
+                    this.install(new MongoModule(mainProperties));
                     ruleDao = new RuleDaoMongoImpl();
                 } else {
                     LOG.info("Using in memory rules database");

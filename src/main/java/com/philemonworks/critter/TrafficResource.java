@@ -24,6 +24,8 @@ import javax.ws.rs.core.Response;
 import org.rendershark.core.logging.LoggerManager;
 import org.rendershark.http.HttpServer;
 import org.rendersnake.HtmlCanvas;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jamonapi.MonitorFactory;
 import com.philemonworks.critter.rule.Rule;
@@ -37,7 +39,8 @@ import com.philemonworks.selfdiagnose.output.HTMLReporter;
 
 @Path("/")
 public class TrafficResource {
-
+    private static final Logger LOG = LoggerFactory.getLogger(TrafficResource.class);
+    
     @Inject TrafficManager trafficManager;
     @Inject LoggerManager loggerManager;
     @Inject @Named("Proxy") HttpServer proxyServer;    
@@ -51,6 +54,7 @@ public class TrafficResource {
         try {
             rules = trafficManager.getAllRules();
         } catch (Exception ex) {
+            LOG.error("Failed to retrieve rules",ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }        
         HtmlCanvas html = new HtmlCanvas();
@@ -72,6 +76,7 @@ public class TrafficResource {
             if (null != rule)
                 xml = RuleConverter.toXml(rule);
         } catch (Exception ex) {
+            LOG.error("Failed to retrieve rule:"+id,ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         if (null == rule) {
@@ -90,6 +95,7 @@ public class TrafficResource {
             if (null != rule)
             	rule.enabled = true;
         } catch (Exception ex) {
+            LOG.error("Failed to enable rule:"+id,ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         if (null == rule) {
@@ -108,6 +114,7 @@ public class TrafficResource {
             if (null != rule)
             	rule.enabled = false;
         } catch (Exception ex) {
+            LOG.error("Failed to disable rule:"+id,ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         if (null == rule) {
@@ -123,6 +130,7 @@ public class TrafficResource {
         try {
             this.trafficManager.deleteRule(id);
         } catch (Exception ex) {
+            LOG.error("Failed to delete rule:"+id,ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         return Response.ok().build();
@@ -137,6 +145,7 @@ public class TrafficResource {
             String xml = RuleConverter.toXml(rules);
             return Response.ok().entity(xml).build();
         } catch (Exception ex) {
+            LOG.error("Failed to retrieve rules",ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
     }
@@ -153,13 +162,15 @@ public class TrafficResource {
             	this.trafficManager.addOrReplaceRule(rule);
             	uri = this.buildURI("/rules/" + (rule.id.replaceAll("\\s","%20")));
             } else { // it must be a list
-            	List<Rule> rules = (List<Rule>)oneOrMoreRules;
+            	@SuppressWarnings("unchecked")
+                List<Rule> rules = (List<Rule>)oneOrMoreRules;
             	for (Rule each : rules) {
             		this.trafficManager.addOrReplaceRule(each);
             	}
             	uri = this.buildURI("/rules");
             }
         } catch (Exception ex) {
+            LOG.error("Failed to create rule",ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         return Response.created(uri).build();
@@ -177,6 +188,7 @@ public class TrafficResource {
             this.trafficManager.addOrReplaceRule(rule);
             uri = this.buildURI("/rules/" + URLEncoder.encode(rule.id, "utf8"));
         } catch (Exception ex) {
+            LOG.error("Failed to create rule:"+id,ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         return Response.created(uri).build();
