@@ -3,9 +3,7 @@ package com.philemonworks.critter.action;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import com.philemonworks.critter.ProxyFilter;
 import com.philemonworks.critter.rule.RuleContext;
-import com.sun.jersey.spi.container.ContainerRequest;
 
 public class Scheme extends RuleIngredient implements Action {
 
@@ -18,14 +16,20 @@ public class Scheme extends RuleIngredient implements Action {
 
     @Override
     public void perform(RuleContext context) {
-        ContainerRequest containerRequest = (ContainerRequest) context.httpContext.getRequest();
-        URI forwardUri = (URI)containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
+        URI forwardUri = context.forwardURI;
         try {
-            forwardUri = new URI(name, forwardUri.getUserInfo(), forwardUri.getHost(), forwardUri.getPort(), forwardUri.getPath(), forwardUri.getQuery(), forwardUri.getFragment());
+            forwardUri = new URI(name, 
+                    forwardUri.getUserInfo(), 
+                    forwardUri.getHost(), 
+                    forwardUri.getPort(), 
+                    forwardUri.getPath(), 
+                    forwardUri.getQuery(), 
+                    forwardUri.getFragment());
+            context.forwardURI = forwardUri;
         } catch (URISyntaxException e) {
             // TODO record this
             return;
         }
-        containerRequest.getProperties().put(ProxyFilter.UNPROXIED_URI, forwardUri);
+        
     }
 }

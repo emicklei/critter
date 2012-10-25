@@ -1,7 +1,7 @@
 package com.philemonworks.critter.ui;
 
-import static org.rendersnake.ext.jquery.JQueryAttributesFactory.dataRole;
-import static org.rendersnake.HtmlAttributesFactory.*;
+import static org.rendersnake.HtmlAttributesFactory.dataRole;
+
 import java.io.IOException;
 
 import org.rendersnake.HtmlCanvas;

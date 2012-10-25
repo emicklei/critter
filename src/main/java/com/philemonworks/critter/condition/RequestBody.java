@@ -24,5 +24,4 @@ public class RequestBody implements Condition {
         }
         return false;
     }
-
 }

@@ -8,7 +8,7 @@ public class Path extends RuleIngredient implements Condition {
 	
 	@Override
 	public boolean test(RuleContext ctx) {		
-		return ctx.httpContext.getRequest().getPath().matches(matches);
+		return ctx.forwardURI.getPath().matches(matches);
 	}
 	@Override
 	public String explain() {

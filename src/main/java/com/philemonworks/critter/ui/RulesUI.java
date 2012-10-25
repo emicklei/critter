@@ -15,8 +15,9 @@ import org.rendersnake.Renderable;
 import com.philemonworks.critter.rule.Rule;
 
 public class RulesUI implements Renderable {
-    private static final int MAX_DESC_LENGTH = 200;
+
     @Override
+    @SuppressWarnings("unchecked")
     public void renderOn(HtmlCanvas html) throws IOException {
         List<Rule> rules = (List<Rule>)html.getPageContext().getObject("rules");
         if (rules.isEmpty()) {

@@ -1,5 +1,6 @@
 package com.philemonworks.critter.rule;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +14,7 @@ import com.sun.jersey.api.core.HttpContext;
 public class RuleContext {
 	public HttpContext httpContext;
 	public HttpClient httpClient;
+	public URI forwardURI;
 	public HttpRequestBase forwardMethod;
 	public Response forwardResponse;
 	public Response proxyResponse;

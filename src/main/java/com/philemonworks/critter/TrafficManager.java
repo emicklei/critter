@@ -6,16 +6,13 @@ import com.google.inject.Inject;
 import com.philemonworks.critter.dao.RuleDao;
 import com.philemonworks.critter.rule.Rule;
 import com.philemonworks.critter.rule.RuleContext;
-import com.sun.jersey.api.core.HttpContext;
 
 public class TrafficManager {
     @Inject RuleDao ruleDao;
     
-    public Rule detectRule(HttpContext context) {
+    public Rule detectRule(RuleContext context) {
         for (Rule each : this.ruleDao.getRules()) {
-            RuleContext ruleContext = new RuleContext();
-            ruleContext.httpContext = context;
-            if (each.enabled && each.test(ruleContext))
+            if (each.enabled && each.test(context))
                 return each;
         }
         return null; // no matching rule
