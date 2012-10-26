@@ -14,6 +14,6 @@ public class Header extends RuleIngredient implements Condition {
     }
 	@Override
 	public String explain() {
-		return "request http header matches <strong>"+matches+"</strong>";
+		return "request http header matches ["+matches+"]";
 	}    
 }

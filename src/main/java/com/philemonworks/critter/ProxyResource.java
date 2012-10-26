@@ -66,12 +66,8 @@ public class ProxyResource {
     private Response performActionsFor(HttpContext httpContext, HttpRequestBase requestBase) {        
         ContainerRequest containerRequest = (ContainerRequest) httpContext.getRequest();
         URI forwardUri = (URI)containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
-
-        // TODO fix this
-        URI destinationOrNull = Utils.extractForwardURIFrom((URI)containerRequest.getProperties().get(ProxyFilter.PROXY_FILTER_URI));
-        String label = requestBase.getMethod() + " " + destinationOrNull;
-        LOG.trace(label);
-        Monitor proxyMon = MonitorFactory.start(destinationOrNull == null ? "/" : destinationOrNull.getHost());
+        if (forwardUri != null) LOG.trace(requestBase.getMethod() + " " + forwardUri);
+        Monitor proxyMon = MonitorFactory.start(forwardUri == null ? "/" : forwardUri.getHost());
         
         RuleContext ruleContext = new RuleContext();
         ruleContext.httpClient = httpClient;
@@ -79,7 +75,7 @@ public class ProxyResource {
         ruleContext.forwardMethod = requestBase;
         ruleContext.forwardURI = forwardUri;
 
-        if (null == destinationOrNull) {
+        if (null == forwardUri) {
             this.handleEmptyDestination(ruleContext);
         } else {        
             detectAndApplyRule(ruleContext);

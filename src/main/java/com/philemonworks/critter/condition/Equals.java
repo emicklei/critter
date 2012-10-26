@@ -17,6 +17,6 @@ public class Equals extends RuleIngredient implements Condition {
 	}
 	@Override
 	public String explain() {
-		return "value or parameter "+parameter+" equals "+value;
+		return "value or parameter ["+parameter+"] equals ["+value + "]";
 	}	
 }

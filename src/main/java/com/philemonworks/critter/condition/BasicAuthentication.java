@@ -20,7 +20,6 @@ public class BasicAuthentication extends RuleIngredient implements Condition {
         return 
                 "Basic " +
                 new Base64Encoder().encode(toEncode.getBytes(Charset.forName("utf-8")));
-        //return Base64.encodeBase64String(toEncode.getBytes(Charset.forName("utf-8")));
     }
     @Override
 	public String explain() {
