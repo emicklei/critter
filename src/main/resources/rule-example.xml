@@ -17,7 +17,7 @@
 		<port matches="9999" />
 
 		<!-- true if the specified Header (by name) of the request matches the given value -->
-		<header name="Content-Type" matches="application/xml" />
+		<requestheader name="Content-Type" matches="application/xml" />
 		
 		<!-- true if the Authorization header matches the Base64 encoded version of username:password combination -->
 		<basicauthentication username="Aladdin" password="open sesame" />	

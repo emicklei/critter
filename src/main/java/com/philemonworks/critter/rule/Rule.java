@@ -14,8 +14,20 @@ public class Rule implements Condition, Action {
 	
 	public String id;
 	public boolean enabled = false;
-	public List<Condition> conditions = new ArrayList<Condition>();
-	public List<Action> actions = new ArrayList<Action>();
+	protected List<Condition> conditions = new ArrayList<Condition>();
+	protected List<Action> actions = new ArrayList<Action>();
+
+    public List<Condition> getConditions() { 
+        if (conditions == null)
+            conditions = new ArrayList<Condition>();
+        return conditions;
+    }	
+	
+	public List<Action> getActions() { 
+	    if (actions == null)
+	        actions = new ArrayList<Action>();
+	    return actions;
+	}
 	
 	@Override
 	public boolean test(RuleContext context) {
@@ -45,11 +57,11 @@ public class Rule implements Condition, Action {
     public String conditionsString() {
         StringBuilder sb = new StringBuilder();
         sb.append("IF   ");
-        for (int i=0;i<conditions.size();++i) {
+        for (int i=0;i<this.getConditions().size();++i) {
             if (i>0) {
             	sb.append("\nAND  ");
             }
-        	Condition each = conditions.get(i);
+        	Condition each = this.getConditions().get(i);
             sb.append(each.explain());
         }
         return sb.toString();
@@ -58,11 +70,11 @@ public class Rule implements Condition, Action {
     public String actionsString() {
         StringBuilder sb = new StringBuilder();
         sb.append("THEN ");
-        for (int i=0;i<actions.size();++i) {
+        for (int i=0;i<this.getActions().size();++i) {
             if (i>0) {
             	sb.append("\nTHEN ");
             }
-        	Action each = actions.get(i);
+        	Action each = this.getActions().get(i);
             sb.append(each.explain());
         }
         return sb.toString();

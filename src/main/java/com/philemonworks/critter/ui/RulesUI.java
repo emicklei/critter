@@ -32,7 +32,7 @@ public class RulesUI implements Renderable {
     }
 
     private void renderRuleOn(Rule each, HtmlCanvas html) throws IOException {
-        String description = each.conditionsString() + " " + each.actionsString();
+        String description = UIUtils.strongify(each.conditionsString() + " " + each.actionsString());
         html.li(dataTheme("c"))
             .a(href("/ui/rules/"+each.id))
                 .h1().content(each.id)

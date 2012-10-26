@@ -2,7 +2,7 @@
 	<conditions>
 		<host matches="test.critter" />
 		<path matches="/here/BOL" />
-		<header name="Content-Type" matches="application/xml" />
+		<requestheader name="Content-Type" matches="application/xml" />
 	</conditions>
 	<actions>
 		<delay ms="1000" />

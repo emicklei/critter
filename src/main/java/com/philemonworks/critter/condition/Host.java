@@ -15,6 +15,6 @@ public class Host extends RuleIngredient implements Condition {
 	}
 	@Override
 	public String explain() {
-		return "host name matches <strong>"+matches+"</strong>";
+		return "host name matches ["+matches+"]";
 	}	
 }

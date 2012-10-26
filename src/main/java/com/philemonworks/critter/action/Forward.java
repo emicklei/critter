@@ -6,7 +6,10 @@ public class Forward extends RuleIngredient implements Action {
 
 	@Override
 	public void perform(RuleContext context) {
-		context.forwardResponse = context.httpClient.forward(context.httpContext, context.forwardMethod);
+		context.forwardResponse = context.httpClient.forward(
+		        context.httpContext, 
+		        context.forwardMethod,
+		        context.forwardURI);
 	}
 	@Override
 	public String explain() {

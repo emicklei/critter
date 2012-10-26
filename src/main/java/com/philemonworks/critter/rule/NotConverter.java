@@ -3,7 +3,7 @@ package com.philemonworks.critter.rule;
 import com.philemonworks.critter.condition.BasicAuthentication;
 import com.philemonworks.critter.condition.Condition;
 import com.philemonworks.critter.condition.Equals;
-import com.philemonworks.critter.condition.Header;
+import com.philemonworks.critter.condition.RequestHeader;
 import com.philemonworks.critter.condition.Host;
 import com.philemonworks.critter.condition.Not;
 import com.philemonworks.critter.condition.Path;
@@ -31,7 +31,7 @@ public class NotConverter implements Converter {
         reader.moveDown();
         this.convertNext(reader, ctx, not, "host", Host.class);
         this.convertNext(reader, ctx, not, "equals", Equals.class);
-        this.convertNext(reader, ctx, not, "Header", Header.class);
+        this.convertNext(reader, ctx, not, "Header", RequestHeader.class);
         this.convertNext(reader, ctx, not, "not", Not.class);
         this.convertNext(reader, ctx, not, "path", Path.class);
         this.convertNext(reader, ctx, not, "port", Port.class);

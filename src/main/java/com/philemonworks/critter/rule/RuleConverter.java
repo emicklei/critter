@@ -14,7 +14,7 @@ import com.philemonworks.critter.action.StatusCode;
 import com.philemonworks.critter.action.Trace;
 import com.philemonworks.critter.condition.BasicAuthentication;
 import com.philemonworks.critter.condition.Equals;
-import com.philemonworks.critter.condition.Header;
+import com.philemonworks.critter.condition.RequestHeader;
 import com.philemonworks.critter.condition.Host;
 import com.philemonworks.critter.condition.Method;
 import com.philemonworks.critter.condition.Not;
@@ -42,8 +42,9 @@ public class RuleConverter {
 		xs.alias("path", Path.class);
 		xs.useAttributeFor(Path.class, "matches");
         
-		xs.alias("header", Header.class);
-        xs.useAttributeFor(Header.class, "matches");
+		xs.alias("requestheader", RequestHeader.class);
+		xs.useAttributeFor(RequestHeader.class, "name");
+        xs.useAttributeFor(RequestHeader.class, "matches");
 		
         xs.alias("equals", Equals.class);
 		xs.useAttributeFor(Equals.class, "parameter");

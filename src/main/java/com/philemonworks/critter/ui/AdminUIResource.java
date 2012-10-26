@@ -152,18 +152,18 @@ public class AdminUIResource {
             
             Host host = new Host();
             host.matches = url.getHost();
-            rule.conditions.add(host);
+            rule.getConditions().add(host);
             
             com.philemonworks.critter.condition.Path path = new com.philemonworks.critter.condition.Path();
             path.matches = url.getPath();
-            rule.conditions.add(path);
+            rule.getConditions().add(path);
             
             Delay delay = new Delay();
             delay.milliSeconds = Long.parseLong(props.getProperty("critter_delay"));
-            rule.actions.add(delay);
+            rule.getActions().add(delay);
             
-            rule.actions.add(new Forward());
-            rule.actions.add(new Respond());
+            rule.getActions().add(new Forward());
+            rule.getActions().add(new Respond());
             
             this.trafficManager.addOrReplaceRule(rule);        
         } catch (Exception ex) {

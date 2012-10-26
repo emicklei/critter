@@ -3,7 +3,7 @@ package com.philemonworks.critter.condition;
 import com.philemonworks.critter.action.RuleIngredient;
 import com.philemonworks.critter.rule.RuleContext;
 
-public class Header extends RuleIngredient implements Condition {
+public class RequestHeader extends RuleIngredient implements Condition {
 
     public String name, matches;
     
@@ -14,6 +14,6 @@ public class Header extends RuleIngredient implements Condition {
     }
 	@Override
 	public String explain() {
-		return "request http header matches ["+matches+"]";
+		return "request http header ["+name+"] matches ["+matches+"]";
 	}    
 }

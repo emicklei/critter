@@ -9,7 +9,7 @@ import javax.ws.rs.core.HttpHeaders;
 import com.philemonworks.critter.action.Action;
 import com.philemonworks.critter.action.ResponseBody;
 import com.philemonworks.critter.condition.Condition;
-import com.philemonworks.critter.condition.Header;
+import com.philemonworks.critter.condition.RequestHeader;
 import com.philemonworks.critter.condition.Host;
 import com.philemonworks.critter.condition.Method;
 import com.philemonworks.critter.condition.Path;
@@ -20,8 +20,6 @@ public class FixedResponseBuilder {
     
     public Rule buildRuleFrom(RecordingInput input) {
         Rule r = new Rule();
-        r.actions = new ArrayList<Action>();
-        r.conditions = new ArrayList<Condition>();
         
         if (input.hasId()) {
             r.id = input.id;
@@ -29,7 +27,7 @@ public class FixedResponseBuilder {
         if (input.hasMethod()) {
             Method m = new Method();
             m.matches = input.method;
-            r.conditions.add(m);
+            r.getConditions().add(m);
         }
         if (input.hasUrl()) {
             Host h = new Host();
@@ -42,30 +40,30 @@ public class FixedResponseBuilder {
             }
             h.matches = url.getHost();
             p.matches = url.getPath();
-            r.conditions.add(h);
-            r.conditions.add(p);
+            r.getConditions().add(h);
+            r.getConditions().add(p);
         }
         if (input.hasContenttype() && input.hasRequestContent()) {
-            Header h = new Header();
+            RequestHeader h = new RequestHeader();
             h.name = HttpHeaders.CONTENT_TYPE;
             h.matches = input.contenttype;
-            r.conditions.add(h);
+            r.getConditions().add(h);
         }
         if (input.hasAccepttype()) {
-            Header h = new Header();
+            RequestHeader h = new RequestHeader();
             h.name = HttpHeaders.ACCEPT;
             h.matches = input.accepttype;
-            r.conditions.add(h);
+            r.getConditions().add(h);
         } 
         if (input.hasResponsecontent()) {
             ResponseBody rb = new ResponseBody();
             rb.body = input.responsecontent;
-            r.actions.add(rb);
+            r.getActions().add(rb);
         }                
         if (input.hasRequestContent()) {
             RequestBody rb = new RequestBody();
             rb.body = input.requestcontent;
-            r.conditions.add(rb);
+            r.getConditions().add(rb);
         }
         return r;
     }

@@ -13,6 +13,6 @@ public class Method extends RuleIngredient implements Condition {
 	}
 	@Override
 	public String explain() {
-		return "http method name matches <strong>"+matches+"</strong>";
+		return "http method name matches ["+matches+"]";
 	}	
 }

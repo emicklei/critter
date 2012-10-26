@@ -17,7 +17,7 @@ public class RulePage implements Renderable {
         if (rule == null) return; // robustness
         html.h3().content(rule.id);
         html.h5().content(rule.enabled ? "enabled" : "disabled");
-        html.pre().content(rule.explain(),false);
+        html.pre().content(UIUtils.strongify(rule.explain()),false);
         
         html.div(dataRole("controlgroup").dataType("horizontal"))
 

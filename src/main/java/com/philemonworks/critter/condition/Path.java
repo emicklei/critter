@@ -12,6 +12,6 @@ public class Path extends RuleIngredient implements Condition {
 	}
 	@Override
 	public String explain() {
-		return "url path matches <strong>"+matches+"</strong>";
+		return "url path matches ["+matches+"]";
 	}	
 }

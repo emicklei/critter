@@ -44,10 +44,9 @@ public class HttpClient {
         connectionManager.setDefaultMaxPerRoute(DEFAULT_MAX_CONNECTIONS_PER_ROUTE);
     }
 
-    public Response forward(HttpContext ctx, HttpRequestBase forwardRequest) {
+    public Response forward(HttpContext ctx, HttpRequestBase forwardRequest, URI forwardURI) {
         // get
         ContainerRequest containerRequest = (ContainerRequest) ctx.getRequest();
-        URI forwardURI = (URI) containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
         forwardRequest.setURI(forwardURI);
         
         if (forwardRequest instanceof HttpEntityEnclosingRequestBase) {

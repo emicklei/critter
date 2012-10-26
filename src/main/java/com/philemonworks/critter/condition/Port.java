@@ -23,8 +23,8 @@ public class Port extends RuleIngredient implements Condition , Action{
 	@Override
 	public String explain() {
 		return matches != null 
-		        ? "port number matches  <strong>"+matches+"</strong>" 
-		        : "change the port to <strong>"+value+"</strong>";
+		        ? "port number matches  ["+matches+"]" 
+		        : "change the port to ["+value+"]";
 	}
 
     @Override
