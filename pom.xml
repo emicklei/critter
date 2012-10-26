@@ -101,6 +101,12 @@
 			<name>Repository for rendershark</name>
 			<url>http://rendershark.googlecode.com/svn/repo</url>
 		</repository>
+        <repository>
+            <id>theraver</id>
+                <name>theraver-releases</name>
+            <url>http://dev.gijjes.nl/artifactory/ext-release-local</url>
+        </repository>
+		
 	</repositories>
 
 	<build>
