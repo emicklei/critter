@@ -19,6 +19,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import org.apache.commons.lang3.StringUtils;
 import org.rendershark.http.HttpServer;
 import org.rendersnake.HtmlCanvas;
 import org.rendersnake.StringResource;
@@ -154,9 +155,11 @@ public class AdminUIResource {
             host.matches = url.getHost();
             rule.getConditions().add(host);
             
-            com.philemonworks.critter.condition.Path path = new com.philemonworks.critter.condition.Path();
-            path.matches = url.getPath();
-            rule.getConditions().add(path);
+            if (!StringUtils.isEmpty(url.getPath()) && !"/".matches(url.getPath())) {
+                com.philemonworks.critter.condition.Path path = new com.philemonworks.critter.condition.Path();
+                path.matches = url.getPath();
+                rule.getConditions().add(path);            
+            }
             
             Delay delay = new Delay();
             delay.milliSeconds = Long.parseLong(props.getProperty("critter_delay"));
