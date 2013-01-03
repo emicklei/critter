@@ -19,5 +19,5 @@ public class RuleContext {
 	public Response forwardResponse;
 	public Response proxyResponse;
 	
-	public Map<String,String> parameters = new HashMap<String,String>();
+	public Map<String,String> parameters = new HashMap<String,String>();	
 }
