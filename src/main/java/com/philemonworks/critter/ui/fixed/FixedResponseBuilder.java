@@ -2,18 +2,15 @@ package com.philemonworks.critter.ui.fixed;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 import javax.ws.rs.core.HttpHeaders;
 
-import com.philemonworks.critter.action.Action;
 import com.philemonworks.critter.action.ResponseBody;
-import com.philemonworks.critter.condition.Condition;
-import com.philemonworks.critter.condition.RequestHeader;
 import com.philemonworks.critter.condition.Host;
 import com.philemonworks.critter.condition.Method;
 import com.philemonworks.critter.condition.Path;
 import com.philemonworks.critter.condition.RequestBody;
+import com.philemonworks.critter.condition.RequestHeader;
 import com.philemonworks.critter.rule.Rule;
 
 public class FixedResponseBuilder {

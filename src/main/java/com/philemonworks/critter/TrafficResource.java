@@ -150,6 +150,13 @@ public class TrafficResource {
         }
     }
     
+    @GET
+    @Produces("application/xml")
+    @Path("/recordings")
+    public Response getRecordings() {
+        return Response.ok().build();
+    }    
+    
     @POST
     @Consumes("application/xml")
     @Path("/rules")

@@ -33,5 +33,8 @@ public class MongoModule extends AbstractModule{
         bind(DBCollection.class)
             .annotatedWith(Names.named("rules"))
             .toInstance(mongoDB.getDB("critter").getCollection("rules"));
+        bind(DBCollection.class)
+            .annotatedWith(Names.named("recordings"))
+            .toInstance(mongoDB.getDB("critter").getCollection("recordings"));        
     }
 }
