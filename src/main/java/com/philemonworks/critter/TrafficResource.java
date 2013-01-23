@@ -154,7 +154,13 @@ public class TrafficResource {
     @Produces("application/xml")
     @Path("/recordings")
     public Response getRecordings() {
-        return Response.ok().build();
+        try {
+            List<Recording> rules = this.trafficManager.recordingDao.search("");
+            return Response.ok().entity(rules).build();
+        } catch (Exception ex) {
+            LOG.error("Failed to retrieve recordings",ex);
+            return Response.serverError().entity(ex.getMessage()).build();
+        }
     }    
     
     @POST

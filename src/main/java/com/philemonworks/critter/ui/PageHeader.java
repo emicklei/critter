@@ -13,7 +13,7 @@ public class PageHeader implements Renderable {
         html.div(dataRole("header"))
             .a(dataIcon("home").dataDirection("reverse").href("/")).content("Home")
             .a(dataIcon("info").href("/help.html")).content("Help")
-            .h1().content("Critter - the testing proxy server")
+            .h1().content("Critter - the testing http(s) proxy server")
             ._div();
     }
 }

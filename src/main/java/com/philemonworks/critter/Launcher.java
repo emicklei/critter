@@ -12,9 +12,12 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.name.Names;
+import com.philemonworks.critter.dao.RecordingDao;
+import com.philemonworks.critter.dao.RecordingDaoMemoryImpl;
 import com.philemonworks.critter.dao.RuleDao;
 import com.philemonworks.critter.dao.RuleDaoMemoryImpl;
 import com.philemonworks.critter.dao.mongo.MongoModule;
+import com.philemonworks.critter.dao.mongo.RecordingDaoMongoImpl;
 import com.philemonworks.critter.dao.mongo.RuleDaoMongoImpl;
 import com.philemonworks.critter.ui.AdminUIResource;
 import com.sun.jersey.api.core.ClassNamesResourceConfig;
@@ -37,16 +40,20 @@ public class Launcher {
         Module managerModule = new AbstractModule() {
             protected void configure() {        
                 RuleDao ruleDao;
+                RecordingDao recordingDao;
                 if (mainProperties.containsKey(MongoModule.HOST)) {
                     LOG.info("Using MongoDB rules database");
                     this.install(new MongoModule(mainProperties));
                     ruleDao = new RuleDaoMongoImpl();
+                    recordingDao = new RecordingDaoMongoImpl();
                 } else {
                     LOG.info("Using in memory rules database");
                     ruleDao = new RuleDaoMemoryImpl();
+                    recordingDao = new RecordingDaoMemoryImpl();
                 }                
                 this.bind(TrafficManager.class).toInstance(manager);
                 this.bind(RuleDao.class).toInstance(ruleDao);
+                this.bind(RecordingDao.class).toInstance(recordingDao);
             }
         };
         LOG.info("Starting Proxy Server...");

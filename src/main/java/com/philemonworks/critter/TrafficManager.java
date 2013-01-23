@@ -3,12 +3,14 @@ package com.philemonworks.critter;
 import java.util.List;
 
 import com.google.inject.Inject;
+import com.philemonworks.critter.dao.RecordingDao;
 import com.philemonworks.critter.dao.RuleDao;
 import com.philemonworks.critter.rule.Rule;
 import com.philemonworks.critter.rule.RuleContext;
 
 public class TrafficManager {
     @Inject RuleDao ruleDao;
+    @Inject RecordingDao recordingDao;
     
     public Rule detectRule(RuleContext context) {
         for (Rule each : this.ruleDao.getRules()) {

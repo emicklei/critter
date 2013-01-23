@@ -19,5 +19,52 @@ All its actions are performed in the order as listed in the rule.
 Rules are managed (crud) using the REST interface of the traffic service.
 
 The proxy service itself can be terminated and started using the traffic service.
+                 
 
-2012 (c) Ernest Micklei, Apache 2 Licence
+## Installation from source
+    
+Check out the sources  
+
+	git clone https://github.com/emicklei/critter.git
+                     
+Build using Maven
+
+	mvn clean install                           
+
+Installation archive is now available
+
+	./target/critter-<version>-pkg.zip
+
+## Installation using distribution binaries
+                                             
+Unzip the archive
+
+	./bin
+	./lib
+	./conf	  
+          
+Modify the configuration
+
+	./conf/critter.properties
+	      
+Default content is
+	
+	host=localhost
+	proxy.port=8888
+	traffic.port=8899
+	public.host=localhost:8899
+
+	# if these properties are set then rules are persistent in MongoDB ; use memory otherwise
+	rule.database.mongo.host=localhost
+	rule.database.mongo.port=27017	      
+
+## Start
+
+	sh ./bin/start.sh
+                     
+## Open Admin user interface (public.host)
+
+	http://localhost:8899
+                         
+
+2013 (c) Ernest Micklei, Apache 2 License

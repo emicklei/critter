@@ -70,6 +70,7 @@ public class ProxyResource {
         Monitor proxyMon = MonitorFactory.start(forwardUri == null ? "/" : forwardUri.getHost());
         
         RuleContext ruleContext = new RuleContext();
+        ruleContext.recordingDao = trafficManager.recordingDao;
         ruleContext.httpClient = httpClient;
         ruleContext.httpContext = httpContext;
         ruleContext.forwardMethod = requestBase;

@@ -35,9 +35,11 @@ public class RuleDaoMongoImpl implements RuleDao {
     private List<Rule> fetchAllRules() {
         List<Rule> rules = new ArrayList<Rule>();
         DBCursor cursor = collection.find();
+        cursor.batchSize(100);
         while (cursor.hasNext()) {
             rules.add(mapper.fromDBObject((BasicDBObject) cursor.next()));
         }
+        cursor.close();
         return rules;
     }
 

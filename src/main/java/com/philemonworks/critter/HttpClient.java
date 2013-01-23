@@ -75,7 +75,8 @@ public class HttpClient {
         try {
             forwardResponse = httpClient.execute(forwardRequest);
         } catch (Exception ex) {
-            LOG.error(forwardRequest.getRequestLine().toString(), ex);
+            LOG.error(forwardRequest.getRequestLine().toString()); // not the whole stack
+            LOG.trace(forwardRequest.getRequestLine().toString(), ex); // with the whole stack
             return Response.serverError().entity(ex.getMessage()).build();
         }
 
