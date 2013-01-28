@@ -1,9 +1,7 @@
 package com.philemonworks.critter.dao.mongo;
 
 import java.util.Map.Entry;
-import java.util.Set;
 
-import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.philemonworks.critter.Recording;
 
@@ -22,7 +20,7 @@ public class RecordingMapper {
                 headersIn.append(each, value);
             }
         }
-        dbo.append("requestHeaderNames", headersIn);
+        dbo.append("requestHeaders", headersIn);
         
         BasicDBObject headersOut = new BasicDBObject();       
         for (String each : record.responseHeaders.keySet()) {
@@ -31,7 +29,7 @@ public class RecordingMapper {
                 headersOut.append(each, value);
             }
         }
-        dbo.append("responseHeaderNames", headersOut);
+        dbo.append("responseHeaders", headersOut);
         return dbo;
     }
 
@@ -41,13 +39,13 @@ public class RecordingMapper {
         record.requestReceivedDate = recDoc.getDate("date");
         record.responseContent = recDoc.getString("responseContent");
         
-        BasicDBObject headersIn = (BasicDBObject)recDoc.get("requestHeaderNames");
+        BasicDBObject headersIn = (BasicDBObject)recDoc.get("requestHeaders");
         if (headersIn != null) {
             for (Entry<String,Object> each : headersIn.entrySet()) {
                 record.requestHeaders.put(each.getKey(),(String)each.getValue());
             }
         }
-        BasicDBObject headersOut = (BasicDBObject)recDoc.get("responseHeaderNames");
+        BasicDBObject headersOut = (BasicDBObject)recDoc.get("responseHeaders");
         if (headersOut != null) {
             for (Entry<String,Object> each : headersOut.entrySet()) {
                 record.responseHeaders.put(each.getKey(),(String)each.getValue());
