@@ -152,8 +152,12 @@ public class TrafficResource {
     
     @GET
     @Produces("application/xml")
-    @Path("/recordings")
-    public Response getRecordings() {
+    @Path("/recordings/{host}/{method}")
+    public Response getRecordings(
+            @QueryParam("path") String path,
+            @QueryParam("query") String query,
+            @QueryParam("limit") int howMany
+            ) {
         try {
             List<Recording> rules = this.trafficManager.recordingDao.search("");
             return Response.ok().entity(rules).build();

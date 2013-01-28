@@ -9,6 +9,10 @@ public class RecordingMapper {
 
     public BasicDBObject toDBObject(Recording record) {
         BasicDBObject dbo = new BasicDBObject();
+        dbo.append("method", record.method);
+        dbo.append("path", record.path);
+        dbo.append("query", record.query);
+        
         dbo.append("requestContent", record.requestContent);
         dbo.append("date", record.requestReceivedDate);
         dbo.append("responseContent", record.responseContent);
@@ -35,6 +39,10 @@ public class RecordingMapper {
 
     public Recording fromDBObject(BasicDBObject recDoc) {
         Recording record = new Recording();
+        record.method = recDoc.getString("method");
+        record.path = recDoc.getString("path");
+        record.query = recDoc.getString("query");
+        
         record.requestContent = recDoc.getString("requestContent");
         record.requestReceivedDate = recDoc.getDate("date");
         record.responseContent = recDoc.getString("responseContent");

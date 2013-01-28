@@ -25,6 +25,10 @@ public class Record implements Action {
     public void perform(RuleContext context) {
         Recording record = new Recording();
 
+        record.method = context.httpContext.getRequest().getMethod();
+        record.path = context.httpContext.getRequest().getPath();
+        record.query = context.httpContext.getRequest().getRequestUri().getQuery();
+        
         RecordingInput tester = new RecordingInput();
         this.copyRequestContents(context, record, tester);
         this.copyResponseData(context, record, tester);
