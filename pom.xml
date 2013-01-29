@@ -43,8 +43,20 @@
 		<dependency>
 			<groupId>org.rendershark</groupId>
 			<artifactId>rendershark</artifactId>
-			<version>0.6</version>
-		</dependency>
+			<version>0.6</version>  
+			<exclusions>
+				<exclusion> 
+					<groupId>org.rendersnake</groupId>
+					<artifactId>rendersnake</artifactId>
+				</exclusion>
+			</exclusions>				
+		</dependency>  
+		
+		<dependency>
+			<groupId>org.rendersnake</groupId>
+			<artifactId>rendersnake</artifactId>
+			<version>1.7.1</version>
+		</dependency>		
 
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -101,7 +113,12 @@
 			<id>rendershark-repo</id>
 			<name>Repository for rendershark</name>
 			<url>http://rendershark.googlecode.com/svn/repo</url>
-		</repository>
+		</repository>  
+		<repository>
+			<id>rendersnake-repo</id>
+			<name>Repository for rendersnake</name>
+			<url>http://rendersnake.googlecode.com/svn/repo</url>
+		</repository>		
         <repository>
             <id>theraver</id>
                 <name>theraver-releases</name>

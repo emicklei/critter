@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Recording {
+    public String host;
     public String method;
     public String path;
     public String query;

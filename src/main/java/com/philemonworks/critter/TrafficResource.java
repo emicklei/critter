@@ -154,18 +154,33 @@ public class TrafficResource {
     @Produces("application/xml")
     @Path("/recordings/{host}/{method}")
     public Response getRecordings(
-            @QueryParam("path") String path,
-            @QueryParam("query") String query,
-            @QueryParam("limit") int howMany
+            @PathParam("host") String host,
+            @PathParam("method") String method,
+            @QueryParam("path") @DefaultValue("") String path,
+            @QueryParam("query") @DefaultValue("")  String query,
+            @QueryParam("limit") @DefaultValue("0")  int howMany
             ) {
         try {
-            List<Recording> rules = this.trafficManager.recordingDao.search("");
-            return Response.ok().entity(rules).build();
+            List<Recording> records = this.trafficManager.recordingDao.search(host,method,path,query,howMany);
+            String xml = RecordingConverter.toXml(records);
+            return Response.ok().entity(xml).build();
         } catch (Exception ex) {
             LOG.error("Failed to retrieve recordings",ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
-    }    
+    } 
+    
+    @DELETE
+    @Path("/recordings/{host}")
+    public Response deleteRecordingsToHost(@PathParam("host") String host) {
+        try {
+            this.trafficManager.recordingDao.deleteRecordingsByHost(host);
+            return Response.ok().build();
+        } catch (Exception ex) {
+            LOG.error("Failed to delete recordings",ex);
+            return Response.serverError().entity(ex.getMessage()).build();
+        }
+    }
     
     @POST
     @Consumes("application/xml")

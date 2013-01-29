@@ -24,10 +24,11 @@ public class Record implements Action {
     @Override
     public void perform(RuleContext context) {
         Recording record = new Recording();
-
+        // TODO cleanup this
+        record.host = context.httpContext.getRequest().getHeaderValue("Host");
         record.method = context.httpContext.getRequest().getMethod();
-        record.path = context.httpContext.getRequest().getPath();
-        record.query = context.httpContext.getRequest().getRequestUri().getQuery();
+        record.path = context.forwardURI.getPath();
+        record.query = context.forwardURI.getQuery();
         
         RecordingInput tester = new RecordingInput();
         this.copyRequestContents(context, record, tester);
