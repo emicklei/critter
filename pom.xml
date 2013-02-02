@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>com.philemonworks</groupId>
 			<artifactId>selfdiagnose</artifactId>
-			<version>2.4</version>
+			<version>2.4.1</version>
 		</dependency>
 
 		<dependency>
@@ -118,7 +118,12 @@
 			<id>rendersnake-repo</id>
 			<name>Repository for rendersnake</name>
 			<url>http://rendersnake.googlecode.com/svn/repo</url>
-		</repository>		
+		</repository>
+		<repository>
+			<id>emicklei-repo</id>
+			<name>Repository for emicklei</name>
+			<url>http://emicklei.googlecode.com/svn/repo</url>
+		</repository>				
         <repository>
             <id>theraver</id>
                 <name>theraver-releases</name>
