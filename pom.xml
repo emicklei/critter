@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>org.rendershark</groupId>
 			<artifactId>rendershark</artifactId>
-			<version>0.6</version>  
+			<version>0.7.1</version>  
 			<exclusions>
 				<exclusion> 
 					<groupId>org.rendersnake</groupId>
@@ -55,7 +55,7 @@
 		<dependency>
 			<groupId>org.rendersnake</groupId>
 			<artifactId>rendersnake</artifactId>
-			<version>1.7.1</version>
+			<version>1.7.2</version>
 		</dependency>		
 
 		<dependency>
@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>com.philemonworks</groupId>
 			<artifactId>selfdiagnose</artifactId>
-			<version>2.4.1</version>
+			<version>2.4.2</version>
 		</dependency>
 
 		<dependency>
