@@ -20,6 +20,7 @@ Rules are managed (crud) using the REST interface of the traffic service.
 
 The proxy service itself can be terminated and started using the traffic service.
                  
+[![Build Status](https://travis-ci.org/emicklei/critter.png)](https://travis-ci.org/emicklei/critter)
 
 ## Installation from source
     
