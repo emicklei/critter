@@ -4,6 +4,7 @@ import java.io.InputStream;
 
 import com.philemonworks.critter.action.Close;
 import com.philemonworks.critter.action.Delay;
+import com.philemonworks.critter.action.DigestAuthentication;
 import com.philemonworks.critter.action.Forward;
 import com.philemonworks.critter.action.Record;
 import com.philemonworks.critter.action.Respond;
@@ -14,13 +15,13 @@ import com.philemonworks.critter.action.StatusCode;
 import com.philemonworks.critter.action.Trace;
 import com.philemonworks.critter.condition.BasicAuthentication;
 import com.philemonworks.critter.condition.Equals;
-import com.philemonworks.critter.condition.RequestHeader;
 import com.philemonworks.critter.condition.Host;
 import com.philemonworks.critter.condition.Method;
 import com.philemonworks.critter.condition.Not;
 import com.philemonworks.critter.condition.Path;
 import com.philemonworks.critter.condition.Port;
 import com.philemonworks.critter.condition.RequestBody;
+import com.philemonworks.critter.condition.RequestHeader;
 import com.philemonworks.critter.condition.XPath;
 import com.thoughtworks.xstream.XStream;
 
@@ -56,7 +57,7 @@ public class RuleConverter {
         
         xs.alias("basicauthentication", BasicAuthentication.class);
         xs.useAttributeFor(BasicAuthentication.class, "username");        
-        xs.useAttributeFor(BasicAuthentication.class, "password");        
+        xs.useAttributeFor(BasicAuthentication.class, "password");          
 		
         xs.alias("not", Not.class);
         xs.registerConverter(new NotConverter());
@@ -90,6 +91,11 @@ public class RuleConverter {
 		xs.alias("close",Close.class);
 		xs.alias("trace",Trace.class);		
 		xs.alias("record", Record.class);
+		
+        xs.alias("digestauthentication", DigestAuthentication.class);
+        xs.useAttributeFor(DigestAuthentication.class, "username");        
+        xs.useAttributeFor(DigestAuthentication.class, "password");  
+        xs.useAttributeFor(DigestAuthentication.class, "realm");		
 		
 		return xs;
 	}
