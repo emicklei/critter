@@ -34,7 +34,7 @@
 			<version>0.7.0</version>
 			<exclusions>
 				<exclusion>
-				    <groupId>org.mongodb</groupId>
+					<groupId>org.mongodb</groupId>
 					<artifactId>mongo-java-driver</artifactId>
 				</exclusion>
 			</exclusions>
@@ -43,20 +43,20 @@
 		<dependency>
 			<groupId>org.rendershark</groupId>
 			<artifactId>rendershark</artifactId>
-			<version>0.7.1</version>  
+			<version>0.7.1</version>
 			<exclusions>
-				<exclusion> 
+				<exclusion>
 					<groupId>org.rendersnake</groupId>
 					<artifactId>rendersnake</artifactId>
 				</exclusion>
-			</exclusions>				
-		</dependency>  
-		
+			</exclusions>
+		</dependency>
+
 		<dependency>
 			<groupId>org.rendersnake</groupId>
 			<artifactId>rendersnake</artifactId>
 			<version>1.7.2</version>
-		</dependency>		
+		</dependency>
 
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -113,7 +113,7 @@
 			<id>rendershark-repo</id>
 			<name>Repository for rendershark</name>
 			<url>http://rendershark.googlecode.com/svn/repo</url>
-		</repository>  
+		</repository>
 		<repository>
 			<id>rendersnake-repo</id>
 			<name>Repository for rendersnake</name>
@@ -123,18 +123,27 @@
 			<id>emicklei-repo</id>
 			<name>Repository for emicklei</name>
 			<url>http://emicklei.googlecode.com/svn/repo</url>
-		</repository>				
-        <repository>
-            <id>theraver</id>
-                <name>theraver-releases</name>
-            <url>http://dev.gijjes.nl/artifactory/ext-release-local</url>
-        </repository>
-		
+		</repository>
+		<repository>
+			<id>theraver</id>
+			<name>theraver-releases</name>
+			<url>http://dev.gijjes.nl/artifactory/ext-release-local</url>
+		</repository>
+
 	</repositories>
 
 	<build>
-
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<!-- compilerArgument>-proc:none</compilerArgument -->
+				</configuration>
+			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.2-beta-5</version>
