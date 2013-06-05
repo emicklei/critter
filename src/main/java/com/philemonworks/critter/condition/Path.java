@@ -1,5 +1,8 @@
 package com.philemonworks.critter.condition;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.philemonworks.critter.action.RuleIngredient;
 import com.philemonworks.critter.rule.RuleContext;
 
@@ -8,7 +11,17 @@ public class Path extends RuleIngredient implements Condition {
 	
 	@Override
 	public boolean test(RuleContext ctx) {		
-		return ctx.forwardURI.getPath().matches(matches);
+	    Pattern p = Pattern.compile(this.matches);
+	    Matcher m = p.matcher(ctx.forwardURI.getPath());
+	    if (m.matches()) {	        
+	        // take any group values
+	        for (int g=0;g<=m.groupCount();g++) {
+	            ctx.parameters.put("path."+g,m.group(g));
+	        }
+	        return true;
+	    } else {
+	        return false;
+	    }		
 	}
 	@Override
 	public String explain() {

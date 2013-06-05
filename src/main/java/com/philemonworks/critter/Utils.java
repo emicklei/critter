@@ -2,7 +2,10 @@ package com.philemonworks.critter;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.Map;
 import java.util.Properties;
+
+import com.philemonworks.critter.rule.RuleContext;
 
 public class Utils {
     /**
@@ -26,5 +29,13 @@ public class Utils {
         } catch (Exception ex) {
             return "";
         }
-    }    
+    }   
+    public static String applyContextParametersTo(RuleContext context, String content) {
+        String result = content;
+        for (Map.Entry<String, String> entry : context.parameters.entrySet()) {            
+            // speed is not a requirement so use brute force method here
+            result = result.replaceAll("\\$" + entry.getKey() + "\\$", entry.getValue());
+        }        
+        return result;
+    }       
 }

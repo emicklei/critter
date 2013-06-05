@@ -24,7 +24,7 @@ public class PageFooter implements Renderable {
             html._div();
             
             html.div(class_("ui-block-b"));
-                html.a(dataRole("button").href("/internal/stats.html").rel("external")).content("Monitor Stats");
+                html.a(dataRole("button").href("/internal/stats.html").rel("external")).content("Traffic Statistics");
             html._div();
             
             html.div(class_("ui-block-c"));

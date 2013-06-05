@@ -10,7 +10,10 @@
 		     this condition will accept any method -->
 		<method matches="GET" />
 		
-		<!-- true if the URL path of the request matches the given value -->
+		<!-- true if the URL path of the request matches the given value (a regular expression)
+		Use can use capturing groups , e.g. /products/(.+) and use its value in the response body
+		by referring them as ${path.1} for the first group		
+		-->
 		<path matches="/here/BOL" />
 		
 		<!-- true if the URL port of the request matches the given value -->

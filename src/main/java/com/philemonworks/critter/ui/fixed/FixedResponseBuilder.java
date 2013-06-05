@@ -5,6 +5,7 @@ import java.net.URL;
 
 import javax.ws.rs.core.HttpHeaders;
 
+import com.philemonworks.critter.action.Respond;
 import com.philemonworks.critter.action.ResponseBody;
 import com.philemonworks.critter.condition.Host;
 import com.philemonworks.critter.condition.Method;
@@ -62,6 +63,7 @@ public class FixedResponseBuilder {
             rb.body = input.requestcontent;
             r.getConditions().add(rb);
         }
+        r.getActions().add(new Respond());
         return r;
     }
 }
