@@ -71,5 +71,11 @@
 		<!-- change the port of the request -->
 		<port value="443" />
 		
+		<!-- Execute the Javascript snippet. Use "critter" to access the ScriptContext api -->
+		<script>
+		  <body><![CDATA[         
+                critter.respondWith(200,"hello");
+            ]]></body>
+		</script>
 	</actions>
 </rule>

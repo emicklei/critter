@@ -11,6 +11,7 @@ import com.philemonworks.critter.action.Respond;
 import com.philemonworks.critter.action.ResponseBody;
 import com.philemonworks.critter.action.ResponseHeader;
 import com.philemonworks.critter.action.Scheme;
+import com.philemonworks.critter.action.Script;
 import com.philemonworks.critter.action.StatusCode;
 import com.philemonworks.critter.action.Trace;
 import com.philemonworks.critter.condition.BasicAuthentication;
@@ -67,6 +68,7 @@ public class RuleConverter {
         xs.useAttributeFor(XPath.class, "matches");
         
         xs.alias("requestbody", RequestBody.class);
+        xs.alias("script", Script.class);
         
 		// actions
 		xs.alias("forward", Forward.class);

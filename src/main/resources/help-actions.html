@@ -59,3 +59,18 @@ Store the complete request and response including headers. Accessible via /recor
 &lt;trace /&gt;
 </pre>
 Dump information about the request or response (depends on location w.r.t forward).
+
+<h4>Script</h4>
+<pre>
+&lt;script&gt;
+    &lt;body&gt;         
+      &lt;![CDATA[
+      critter.log("executing script");
+      critter.respondWith(200,"<hello>world</hello></world>");
+      ]]&gt;
+    &lt;/body&gt;
+&lt;/responsebody&gt;
+</pre>
+Execute the Javascript to process a request/response. 
+The variable "critter" can be used to access information.
+See Javadoc com.philemonworks.critter.rule.ScriptContext for the available API.
