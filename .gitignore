@@ -9,3 +9,5 @@ jmeter/jmeter.log
 *.prefs
 
 critter.iml
+.idea
+out
