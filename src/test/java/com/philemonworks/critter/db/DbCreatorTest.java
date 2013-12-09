@@ -12,8 +12,7 @@ public class DbCreatorTest {
     @Test
     public void createDatabase() throws Exception {
         final BasicDataSource dataSource = new BasicDataSource();
-        // TODO: Use in memory URL here.
-        dataSource.setUrl("");
+        dataSource.setUrl("jdbc:h2:mem:test");
         DbCreator.create(dataSource);
     }
 }

@@ -2,12 +2,11 @@ package com.philemonworks.critter.dao.sql;
 
 import com.philemonworks.critter.action.Delay;
 import com.philemonworks.critter.condition.Equals;
+import com.philemonworks.critter.db.DbCreator;
 import com.philemonworks.critter.rule.Rule;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.sql.DataSource;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
@@ -19,14 +18,16 @@ import static org.junit.Assert.assertThat;
  * @author jcraane
  */
 public class RuleDaoSqlImplTest {
-    private DataSource dataSource;
+    private BasicDataSource dataSource;
     private RuleDaoSqlImpl ruleDao = new RuleDaoSqlImpl();
 
     @Before
     public void setUp() throws Exception {
         dataSource = new BasicDataSource();
-//        TODO: Set url to in memory database.
+        dataSource.setUrl("jdbc:h2:mem:test");
         ruleDao.dataSource = dataSource;
+
+        DbCreator.create(dataSource);
     }
 
     @Test

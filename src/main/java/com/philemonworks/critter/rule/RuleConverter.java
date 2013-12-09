@@ -1,7 +1,5 @@
 package com.philemonworks.critter.rule;
 
-import java.io.InputStream;
-
 import com.philemonworks.critter.action.Close;
 import com.philemonworks.critter.action.Delay;
 import com.philemonworks.critter.action.DigestAuthentication;
@@ -25,6 +23,8 @@ import com.philemonworks.critter.condition.RequestBody;
 import com.philemonworks.critter.condition.RequestHeader;
 import com.philemonworks.critter.condition.XPath;
 import com.thoughtworks.xstream.XStream;
+
+import java.io.InputStream;
 
 public class RuleConverter {
 	
@@ -105,8 +105,12 @@ public class RuleConverter {
 	public static Object fromXml(InputStream is) {
 		return (Object) getXStream().fromXML(is);
 	}
-	
-	public static String toXml(Object o) {
+
+    public static <T> T fromXml(final String xml) {
+        return (T) getXStream().fromXML(xml);
+    }
+
+    public static String toXml(Object o) {
 		return getXStream().toXML(o);
 	}
 }
