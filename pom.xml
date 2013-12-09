@@ -15,12 +15,20 @@
 	</properties>
 
 	<dependencies>
+        <!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+        <!-- Test -->
 
 		<dependency>
 			<groupId>org.mozilla</groupId>

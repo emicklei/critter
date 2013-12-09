@@ -2,11 +2,14 @@ package com.philemonworks.critter.dao.sql;
 
 import com.philemonworks.critter.action.Delay;
 import com.philemonworks.critter.condition.Equals;
+import com.philemonworks.critter.dao.sql.support.JdbcTemplate;
 import com.philemonworks.critter.db.DbCreator;
 import com.philemonworks.critter.rule.Rule;
 import org.apache.commons.dbcp.BasicDataSource;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
@@ -18,16 +21,22 @@ import static org.junit.Assert.assertThat;
  * @author jcraane
  */
 public class RuleDaoSqlImplTest {
-    private BasicDataSource dataSource;
     private RuleDaoSqlImpl ruleDao = new RuleDaoSqlImpl();
+    private JdbcTemplate jdbcTemplate;
 
     @Before
     public void setUp() throws Exception {
-        dataSource = new BasicDataSource();
+        final BasicDataSource dataSource = new BasicDataSource();
         dataSource.setUrl("jdbc:h2:mem:test");
-        ruleDao.dataSource = dataSource;
-
         DbCreator.create(dataSource);
+
+        jdbcTemplate = new JdbcTemplate(dataSource);
+        ReflectionTestUtils.setField(ruleDao, "jdbcTemplate", jdbcTemplate);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        jdbcTemplate.execute("DROP TABLE rules", null);
     }
 
     @Test
@@ -58,7 +67,7 @@ public class RuleDaoSqlImplTest {
 
     private Rule createRule(String id) {
         final Rule rule = new Rule();
-        rule.id = "id";
+        rule.id = id;
         rule.getActions().add(new Delay());
         rule.getConditions().add(new Equals());
 

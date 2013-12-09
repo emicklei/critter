@@ -1,4 +1,4 @@
-package com.philemonworks.critter;
+package com.philemonworks.critter.dao.sql.support;
 
 public class SqlRuntimeException extends RuntimeException {
     public SqlRuntimeException(final Throwable cause) {

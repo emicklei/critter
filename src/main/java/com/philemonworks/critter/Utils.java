@@ -2,8 +2,13 @@ package com.philemonworks.critter;
 
 import com.philemonworks.critter.rule.RuleContext;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
 import java.net.URI;
+import java.sql.Clob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -58,5 +63,19 @@ public class Utils {
                 // Ignore
             }
         }
+    }
+
+    public static String clobToString(final Clob clob) throws SQLException, IOException {
+        InputStream in = clob.getAsciiStream();
+        Reader read = new InputStreamReader(in);
+        StringWriter write = new StringWriter();
+
+        int c = -1;
+        while ((c = read.read()) != -1)
+        {
+            write.write(c);
+        }
+        write.flush();
+        return write.toString();
     }
 }

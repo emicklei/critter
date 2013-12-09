@@ -1,6 +1,6 @@
 package com.philemonworks.critter.db;
 
-import com.philemonworks.critter.SqlRuntimeException;
+import com.philemonworks.critter.dao.sql.support.SqlRuntimeException;
 import com.philemonworks.critter.Utils;
 
 import javax.sql.DataSource;
@@ -17,7 +17,7 @@ public final class DbCreator {
     private static final String[] STATEMENTS = new String[] {
         "CREATE TABLE RULES\n" +
             "(\n" +
-            "    ID INTEGER NOT NULL,\n" +
+            "    ID VARCHAR(100) NOT NULL,\n" +
             "    RULE_XML CLOB NOT NULL\n" +
             ");\n"
     };
