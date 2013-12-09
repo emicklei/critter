@@ -1,8 +1,10 @@
-package com.philemonworks.critter.dao.file;
+package com.philemonworks.critter.dao.sql;
 
+import com.google.inject.Inject;
 import com.philemonworks.critter.Recording;
 import com.philemonworks.critter.dao.RecordingDao;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 /**
@@ -10,7 +12,10 @@ import java.util.List;
  *
  * @author jcraane
  */
-public class RecordingDaoFileImpl implements RecordingDao {
+public class RecordingDaoSqlImpl implements RecordingDao {
+    @Inject
+    private DataSource dataSource;
+
     @Override
     public void save(final Recording recording) {
 

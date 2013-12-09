@@ -1,27 +1,19 @@
 package com.philemonworks.critter;
 
-import java.io.FileInputStream;
-import java.util.Properties;
-
-import org.rendershark.http.HttpServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import com.google.inject.name.Names;
-import com.philemonworks.critter.dao.RecordingDao;
-import com.philemonworks.critter.dao.RecordingDaoMemoryImpl;
-import com.philemonworks.critter.dao.RuleDao;
-import com.philemonworks.critter.dao.RuleDaoMemoryImpl;
-import com.philemonworks.critter.dao.mongo.MongoModule;
-import com.philemonworks.critter.dao.mongo.RecordingDaoMongoImpl;
-import com.philemonworks.critter.dao.mongo.RuleDaoMongoImpl;
 import com.philemonworks.critter.ui.AdminUIResource;
 import com.sun.jersey.api.core.ClassNamesResourceConfig;
 import com.sun.jersey.server.impl.container.netty.NettyHandlerContainer;
+import org.rendershark.http.HttpServer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.FileInputStream;
+import java.util.Properties;
 
 public class Launcher {
 	private static final Logger LOG = LoggerFactory.getLogger(Launcher.class);
@@ -37,25 +29,7 @@ public class Launcher {
     	final Properties mainProperties = createProperties(args[0]);
     	
         final TrafficManager manager = new TrafficManager();
-        Module managerModule = new AbstractModule() {
-            protected void configure() {        
-                RuleDao ruleDao;
-                RecordingDao recordingDao;
-                if (mainProperties.containsKey(MongoModule.HOST)) {
-                    LOG.info("Using MongoDB rules database");
-                    this.install(new MongoModule(mainProperties));
-                    ruleDao = new RuleDaoMongoImpl();
-                    recordingDao = new RecordingDaoMongoImpl();
-                } else {
-                    LOG.info("Using in memory rules database");
-                    ruleDao = new RuleDaoMemoryImpl();
-                    recordingDao = new RecordingDaoMemoryImpl();
-                }                
-                this.bind(TrafficManager.class).toInstance(manager);
-                this.bind(RuleDao.class).toInstance(ruleDao);
-                this.bind(RecordingDao.class).toInstance(recordingDao);
-            }
-        };
+        Module managerModule = new ManagerModule(mainProperties, manager);
         LOG.info("Starting Proxy Server...");
         final HttpServer proxyServer = startProxyServer(createProperties(args[0]), managerModule);        
         Module proxyServerModule = new AbstractModule() {
@@ -100,7 +74,7 @@ public class Launcher {
     private static HttpServer startUpServerWith(String portString, Module ... modules) {
         int port = Integer.parseInt(portString);
         Injector injector = Guice.createInjector(modules);
-        HttpServer server = (HttpServer)injector.getInstance(HttpServer.class);
+        HttpServer server = injector.getInstance(HttpServer.class);
         server.init(injector,port);
         server.startUp();
         return server;
@@ -114,5 +88,6 @@ public class Launcher {
             return null;
         }
         return serverProperties;
-    }    
+    }
+
 }

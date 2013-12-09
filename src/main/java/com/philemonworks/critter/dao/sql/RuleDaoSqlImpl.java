@@ -1,8 +1,10 @@
-package com.philemonworks.critter.dao.file;
+package com.philemonworks.critter.dao.sql;
 
+import com.google.inject.Inject;
 import com.philemonworks.critter.dao.RuleDao;
 import com.philemonworks.critter.rule.Rule;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 /**
@@ -10,9 +12,13 @@ import java.util.List;
  *
  * @author jcraane
  */
-public class RuleDaoFileImpl implements RuleDao {
+public class RuleDaoSqlImpl implements RuleDao {
+    @Inject
+    DataSource dataSource;
+
     @Override
     public List<Rule> getRules() {
+
         return null;
     }
 
@@ -30,4 +36,6 @@ public class RuleDaoFileImpl implements RuleDao {
     public void deleteRule(final String id) {
 
     }
+
+
 }
