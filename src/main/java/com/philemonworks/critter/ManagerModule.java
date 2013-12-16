@@ -37,7 +37,7 @@ final class ManagerModule extends AbstractModule {
     protected void configure() {
         RuleDao ruleDao;
         RecordingDao recordingDao;
-        if (Boolean.getBoolean((String) properties.get("rule.database.h2.enabled"))) {
+        if (Boolean.parseBoolean((String) properties.get("rule.database.h2.enabled"))) {
             ruleDao = new RuleDaoSqlImpl();
             recordingDao = new RecordingDaoSqlImpl();
             DbCreator.create(createAndBindDataSource());

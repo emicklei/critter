@@ -1,6 +1,7 @@
 package com.philemonworks.critter.dao.sql.support;
 
 import com.google.common.collect.Lists;
+import com.google.inject.Inject;
 import com.philemonworks.critter.Utils;
 
 import javax.sql.DataSource;
@@ -17,6 +18,7 @@ import java.util.List;
 public class JdbcTemplate {
     private final DataSource dataSource;
 
+    @Inject
     public JdbcTemplate(final DataSource dataSource) {
         this.dataSource = dataSource;
     }

@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public final class DbCreator {
     private static final String[] STATEMENTS = new String[] {
-        "CREATE TABLE RULES\n" +
+        "CREATE TABLE IF NOT EXISTS RULES\n" +
             "(\n" +
             "    ID VARCHAR(100) NOT NULL,\n" +
             "    RULE_XML CLOB NOT NULL\n" +
