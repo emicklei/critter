@@ -1,5 +1,6 @@
 package com.philemonworks.critter;
 
+import org.hamcrest.core.StringContains;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -25,5 +26,11 @@ public class RuleTest {
 	    ba.password = "open sesame";
 	    Assert.assertEquals("Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",ba.computeBasicAuthenticationHeaderValue(ba.username, ba.password));
 	            
+	}
+	@Test
+	public void testCDATA() {	    
+	    Rule r = (Rule)RuleConverter.fromXml(getClass().getResourceAsStream("/rules.xml"));
+	    String xml = RuleConverter.toXml(r);
+	    Assert.assertThat(xml, StringContains.containsString("CDATA"));
 	}
 }

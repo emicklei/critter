@@ -17,7 +17,7 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 public class NotConverter implements Converter {
 
     @Override
-    public boolean canConvert(Class who) {
+    public boolean canConvert(@SuppressWarnings("rawtypes") Class who) {
         return who == Not.class;
     }
 

@@ -6,7 +6,6 @@ import org.rendersnake.HtmlCanvas;
 import org.rendersnake.Renderable;
 import org.rendersnake.StringResource;
 import static org.rendersnake.HtmlAttributesFactory.*;
-import static org.rendersnake.ext.jquery.JQueryAttributesFactory.*;
 
 public class HelpPage implements Renderable {
 
