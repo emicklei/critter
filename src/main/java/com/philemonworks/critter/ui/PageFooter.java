@@ -1,11 +1,10 @@
 package com.philemonworks.critter.ui;
 
 import static org.rendersnake.HtmlAttributesFactory.class_;
+import static org.rendersnake.HtmlAttributesFactory.dataRole;
 import static org.rendersnake.HtmlAttributesFactory.for_;
-import static org.rendersnake.HtmlAttributesFactory.href;
 import static org.rendersnake.HtmlAttributesFactory.id;
 import static org.rendersnake.HtmlAttributesFactory.type;
-import static org.rendersnake.ext.jquery.JQueryAttributesFactory.dataRole;
 
 import java.io.IOException;
 

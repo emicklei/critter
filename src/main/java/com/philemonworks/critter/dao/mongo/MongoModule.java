@@ -26,6 +26,7 @@ public class MongoModule extends AbstractModule{
     protected void configure() {
         Mongo mongoDB = null;
         try {
+            // TODO Use MongoClient?
             mongoDB = new Mongo(constructorProperties.getProperty(HOST), Integer.parseInt(constructorProperties.getProperty(PORT)));
         } catch (Exception ex) {
             LOG.error("Initialize Mongo driver failed",ex);

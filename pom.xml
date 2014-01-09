@@ -71,7 +71,7 @@
 		<dependency>
 			<groupId>org.rendershark</groupId>
 			<artifactId>rendershark</artifactId>
-			<version>0.7.1</version>
+			<version>0.7.2</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.rendersnake</groupId>
