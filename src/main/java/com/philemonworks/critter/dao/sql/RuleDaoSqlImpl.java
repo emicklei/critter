@@ -23,6 +23,7 @@ import java.util.List;
  */
 public class RuleDaoSqlImpl implements RuleDao {
     private static final String INSERT = "INSERT INTO rules(id, rule_xml) values(?, ?);";
+    private static final String UPDATE = "UPDATE rules set rule_xml = ? where id = ?";
     private static final String SELECT_ALL = "SELECT id, rule_xml FROM rules";
     private static final String SELECT_ONE = "SELECT id, rule_xml FROM rules where id = ?";
     private static final String DELETE_ONE = "DELETE FROM rules WHERE id = ?";
@@ -37,13 +38,36 @@ public class RuleDaoSqlImpl implements RuleDao {
 
     @Override
     public void addOrReplaceRule(final Rule rule) {
-        jdbcTemplate.execute(INSERT, new ParamBinder() {
+        if (notPresent(rule)) {
+            insert(rule);
+        } else {
+            update(rule);
+        }
+    }
+
+    private boolean insert(final Rule rule) {
+        return jdbcTemplate.execute(INSERT, new ParamBinder() {
             @Override
             public void bind(final PreparedStatement pstm) throws SQLException {
                 pstm.setString(1, rule.id);
                 pstm.setClob(2, new StringReader(RuleConverter.toXml(rule)));
             }
         });
+    }
+
+    private boolean update(final Rule rule) {
+        return jdbcTemplate.execute(UPDATE, new ParamBinder() {
+            @Override
+            public void bind(final PreparedStatement pstm) throws SQLException {
+                pstm.setClob(1, new StringReader(RuleConverter.toXml(rule)));
+                pstm.setString(2, rule.id);
+            }
+        });
+
+    }
+
+    private boolean notPresent(final Rule rule) {
+        return getRule(rule.id) == null;
     }
 
     @Override

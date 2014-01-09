@@ -47,6 +47,18 @@ public class RuleDaoSqlImplTest {
     }
 
     @Test
+    public void updateExistingRule() throws Exception {
+        final Rule rule_1 = createRule("1");
+        ruleDao.addOrReplaceRule(rule_1);
+        final Rule rule_2 = createRule("2");
+        ruleDao.addOrReplaceRule(rule_2);
+        assertThat(ruleDao.getRules().size(), is(2));
+
+        ruleDao.addOrReplaceRule(rule_2);
+        assertThat(ruleDao.getRules().size(), is(2));
+    }
+
+    @Test
     public void getRule() throws Exception {
         ruleDao.addOrReplaceRule(createRule("1"));
         final String id = "2";
