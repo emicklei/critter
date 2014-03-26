@@ -1,11 +1,19 @@
 package com.philemonworks.critter;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URLEncoder;
-import java.util.List;
+import com.jamonapi.MonitorFactory;
+import com.philemonworks.critter.rule.Rule;
+import com.philemonworks.critter.rule.RuleConverter;
+import com.philemonworks.critter.ui.HelpPage;
+import com.philemonworks.critter.ui.HomePage;
+import com.philemonworks.critter.ui.SiteLayout;
+import com.philemonworks.selfdiagnose.SelfDiagnose;
+import com.philemonworks.selfdiagnose.output.DiagnoseRunReporter;
+import com.philemonworks.selfdiagnose.output.HTMLReporter;
+import org.rendershark.core.logging.LoggerManager;
+import org.rendershark.http.HttpServer;
+import org.rendersnake.HtmlCanvas;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,22 +28,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
-
-import org.rendershark.core.logging.LoggerManager;
-import org.rendershark.http.HttpServer;
-import org.rendersnake.HtmlCanvas;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.jamonapi.MonitorFactory;
-import com.philemonworks.critter.rule.Rule;
-import com.philemonworks.critter.rule.RuleConverter;
-import com.philemonworks.critter.ui.HelpPage;
-import com.philemonworks.critter.ui.HomePage;
-import com.philemonworks.critter.ui.SiteLayout;
-import com.philemonworks.selfdiagnose.SelfDiagnose;
-import com.philemonworks.selfdiagnose.output.DiagnoseRunReporter;
-import com.philemonworks.selfdiagnose.output.HTMLReporter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
+import java.util.List;
 
 @Path("/")
 public class TrafficResource {
@@ -92,8 +90,11 @@ public class TrafficResource {
         Rule rule = null;
         try {
             rule = this.trafficManager.getRule(id);
-            if (null != rule)
-            	rule.enabled = true;
+            if (null != rule) {
+                // TODO: Afstemmen Ernest m.b.t. cached rules in MongoDb en enabled/disablen van rules.
+                rule.enabled = true;
+                trafficManager.addOrReplaceRule(rule);
+            }
         } catch (Exception ex) {
             LOG.error("Failed to enable rule:"+id,ex);
             return Response.serverError().entity(ex.getMessage()).build();
@@ -111,8 +112,10 @@ public class TrafficResource {
         Rule rule = null;
         try {
             rule = this.trafficManager.getRule(id);
-            if (null != rule)
-            	rule.enabled = false;
+            if (null != rule) {
+                rule.enabled = false;
+                trafficManager.addOrReplaceRule(rule);
+            }
         } catch (Exception ex) {
             LOG.error("Failed to disable rule:"+id,ex);
             return Response.serverError().entity(ex.getMessage()).build();
