@@ -42,6 +42,8 @@ public class RuleConverter {
         // conditions
         xs.alias("host", Host.class);
         xs.useAttributeFor(Host.class, "matches");
+        // is action too        
+        xs.useAttributeFor(Host.class, "value");
 
         xs.alias("method", Method.class);
         xs.useAttributeFor(Method.class, "matches");
@@ -59,6 +61,7 @@ public class RuleConverter {
 
         xs.alias("port", Port.class);
         xs.useAttributeFor(Port.class, "matches");
+        // is action too
         xs.useAttributeFor(Port.class, "value");
 
         xs.alias("basicauthentication", BasicAuthentication.class);
@@ -111,6 +114,7 @@ public class RuleConverter {
 		return (Object) getXStream().fromXML(is);
 	}
 
+    @SuppressWarnings("unchecked")
     public static <T> T fromXml(final String xml) {
         return (T) getXStream().fromXML(xml);
     }
