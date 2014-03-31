@@ -1,8 +1,5 @@
 package com.philemonworks.critter.rule;
 
-import java.io.InputStream;
-import java.io.Writer;
-
 import com.philemonworks.critter.action.Close;
 import com.philemonworks.critter.action.Delay;
 import com.philemonworks.critter.action.DigestAuthentication;
@@ -30,6 +27,9 @@ import com.thoughtworks.xstream.core.util.QuickWriter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.XppDriver;
+
+import java.io.InputStream;
+import java.io.Writer;
 
 public class RuleConverter {
 
@@ -107,6 +107,19 @@ public class RuleConverter {
         return xs;
     }
 
+	public static Object fromXml(InputStream is) {
+		return (Object) getXStream().fromXML(is);
+	}
+
+    public static <T> T fromXml(final String xml) {
+        return (T) getXStream().fromXML(xml);
+    }
+
+    public static String toXml(Object o) {
+		return getXStream().toXML(o);
+	}
+       
+
     // http://oktryitnow.com/?p=11
     private static XStream newXStream() {
         return new XStream(new XppDriver() {
@@ -132,13 +145,5 @@ public class RuleConverter {
                 };
             }
         });
-    }
-
-    public static Object fromXml(InputStream is) {
-        return (Object) getXStream().fromXML(is); 
-    }
-
-    public static String toXml(Object o) {
-        return getXStream().toXML(o);
     }
 }
