@@ -5,11 +5,11 @@ import com.philemonworks.critter.condition.Equals;
 import com.philemonworks.critter.dao.sql.support.JdbcTemplate;
 import com.philemonworks.critter.db.DbCreator;
 import com.philemonworks.critter.rule.Rule;
+import com.philemonworks.critter.test.ReflectionTestUtils;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;

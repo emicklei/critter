@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
  * @author jcraane
  */
 public class ReflectionTestUtils {
-    public static void setField(final Object target, final String name, final Class<?> type) {
+    public static void setField(final Object target, final String name, final Object type) {
         try {
             final Field declaredField = target.getClass().getDeclaredField("name");
             declaredField.setAccessible(true);
