@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 public class ReflectionTestUtils {
     public static void setField(final Object target, final String name, final Object type) {
         try {
-            final Field declaredField = target.getClass().getDeclaredField("name");
+            final Field declaredField = target.getClass().getDeclaredField(name);
             declaredField.setAccessible(true);
             declaredField.set(target, type);
         } catch (NoSuchFieldException e) {
