@@ -8,6 +8,7 @@ import com.google.inject.name.Names;
 import com.philemonworks.critter.ui.AdminUIResource;
 import com.sun.jersey.api.core.ClassNamesResourceConfig;
 import com.sun.jersey.server.impl.container.netty.NettyHandlerContainer;
+
 import org.rendershark.http.HttpServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,10 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class Launcher {
-	private static final Logger LOG = LoggerFactory.getLogger(Launcher.class);
+	private static final String PROXY_PORT = "proxy.port";
+    private static final String TRAFFIC_PORT = "traffic.port";
+    private static final String PROXY_HOST = "proxy.host";
+    private static final Logger LOG = LoggerFactory.getLogger(Launcher.class);
 	
     public static void main(String[] args) {
     	if (args.length == 0) {
@@ -47,10 +51,10 @@ public class Launcher {
         trafficProperties.put(ClassNamesResourceConfig.PROPERTY_CLASSNAMES,
                 TrafficResource.class.getName() + " " +
         		AdminUIResource.class.getName());
-        String trafficPort = trafficProperties.getProperty("traffic.port");
+        String trafficPort = trafficProperties.getProperty(TRAFFIC_PORT);
 		trafficProperties.put(
         		NettyHandlerContainer.PROPERTY_BASE_URI,
-        		"http://" + trafficProperties.getProperty("host") + ":" + trafficPort + "/");        
+        		"http://" + trafficProperties.getProperty(PROXY_HOST) + ":" + trafficPort + "/");        
         startUpServerWith(trafficPort,
                 HttpServer.createPropertiesModule(trafficProperties), 
                 managerModule, 
@@ -61,10 +65,10 @@ public class Launcher {
 	private static HttpServer startProxyServer(Properties proxyProperties, Module managerModule) {
         proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CLASSNAMES,ProxyResource.class.getName());
         proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS,ProxyFilter.class.getName());
-        String proxyPort = proxyProperties.getProperty("proxy.port");
+        String proxyPort = proxyProperties.getProperty(PROXY_PORT);
 		proxyProperties.put(
 				NettyHandlerContainer.PROPERTY_BASE_URI,
-        		"http://" + proxyProperties.getProperty("host") + ":" + proxyPort + "/");
+        		"http://" + proxyProperties.getProperty(PROXY_HOST) + ":" + proxyPort + "/");
         return startUpServerWith(proxyPort,
                 HttpServer.createPropertiesModule(proxyProperties), 
                 managerModule, 

@@ -42,7 +42,6 @@ public class AdminUIResource {
     
 	@Inject TrafficManager trafficManager;
 	@Inject @Named("Proxy") HttpServer proxyServer;  
-	@Inject @Named("public.host") String publicHostname;
 	
 	@GET
 	@Path("/newrule")
@@ -88,7 +87,7 @@ public class AdminUIResource {
 	    } else {
 	        this.proxyServer.startUp();
 	    }
-	    return Response.seeOther(new URI("http://"+publicHostname)).build();
+	    return Response.seeOther(new URI("/")).build();
 	}
 	
 	@POST
@@ -110,7 +109,7 @@ public class AdminUIResource {
 			html.render(new SiteLayout(new EditRulePage()));
 			return Response.ok().entity(html.toHtml()).build();
 		}
-		return Response.seeOther(new URI("http://"+publicHostname)).build();
+		return Response.seeOther(new URI("/")).build();
 	}	
 	
 	@POST
@@ -130,7 +129,7 @@ public class AdminUIResource {
             html.render(new SiteLayout(new EditFixedResponsePage()));
             return Response.ok().entity(html.toHtml()).build();
         }
-	    return Response.seeOther(new URI("http://"+publicHostname)).build();
+	    return Response.seeOther(new URI("/")).build();
 	}
 	
     @POST
@@ -176,7 +175,7 @@ public class AdminUIResource {
             html.render(new SiteLayout(new EditDelayPage()));
             return Response.ok().entity(html.toHtml()).build();
         }
-        return Response.seeOther(new URI("http://"+publicHostname)).build();
+        return Response.seeOther(new URI("/")).build();
     }	
 	
     @GET

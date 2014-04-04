@@ -2,6 +2,7 @@ package com.philemonworks.critter;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -74,6 +75,8 @@ public class HttpClient {
         HttpResponse forwardResponse = null;
         try {
             forwardResponse = httpClient.execute(forwardRequest);
+        } catch (UnknownHostException uhe) {
+            return Response.status(404).entity("Unknown host: "+uhe.getMessage()).build();
         } catch (Exception ex) {
             LOG.error(forwardRequest.getRequestLine().toString()); // not the whole stack
             LOG.trace(forwardRequest.getRequestLine().toString(), ex); // with the whole stack

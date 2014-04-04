@@ -42,7 +42,7 @@ public class TrafficResource {
     @Inject TrafficManager trafficManager;
     @Inject LoggerManager loggerManager;
     @Inject @Named("Proxy") HttpServer proxyServer;    
-    @Inject @Named("host") String host;
+    @Inject @Named("proxy.host") String proxyHost;
     @Inject @Named("traffic.port") String port;
     
     @GET
@@ -239,7 +239,7 @@ public class TrafficResource {
     }
     
     private URI buildURI(String path) throws URISyntaxException {
-    	return new URI("http://" + host + ":" + port + path);
+    	return new URI("http://" + proxyHost + ":" + port + path);
     }
     
     @POST

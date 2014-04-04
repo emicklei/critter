@@ -11,3 +11,5 @@ jmeter/jmeter.log
 critter.iml
 .idea
 out
+critter.h2.db
+critter.lock.db

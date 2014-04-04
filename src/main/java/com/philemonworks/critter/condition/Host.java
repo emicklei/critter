@@ -3,6 +3,8 @@ package com.philemonworks.critter.condition;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import org.apache.log4j.Logger;
+
 import com.philemonworks.critter.ProxyFilter;
 import com.philemonworks.critter.action.Action;
 import com.philemonworks.critter.action.RuleIngredient;
@@ -10,6 +12,7 @@ import com.philemonworks.critter.rule.RuleContext;
 import com.sun.jersey.spi.container.ContainerRequest;
 
 public class Host extends RuleIngredient implements Condition, Action {
+    private static final Logger LOG = Logger.getLogger(Host.class);
 	public String matches;
     public String value;
     
@@ -39,8 +42,11 @@ public class Host extends RuleIngredient implements Condition, Action {
                     forwardUri.getPath(), 
                     forwardUri.getQuery(), 
                     forwardUri.getFragment());
+            if (LOG.isTraceEnabled()) { 
+                LOG.trace(forwardUri.toString());
+            }
         } catch (URISyntaxException e) {
-            // TODO record this
+            LOG.error("perform failed",e);
             return;
         }
         containerRequest.getProperties().put(ProxyFilter.UNPROXIED_URI, forwardUri);
