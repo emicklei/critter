@@ -18,10 +18,10 @@ public class Host extends RuleIngredient implements Condition, Action {
     
 	@Override
 	public boolean test(RuleContext ctx) {
-		String hostAndPort = ctx.httpContext.getRequest().getHeaderValue("Host");
-		int colon = hostAndPort.indexOf(':');
-		String host = colon != -1 ? hostAndPort.substring(0,colon) : hostAndPort;
-		return matches.matches(host);
+	    String hostAndPort = ctx.forwardURI.getHost();
+        int colon = hostAndPort.indexOf(':');
+        String host = colon != -1 ? hostAndPort.substring(0,colon) : hostAndPort;
+        return matches.matches(host);	        
 	}
 	@Override
 	public String explain() {
@@ -42,6 +42,7 @@ public class Host extends RuleIngredient implements Condition, Action {
                     forwardUri.getPath(), 
                     forwardUri.getQuery(), 
                     forwardUri.getFragment());
+            context.forwardURI = forwardUri;
             if (LOG.isTraceEnabled()) { 
                 LOG.trace(forwardUri.toString());
             }
@@ -49,6 +50,5 @@ public class Host extends RuleIngredient implements Condition, Action {
             LOG.error("perform failed",e);
             return;
         }
-        containerRequest.getProperties().put(ProxyFilter.UNPROXIED_URI, forwardUri);
     }
 }
