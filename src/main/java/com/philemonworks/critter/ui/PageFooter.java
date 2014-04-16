@@ -27,7 +27,7 @@ public class PageFooter implements Renderable {
             html._div();
             
             html.div(class_("ui-block-c"));
-                html.h5(class_("ui-btn-right").style("font-size:small")).content("(c) 2013, philemonworks.com - " + Utils.getMavenVersion());
+                html.h5(class_("ui-btn-right").style("font-size:small")).content("github.com/emicklei/critter - " + Utils.getMavenVersion());
             html._div()            
             ._div();
     }
