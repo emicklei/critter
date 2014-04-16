@@ -50,22 +50,28 @@ Modify the configuration
 	      
 Default content is
 	
-	host=localhost
+	# proxy.host is the binding address for the http listen sockets
+	proxy.host=localhost
 	proxy.port=8888
-	traffic.port=8899
-	public.host=localhost:8899
 
-	# if these properties are set then rules are persistent in MongoDB ; use memory otherwise
-	rule.database.mongo.host=localhost
-	rule.database.mongo.port=27017	      
+	# access to the traffic manager (GUI and REST)
+	traffic.port=8877
+
+	# If this property is set then rules are persistent in MongoDB 
+	#rule.database.mongo.host=localhost
+	#rule.database.mongo.port=27017
+
+	# If this property is enabled, an embedded H2 database is used. 
+	# The database file is stored in the critter/bin folder.
+	rule.database.h2.enabled=true      
 
 ## Start
 
 	sh ./bin/start.sh
                      
-## Open Admin user interface (public.host)
+## Open Admin user interface
 
-	http://localhost:8899
+	http://localhost:8877
                          
 
-2013 (c) Ernest Micklei, Apache 2 License
+2013 - 2014 (c) Ernest Micklei, Apache 2 License
