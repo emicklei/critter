@@ -8,22 +8,25 @@ import com.philemonworks.critter.action.Action;
 import com.philemonworks.critter.action.RuleIngredient;
 import com.philemonworks.critter.rule.RuleContext;
 import com.sun.jersey.spi.container.ContainerRequest;
+import org.apache.log4j.Logger;
 
 public class Port extends RuleIngredient implements Condition , Action{
+
+    private static final Logger LOG = Logger.getLogger(Host.class);
 
     public String matches = null;
     public int value;
     
     @Override
-    public boolean test(RuleContext ctx) {      
-        return Integer.toString(ctx.httpContext.getRequest().getBaseUri().getPort())
-                .matches(matches);
+    public boolean test(RuleContext ctx) {
+        String port = Integer.toString(ctx.forwardURI.getPort());
+        return port.matches(matches);
     }
 
 	@Override
 	public String explain() {
 		return matches != null 
-		        ? "port number matches  ["+matches+"]" 
+		        ? "port number matches ["+matches+"]"
 		        : "change the port to ["+value+"]";
 	}
 
@@ -32,11 +35,16 @@ public class Port extends RuleIngredient implements Condition , Action{
         ContainerRequest containerRequest = (ContainerRequest) context.httpContext.getRequest();
         URI forwardUri = (URI)containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
         try {
-            forwardUri = new URI(forwardUri.getScheme(), forwardUri.getUserInfo(), forwardUri.getHost(), this.value, forwardUri.getPath(), forwardUri.getQuery(), forwardUri.getFragment());
+            context.forwardURI = new URI(
+                    forwardUri.getScheme(),
+                    forwardUri.getUserInfo(),
+                    forwardUri.getHost(),
+                    this.value,
+                    forwardUri.getPath(),
+                    forwardUri.getQuery(),
+                    forwardUri.getFragment());
         } catch (URISyntaxException e) {
-            // TODO record this
-            return;
+            LOG.error("perform failed", e);
         }
-        containerRequest.getProperties().put(ProxyFilter.UNPROXIED_URI, forwardUri);
     }
 }

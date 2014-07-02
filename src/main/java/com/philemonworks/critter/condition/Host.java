@@ -12,16 +12,16 @@ import com.philemonworks.critter.rule.RuleContext;
 import com.sun.jersey.spi.container.ContainerRequest;
 
 public class Host extends RuleIngredient implements Condition, Action {
+
     private static final Logger LOG = Logger.getLogger(Host.class);
+
 	public String matches;
     public String value;
     
 	@Override
 	public boolean test(RuleContext ctx) {
-	    String hostAndPort = ctx.forwardURI.getHost();
-        int colon = hostAndPort.indexOf(':');
-        String host = colon != -1 ? hostAndPort.substring(0,colon) : hostAndPort;
-        return matches.matches(host);	        
+	    String host = ctx.forwardURI.getHost();
+        return matches.matches(host);
 	}
 	@Override
 	public String explain() {
@@ -34,7 +34,7 @@ public class Host extends RuleIngredient implements Condition, Action {
         ContainerRequest containerRequest = (ContainerRequest) context.httpContext.getRequest();
         URI forwardUri = (URI)containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
         try {
-            forwardUri = new URI(
+            context.forwardURI = new URI(
                     forwardUri.getScheme(), 
                     forwardUri.getUserInfo(), 
                     this.value, 
@@ -42,13 +42,11 @@ public class Host extends RuleIngredient implements Condition, Action {
                     forwardUri.getPath(), 
                     forwardUri.getQuery(), 
                     forwardUri.getFragment());
-            context.forwardURI = forwardUri;
-            if (LOG.isTraceEnabled()) { 
-                LOG.trace(forwardUri.toString());
+            if (LOG.isTraceEnabled()) {
+                LOG.trace(context.forwardURI.toString());
             }
         } catch (URISyntaxException e) {
             LOG.error("perform failed",e);
-            return;
         }
     }
 }
