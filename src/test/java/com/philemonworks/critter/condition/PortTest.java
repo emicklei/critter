@@ -11,27 +11,27 @@ public class PortTest extends TestCase {
         RuleContext context = new RuleContext();
         context.forwardURI = new URI("http://www.bol.com:8080/");
 
-        Port portAction = new Port();
-        portAction.matches = "8080";
+        Port portCondition = new Port();
+        portCondition.matches = "8080";
 
-        assertTrue(portAction.test(context));
+        assertTrue(portCondition.test(context));
     }
 
     public void testPortConditionShouldTestFalseIfPortNotMatches() throws Exception {
         RuleContext context = new RuleContext();
         context.forwardURI = new URI("http://www.bol.com:8081/");
 
-        Port portAction = new Port();
-        portAction.matches = "8080";
+        Port portCondition = new Port();
+        portCondition.matches = "8080";
 
-        assertFalse(portAction.test(context));
+        assertFalse(portCondition.test(context));
     }
 
     public void testPortConditionExplains() throws Exception {
-        Port portAction = new Port();
-        portAction.matches = "8080";
+        Port portCondition = new Port();
+        portCondition.matches = "8080";
 
-        assertEquals("port number matches [8080]", portAction.explain());
+        assertEquals("port number matches [8080]", portCondition.explain());
     }
 
     public void testPortActionExplains() throws Exception {

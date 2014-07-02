@@ -11,27 +11,27 @@ public class HostTest extends TestCase {
         RuleContext context = new RuleContext();
         context.forwardURI = new URI("http://www.bol.com:8080/");
 
-        Host hostAction = new Host();
-        hostAction.matches = "www.bol.com";
+        Host hostCondition = new Host();
+        hostCondition.matches = "www.bol.com";
 
-        assertTrue(hostAction.test(context));
+        assertTrue(hostCondition.test(context));
     }
 
     public void testHostConditionShouldTestFalseIfHostNotMatches() throws Exception {
         RuleContext context = new RuleContext();
         context.forwardURI = new URI("http://www.bol2.com:8080/");
 
-        Host hostAction = new Host();
-        hostAction.matches = "www.bol.com";
+        Host hostCondition = new Host();
+        hostCondition.matches = "www.bol.com";
 
-        assertFalse(hostAction.test(context));
+        assertFalse(hostCondition.test(context));
     }
 
     public void testHostConditionExplainsHostMatches() throws Exception {
-        Host hostAction = new Host();
-        hostAction.matches = "www.bol.com";
+        Host hostCondition = new Host();
+        hostCondition.matches = "www.bol.com";
 
-        assertEquals("host name matches [www.bol.com]", hostAction.explain());
+        assertEquals("host name matches [www.bol.com]", hostCondition.explain());
     }
 
     public void testHostActionExplainsHostMatches() throws Exception {
