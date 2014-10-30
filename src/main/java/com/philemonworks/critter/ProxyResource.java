@@ -67,22 +67,25 @@ public class ProxyResource {
         ContainerRequest containerRequest = (ContainerRequest) httpContext.getRequest();
         URI forwardUri = (URI)containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
         if (forwardUri != null) LOG.trace(requestBase.getMethod() + " " + forwardUri);
-        Monitor proxyMon = MonitorFactory.start(forwardUri == null ? "/" : forwardUri.getHost());
-        
-        RuleContext ruleContext = new RuleContext();
-        ruleContext.recordingDao = trafficManager.recordingDao;
-        ruleContext.httpClient = httpClient;
-        ruleContext.httpContext = httpContext;
-        ruleContext.forwardMethod = requestBase;
-        ruleContext.forwardURI = forwardUri;
 
-        if (null == forwardUri) {
-            this.handleEmptyDestination(ruleContext);
-        } else {        
-            detectAndApplyRule(ruleContext);
-        }        
-        proxyMon.stop();        
-        return ruleContext.proxyResponse;
+        Monitor proxyMon = MonitorFactory.start(forwardUri == null ? "/" : forwardUri.getHost());
+        try {
+            RuleContext ruleContext = new RuleContext();
+            ruleContext.recordingDao = trafficManager.recordingDao;
+            ruleContext.httpClient = httpClient;
+            ruleContext.httpContext = httpContext;
+            ruleContext.forwardMethod = requestBase;
+            ruleContext.forwardURI = forwardUri;
+
+            if (null == forwardUri) {
+                this.handleEmptyDestination(ruleContext);
+            } else {
+                detectAndApplyRule(ruleContext);
+            }
+            return ruleContext.proxyResponse;
+        } finally {
+            proxyMon.stop();
+        }
     }
 
     private void detectAndApplyRule(RuleContext ruleContext) {
@@ -90,14 +93,20 @@ public class ProxyResource {
         if (null == rule) {
             LOG.trace("No rule detected");
             Monitor mon = MonitorFactory.start("--critter.passthrough");
-            new Forward().perform(ruleContext);
-            new Respond().perform(ruleContext);
-            mon.stop();
+            try {
+                new Forward().perform(ruleContext);
+                new Respond().perform(ruleContext);
+            } finally {
+                mon.stop();
+            }
         } else {
             LOG.trace("Apply rule {}", rule.id);
             Monitor mon = MonitorFactory.start("--critter.rule."+rule.id);
-            this.trafficManager.performRule(rule, ruleContext);
-            mon.stop();
+            try {
+                this.trafficManager.performRule(rule, ruleContext);
+            } finally {
+                mon.stop();
+            }
         }
     }
 
