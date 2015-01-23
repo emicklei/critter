@@ -68,7 +68,21 @@ Default content is
 ## Start
 
 	sh ./bin/start.sh
-                     
+
+## Start using Docker
+
+First follow [Installation from source](#installation-from-source)
+
+After that you can build the docker image
+
+	docker build --rm -t critter .
+
+And run it
+
+	docker run --name critter -P critter
+
+Use `docker ps` to find out to which host ports critter has been bound
+
 ## Open Admin user interface
 
 	http://localhost:8877
