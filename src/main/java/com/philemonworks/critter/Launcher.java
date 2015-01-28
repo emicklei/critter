@@ -26,6 +26,7 @@ public class Launcher {
 	
     public static void main(String[] args) {
     	if (args.length == 0) {
+            System.out.println("No argument given - reading form environment variables");
             startWithConfiguration(createPropertiesFromEnv());
     		return;
     	}
@@ -39,7 +40,7 @@ public class Launcher {
         final TrafficManager manager = new TrafficManager();
         Module managerModule = new ManagerModule(new Properties(configProperties), manager);
         LOG.info("Starting Proxy Server...");
-        LOG.debug("using the following properties : " + configProperties.toString());
+        LOG.info("using the following properties : " + configProperties.toString());
         final HttpServer proxyServer = startProxyServer(new Properties(configProperties), managerModule);
         Module proxyServerModule = new AbstractModule() {
             protected void configure() {
