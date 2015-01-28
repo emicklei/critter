@@ -15,5 +15,5 @@ ADD             target/critter-*-pkg.tar.gz   /opt/critter
 RUN             chmod a+x -R /opt/critter/bin
 
 EXPOSE          8888 8877
-CMD             ["/opt/critter/bin/start.sh","--no-daemon"]
+CMD             ["/opt/critter/bin/start-container.sh","--no-daemon"]
 
