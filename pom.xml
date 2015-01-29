@@ -146,7 +146,11 @@
 			<name>Repository for emicklei</name>
 			<url>http://emicklei.googlecode.com/svn/repo</url>
 		</repository>
-
+		<repository>
+			<id>emicklei-bintray-repo</id>
+			<name>Repository for emicklei</name>
+			<url>http://dl.bintray.com/emicklei/maven</url>
+		</repository>
 	</repositories>
 
 	<build>
