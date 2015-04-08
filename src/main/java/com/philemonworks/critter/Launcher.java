@@ -1,6 +1,5 @@
 package com.philemonworks.critter;
 
-import com.google.common.base.Optional;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -9,7 +8,6 @@ import com.google.inject.name.Names;
 import com.philemonworks.critter.ui.AdminUIResource;
 import com.sun.jersey.api.core.ClassNamesResourceConfig;
 import com.sun.jersey.server.impl.container.netty.NettyHandlerContainer;
-
 import org.apache.commons.lang3.StringUtils;
 import org.rendershark.http.HttpServer;
 import org.slf4j.Logger;
@@ -113,12 +111,16 @@ public class Launcher {
         final Properties serverProperties = new Properties();
         serverProperties.put("proxy.host",
                 StringUtils.isNotEmpty(System.getenv("proxyHost")) ? System.getenv("proxyHost") : "localhost");
-        serverProperties.put("proxy.port",
-                StringUtils.isNotEmpty(System.getenv("proxyPort")) ? System.getenv("proxyPort") : "8888");
+        serverProperties.put("proxy.port", StringUtils.isNotEmpty(System.getenv("proxyPort")) ? System.getenv("proxyPort") : "8888");
         serverProperties.put("traffic.port",
                 StringUtils.isNotEmpty(System.getenv("traffic")) ? System.getenv("traffic") : "8877");
         serverProperties.put("rule.database.h2.enabled",
                 StringUtils.isNotEmpty(System.getenv("enabledH2")) ? System.getenv("enabledH2") : "true");
+
+        if (StringUtils.isNotEmpty(System.getenv("proxyPort"))) {
+            serverProperties.put("proxy.workers", System.getenv("proxyPort"));
+        }
+
         return serverProperties;
     }
 
