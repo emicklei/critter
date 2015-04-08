@@ -22,8 +22,10 @@ public class Launcher {
 	private static final String PROXY_PORT = "proxy.port";
     private static final String TRAFFIC_PORT = "traffic.port";
     private static final String PROXY_HOST = "proxy.host";
+    private static final String PROXY_WORKERS = "proxy.workers";
     private static final Logger LOG = LoggerFactory.getLogger(Launcher.class);
-	
+    private static final int DEFAULT_NUMBER_OF_WORKERS = Runtime.getRuntime().availableProcessors() * 2;
+
     public static void main(String[] args) {
     	if (args.length == 0) {
             System.out.println("No argument given - reading form environment variables");
@@ -72,19 +74,25 @@ public class Launcher {
         proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CLASSNAMES,ProxyResource.class.getName());
         proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS,ProxyFilter.class.getName());
         String proxyPort = proxyProperties.getProperty(PROXY_PORT);
+        String numberOfWorkers = proxyProperties.getProperty(PROXY_WORKERS);
 		proxyProperties.put(
 				NettyHandlerContainer.PROPERTY_BASE_URI,
         		"http://" + proxyProperties.getProperty(PROXY_HOST) + ":" + proxyPort + "/");
-        return startUpServerWith(proxyPort,
+        return startUpServerWith(proxyPort, (StringUtils.isNotBlank(numberOfWorkers) ? Integer.parseInt(numberOfWorkers) : DEFAULT_NUMBER_OF_WORKERS),
                 HttpServer.createPropertiesModule(proxyProperties), 
                 managerModule, 
                 new ProxyModule());
 	}
 
-    private static HttpServer startUpServerWith(String portString, Module ... modules) {
+    private static HttpServer startUpServerWith(String portString, Module... modules) {
+        return startUpServerWith(portString, 2, modules);
+    }
+
+    private static HttpServer startUpServerWith(String portString, int numberOfWorkers, Module... modules) {
         int port = Integer.parseInt(portString);
         Injector injector = Guice.createInjector(modules);
         HttpServer server = injector.getInstance(HttpServer.class);
+        server.setNumberOfWorkers(numberOfWorkers);
         server.init(injector, port);
         server.startUp();
         return server;
