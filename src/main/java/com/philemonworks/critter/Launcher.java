@@ -21,8 +21,8 @@ public class Launcher {
     private static final String TRAFFIC_PORT = "traffic.port";
     private static final String PROXY_HOST = "proxy.host";
     private static final String PROXY_WORKERS = "proxy.workers";
-    private static final Logger LOG = LoggerFactory.getLogger(Launcher.class);
     private static final int DEFAULT_NUMBER_OF_WORKERS = Runtime.getRuntime().availableProcessors() * 2;
+    private static final Logger LOG = LoggerFactory.getLogger(Launcher.class);
 
     public static void main(String[] args) {
     	if (args.length == 0) {
@@ -83,7 +83,7 @@ public class Launcher {
 	}
 
     private static HttpServer startUpServerWith(String portString, Module... modules) {
-        return startUpServerWith(portString, 2, modules);
+        return startUpServerWith(portString, DEFAULT_NUMBER_OF_WORKERS, modules);
     }
 
     private static HttpServer startUpServerWith(String portString, int numberOfWorkers, Module... modules) {
