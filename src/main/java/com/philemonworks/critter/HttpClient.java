@@ -30,7 +30,7 @@ import com.sun.jersey.spi.container.ContainerRequest;
 public class HttpClient {
     private static final Logger LOG = LoggerFactory.getLogger(HttpClient.class);
     public static final int DEFAULT_MAX_CONNECTIONS = 100;
-    public static final int DEFAULT_MAX_CONNECTIONS_PER_ROUTE = 10;
+    public static final int DEFAULT_MAX_CONNECTIONS_PER_ROUTE = 100;
 
     private ThreadSafeClientConnManager connectionManager;
     protected DefaultHttpClient httpClient;
