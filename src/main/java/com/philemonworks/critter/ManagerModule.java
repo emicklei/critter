@@ -16,7 +16,6 @@ import com.philemonworks.critter.dao.RuleDaoMemoryImpl;
 import com.philemonworks.critter.dao.mongo.MongoModule;
 import com.philemonworks.critter.dao.mongo.RecordingDaoMongoImpl;
 import com.philemonworks.critter.dao.mongo.RuleDaoMongoImpl;
-import com.philemonworks.critter.dao.sql.RecordingDaoSqlImpl;
 import com.philemonworks.critter.dao.sql.RuleDaoSqlImpl;
 import com.philemonworks.critter.db.DbCreator;
 
@@ -41,7 +40,7 @@ final class ManagerModule extends AbstractModule {
         RecordingDao recordingDao;
         if (Boolean.parseBoolean(properties.getProperty("rule.database.h2.enabled"))) {
             ruleDao = new RuleDaoSqlImpl();
-            recordingDao = new RecordingDaoSqlImpl();
+            recordingDao = new RecordingDaoMemoryImpl(); //new RecordingDaoSqlImpl();
             DbCreator.create(createAndBindDataSource());
         } else if (properties.containsKey(MongoModule.HOST)) {
             LOG.info("Using MongoDB rules database");
