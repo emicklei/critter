@@ -1,5 +1,13 @@
 package com.philemonworks.critter;
 
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.inject.AbstractModule;
 import com.philemonworks.critter.dao.RecordingDao;
 import com.philemonworks.critter.dao.RecordingDaoMemoryImpl;
@@ -11,12 +19,6 @@ import com.philemonworks.critter.dao.mongo.RuleDaoMongoImpl;
 import com.philemonworks.critter.dao.sql.RecordingDaoSqlImpl;
 import com.philemonworks.critter.dao.sql.RuleDaoSqlImpl;
 import com.philemonworks.critter.db.DbCreator;
-import org.apache.commons.dbcp.BasicDataSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.sql.DataSource;
-import java.util.Properties;
 
 /**
 * Represents the Critter manager module.
@@ -37,7 +39,7 @@ final class ManagerModule extends AbstractModule {
     protected void configure() {
         RuleDao ruleDao;
         RecordingDao recordingDao;
-        if (Boolean.parseBoolean((String) properties.get("rule.database.h2.enabled"))) {
+        if (Boolean.parseBoolean(properties.getProperty("rule.database.h2.enabled"))) {
             ruleDao = new RuleDaoSqlImpl();
             recordingDao = new RecordingDaoSqlImpl();
             DbCreator.create(createAndBindDataSource());
