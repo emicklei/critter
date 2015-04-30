@@ -29,7 +29,7 @@ public class Record implements Action {
         record.method = context.httpContext.getRequest().getMethod();
         record.path = context.forwardURI.getPath();
         record.query = context.forwardURI.getQuery();
-        
+
         RecordingInput tester = new RecordingInput();
         this.copyRequestContents(context, record, tester);
         this.copyResponseData(context, record, tester);
@@ -56,7 +56,13 @@ public class Record implements Action {
         if (context.forwardResponse != null) {
             tester.contenttype = (String) context.forwardResponse.getMetadata().getFirst("Content-Type");
             if (tester.hasTextualRequestContent()) {
-                record.responseContent = this.readStringContents((InputStream) context.forwardResponse.getEntity());
+                Object e = context.forwardResponse.getEntity();
+                if (e instanceof InputStream) {
+                    record.requestContent = this.readStringContents((InputStream) e);
+                }
+                if (e instanceof String) {
+                    record.responseContent = (String) e;
+                }
             }
         }
         for (Entry<String, List<Object>> each : context.forwardResponse.getMetadata().entrySet()) {
