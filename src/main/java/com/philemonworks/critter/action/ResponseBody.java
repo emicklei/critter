@@ -41,9 +41,9 @@ public class ResponseBody implements Action {
         HtmlCanvas c = new HtmlCanvas();
         try {
             String shortBody = StringUtils.trim(body);
-            shortBody = shortBody.substring(0, Math.min(24, shortBody.length()));
-            if (body.length() > 24) {
-                shortBody = shortBody.replace("\n", "") + "...";
+            if (StringUtils.length(body) > 24) {
+                shortBody = StringUtils.substring(shortBody, 0, Math.min(24, StringUtils.length(shortBody)));
+                shortBody = StringUtils.replace(shortBody, "\n", "") + "...";
             }
             c.write(shortBody);
         } catch (IOException e) {
