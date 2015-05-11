@@ -58,9 +58,6 @@ public class Launcher {
                 TrafficResource.class.getName() + " " +
         		AdminUIResource.class.getName());
         String trafficPort = trafficProperties.getProperty(TRAFFIC_PORT);
-		trafficProperties.put(
-        		NettyHandlerContainer.PROPERTY_BASE_URI,
-        		"http://" + trafficProperties.getProperty(PROXY_HOST) + ":" + trafficPort + "/");        
         startUpServerWith(trafficPort,
                 HttpServer.createPropertiesModule(trafficProperties), 
                 managerModule, 
