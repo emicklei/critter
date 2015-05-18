@@ -26,25 +26,31 @@
         </xs:choice>
     </xs:complexType>
 
+    <xs:simpleType name="matches">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:complexType name="host">
         <xs:annotation>
             <xs:documentation>true if the hostname of the request matches the given value</xs:documentation>
         </xs:annotation>
-        <xs:attribute type="xs:string" name="matches"/>
+        <xs:attribute type="matches" name="matches"/>
     </xs:complexType>
 
     <xs:complexType name="method">
         <xs:annotation>
             <xs:documentation>true if the methodname of the request matches the given value</xs:documentation>
         </xs:annotation>
-        <xs:attribute type="xs:string" name="matches"/>
+        <xs:attribute type="matches" name="matches"/>
     </xs:complexType>
 
     <xs:complexType name="path">
         <xs:annotation>
             <xs:documentation>true if the URL path of the request matches the given value</xs:documentation>
         </xs:annotation>
-        <xs:attribute type="xs:string" name="matches"/>
+        <xs:attribute type="matches" name="matches"/>
     </xs:complexType>
 
     <xs:complexType name="port">
@@ -59,7 +65,7 @@
             <xs:documentation>true if the specified Header (by name) of the request matches the given value</xs:documentation>
         </xs:annotation>
         <xs:attribute type="xs:string" name="name"/>
-        <xs:attribute type="xs:string" name="matches"/>
+        <xs:attribute type="matches" name="matches"/>
     </xs:complexType>
 
     <xs:complexType name="basicauthentication">
