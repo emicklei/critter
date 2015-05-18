@@ -1,37 +1,32 @@
 package com.philemonworks.critter.rule;
 
-import com.philemonworks.critter.action.Close;
-import com.philemonworks.critter.action.Delay;
-import com.philemonworks.critter.action.DigestAuthentication;
-import com.philemonworks.critter.action.Forward;
-import com.philemonworks.critter.action.Record;
-import com.philemonworks.critter.action.Respond;
-import com.philemonworks.critter.action.ResponseBody;
-import com.philemonworks.critter.action.ResponseHeader;
-import com.philemonworks.critter.action.Scheme;
-import com.philemonworks.critter.action.Script;
-import com.philemonworks.critter.action.StatusCode;
-import com.philemonworks.critter.action.Trace;
-import com.philemonworks.critter.condition.BasicAuthentication;
-import com.philemonworks.critter.condition.Equals;
-import com.philemonworks.critter.condition.Host;
-import com.philemonworks.critter.condition.Method;
-import com.philemonworks.critter.condition.Not;
-import com.philemonworks.critter.condition.Path;
-import com.philemonworks.critter.condition.Port;
-import com.philemonworks.critter.condition.RequestBody;
-import com.philemonworks.critter.condition.RequestHeader;
-import com.philemonworks.critter.condition.XPath;
+import com.google.common.collect.Sets;
+import com.philemonworks.critter.action.*;
+import com.philemonworks.critter.condition.*;
+import com.sun.javaws.exceptions.InvalidArgumentException;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.XppDriver;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
 
-import java.io.InputStream;
-import java.io.Writer;
+import javax.xml.XMLConstants;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
+import java.io.*;
+import java.util.Set;
 
 public class RuleConverter {
+    private static final Logger LOG = LoggerFactory.getLogger(RuleConverter.class);
 
     private static XStream getXStream() {
         XStream xs = newXStream();
@@ -111,22 +106,51 @@ public class RuleConverter {
         return xs;
     }
 
-	public static Object fromXml(InputStream is) {
-		return (Object) getXStream().fromXML(is);
-	}
+    @SuppressWarnings("unchecked")
+    public static <T> T fromXml(InputStream is) {
+        StringWriter stringWriter = new StringWriter();
+        try {
+            IOUtils.copy(is, stringWriter);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return fromXml(stringWriter.toString());
+    }
 
     @SuppressWarnings("unchecked")
     public static <T> T fromXml(final String xml) {
-        return (T) getXStream().fromXML(xml);
+        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        ErrorCollector errorHandler = new ErrorCollector();
+        try {
+            Schema schema = schemaFactory.newSchema(RuleConverter.class.getResource("/critter.xsd"));
+            Validator validator = schema.newValidator();
+            validator.setErrorHandler(errorHandler);
+            validator.validate(new StreamSource(new StringReader(xml)));
+        } catch (SAXException e) {
+            System.err.println("whoeps: saxe: " + e.getMessage());
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            System.err.println("whoeps ioe: " + e.getMessage());
+        }
+
+        if (errorHandler.exceptions.size() > 0) {
+            LOG.error("there are validation exceptions: {}", errorHandler.exceptions);
+            throw new RuntimeException(StringUtils.join(errorHandler.exceptions, "<br>"));
+        }
+
+        T object = (T) getXStream().fromXML(xml);
+        LOG.debug("the object T: {}", toXml(object));
+
+        return object;
     }
 
     public static String toXml(Object o) {
-		return getXStream().toXML(o);
-	}
-       
+        return getXStream().toXML(o);
+    }
 
     // http://oktryitnow.com/?p=11
     private static XStream newXStream() {
+
         return new XStream(new XppDriver() {
             public HierarchicalStreamWriter createWriter(Writer out) {
                 return new PrettyPrintWriter(out) {
@@ -150,5 +174,31 @@ public class RuleConverter {
                 };
             }
         });
+    }
+
+    private static class ErrorCollector implements ErrorHandler {
+        private Set<String> exceptions = Sets.newLinkedHashSet();
+
+        @Override
+        public void warning(SAXParseException exception) throws SAXException {
+            LOG.debug("SAX.warning {}", exception);
+        }
+
+        @Override
+        public void error(SAXParseException exception) throws SAXException {
+            LOG.debug("SAX.error {}", exception.toString());
+            LOG.debug("\t{}", exception.getColumnNumber());
+            LOG.debug("\t{}", exception.getLineNumber());
+            LOG.debug("\t{}", exception.getPublicId());
+            LOG.debug("\t{}", exception.getSystemId());
+            LOG.debug("\t{}", exception.getMessage());
+            exceptions.add(exception.getMessage());
+        }
+
+        @Override
+        public void fatalError(SAXParseException exception) throws SAXException {
+            LOG.debug("SAX.fatalError {}", exception);
+            throw new SAXException("invalid xml");
+        }
     }
 }
