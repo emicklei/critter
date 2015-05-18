@@ -14,16 +14,16 @@
     </xs:complexType>
 
     <xs:complexType name="conditions">
-        <xs:sequence>
-            <xs:element name="host" type="host" minOccurs="0"/>
-            <xs:element name="method" type="method" minOccurs="0"/>
-            <xs:element name="path" type="path" minOccurs="0"/>
-            <xs:element name="port" type="port" minOccurs="0"/>
-            <xs:element name="header" type="header" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element name="basicauthentication" type="basicauthentication" minOccurs="0"/>
-            <xs:element name="xpath" type="xpath" minOccurs="0"/>
-            <xs:element name="not" type="not" minOccurs="0"/>
-        </xs:sequence>
+        <xs:choice maxOccurs="unbounded">
+            <xs:element name="host" type="host"/>
+            <xs:element name="method" type="method"/>
+            <xs:element name="path" type="path"/>
+            <xs:element name="port" type="port"/>
+            <xs:element name="header" type="header"/>
+            <xs:element name="basicauthentication" type="basicauthentication"/>
+            <xs:element name="xpath" type="xpath"/>
+            <xs:element name="not" type="not"/>
+        </xs:choice>
     </xs:complexType>
 
     <xs:complexType name="host">
