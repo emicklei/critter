@@ -15,7 +15,7 @@ public class EditRulePage implements Renderable {
 		
 		String alert = html.getPageContext().getString("alert");
 		if (alert != null) {
-			html.div(id("alertmessage")).content(alert);
+			html.div(id("alertmessage")).content(alert, false);
 		}
 		
 		html.h3().content("Edit the rule");
