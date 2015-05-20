@@ -19,7 +19,7 @@
             <xs:element name="method" type="method"/>
             <xs:element name="path" type="path"/>
             <xs:element name="port" type="port"/>
-            <xs:element name="header" type="header"/>
+            <xs:element name="requestheader" type="header"/>
             <xs:element name="basicauthentication" type="basicauthentication"/>
             <xs:element name="xpath" type="xpath"/>
             <xs:element name="not" type="not"/>
