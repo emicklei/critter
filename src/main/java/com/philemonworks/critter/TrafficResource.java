@@ -152,17 +152,30 @@ public class TrafficResource {
             return Response.serverError().entity(ex.getMessage()).build();
         }
     }
-    
+
     @GET
     @Produces("application/xml")
-    @Path("/recordings/{host}/{method}")
+    @Path("/recordings")
     public Response getRecordings(
+    ) {
+        try {
+            List<Recording> records = this.trafficManager.recordingDao.search("", "", "", "", 0);
+            String xml = RecordingConverter.toXml(records);
+            return Response.ok().entity(xml).build();
+        } catch (Exception ex) {
+            LOG.error("Failed to retrieve recordings",ex);
+            return Response.serverError().entity(ex.getMessage()).build();
+        }
+    }    @GET
+         @Produces("application/xml")
+         @Path("/recordings/{host}/{method}")
+         public Response getRecordings(
             @PathParam("host") String host,
             @PathParam("method") String method,
             @QueryParam("path") @DefaultValue("") String path,
             @QueryParam("query") @DefaultValue("")  String query,
             @QueryParam("limit") @DefaultValue("0")  int howMany
-            ) {
+    ) {
         try {
             List<Recording> records = this.trafficManager.recordingDao.search(host,method,path,query,howMany);
             String xml = RecordingConverter.toXml(records);
@@ -171,8 +184,9 @@ public class TrafficResource {
             LOG.error("Failed to retrieve recordings",ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
-    } 
-    
+    }
+
+
     @DELETE
     @Path("/recordings/{host}")
     public Response deleteRecordingsToHost(@PathParam("host") String host) {
