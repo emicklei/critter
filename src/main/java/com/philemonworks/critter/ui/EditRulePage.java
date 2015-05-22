@@ -20,13 +20,12 @@ public class EditRulePage implements Renderable {
 		
 		html.h3().content("Edit the rule");
 		
-		html.form(id("newrule").action("/ui/newrule").method("post"));		
+		html.form(id("newrule").action(String.format("/ui/rules/%s/edit", html.getPageContext().getString("id"))).method("post"));
 		
 		html.div(dataRole("fieldcontain"))
 			.label(for_("rulexml"))
 				.content("xml definition:")
-			.textarea(name("rulexml").id("rulexml").rows("10"))
-				.content(rulexml)				
+			.textarea(name("rulexml").id("rulexml").rows("10")).content(rulexml)
 		
 			._div();
 		
