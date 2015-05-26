@@ -22,7 +22,7 @@ public class EditFixedResponsePage implements Renderable {
         if (alert != null) {
             html.div(id("alertmessage")).content(alert);
         }
-        html.h3().content("Edit a HTTP Request and Response recording");
+        html.h3().content("Create a HTTP Request and Response rule");
                 
         html.form(id("newresponse").action("/ui/newresponse").method("post"));  
 
