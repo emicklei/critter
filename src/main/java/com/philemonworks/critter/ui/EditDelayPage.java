@@ -18,7 +18,7 @@ public class EditDelayPage implements Renderable {
         if (alert != null) {
             html.div(id("alertmessage")).content(alert);
         }
-        html.h3().content("Edit a delay on getting a Response");
+        html.h3().content("Add a delay on getting a Response");
                 
         html.form(id("newdelay").action("/ui/newdelay").method("post"));  
 
