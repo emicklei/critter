@@ -41,7 +41,7 @@ public class AdminUIResource {
 		html.getPageContext()
 		    .withString("rulexml", StringResource.get(("/newrule.xml")))
 		    .withBoolean("proxy.started", this.proxyServer.isStarted());
-		html.render(new SiteLayout(new EditRulePage()));
+		html.render(new SiteLayout(new NewRulePage()));
 		return Response.ok().entity(html.toHtml()).build();
 	}
 
@@ -97,7 +97,7 @@ public class AdminUIResource {
 			HtmlCanvas html = new HtmlCanvas();
 			html.getPageContext().withString("alert","This definition is not valid, please correct.");
 			html.getPageContext().withString("rulexml",rulexml);
-			html.render(new SiteLayout(new EditRulePage()));
+			html.render(new SiteLayout(new NewRulePage()));
 			return Response.ok().entity(html.toHtml()).build();
 		}
 		return Response.seeOther(new URI("/")).build();
@@ -224,7 +224,7 @@ public class AdminUIResource {
     @Produces("text/html")
     public Response saveRuleAfterEdit(@PathParam("id") String id, InputStream input) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-        String decoded = URLDecoder.decode(reader.readLine(),"utf8"); // Despite the name, this utility class is for HTML form decoding
+        String decoded = URLDecoder.decode(reader.readLine(), "utf8"); // Despite the name, this utility class is for HTML form decoding
         int eq = decoded.indexOf('=');
         String rulexml = null;
         try {
