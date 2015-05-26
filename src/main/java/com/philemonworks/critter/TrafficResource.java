@@ -5,10 +5,12 @@ import com.philemonworks.critter.rule.Rule;
 import com.philemonworks.critter.rule.RuleConverter;
 import com.philemonworks.critter.ui.HelpPage;
 import com.philemonworks.critter.ui.HomePage;
+import com.philemonworks.critter.ui.RecordingsPage;
 import com.philemonworks.critter.ui.SiteLayout;
 import com.philemonworks.selfdiagnose.SelfDiagnose;
 import com.philemonworks.selfdiagnose.output.DiagnoseRunReporter;
 import com.philemonworks.selfdiagnose.output.HTMLReporter;
+import org.apache.commons.lang3.StringUtils;
 import org.rendershark.core.logging.LoggerManager;
 import org.rendershark.http.HttpServer;
 import org.rendersnake.HtmlCanvas;
@@ -38,13 +40,13 @@ import java.util.List;
 @Path("/")
 public class TrafficResource {
     private static final Logger LOG = LoggerFactory.getLogger(TrafficResource.class);
-    
+
     @Inject TrafficManager trafficManager;
     @Inject LoggerManager loggerManager;
-    @Inject @Named("Proxy") HttpServer proxyServer;    
+    @Inject @Named("Proxy") HttpServer proxyServer;
     @Inject @Named("proxy.host") String proxyHost;
     @Inject @Named("traffic.port") String port;
-    
+
     @GET
     @Produces("text/html")
     public Response home() throws IOException {
@@ -54,10 +56,10 @@ public class TrafficResource {
         } catch (Exception ex) {
             LOG.error("Failed to retrieve rules",ex);
             return Response.serverError().entity(ex.getMessage()).build();
-        }        
+        }
         HtmlCanvas html = new HtmlCanvas();
         html.getPageContext()
-            .withObject("rules",rules)
+            .withObject("rules", rules)
             .withBoolean("proxy.started", this.proxyServer.isStarted());
         html.render(new SiteLayout(new HomePage()));
         return Response.ok().entity(html.toHtml()).build();
@@ -83,7 +85,7 @@ public class TrafficResource {
             return Response.ok().entity(xml).build();
         }
     }
-    
+
     @POST
     @Path("/rules/{id}/enable")
     public Response enableRule(@PathParam("id") String id) {
@@ -104,8 +106,8 @@ public class TrafficResource {
         } else {
             return Response.ok().build();
         }
-    }  
-    
+    }
+
     @POST
     @Path("/rules/{id}/disable")
     public Response disableRule(@PathParam("id") String id) {
@@ -125,7 +127,7 @@ public class TrafficResource {
         } else {
             return Response.ok().build();
         }
-    }    
+    }
 
     @DELETE
     @Path("/rules/{id}")
@@ -138,7 +140,7 @@ public class TrafficResource {
         }
         return Response.ok().build();
     }
-    
+
     @GET
     @Produces("application/xml")
     @Path("/rules")
@@ -154,22 +156,23 @@ public class TrafficResource {
     }
 
     @GET
-    @Produces("application/xml")
+    @Produces("text/html")
     @Path("/recordings")
-    public Response getRecordings(
-    ) {
-        try {
-            List<Recording> records = this.trafficManager.recordingDao.search("", "", "", "", 0);
-            String xml = RecordingConverter.toXml(records);
-            return Response.ok().entity(xml).build();
-        } catch (Exception ex) {
-            LOG.error("Failed to retrieve recordings",ex);
-            return Response.serverError().entity(ex.getMessage()).build();
+    public Response getRecordings(@QueryParam("host") String host, @QueryParam("method") String method) throws IOException, URISyntaxException {
+        if (StringUtils.isNotBlank(host) && StringUtils.isNotBlank(method)) {
+            return Response.temporaryRedirect(new URI(String.format("/recordings/%s/%s", host, method))).build();
+        } else {
+            HtmlCanvas html = new HtmlCanvas();
+            html.getPageContext().withString("host", host).withString("method", method);
+            html.render(new SiteLayout(new RecordingsPage()));
+            return Response.ok().entity(html.toHtml()).build();
         }
-    }    @GET
-         @Produces("application/xml")
-         @Path("/recordings/{host}/{method}")
-         public Response getRecordings(
+    }
+
+    @GET
+    @Produces("application/xml")
+    @Path("/recordings/{host}/{method}")
+    public Response getRecordings(
             @PathParam("host") String host,
             @PathParam("method") String method,
             @QueryParam("path") @DefaultValue("") String path,
@@ -198,7 +201,7 @@ public class TrafficResource {
             return Response.serverError().entity(ex.getMessage()).build();
         }
     }
-    
+
     @POST
     @Consumes("application/xml")
     @Path("/rules")
@@ -224,7 +227,7 @@ public class TrafficResource {
         }
         return Response.created(uri).build();
     }
-    
+
     @PUT
     @Consumes("application/xml")
     @Path("/rules/{id}")
@@ -241,8 +244,8 @@ public class TrafficResource {
             return Response.serverError().entity(ex.getMessage()).build();
         }
         return Response.created(uri).build();
-    }    
-    
+    }
+
     @GET
     @Path("/internal/selfdiagnose.html")
     @Produces("text/html")
@@ -251,25 +254,25 @@ public class TrafficResource {
         SelfDiagnose.runTasks(reporter);
         return Response.ok().entity(reporter.getContent()).build();
     }
-    
+
     private URI buildURI(String path) throws URISyntaxException {
     	return new URI("http://" + proxyHost + ":" + port + path);
     }
-    
+
     @POST
     @Path("/internal/logger/{name}/{level}")
     public Response changeLogger(@PathParam("name") String name, @PathParam("level") String level) {
         this.loggerManager.setLoggerLevel(name, level);
         return Response.ok().entity(this.loggerManager.getLoggerLevel(name)).build();
     }
-    
+
     @GET
     @Path("/example")
     @Produces("application/xml")
     public Response example() {
         return Response.ok().entity(this.getClass().getResourceAsStream("/rule-example.xml")).build();
-    }  
-    
+    }
+
     @GET
     @Path("/help.html")
     @Produces("text/html")
@@ -278,9 +281,9 @@ public class TrafficResource {
         html.getPageContext()
             .withBoolean("proxy.started", this.proxyServer.isStarted());
         html.render(new SiteLayout(new HelpPage()));
-        return Response.ok().entity(html.toHtml()).build();        
-    }    
-    
+        return Response.ok().entity(html.toHtml()).build();
+    }
+
     @POST
     @Path("/proxy/start")
     @Produces("text/plain")
@@ -288,15 +291,15 @@ public class TrafficResource {
         this.proxyServer.startUp();
         return Response.ok("proxy server is started:"+this.proxyServer.isStarted()).build();
     }
-    
+
     @POST
     @Path("/proxy/stop")
     @Produces("text/plain")
     public Response shutDownProxyServer() {
         this.proxyServer.shutDown();
         return Response.ok("proxy server is started:"+this.proxyServer.isStarted()).build();
-    } 
-    
+    }
+
     @GET
     @Path("internal/stats.html")
     @Produces("text/html")
@@ -304,6 +307,6 @@ public class TrafficResource {
         if (doFlush) MonitorFactory.reset();
         HtmlCanvas html = new HtmlCanvas();
         html.html().body().write(MonitorFactory.getReport(),false)._body()._html();
-        return Response.ok().entity(html.toHtml()).build();          
-    }    
+        return Response.ok().entity(html.toHtml()).build();
+    }
 }
