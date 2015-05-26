@@ -19,7 +19,7 @@ public class HomePage implements Renderable {
                 .content("New Delay") 
             .a(dataRole("button").dataTheme("b").dataTest("newrule")
                 .href("/ui/newresponse"))
-                .content("New Recording") 
+                .content("New Fixed rule")
             .a(dataRole("button").dataTheme("b").dataTest("newrule")
                 .href("/ui/newrule"))
                 .content("New Generic Rule")                 
