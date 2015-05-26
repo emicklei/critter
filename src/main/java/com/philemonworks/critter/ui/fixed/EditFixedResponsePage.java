@@ -54,28 +54,34 @@ public class EditFixedResponsePage implements Renderable {
             .label(for_("url"))
                 .content("URL:")
             .input(name("critter_url").id("url").value("http://here.com/find/me"))              
-            ._div();        
-        
+            ._div();
+
+        html.div(dataRole("fieldcontain").class_("get-post"))
+                .label(for_("accepttype"))
+                .content("Accept:")
+                .input(name("critter_accepttype").id("accepttype").value("application/xml"))
+                ._div();
+
         html.div(dataRole("fieldcontain").class_("post-put").style("display:none"))
             .label(for_("contenttype"))
                 .content("Content-Type:")
-            .input(name("critter_contenttype").id("contenttype").value("application/xml"))              
-            ._div();      
-        
-        html.div(dataRole("fieldcontain").class_("post-put").style("display:none"))        
+            .input(name("critter_contenttype").id("contenttype").value("application/xml"))
+            ._div();
+
+        html.div(dataRole("fieldcontain").class_("post-put").style("display:none"))
             .label(for_("body"))
                 .content("Request content:")
             .textarea(name("critter_requestcontent").id("body").rows("10"))
                 .content("")               
             ._div();
-                     
+
         html.div(dataRole("fieldcontain").class_("get-post"))
-            .label(for_("accepttype"))
-                .content("Accept:")
-            .input(name("critter_accepttype").id("accepttype").value("application/xml"))              
-            ._div();          
-        
-        html.div(dataRole("fieldcontain").class_("get-post"))        
+                .label(for_("accepttype"))
+                .content("Response Content-Type:")
+                .input(name("critter_responsetype").id("responsecontenttype").value("application/xml"))
+                ._div();
+
+        html.div(dataRole("fieldcontain").class_("get-post"))
             .label(for_("response"))
                 .content("Response content:")
             .textarea(name("critter_responsecontent").id("response").rows("10"))
@@ -89,7 +95,7 @@ public class EditFixedResponsePage implements Renderable {
     
     public static Properties decode(String input) {
         Properties props = new Properties();
-        String[] tokens = new String[]{"critter_id","critter_method","critter_url","critter_contenttype","critter_accepttype","critter_responsecontent","critter_requestcontent"};
+        String[] tokens = new String[]{"critter_id","critter_method","critter_url","critter_contenttype","critter_accepttype","critter_responsecontent","critter_requestcontent","critter_responsetype"};
         for (String each : tokens) {
             int begin = input.indexOf(each);
             if (begin != -1) {
@@ -113,6 +119,7 @@ public class EditFixedResponsePage implements Renderable {
         input.accepttype = props.getProperty("accepttype");
         input.requestcontent = props.getProperty("requestcontent");
         input.responsecontent = props.getProperty("responsecontent");
+        input.responsecontenttype = props.getProperty("responsetype");
         input.url = props.getProperty("url");
         return input;
     }

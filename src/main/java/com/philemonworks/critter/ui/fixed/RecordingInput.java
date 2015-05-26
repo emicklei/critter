@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class RecordingInput {
     public String id, requestcontent, method, url, contenttype, accepttype, responsecontent;
+    public String responsecontenttype;
 
     public String getId() {
         return id;
@@ -63,6 +64,7 @@ public class RecordingInput {
     public boolean hasRequestContent() { return !StringUtils.isEmpty(requestcontent); }
     public boolean hasAccepttype() { return !StringUtils.isEmpty(accepttype); }
     public boolean hasResponsecontent() { return !StringUtils.isEmpty(responsecontent); }
+    public boolean hasResponseContentType() { return !StringUtils.isEmpty(responsecontenttype); }
     public boolean hasContenttype() { return !StringUtils.isEmpty(contenttype); }
     public boolean hasUrl() { return !StringUtils.isEmpty(url); }
     public boolean hasMethod() { return !StringUtils.isEmpty(method); }

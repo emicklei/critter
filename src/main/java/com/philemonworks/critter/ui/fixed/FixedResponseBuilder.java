@@ -7,6 +7,7 @@ import javax.ws.rs.core.HttpHeaders;
 
 import com.philemonworks.critter.action.Respond;
 import com.philemonworks.critter.action.ResponseBody;
+import com.philemonworks.critter.action.ResponseHeader;
 import com.philemonworks.critter.condition.Host;
 import com.philemonworks.critter.condition.Method;
 import com.philemonworks.critter.condition.Path;
@@ -52,12 +53,17 @@ public class FixedResponseBuilder {
             h.name = HttpHeaders.ACCEPT;
             h.matches = input.accepttype;
             r.getConditions().add(h);
-        } 
+        }
+        if (input.hasResponseContentType() && input.hasResponsecontent()){
+            ResponseHeader h = new ResponseHeader();
+            h.with("add", HttpHeaders.CONTENT_TYPE + ": " + input.responsecontenttype);
+            r.getActions().add(h);
+        }
         if (input.hasResponsecontent()) {
             ResponseBody rb = new ResponseBody();
             rb.body = input.responsecontent;
             r.getActions().add(rb);
-        }                
+        }
         if (input.hasRequestContent()) {
             RequestBody rb = new RequestBody();
             rb.body = input.requestcontent;
