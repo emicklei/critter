@@ -104,7 +104,7 @@ public class EditFixedResponsePage implements Renderable {
                 String key = each.substring(slash+1);
                 String value = "";
                 if (begin + each.length() + 1 < input.length()) {
-                  value = input.substring(begin + each.length() + 1, end == -1 ? input.length() - 1 : end - 1);
+                  value = input.substring(begin + each.length() + 1, end == -1 ? input.length() : end - 1);
                 }
                 props.put(key, value);
             }
