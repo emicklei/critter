@@ -100,11 +100,12 @@ public class AdminUIResource {
 		String rulexml = null;
 		try {
 			rulexml = decoded.substring(eq+1);
-			Rule rule = (Rule)RuleConverter.fromXml(new ByteArrayInputStream(rulexml.getBytes()));
+			Rule rule = (Rule)RuleConverter.fromXml(rulexml);
 			this.trafficManager.addOrReplaceRule(rule);
 		} catch (Exception ex) {
+            LOG.error("new rule contains errors:", ex);
 			HtmlCanvas html = new HtmlCanvas();
-			html.getPageContext().withString("alert","This definition is not valid, please correct.");
+			html.getPageContext().withString("alert","This definition is not valid, please correct:<br>" + ex.getMessage());
 			html.getPageContext().withString("rulexml",rulexml);
 			html.render(new SiteLayout(new EditRulePage()));
 			return Response.ok().entity(html.toHtml()).build();
