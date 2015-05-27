@@ -3,7 +3,6 @@ package com.philemonworks.critter.rule;
 import com.google.common.collect.Sets;
 import com.philemonworks.critter.action.*;
 import com.philemonworks.critter.condition.*;
-import com.sun.javaws.exceptions.InvalidArgumentException;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
