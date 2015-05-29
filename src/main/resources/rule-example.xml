@@ -52,8 +52,8 @@
 		<!-- set the status code of the response that will be send back to the client -->
 		<status code="500" />
 
-		<!-- set the response body that will be send back to the client , status code is optional-->
-		<responsebody code="200">
+		<!-- set the response body that will be send back to the client -->
+		<responsebody>
 			<body><![CDATA[
 				<html></html>
 			]]></body>

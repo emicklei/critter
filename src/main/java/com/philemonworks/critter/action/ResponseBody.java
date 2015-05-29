@@ -10,7 +10,6 @@ import java.io.IOException;
 
 public class ResponseBody implements Action {
 
-    public Integer code;
     public String body;
 
     @Override
@@ -18,13 +17,7 @@ public class ResponseBody implements Action {
         // compose body
         String content = Utils.applyContextParametersTo(context, body);
 
-        Response.ResponseBuilder responseBuilder = getResponseBuilder(context).entity(content);
-
-        if (code != null) {
-            responseBuilder.status(this.code);
-        }
-
-        context.forwardResponse = responseBuilder.build();
+        context.forwardResponse = getResponseBuilder(context).entity(content).build();
     }
 
     private Response.ResponseBuilder getResponseBuilder(RuleContext context) {
@@ -48,11 +41,7 @@ public class ResponseBody implements Action {
             c.write(shortBody);
         } catch (IOException e) {
         }
-        String explanation = "replace the response body with [" + c.toHtml() + "]";
-        if (code != null) {
-            explanation += " and set the response status code to [" + code + "]";
-        }
-        return explanation;
+        return "replace the response body with [" + c.toHtml() + "]";
     }
 
     public Action withBody(String body) {
