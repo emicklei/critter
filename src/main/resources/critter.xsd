@@ -22,6 +22,7 @@
             <xs:element name="requestheader" type="header"/>
             <xs:element name="basicauthentication" type="basicauthentication"/>
             <xs:element name="xpath" type="xpath"/>
+            <xs:element name="equals" type="equals"/>
             <xs:element name="not" type="not"/>
         </xs:choice>
     </xs:complexType>
@@ -84,6 +85,14 @@
         <xs:attribute type="xs:short" name="matches"/>
     </xs:complexType>
 
+    <xs:complexType name="equals">
+        <xs:annotation>
+            <xs:documentation>true if the specified parameter with the specified value exists</xs:documentation>
+        </xs:annotation>
+        <xs:attribute type="xs:string" name="parameter"/>
+        <xs:attribute type="xs:string" name="value"/>
+    </xs:complexType>
+
     <xs:complexType name="not">
         <xs:annotation>
             <xs:documentation>you can wrap any condition in a not element</xs:documentation>
@@ -96,12 +105,14 @@
             <xs:element name="header" type="header"/>
             <xs:element name="basicauthentication" type="basicauthentication"/>
             <xs:element name="xpath" type="xpath"/>
+            <xs:element name="equals" type="equals"/>
         </xs:choice>
     </xs:complexType>
 
     <xs:complexType name="actions">
         <xs:sequence>
             <xs:element name="scheme" type="scheme" minOccurs="0"/>
+            <xs:element name="port" type="portAction" minOccurs="0"/>
             <xs:element name="delay" type="delay" minOccurs="0"/>
             <xs:element name="responseheader" type="responseheader" minOccurs="0"/>
             <xs:element name="forward" type="forward" minOccurs="0"/>
@@ -123,6 +134,13 @@
                 <xs:attribute type="xs:string" name="name"/>
             </xs:extension>
         </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="portAction">
+        <xs:annotation>
+            <xs:documentation>change the port to the given one</xs:documentation>
+        </xs:annotation>
+        <xs:attribute type="xs:string" name="value"/>
     </xs:complexType>
 
     <xs:complexType name="forward">
