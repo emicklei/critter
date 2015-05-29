@@ -13,7 +13,7 @@ public class Rule implements Condition, Action {
 	private static final Logger LOG = LoggerFactory.getLogger(Rule.class);
 	
 	public String id;
-	public boolean enabled = false;
+	public boolean enabled = true;
 	protected List<Condition> conditions = new ArrayList<Condition>();
 	protected List<Action> actions = new ArrayList<Action>();
 

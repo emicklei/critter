@@ -20,3 +20,7 @@ pre {
 h3 { color: lightblue; }
 
 pre { font-size:large ; background-color:gray; padding: 4px}
+
+.ui-li-desc {
+	white-space: normal;
+}
