@@ -1,13 +1,14 @@
 package com.philemonworks.critter.ui;
 
-import static org.rendersnake.HtmlAttributesFactory.*;
+import org.rendersnake.HtmlCanvas;
+import org.rendersnake.Renderable;
 
 import java.io.IOException;
 
-import org.rendersnake.HtmlCanvas;
-import org.rendersnake.Renderable;
+import static org.rendersnake.HtmlAttributesFactory.*;
+
 // TODO http://codemirror.net/doc/manual.html
-public class EditRulePage implements Renderable {
+public class NewRulePage implements Renderable {
 
 	@Override
 	public void renderOn(HtmlCanvas html) throws IOException {
@@ -20,7 +21,7 @@ public class EditRulePage implements Renderable {
 		
 		html.h3().content("Edit the rule");
 		
-		html.form(id("newrule").action(String.format("/ui/rules/%s/edit", html.getPageContext().getString("id"))).method("post"));
+		html.form(id("newrule").action("/ui/newrule").method("post"));
 		
 		html.div(dataRole("fieldcontain"))
 			.label(for_("rulexml"))
