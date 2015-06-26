@@ -58,7 +58,7 @@ public class Record implements Action {
             if (tester.hasTextualRequestContent()) {
                 Object e = context.forwardResponse.getEntity();
                 if (e instanceof InputStream) {
-                    record.requestContent = this.readStringContents((InputStream) e);
+                    record.responseContent = this.readStringContents((InputStream) e);
                 }
                 if (e instanceof String) {
                     record.responseContent = (String) e;
