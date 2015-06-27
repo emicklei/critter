@@ -4,7 +4,7 @@
 
 	<groupId>com.philemonworks</groupId>
 	<artifactId>critter</artifactId>
-	<version>1.1.4</version>
+	<version>1.1.5</version>
 	<packaging>jar</packaging>
 
 	<name>critter</name>
@@ -77,7 +77,7 @@
 		<dependency>
 			<groupId>org.rendersnake</groupId>
 			<artifactId>rendersnake</artifactId>
-			<version>1.7.3</version>
+			<version>1.9.0</version>
 		</dependency>
 
 		<dependency>
@@ -129,22 +129,6 @@
 		<repository>
 			<id>jamon</id>
 			<url>http://maven.jahia.org/maven2</url>
-		</repository>
-
-		<repository>
-			<id>rendershark-repo</id>
-			<name>Repository for rendershark</name>
-			<url>http://rendershark.googlecode.com/svn/repo</url>
-		</repository>
-		<repository>
-			<id>rendersnake-repo</id>
-			<name>Repository for rendersnake</name>
-			<url>http://rendersnake.googlecode.com/svn/repo</url>
-		</repository>
-		<repository>
-			<id>emicklei-repo</id>
-			<name>Repository for emicklei</name>
-			<url>http://emicklei.googlecode.com/svn/repo</url>
 		</repository>
 		<repository>
 			<id>emicklei-bintray-repo</id>
