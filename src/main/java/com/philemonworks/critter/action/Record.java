@@ -54,8 +54,8 @@ public class Record implements Action {
     private void copyResponseData(RuleContext context, Recording record, RecordingInput tester) {
         // see if a response is available
         if (context.forwardResponse != null) {
-            tester.contenttype = (String) context.forwardResponse.getMetadata().getFirst("Content-Type");
-            if (tester.hasTextualRequestContent()) {
+            tester.responsecontenttype = (String) context.forwardResponse.getMetadata().getFirst("Content-Type");
+            if (tester.hasTextualResponseContent()) {
                 Object e = context.forwardResponse.getEntity();
                 if (e instanceof InputStream) {
                     record.responseContent = this.readStringContents((InputStream) e);
