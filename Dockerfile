@@ -1,4 +1,4 @@
-# VERSION:        1.1.6
+# VERSION:        1.1.7
 # DOCKER-VERSION: 1.3.1
 # AUTHOR:         ... <..@..>
 # DESCRIPTION:    Critter is a http proxy server for simulating connectivity and transport problems when sending http requests.
