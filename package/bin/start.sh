@@ -5,24 +5,32 @@
 # ernest.micklei@philemonworks.com
 
 # where am i
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
+CRITTER_HOME="$( dirname "$SCRIPT_DIR" )"
+LOG_DIR=$CRITTER_HOME/log
+
+cd $CRITTER_HOME
+
+if [ ! -d $LOG_DIR ]; then
+  mkdir $LOG_DIR
+fi
 
 if [[ $# == 1 && $1 == "--no-daemon" ]]; then
     java \
-        -Dlog4j.configuration="file://$DIR/../conf/log4j.properties" \
+        -Dlog4j.configuration="file://$CRITTER_HOME/conf/log4j.properties" \
         $JAVA_OPTS \
-        -classpath "$DIR/../lib/*" \
-        com.philemonworks.critter.Launcher "$DIR/../conf/critter.properties"
+        -classpath "$CRITTER_HOME/lib/*" \
+        com.philemonworks.critter.Launcher "$CRITTER_HOME/conf/critter.properties"
     exit $?
 fi
 
 # start the engines
 java \
-    -Dlog4j.configuration="file://$DIR/../conf/log4j.properties" \
+    -Dlog4j.configuration="file://$CRITTER_HOME/conf/log4j.properties" \
     $JAVA_OPTS \
-    -classpath "$DIR/../lib/*" \
-    com.philemonworks.critter.Launcher "$DIR/../conf/critter.properties" > boot.log 2>&1 &
+    -classpath "$CRITTER_HOME/lib/*" \
+    com.philemonworks.critter.Launcher "$CRITTER_HOME/conf/critter.properties" > $LOG_DIR/boot.log 2>&1 &
 
 # store the java process id for stop.sh
 LASTPID=$(echo $!)
-echo $LASTPID > "main.pid"
+echo $LASTPID > $SCRIPT_DIR/main.pid
