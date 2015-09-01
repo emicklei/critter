@@ -25,12 +25,12 @@ public class Launcher {
     private static final Logger LOG = LoggerFactory.getLogger(Launcher.class);
 
     public static void main(String[] args) {
-    	if (args.length == 0) {
-            System.out.println("No argument given - reading form environment variables");
-            startWithConfiguration(createPropertiesFromEnv());
-    		return;
+        String propertiesFileName=null;
+    	if (args.length == 1) {
+            propertiesFileName = args[0];
     	}
-        startWithConfiguration(createProperties(args[0]));
+
+        startWithConfiguration(loadProperties(propertiesFileName));
     }
 
     private static void startWithConfiguration(final Properties configProperties) {
@@ -58,21 +58,15 @@ public class Launcher {
                 TrafficResource.class.getName() + " " +
         		AdminUIResource.class.getName());
         String trafficPort = trafficProperties.getProperty(TRAFFIC_PORT);
-        startUpServerWith(trafficPort,
-                HttpServer.createPropertiesModule(trafficProperties), 
-                managerModule, 
-                proxyServerModule,
-                new TrafficModule());
+        startUpServerWith(trafficPort, HttpServer.createPropertiesModule(trafficProperties), managerModule, proxyServerModule, new TrafficModule());
 	}
 
 	private static HttpServer startProxyServer(Properties proxyProperties, Module managerModule) {
-        proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CLASSNAMES,ProxyResource.class.getName());
-        proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS,ProxyFilter.class.getName());
+        proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CLASSNAMES, ProxyResource.class.getName());
+        proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS, ProxyFilter.class.getName());
         String proxyPort = proxyProperties.getProperty(PROXY_PORT);
         String numberOfWorkers = proxyProperties.getProperty(PROXY_WORKERS);
-		proxyProperties.put(
-				NettyHandlerContainer.PROPERTY_BASE_URI,
-        		"http://" + proxyProperties.getProperty(PROXY_HOST) + ":" + proxyPort + "/");
+		proxyProperties.put(NettyHandlerContainer.PROPERTY_BASE_URI, "http://" + proxyProperties.getProperty(PROXY_HOST) + ":" + proxyPort + "/");
         return startUpServerWith(proxyPort, (StringUtils.isNotBlank(numberOfWorkers) ? Integer.parseInt(numberOfWorkers) : DEFAULT_NUMBER_OF_WORKERS),
                 HttpServer.createPropertiesModule(proxyProperties), 
                 managerModule, 
@@ -93,32 +87,59 @@ public class Launcher {
         return server;
     }
 
-    public static Properties createProperties(String location) {
-        final Properties serverProperties = new Properties(); 
-        try {
-            serverProperties.load(new FileInputStream(location));
-        } catch (Exception ex) {
-            System.err.println("Unable to load properties from;" + location);
-            return null;
-        }
-        return serverProperties;
+    public static Properties loadProperties(String propertiesFileName) {
+        Properties p = new Properties();
+
+        p.putAll(getDefaultProperties());
+        p.putAll(getPropertiesFromFile(propertiesFileName));
+        p.putAll(getPropertiesFromEnvironment());
+
+        return p;
     }
 
-    public static Properties createPropertiesFromEnv() {
-        final Properties serverProperties = new Properties();
-        serverProperties.put("proxy.host",
-                StringUtils.isNotEmpty(System.getenv("proxyHost")) ? System.getenv("proxyHost") : "localhost");
-        serverProperties.put("proxy.port", StringUtils.isNotEmpty(System.getenv("proxyPort")) ? System.getenv("proxyPort") : "8888");
-        serverProperties.put("traffic.port",
-                StringUtils.isNotEmpty(System.getenv("traffic")) ? System.getenv("traffic") : "8877");
-        serverProperties.put("rule.database.h2.enabled",
-                StringUtils.isNotEmpty(System.getenv("enabledH2")) ? System.getenv("enabledH2") : "true");
+    private static Properties getDefaultProperties() {
+        Properties properties = new Properties();
 
+        properties.setProperty(PROXY_HOST, "localhost");
+        properties.setProperty(PROXY_PORT, "8888");
+        properties.setProperty(TRAFFIC_PORT, "8877");
+        properties.setProperty("rule.database.h2.enabled", "true");
+
+        return properties;
+    }
+
+    public static Properties getPropertiesFromFile(String location) {
+        final Properties properties = new Properties();
+        if (StringUtils.isNotBlank(location)) {
+            try {
+                properties.load(new FileInputStream(location));
+            } catch (Exception ex) {
+                LOG.warn("Unable to load properties from;" + location, ex);
+            }
+        }
+        return properties;
+    }
+
+    public static Properties getPropertiesFromEnvironment() {
+        final Properties properties = new Properties();
+
+        if (StringUtils.isNotEmpty(System.getenv("proxyHost"))) {
+            properties.setProperty(PROXY_HOST, System.getenv("proxyHost"));
+        }
         if (StringUtils.isNotEmpty(System.getenv("proxyPort"))) {
-            serverProperties.put("proxy.workers", System.getenv("proxyPort"));
+            properties.setProperty(PROXY_PORT, System.getenv("proxyPort"));
+        }
+        if (StringUtils.isNotEmpty(System.getenv("traffic"))) {
+            properties.setProperty(TRAFFIC_PORT, System.getenv("traffic"));
+        }
+        if (StringUtils.isNotEmpty(System.getenv("enabledH2"))) {
+            properties.setProperty("rule.database.h2.enabled", System.getenv("enabledH2"));
+        }
+        if (StringUtils.isNotEmpty(System.getenv("proxyWorkers"))) {
+            properties.setProperty(PROXY_WORKERS, System.getenv("proxyWorkers"));
         }
 
-        return serverProperties;
+        return properties;
     }
 
 }
