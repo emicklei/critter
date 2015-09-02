@@ -196,7 +196,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.3.2</version>
 				<configuration>
-					<imageName>critter:${project.version}</imageName>
+					<imageName>critter/critter:${project.version}</imageName>
 					<dockerDirectory>docker</dockerDirectory>
 					<resources>
 						<resource>
