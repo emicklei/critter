@@ -191,6 +191,22 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.3.2</version>
+				<configuration>
+					<imageName>critter/critter:${project.version}</imageName>
+					<dockerDirectory>docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}-pkg.tar.gz</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
 		</plugins>
 
 	</build>

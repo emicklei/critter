@@ -7,13 +7,12 @@
 # TO_PUSH:        docker push <hub or user>/critter[:tag]
 #
 # Run `mvn clean package` before trying to build this image
-# 
+#
 
 FROM            maxexcloo/java:latest
 
-ADD             target/critter-*-pkg.tar.gz   /opt/critter
+ADD             critter-*-pkg.tar.gz   /opt/critter
 RUN             chmod a+x -R /opt/critter/bin
 
 EXPOSE          8888 8877
 CMD             ["/opt/critter/bin/start-container.sh","--no-daemon"]
-
