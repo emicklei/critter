@@ -10,14 +10,16 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.core.Response;
 
+import com.philemonworks.critter.httpclient.EnvironmentHttpRoutePlanner;
+import com.philemonworks.critter.httpclient.NoRedirectStrategy;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.InputStreamEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
-import org.apache.http.params.HttpParams;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.apache.http.pool.PoolStats;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,17 +34,17 @@ public class HttpClient {
     public static final int DEFAULT_MAX_CONNECTIONS = 100;
     public static final int DEFAULT_MAX_CONNECTIONS_PER_ROUTE = 100;
 
-    private ThreadSafeClientConnManager connectionManager;
-    protected DefaultHttpClient httpClient;
-    protected HttpParams params;
+    private PoolingHttpClientConnectionManager connectionManager;
+    protected org.apache.http.client.HttpClient httpClient;
 
     @Inject
     public void init() {
         LOG.info("Preparing for using Http connections");
-        this.connectionManager = new ThreadSafeClientConnManager();
-        this.httpClient = this.params == null ? new DefaultHttpClient(connectionManager) : new DefaultHttpClient(connectionManager, this.params);
+        connectionManager = new PoolingHttpClientConnectionManager();
         connectionManager.setMaxTotal(DEFAULT_MAX_CONNECTIONS);
         connectionManager.setDefaultMaxPerRoute(DEFAULT_MAX_CONNECTIONS_PER_ROUTE);
+
+        httpClient = HttpClients.custom().setConnectionManager(connectionManager).setRedirectStrategy(new NoRedirectStrategy()).setRoutePlanner(new EnvironmentHttpRoutePlanner()).build();
     }
 
     public Response forward(HttpContext ctx, HttpRequestBase forwardRequest, URI forwardURI) {
@@ -109,8 +111,9 @@ public class HttpClient {
             LOG.error("Reading response failed", ex);
             return Response.serverError().entity(ex.getMessage()).build();
         } finally {
-            LOG.trace("Connections in pool:{}", connectionManager.getConnectionsInPool());
-            MonitorFactory.add("--critter.http.pool.size", "count", connectionManager.getConnectionsInPool() * 1.0d);
+            PoolStats totalStats = connectionManager.getTotalStats();
+            LOG.trace("Connections in pool:{}", totalStats);
+            MonitorFactory.add("--critter.http.pool.size", "count", (totalStats.getAvailable() + totalStats.getLeased()) * 1.0d);
         }
     }
 }
