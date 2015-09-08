@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.core.Response;
 
+import com.philemonworks.critter.httpclient.EnvironmentHttpRoutePlanner;
 import com.philemonworks.critter.httpclient.NoRedirectStrategy;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
@@ -43,7 +44,7 @@ public class HttpClient {
         connectionManager.setMaxTotal(DEFAULT_MAX_CONNECTIONS);
         connectionManager.setDefaultMaxPerRoute(DEFAULT_MAX_CONNECTIONS_PER_ROUTE);
 
-        httpClient = HttpClients.custom().setConnectionManager(connectionManager).setRedirectStrategy(new NoRedirectStrategy()).build();
+        httpClient = HttpClients.custom().setConnectionManager(connectionManager).setRedirectStrategy(new NoRedirectStrategy()).setRoutePlanner(new EnvironmentHttpRoutePlanner()).build();
     }
 
     public Response forward(HttpContext ctx, HttpRequestBase forwardRequest, URI forwardURI) {
