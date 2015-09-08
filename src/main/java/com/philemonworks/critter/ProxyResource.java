@@ -66,7 +66,7 @@ public class ProxyResource {
     private Response performActionsFor(HttpContext httpContext, HttpRequestBase requestBase) {        
         ContainerRequest containerRequest = (ContainerRequest) httpContext.getRequest();
         URI forwardUri = (URI)containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
-        if (forwardUri != null) LOG.trace(requestBase.getMethod() + " " + forwardUri);
+        if (forwardUri != null) LOG.debug(requestBase.getMethod() + " " + forwardUri);
 
         Monitor proxyMon = MonitorFactory.start(forwardUri == null ? "/" : forwardUri.getHost());
         try {
@@ -91,7 +91,7 @@ public class ProxyResource {
     private void detectAndApplyRule(RuleContext ruleContext) {
         Rule rule = this.trafficManager.detectRule(ruleContext);
         if (null == rule) {
-            LOG.trace("No rule detected");
+            LOG.debug("No rule detected");
             Monitor mon = MonitorFactory.start("--critter.passthrough");
             try {
                 new Forward().perform(ruleContext);
@@ -100,7 +100,7 @@ public class ProxyResource {
                 mon.stop();
             }
         } else {
-            LOG.trace("Apply rule {}", rule.id);
+            LOG.debug("Apply rule {}", rule.id);
             Monitor mon = MonitorFactory.start("--critter.rule."+rule.id);
             try {
                 this.trafficManager.performRule(rule, ruleContext);
