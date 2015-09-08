@@ -5,17 +5,23 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequest;
 import org.apache.http.impl.conn.DefaultRoutePlanner;
-import org.apache.http.impl.conn.SystemDefaultRoutePlanner;
 import org.apache.http.protocol.HttpContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.ProxySelector;
 import java.net.URI;
 import java.net.URISyntaxException;
 
 /**
- * Created by jruijgers on 08/09/15.
+ * <p>This {@link org.apache.http.conn.routing.HttpRoutePlanner HttpRoutePlanner}
+ * implementation determines whether a proxy must be used for the current
+ * request based on the environment variables {code}http_proxy{code},
+ * {code}https_proxy{code} and {code}no_proxy{code}. These variables can be set
+ * on system level and are the same in usuage as in regular Linux systems.</p>
+ *
+ * <p>The {@link DefaultRoutePlanner} creates the corresponding
+ * {@link org.apache.http.conn.routing.HttpRoute}, so this class can return
+ * <code>NULL</code> when no proxy is needed.</p>
  */
 public class EnvironmentHttpRoutePlanner extends DefaultRoutePlanner {
     private static final Logger LOGGER = LoggerFactory.getLogger(EnvironmentHttpRoutePlanner.class);
