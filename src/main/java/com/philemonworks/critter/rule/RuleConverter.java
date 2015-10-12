@@ -32,6 +32,7 @@ public class RuleConverter {
         xs.alias("rule", Rule.class);
         xs.useAttributeFor(Rule.class, "id");
         xs.useAttributeFor(Rule.class, "enabled");
+        xs.useAttributeFor(Rule.class, "order");
 
         // conditions
         xs.alias("host", Host.class);

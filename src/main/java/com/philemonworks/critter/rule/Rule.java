@@ -16,8 +16,9 @@ public class Rule implements Condition, Action {
 	public boolean enabled = true;
 	protected List<Condition> conditions = new ArrayList<Condition>();
 	protected List<Action> actions = new ArrayList<Action>();
+	public int order = Integer.MAX_VALUE;
 
-    public List<Condition> getConditions() { 
+	public List<Condition> getConditions() {
         if (conditions == null)
             conditions = new ArrayList<Condition>();
         return conditions;
