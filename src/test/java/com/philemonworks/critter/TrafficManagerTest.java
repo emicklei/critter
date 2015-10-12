@@ -31,12 +31,13 @@ public class TrafficManagerTest {
     }
 
     @Test
-    public void cocococShouldMatchFirstRule() {
+    public void detectRuleShouldMatchFirstRule() {
         Rule rule1 = new Rule();
         Rule rule2 = new Rule();
         RuleContext context = new RuleContext();
 
         when(ruleDao.getRules()).thenReturn(Arrays.asList(rule1, rule2));
+
         Rule resultRule = subject.detectRule(context);
 
         assertThat(resultRule, is(notNullValue()));
@@ -44,4 +45,20 @@ public class TrafficManagerTest {
         assertThat(resultRule, is(not(rule2)));
     }
 
+    @Test
+    public void detectRuleShouldMatchRuleWithLowestOrder() {
+        Rule rule1 = new Rule();
+        rule1.order = 2;
+        Rule rule2 = new Rule();
+        rule2.order= 1;
+        RuleContext context = new RuleContext();
+
+        when(ruleDao.getRules()).thenReturn(Arrays.asList(rule1, rule2));
+
+        Rule resultRule = subject.detectRule(context);
+
+        assertThat(resultRule, is(notNullValue()));
+        assertThat(resultRule, is(rule2));
+        assertThat(resultRule, is(not(rule1)));
+    }
 }

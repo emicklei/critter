@@ -13,11 +13,13 @@ public class TrafficManager {
     @Inject RecordingDao recordingDao;
     
     public Rule detectRule(RuleContext context) {
+        Rule result = null;
         for (Rule each : this.ruleDao.getRules()) {
-            if (each.enabled && each.test(context))
-                return each;
+            if (each.enabled && each.test(context) && (result == null || each.order<result.order)) {
+                result = each;
+            }
         }
-        return null; // no matching rule
+        return result; // no matching rule
     }
 
     public void performRule(Rule aRule, RuleContext ruleContext) {
