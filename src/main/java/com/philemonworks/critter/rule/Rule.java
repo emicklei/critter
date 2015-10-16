@@ -1,23 +1,24 @@
 package com.philemonworks.critter.rule;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.philemonworks.critter.action.Action;
+import com.philemonworks.critter.condition.Condition;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.philemonworks.critter.action.Action;
-import com.philemonworks.critter.condition.Condition;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Rule implements Condition, Action {
+public class Rule {
 	private static final Logger LOG = LoggerFactory.getLogger(Rule.class);
 	
 	public String id;
 	public boolean enabled = true;
 	protected List<Condition> conditions = new ArrayList<Condition>();
 	protected List<Action> actions = new ArrayList<Action>();
+	public int order = Integer.MAX_VALUE;
 
-    public List<Condition> getConditions() { 
+	public List<Condition> getConditions() {
         if (conditions == null)
             conditions = new ArrayList<Condition>();
         return conditions;
@@ -29,18 +30,19 @@ public class Rule implements Condition, Action {
 	    return actions;
 	}
 	
-	@Override
-	public boolean test(RuleContext context) {
-		if (conditions == null) return true;
-		for (Condition each : conditions) {
-			final boolean matches = each.test(context);
-			LOG.trace("condition [{}] matches:{}",each.explain(),matches);
-			if (!matches) return false;
+	public RuleResult test(RuleContext context) {
+		RuleResult result = new RuleResult();
+		if (conditions != null) {
+			for (Condition each : conditions) {
+				final boolean matches = each.test(context);
+				result.match(matches);
+				LOG.trace("condition [{}] matches:{}", each.explain(), matches);
+			}
 		}
-		return true;
+
+		return result;
 	}
 
-	@Override
 	public void perform(RuleContext context) {
 		if (actions == null) return;
 		for (Action each : actions) {
@@ -80,8 +82,30 @@ public class Rule implements Condition, Action {
         return sb.toString();
     }
 
-	@Override
 	public String explain() {
 		return this.conditionsString() +"\n" + this.actionsString();
+	}
+
+	@Override public String toString() {
+		return explain();
+	}
+
+	public class RuleResult {
+		public Rule rule = Rule.this;
+		public boolean matches = true;
+		private int matchCount = 0;
+
+		public void match(boolean matches) {
+			this.matches &= matches;
+			this.matchCount += matches ? 1 : 0;
+		}
+
+		public boolean isBetterMatch(RuleResult other) {
+			return matches && (matchCount > other.matchCount || rule.order < other.rule.order);
+		}
+
+		public String toString() {
+			return new ToStringBuilder(this).append(matches).append(matchCount).append(rule).toString();
+		}
 	}
 }
