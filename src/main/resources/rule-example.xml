@@ -1,7 +1,7 @@
 <!-- Critter example Rule -->
 
 <!-- if all the conditions are met then perform all the actions -->
-<rule id="myrule" enabled="true">
+<rule id="myrule" enabled="true" order="2">
 	<conditions>
 		<!-- true if the hostname of the request matches the given value -->
 		<host matches="test.critter" />
