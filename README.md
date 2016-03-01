@@ -88,4 +88,4 @@ Use `docker ps` to find out to which host ports critter has been bound
 	http://localhost:8877
                          
 
-2013 - 2014 (c) Ernest Micklei, Apache 2 License
+2013 - 2016 (c) ernestmicklei.com, Apache 2 License

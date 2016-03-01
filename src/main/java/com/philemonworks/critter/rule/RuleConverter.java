@@ -69,6 +69,10 @@ public class RuleConverter {
         xs.useAttributeFor(XPath.class, "expression");
         xs.useAttributeFor(XPath.class, "matches");
 
+        xs.alias("protobufpath", XPath.class);
+        xs.useAttributeFor(ProtobufPath.class, "expression");
+        xs.useAttributeFor(ProtobufPath.class, "matches");
+
         xs.alias("requestbody", RequestBody.class);
         xs.alias("script", Script.class);
 

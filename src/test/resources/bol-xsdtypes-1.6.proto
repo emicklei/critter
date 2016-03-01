@@ -1,0 +1,73 @@
+package xsdtypes;
+
+option java_package = "com.bol.protojx.xsdtypes";
+option java_outer_classname = "ProtoMessage";
+
+// http://www.w3schools.com/Schema/schema_dtypes_date.asp
+//
+// http://code.google.com/apis/protocolbuffers/docs/proto.html#scalar
+//
+// @ernestmicklei, bol.com
+
+message Day {
+    message Value {
+	   required int32 year = 1;   // 0..2^(32-1)
+	   required int32 month = 2;  // 1..12
+	   required int32 dayInMonth = 3;    // 1..31
+	}
+	optional Value value = 1;
+}
+message Time {
+    message Value {
+	   required int32 hours = 1; // 0 .. 23
+	   required int32 minutes = 2; // 0 .. 59
+	   required int32 seconds = 3; // 0 .. 59
+	   optional int32 offset = 4; // UTC timezone offset
+	   optional int32 milliseconds = 5;
+	}
+	optional Value value = 1;
+}
+message DayTime {
+    message Value {
+        required Day.Value day = 1;
+	    required Time.Value time = 2;
+	}
+	optional Value value = 1;
+}
+
+// Maps directly to java.math.BigDecimal
+//
+message Decimal {
+    message Value {
+        required int64 unscaledValue = 1;
+        required int32 scale  = 2;
+    }
+    optional Value value = 1;
+}
+
+// Maps to java.lang.Integer and java.lang.Long
+// These messages exist for fields that need to
+// communicate a null-override value.
+//
+message Integer64 {
+    optional int64 value = 1;
+}
+message Integer32 {
+    optional int32 value = 1;
+}
+
+// Maps to java.lang.Boolean
+// This message exist for fields that need to
+// communicate a null-override value.
+//
+message Bool {
+    optional bool value = 1;
+}
+
+// Maps to java.lang.String
+// This message exist for fields that need to
+// communicate a null-override value.
+//
+message Chars {
+    optional string value = 1;
+}
