@@ -107,6 +107,10 @@ public class Launcher {
         properties.setProperty(TRAFFIC_PORT, "8877");
         properties.setProperty("rule.database.h2.enabled", "true");
 
+        properties.setProperty(FORWARD_NO_PROXY, "");
+        properties.setProperty(FORWARD_HTTPS_PROXY, "");
+        properties.setProperty(FORWARD_HTTP_PROXY, "");
+                
         return properties;
     }
 
