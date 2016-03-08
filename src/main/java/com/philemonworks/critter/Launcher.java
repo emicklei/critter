@@ -17,18 +17,23 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class Launcher {
-	private static final String PROXY_PORT = "proxy.port";
+    private static final String PROXY_PORT = "proxy.port";
     private static final String TRAFFIC_PORT = "traffic.port";
     private static final String PROXY_HOST = "proxy.host";
     private static final String PROXY_WORKERS = "proxy.workers";
+    
+    public static final String FORWARD_HTTP_PROXY = "forward.http.proxy";
+    public static final String FORWARD_HTTPS_PROXY = "forward.https.proxy";
+    public static final String FORWARD_NO_PROXY = "forward.no.proxy";
+    
     private static final int DEFAULT_NUMBER_OF_WORKERS = Runtime.getRuntime().availableProcessors() * 2;
     private static final Logger LOG = LoggerFactory.getLogger(Launcher.class);
 
     public static void main(String[] args) {
-        String propertiesFileName=null;
-    	if (args.length == 1) {
+        String propertiesFileName = null;
+        if (args.length == 1) {
             propertiesFileName = args[0];
-    	}
+        }
 
         startWithConfiguration(loadProperties(propertiesFileName));
     }
@@ -44,9 +49,7 @@ public class Launcher {
         final HttpServer proxyServer = startProxyServer(new Properties(configProperties), managerModule);
         Module proxyServerModule = new AbstractModule() {
             protected void configure() {
-                this.bind(HttpServer.class)
-                    .annotatedWith(Names.named("Proxy"))
-                    .toInstance(proxyServer);
+                this.bind(HttpServer.class).annotatedWith(Names.named("Proxy")).toInstance(proxyServer);
             }
         };
         LOG.info("Starting Traffic Server...");
@@ -54,24 +57,20 @@ public class Launcher {
     }
 
     private static void startTrafficServer(Properties trafficProperties, Module managerModule, Module proxyServerModule) {
-        trafficProperties.put(ClassNamesResourceConfig.PROPERTY_CLASSNAMES,
-                TrafficResource.class.getName() + " " +
-        		AdminUIResource.class.getName());
+        trafficProperties.put(ClassNamesResourceConfig.PROPERTY_CLASSNAMES, TrafficResource.class.getName() + " " + AdminUIResource.class.getName());
         String trafficPort = trafficProperties.getProperty(TRAFFIC_PORT);
         startUpServerWith(trafficPort, HttpServer.createPropertiesModule(trafficProperties), managerModule, proxyServerModule, new TrafficModule());
-	}
+    }
 
-	private static HttpServer startProxyServer(Properties proxyProperties, Module managerModule) {
+    private static HttpServer startProxyServer(Properties proxyProperties, Module managerModule) {
         proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CLASSNAMES, ProxyResource.class.getName());
         proxyProperties.put(ClassNamesResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS, ProxyFilter.class.getName());
         String proxyPort = proxyProperties.getProperty(PROXY_PORT);
         String numberOfWorkers = proxyProperties.getProperty(PROXY_WORKERS);
-		proxyProperties.put(NettyHandlerContainer.PROPERTY_BASE_URI, "http://" + proxyProperties.getProperty(PROXY_HOST) + ":" + proxyPort + "/");
-        return startUpServerWith(proxyPort, (StringUtils.isNotBlank(numberOfWorkers) ? Integer.parseInt(numberOfWorkers) : DEFAULT_NUMBER_OF_WORKERS),
-                HttpServer.createPropertiesModule(proxyProperties), 
-                managerModule, 
-                new ProxyModule());
-	}
+        proxyProperties.put(NettyHandlerContainer.PROPERTY_BASE_URI, "http://" + proxyProperties.getProperty(PROXY_HOST) + ":" + proxyPort + "/");
+        return startUpServerWith(proxyPort, (StringUtils.isNotBlank(numberOfWorkers) ? Integer.parseInt(numberOfWorkers)
+                : DEFAULT_NUMBER_OF_WORKERS), HttpServer.createPropertiesModule(proxyProperties), managerModule, new ProxyModule());
+    }
 
     private static HttpServer startUpServerWith(String portString, Module... modules) {
         return startUpServerWith(portString, DEFAULT_NUMBER_OF_WORKERS, modules);
@@ -80,6 +79,7 @@ public class Launcher {
     private static HttpServer startUpServerWith(String portString, int numberOfWorkers, Module... modules) {
         int port = Integer.parseInt(portString);
         Injector injector = Guice.createInjector(modules);
+
         HttpServer server = injector.getInstance(HttpServer.class);
         server.setNumberOfWorkers(numberOfWorkers);
         server.init(injector, port);
@@ -100,6 +100,9 @@ public class Launcher {
     private static Properties getDefaultProperties() {
         Properties properties = new Properties();
 
+        properties.setProperty(FORWARD_HTTP_PROXY, "");
+        properties.setProperty(FORWARD_HTTPS_PROXY, "");
+        properties.setProperty(FORWARD_NO_PROXY, "");
         properties.setProperty(PROXY_HOST, "localhost");
         properties.setProperty(PROXY_PORT, "8888");
         properties.setProperty(TRAFFIC_PORT, "8877");
@@ -122,24 +125,29 @@ public class Launcher {
 
     public static Properties getPropertiesFromEnvironment() {
         final Properties properties = new Properties();
-
-        if (StringUtils.isNotEmpty(System.getenv("proxyHost"))) {
-            properties.setProperty(PROXY_HOST, System.getenv("proxyHost"));
-        }
-        if (StringUtils.isNotEmpty(System.getenv("proxyPort"))) {
-            properties.setProperty(PROXY_PORT, System.getenv("proxyPort"));
-        }
-        if (StringUtils.isNotEmpty(System.getenv("traffic"))) {
-            properties.setProperty(TRAFFIC_PORT, System.getenv("traffic"));
-        }
-        if (StringUtils.isNotEmpty(System.getenv("enabledH2"))) {
-            properties.setProperty("rule.database.h2.enabled", System.getenv("enabledH2"));
-        }
-        if (StringUtils.isNotEmpty(System.getenv("proxyWorkers"))) {
-            properties.setProperty(PROXY_WORKERS, System.getenv("proxyWorkers"));
-        }
-
+        setAvailableSystemProperty(properties, PROXY_HOST, "proxyHost");
+        setAvailableSystemProperty(properties, PROXY_PORT, "proxyPort");
+        
+        setAvailableSystemProperty(properties, TRAFFIC_PORT, "traffic");
+        setAvailableSystemProperty(properties, "rule.database.h2.enabled", "enabledH2");
+        setAvailableSystemProperty(properties, PROXY_WORKERS, "proxyWorkers");
+        
+        setAvailableSystemProperty(properties, FORWARD_NO_PROXY, "forwardNoProxy", "no_proxy");
+        setAvailableSystemProperty(properties, FORWARD_HTTPS_PROXY, "forwardHttpsProxy", "https_proxy");
+        setAvailableSystemProperty(properties, FORWARD_HTTP_PROXY, "forwardHttpProxy", "http_proxy");
+        
         return properties;
+    }
+
+    private static void setAvailableSystemProperty(Properties properties, String key, String... systemPropKeys){
+        for (String systemPropKey : systemPropKeys){
+            String value = System.getenv(systemPropKey);
+            if (StringUtils.isNotEmpty(value)){
+                LOG.info("Setting property with key [{}] to [{}]", value);
+                properties.setProperty(key, value);
+                return;
+            }
+        }
     }
 
 }

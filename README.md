@@ -53,7 +53,12 @@ Default content is
 	# proxy.host is the binding address for the http listen sockets
 	proxy.host=localhost
 	proxy.port=8888
-
+	
+	# forward proxy is the proxy that is used to make the outgoing connection.
+	forward.http.proxy=
+	forward.https.proxy=	
+	forward.no.proxy=
+	
 	# access to the traffic manager (GUI and REST)
 	traffic.port=8877
 
@@ -82,6 +87,7 @@ And run it
 	docker run --name critter -P critter
 
 Use `docker ps` to find out to which host ports critter has been bound
+
 
 ## Open Admin user interface
 

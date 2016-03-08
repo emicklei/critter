@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.name.Names;
 import com.philemonworks.critter.dao.RecordingDao;
 import com.philemonworks.critter.dao.RecordingDaoMemoryImpl;
 import com.philemonworks.critter.dao.RuleDao;
@@ -36,6 +37,9 @@ final class ManagerModule extends AbstractModule {
 
     @Override
     protected void configure() {
+        
+        Names.bindProperties(binder(), properties);
+        
         RuleDao ruleDao;
         RecordingDao recordingDao;
         if (Boolean.parseBoolean(properties.getProperty("rule.database.h2.enabled"))) {
@@ -53,6 +57,7 @@ final class ManagerModule extends AbstractModule {
             recordingDao = new RecordingDaoMemoryImpl();
         }
 
+        
         this.bind(TrafficManager.class).toInstance(trafficManager);
         this.bind(RuleDao.class).toInstance(ruleDao);
         this.bind(RecordingDao.class).toInstance(recordingDao);

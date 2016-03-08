@@ -7,11 +7,10 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.inject.Singleton;
 import javax.ws.rs.core.Response;
 
-import com.philemonworks.critter.httpclient.EnvironmentHttpRoutePlanner;
-import com.philemonworks.critter.httpclient.NoRedirectStrategy;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
@@ -25,6 +24,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jamonapi.MonitorFactory;
+import com.philemonworks.critter.httpclient.NoRedirectStrategy;
+import com.philemonworks.critter.httpclient.ProxyRoutePlanner;
 import com.sun.jersey.api.core.HttpContext;
 import com.sun.jersey.spi.container.ContainerRequest;
 
@@ -38,13 +39,19 @@ public class HttpClient {
     protected org.apache.http.client.HttpClient httpClient;
 
     @Inject
-    public void init() {
+    public HttpClient(ProxyRoutePlanner proxyRoutePlanner) {
         LOG.info("Preparing for using Http connections");
         connectionManager = new PoolingHttpClientConnectionManager();
         connectionManager.setMaxTotal(DEFAULT_MAX_CONNECTIONS);
         connectionManager.setDefaultMaxPerRoute(DEFAULT_MAX_CONNECTIONS_PER_ROUTE);
 
-        httpClient = HttpClients.custom().setConnectionManager(connectionManager).setRedirectStrategy(new NoRedirectStrategy()).setRoutePlanner(new EnvironmentHttpRoutePlanner()).build();
+        //@formatter:off
+        httpClient = HttpClients.custom()
+                .setConnectionManager(connectionManager)
+                .setRedirectStrategy(new NoRedirectStrategy())
+                .setRoutePlanner(proxyRoutePlanner)
+                .build();
+        //@formatter:on        
     }
 
     public Response forward(HttpContext ctx, HttpRequestBase forwardRequest, URI forwardURI) {
