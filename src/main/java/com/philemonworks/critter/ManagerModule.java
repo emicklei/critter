@@ -56,7 +56,6 @@ final class ManagerModule extends AbstractModule {
             ruleDao = new RuleDaoMemoryImpl();
             recordingDao = new RecordingDaoMemoryImpl();
         }
-
         
         this.bind(TrafficManager.class).toInstance(trafficManager);
         this.bind(RuleDao.class).toInstance(ruleDao);
