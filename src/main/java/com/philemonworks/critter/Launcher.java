@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.rendershark.http.HttpServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import static com.philemonworks.critter.Constants.*;
 
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -22,10 +23,6 @@ public class Launcher {
     private static final String PROXY_HOST = "proxy.host";
     private static final String PROXY_WORKERS = "proxy.workers";
     private static final int DEFAULT_NUMBER_OF_WORKERS = Runtime.getRuntime().availableProcessors() * 2;
-    
-    public static final String FORWARD_HTTP_PROXY = "forward.http.proxy";
-    public static final String FORWARD_HTTPS_PROXY = "forward.https.proxy";
-    public static final String FORWARD_NO_PROXY = "forward.no.proxy";
     
     private static final Logger LOG = LoggerFactory.getLogger(Launcher.class);
 

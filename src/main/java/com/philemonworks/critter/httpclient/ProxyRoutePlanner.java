@@ -17,7 +17,7 @@ import java.net.URISyntaxException;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
-
+import static com.philemonworks.critter.Constants.*;
 /**
  * <p>
  * This {@link org.apache.http.conn.routing.HttpRoutePlanner HttpRoutePlanner} implementation determines whether a proxy must be used for the current request
@@ -38,9 +38,9 @@ public class ProxyRoutePlanner extends DefaultRoutePlanner {
 
     @Inject
     public ProxyRoutePlanner(
-            @Named(Launcher.FORWARD_HTTP_PROXY) String httpProxy, 
-            @Named(Launcher.FORWARD_HTTPS_PROXY) String httpsProxy,
-            @Named(Launcher.FORWARD_NO_PROXY) String noProxy) {
+            @Named(FORWARD_HTTP_PROXY) String httpProxy, 
+            @Named(FORWARD_HTTPS_PROXY) String httpsProxy,
+            @Named(FORWARD_NO_PROXY) String noProxy) {
         super(null);
         this.httpProxy = httpProxy;
         this.httpsProxy = httpsProxy;
