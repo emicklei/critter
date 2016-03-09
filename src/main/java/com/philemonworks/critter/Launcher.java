@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.rendershark.http.HttpServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import static com.philemonworks.critter.Constants.*;
 
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -22,6 +23,7 @@ public class Launcher {
     private static final String PROXY_HOST = "proxy.host";
     private static final String PROXY_WORKERS = "proxy.workers";
     private static final int DEFAULT_NUMBER_OF_WORKERS = Runtime.getRuntime().availableProcessors() * 2;
+    
     private static final Logger LOG = LoggerFactory.getLogger(Launcher.class);
 
     public static void main(String[] args) {
@@ -105,6 +107,10 @@ public class Launcher {
         properties.setProperty(TRAFFIC_PORT, "8877");
         properties.setProperty("rule.database.h2.enabled", "true");
 
+        properties.setProperty(FORWARD_NO_PROXY, "");
+        properties.setProperty(FORWARD_HTTPS_PROXY, "");
+        properties.setProperty(FORWARD_HTTP_PROXY, "");
+                
         return properties;
     }
 
@@ -122,24 +128,29 @@ public class Launcher {
 
     public static Properties getPropertiesFromEnvironment() {
         final Properties properties = new Properties();
-
-        if (StringUtils.isNotEmpty(System.getenv("proxyHost"))) {
-            properties.setProperty(PROXY_HOST, System.getenv("proxyHost"));
-        }
-        if (StringUtils.isNotEmpty(System.getenv("proxyPort"))) {
-            properties.setProperty(PROXY_PORT, System.getenv("proxyPort"));
-        }
-        if (StringUtils.isNotEmpty(System.getenv("traffic"))) {
-            properties.setProperty(TRAFFIC_PORT, System.getenv("traffic"));
-        }
-        if (StringUtils.isNotEmpty(System.getenv("enabledH2"))) {
-            properties.setProperty("rule.database.h2.enabled", System.getenv("enabledH2"));
-        }
-        if (StringUtils.isNotEmpty(System.getenv("proxyWorkers"))) {
-            properties.setProperty(PROXY_WORKERS, System.getenv("proxyWorkers"));
-        }
-
+        setAvailableSystemProperty(properties, PROXY_HOST, "proxyHost");
+        setAvailableSystemProperty(properties, PROXY_PORT, "proxyPort");
+        
+        setAvailableSystemProperty(properties, TRAFFIC_PORT, "traffic");
+        setAvailableSystemProperty(properties, "rule.database.h2.enabled", "enabledH2");
+        setAvailableSystemProperty(properties, PROXY_WORKERS, "proxyWorkers");
+        
+        setAvailableSystemProperty(properties, FORWARD_NO_PROXY, "forwardNoProxy", "no_proxy");
+        setAvailableSystemProperty(properties, FORWARD_HTTPS_PROXY, "forwardHttpsProxy", "https_proxy");
+        setAvailableSystemProperty(properties, FORWARD_HTTP_PROXY, "forwardHttpProxy", "http_proxy");
+        
         return properties;
+    }
+
+    private static void setAvailableSystemProperty(Properties properties, String key, String... systemPropKeys){
+        for (String systemPropKey : systemPropKeys){
+            String value = System.getenv(systemPropKey);
+            if (StringUtils.isNotEmpty(value)){
+                LOG.info("Setting property with key [{}] to [{}]", value);
+                properties.setProperty(key, value);
+                return;
+            }
+        }
     }
 
 }

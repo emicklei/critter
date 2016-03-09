@@ -53,7 +53,7 @@ Default content is
 	# proxy.host is the binding address for the http listen sockets
 	proxy.host=localhost
 	proxy.port=8888
-
+	
 	# access to the traffic manager (GUI and REST)
 	traffic.port=8877
 
@@ -82,6 +82,29 @@ And run it
 	docker run --name critter -P critter
 
 Use `docker ps` to find out to which host ports critter has been bound
+
+## Using a forward proxy for outgoing connections
+
+If you require to connect to the outside world through a proxy, there are multiple options:
+
+* Define the forward proxy in the critter.properties:
+
+    # forward proxy is the proxy that is used to make the outgoing connection.
+	forward.http.proxy=http://192.168.128.1:1234
+	forward.https.proxy=http://192.168.128.1:1234	
+	forward.no.proxy=www.google.nl,www.yahoo.com
+	
+* Use standard environment variables:
+
+	https_proxy=http://192.168.128.1:1234
+    http_proxy=http://192.168.128.1:1234    
+    no_proxy=www.google.nl,www.yahoo.com       
+
+* Use non-standard environment variables (where standard environmental variables cannot be used):
+
+    forwardHttpsProxy=http://192.168.128.1:1234
+    forwardHttpProxy=http://192.168.128.1:1234
+    forwardNoProxy=www.google.nl,www.yahoo.com
 
 ## Open Admin user interface
 
