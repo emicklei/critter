@@ -2,40 +2,47 @@
 // on Thu Aug 28 11:21:18 CEST 2014 with protojxc version 1.7, (c) bol.com
 // from ../backspin-protojx/src/test/resources/supported-features-test.xsd
 
+syntax = "proto2";
+
 package test.binding;
 
-option java_package= "com.bol.protojx.test.binding";
-option java_outer_classname= "ProtoMessage";
+option java_package = "com.bol.protojx.test.binding";
+
+option java_outer_classname = "ProtoMessage";
+
 import "bol-xsdtypes-1.6.proto";
 
 message SomeComplexType {
-	required string stringElement = 1 [ default = "hello" ] ;
-	required bool booleanElement = 2 [ default = true ] ;
-	required int32 intElement = 3 [ default = 42 ] ;
-	required float floatElement = 4 ;
-	required int64 longElement = 5 ;
-	repeated int64 longId = 6 ;
-	required xsdtypes.Integer64 integer64Element = 7 ;
-	required xsdtypes.Integer32 integer32Element = 8 ;
-	required xsdtypes.Bool boolElement = 9 ;
-	required xsdtypes.Chars charsElement = 10 ;
-	required xsdtypes.Time timeElement = 11 ;
-	required xsdtypes.Day dateElement = 12 ;
-	required string tokenElement = 13 ;
-	required xsdtypes.DayTime dateTimeElement = 14 ;
-	optional string optionalElement = 15 ;
-	required string defaultableElement = 16 [ default = "DEFAULT" ] ;
-	required OtherComplexType otherElement = 17 ;
-	required nestedTypeElement nestedTypeElement = 18 ;
-	required string STRING = 19 ;
-	repeated ItemType items = 20 ;
+    required string stringElement = 1 [default = "hello"];
+    required bool booleanElement = 2 [default = true];
+    required int32 intElement = 3 [default = 42];
+    required float floatElement = 4;
+    required int64 longElement = 5;
+    repeated int64 longId = 6;
+    required xsdtypes.Integer64 integer64Element = 7;
+    required xsdtypes.Integer32 integer32Element = 8;
+    required xsdtypes.Bool boolElement = 9;
+    required xsdtypes.Chars charsElement = 10;
+    required xsdtypes.Time timeElement = 11;
+    required xsdtypes.Day dateElement = 12;
+    required string tokenElement = 13;
+    required xsdtypes.DayTime dateTimeElement = 14;
+    optional string optionalElement = 15;
+    required string defaultableElement = 16 [default = "DEFAULT"];
+    required OtherComplexType otherElement = 17;
+    required nestedTypeElement nestedTypeElement = 18;
+    required string STRING = 19;
+    repeated ItemType items = 20;
 }
+
 message OtherComplexType {
-	repeated string textItem = 1 ;
+    repeated string textItem = 1;
 }
+
 message ItemType {
-	required int32 id = 1 ;
+    required int32 id = 1;
 }
+
 message nestedTypeElement {
-	optional xsdtypes.Decimal decimalElement = 1 ;
+    optional xsdtypes.Decimal decimalElement = 1;
 }

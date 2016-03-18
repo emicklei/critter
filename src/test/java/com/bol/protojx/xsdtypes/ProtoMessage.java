@@ -8,420 +8,198 @@ public final class ProtoMessage {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface DayOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional .xsdtypes.Day.Value value = 1;
+  public interface DayOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xsdtypes.Day)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .xsdtypes.Day.Value value = 1;</code>
+     */
     boolean hasValue();
+    /**
+     * <code>optional .xsdtypes.Day.Value value = 1;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Day.Value getValue();
+    /**
+     * <code>optional .xsdtypes.Day.Value value = 1;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder getValueOrBuilder();
   }
-  public static final class Day extends
-      com.google.protobuf.GeneratedMessage
-      implements DayOrBuilder {
+  /**
+   * Protobuf type {@code xsdtypes.Day}
+   */
+  public  static final class Day extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:xsdtypes.Day)
+      DayOrBuilder {
     // Use Day.newBuilder() to construct.
-    private Day(Builder builder) {
+    private Day(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private Day(boolean noInit) {}
-    
-    private static final Day defaultInstance;
-    public static Day getDefaultInstance() {
-      return defaultInstance;
+    private Day() {
     }
-    
-    public Day getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private Day(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = value_.toBuilder();
+              }
+              value_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(value_);
+                value_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_fieldAccessorTable;
+      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.xsdtypes.ProtoMessage.Day.class, com.bol.protojx.xsdtypes.ProtoMessage.Day.Builder.class);
     }
-    
-    public interface ValueOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-      
-      // required int32 year = 1;
+
+    public interface ValueOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:xsdtypes.Day.Value)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>required int32 year = 1;</code>
+       *
+       * <pre>
+       * 0..2^(32-1)
+       * </pre>
+       */
       boolean hasYear();
+      /**
+       * <code>required int32 year = 1;</code>
+       *
+       * <pre>
+       * 0..2^(32-1)
+       * </pre>
+       */
       int getYear();
-      
-      // required int32 month = 2;
+
+      /**
+       * <code>required int32 month = 2;</code>
+       *
+       * <pre>
+       * 1..12
+       * </pre>
+       */
       boolean hasMonth();
+      /**
+       * <code>required int32 month = 2;</code>
+       *
+       * <pre>
+       * 1..12
+       * </pre>
+       */
       int getMonth();
-      
-      // required int32 dayInMonth = 3;
+
+      /**
+       * <code>required int32 dayInMonth = 3;</code>
+       *
+       * <pre>
+       * 1..31
+       * </pre>
+       */
       boolean hasDayInMonth();
+      /**
+       * <code>required int32 dayInMonth = 3;</code>
+       *
+       * <pre>
+       * 1..31
+       * </pre>
+       */
       int getDayInMonth();
     }
-    public static final class Value extends
-        com.google.protobuf.GeneratedMessage
-        implements ValueOrBuilder {
+    /**
+     * Protobuf type {@code xsdtypes.Day.Value}
+     */
+    public  static final class Value extends
+        com.google.protobuf.GeneratedMessage implements
+        // @@protoc_insertion_point(message_implements:xsdtypes.Day.Value)
+        ValueOrBuilder {
       // Use Value.newBuilder() to construct.
-      private Value(Builder builder) {
+      private Value(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
       }
-      private Value(boolean noInit) {}
-      
-      private static final Value defaultInstance;
-      public static Value getDefaultInstance() {
-        return defaultInstance;
-      }
-      
-      public Value getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-      
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_Value_descriptor;
-      }
-      
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_Value_fieldAccessorTable;
-      }
-      
-      private int bitField0_;
-      // required int32 year = 1;
-      public static final int YEAR_FIELD_NUMBER = 1;
-      private int year_;
-      public boolean hasYear() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      public int getYear() {
-        return year_;
-      }
-      
-      // required int32 month = 2;
-      public static final int MONTH_FIELD_NUMBER = 2;
-      private int month_;
-      public boolean hasMonth() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public int getMonth() {
-        return month_;
-      }
-      
-      // required int32 dayInMonth = 3;
-      public static final int DAYINMONTH_FIELD_NUMBER = 3;
-      private int dayInMonth_;
-      public boolean hasDayInMonth() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      public int getDayInMonth() {
-        return dayInMonth_;
-      }
-      
-      private void initFields() {
+      private Value() {
         year_ = 0;
         month_ = 0;
         dayInMonth_ = 0;
       }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-        
-        if (!hasYear()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasMonth()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasDayInMonth()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-      
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeInt32(1, year_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeInt32(2, month_);
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          output.writeInt32(3, dayInMonth_);
-        }
-        getUnknownFields().writeTo(output);
-      }
-      
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-      
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, year_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, month_);
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, dayInMonth_);
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-      
-      private static final long serialVersionUID = 0L;
+
       @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
       }
-      
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data).buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data, extensionRegistry)
-                 .buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data).buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data, extensionRegistry)
-                 .buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input).buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input, extensionRegistry)
-                 .buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        Builder builder = newBuilder();
-        if (builder.mergeDelimitedFrom(input)) {
-          return builder.buildParsed();
-        } else {
-          return null;
-        }
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        Builder builder = newBuilder();
-        if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-          return builder.buildParsed();
-        } else {
-          return null;
-        }
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input).buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
+      private Value(
           com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input, extensionRegistry)
-                 .buildParsed();
-      }
-      
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Day.Value prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-      
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_Value_descriptor;
-        }
-        
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_Value_fieldAccessorTable;
-        }
-        
-        // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-        
-        private Builder(BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-        
-        public Builder clear() {
-          super.clear();
-          year_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          month_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000002);
-          dayInMonth_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000004);
-          return this;
-        }
-        
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-        
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDescriptor();
-        }
-        
-        public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value getDefaultInstanceForType() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance();
-        }
-        
-        public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value build() {
-          com.bol.protojx.xsdtypes.ProtoMessage.Day.Value result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-        
-        private com.bol.protojx.xsdtypes.ProtoMessage.Day.Value buildParsed()
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          com.bol.protojx.xsdtypes.ProtoMessage.Day.Value result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(
-              result).asInvalidProtocolBufferException();
-          }
-          return result;
-        }
-        
-        public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value buildPartial() {
-          com.bol.protojx.xsdtypes.ProtoMessage.Day.Value result = new com.bol.protojx.xsdtypes.ProtoMessage.Day.Value(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.year_ = year_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.month_ = month_;
-          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-            to_bitField0_ |= 0x00000004;
-          }
-          result.dayInMonth_ = dayInMonth_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-        
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Day.Value) {
-            return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Day.Value)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-        
-        public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Day.Value other) {
-          if (other == com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance()) return this;
-          if (other.hasYear()) {
-            setYear(other.getYear());
-          }
-          if (other.hasMonth()) {
-            setMonth(other.getMonth());
-          }
-          if (other.hasDayInMonth()) {
-            setDayInMonth(other.getDayInMonth());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-        
-        public final boolean isInitialized() {
-          if (!hasYear()) {
-            
-            return false;
-          }
-          if (!hasMonth()) {
-            
-            return false;
-          }
-          if (!hasDayInMonth()) {
-            
-            return false;
-          }
-          return true;
-        }
-        
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder(
-              this.getUnknownFields());
-          while (true) {
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+        this();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
             int tag = input.readTag();
             switch (tag) {
               case 0:
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
+                done = true;
+                break;
               default: {
                 if (!parseUnknownField(input, unknownFields,
                                        extensionRegistry, tag)) {
-                  this.setUnknownFields(unknownFields.build());
-                  onChanged();
-                  return this;
+                  done = true;
                 }
                 break;
               }
@@ -442,106 +220,587 @@ public final class ProtoMessage {
               }
             }
           }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
         }
-        
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_Value_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_Value_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.class, com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder.class);
+      }
+
+      private int bitField0_;
+      public static final int YEAR_FIELD_NUMBER = 1;
+      private int year_;
+      /**
+       * <code>required int32 year = 1;</code>
+       *
+       * <pre>
+       * 0..2^(32-1)
+       * </pre>
+       */
+      public boolean hasYear() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 year = 1;</code>
+       *
+       * <pre>
+       * 0..2^(32-1)
+       * </pre>
+       */
+      public int getYear() {
+        return year_;
+      }
+
+      public static final int MONTH_FIELD_NUMBER = 2;
+      private int month_;
+      /**
+       * <code>required int32 month = 2;</code>
+       *
+       * <pre>
+       * 1..12
+       * </pre>
+       */
+      public boolean hasMonth() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 month = 2;</code>
+       *
+       * <pre>
+       * 1..12
+       * </pre>
+       */
+      public int getMonth() {
+        return month_;
+      }
+
+      public static final int DAYINMONTH_FIELD_NUMBER = 3;
+      private int dayInMonth_;
+      /**
+       * <code>required int32 dayInMonth = 3;</code>
+       *
+       * <pre>
+       * 1..31
+       * </pre>
+       */
+      public boolean hasDayInMonth() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 dayInMonth = 3;</code>
+       *
+       * <pre>
+       * 1..31
+       * </pre>
+       */
+      public int getDayInMonth() {
+        return dayInMonth_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        if (!hasYear()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasMonth()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasDayInMonth()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeInt32(1, year_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          output.writeInt32(2, month_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          output.writeInt32(3, dayInMonth_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(1, year_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(2, month_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(3, dayInMonth_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Day.Value prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code xsdtypes.Day.Value}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:xsdtypes.Day.Value)
+          com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_Value_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_Value_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.class, com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder.class);
+        }
+
+        // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          year_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          month_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          dayInMonth_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000004);
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_Value_descriptor;
+        }
+
+        public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value getDefaultInstanceForType() {
+          return com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance();
+        }
+
+        public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value build() {
+          com.bol.protojx.xsdtypes.ProtoMessage.Day.Value result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value buildPartial() {
+          com.bol.protojx.xsdtypes.ProtoMessage.Day.Value result = new com.bol.protojx.xsdtypes.ProtoMessage.Day.Value(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.year_ = year_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.month_ = month_;
+          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+            to_bitField0_ |= 0x00000004;
+          }
+          result.dayInMonth_ = dayInMonth_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Day.Value) {
+            return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Day.Value)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Day.Value other) {
+          if (other == com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance()) return this;
+          if (other.hasYear()) {
+            setYear(other.getYear());
+          }
+          if (other.hasMonth()) {
+            setMonth(other.getMonth());
+          }
+          if (other.hasDayInMonth()) {
+            setDayInMonth(other.getDayInMonth());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          if (!hasYear()) {
+            return false;
+          }
+          if (!hasMonth()) {
+            return false;
+          }
+          if (!hasDayInMonth()) {
+            return false;
+          }
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          com.bol.protojx.xsdtypes.ProtoMessage.Day.Value parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.Day.Value) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
         private int bitField0_;
-        
-        // required int32 year = 1;
+
         private int year_ ;
+        /**
+         * <code>required int32 year = 1;</code>
+         *
+         * <pre>
+         * 0..2^(32-1)
+         * </pre>
+         */
         public boolean hasYear() {
           return ((bitField0_ & 0x00000001) == 0x00000001);
         }
+        /**
+         * <code>required int32 year = 1;</code>
+         *
+         * <pre>
+         * 0..2^(32-1)
+         * </pre>
+         */
         public int getYear() {
           return year_;
         }
+        /**
+         * <code>required int32 year = 1;</code>
+         *
+         * <pre>
+         * 0..2^(32-1)
+         * </pre>
+         */
         public Builder setYear(int value) {
           bitField0_ |= 0x00000001;
           year_ = value;
           onChanged();
           return this;
         }
+        /**
+         * <code>required int32 year = 1;</code>
+         *
+         * <pre>
+         * 0..2^(32-1)
+         * </pre>
+         */
         public Builder clearYear() {
           bitField0_ = (bitField0_ & ~0x00000001);
           year_ = 0;
           onChanged();
           return this;
         }
-        
-        // required int32 month = 2;
+
         private int month_ ;
+        /**
+         * <code>required int32 month = 2;</code>
+         *
+         * <pre>
+         * 1..12
+         * </pre>
+         */
         public boolean hasMonth() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
+        /**
+         * <code>required int32 month = 2;</code>
+         *
+         * <pre>
+         * 1..12
+         * </pre>
+         */
         public int getMonth() {
           return month_;
         }
+        /**
+         * <code>required int32 month = 2;</code>
+         *
+         * <pre>
+         * 1..12
+         * </pre>
+         */
         public Builder setMonth(int value) {
           bitField0_ |= 0x00000002;
           month_ = value;
           onChanged();
           return this;
         }
+        /**
+         * <code>required int32 month = 2;</code>
+         *
+         * <pre>
+         * 1..12
+         * </pre>
+         */
         public Builder clearMonth() {
           bitField0_ = (bitField0_ & ~0x00000002);
           month_ = 0;
           onChanged();
           return this;
         }
-        
-        // required int32 dayInMonth = 3;
+
         private int dayInMonth_ ;
+        /**
+         * <code>required int32 dayInMonth = 3;</code>
+         *
+         * <pre>
+         * 1..31
+         * </pre>
+         */
         public boolean hasDayInMonth() {
           return ((bitField0_ & 0x00000004) == 0x00000004);
         }
+        /**
+         * <code>required int32 dayInMonth = 3;</code>
+         *
+         * <pre>
+         * 1..31
+         * </pre>
+         */
         public int getDayInMonth() {
           return dayInMonth_;
         }
+        /**
+         * <code>required int32 dayInMonth = 3;</code>
+         *
+         * <pre>
+         * 1..31
+         * </pre>
+         */
         public Builder setDayInMonth(int value) {
           bitField0_ |= 0x00000004;
           dayInMonth_ = value;
           onChanged();
           return this;
         }
+        /**
+         * <code>required int32 dayInMonth = 3;</code>
+         *
+         * <pre>
+         * 1..31
+         * </pre>
+         */
         public Builder clearDayInMonth() {
           bitField0_ = (bitField0_ & ~0x00000004);
           dayInMonth_ = 0;
           onChanged();
           return this;
         }
-        
+
         // @@protoc_insertion_point(builder_scope:xsdtypes.Day.Value)
       }
-      
-      static {
-        defaultInstance = new Value(true);
-        defaultInstance.initFields();
-      }
-      
+
       // @@protoc_insertion_point(class_scope:xsdtypes.Day.Value)
+      private static final com.bol.protojx.xsdtypes.ProtoMessage.Day.Value DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.Day.Value();
+      }
+
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Day.Value getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Value>
+          PARSER = new com.google.protobuf.AbstractParser<Value>() {
+        public Value parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          try {
+            return new Value(input, extensionRegistry);
+          } catch (RuntimeException e) {
+            if (e.getCause() instanceof
+                com.google.protobuf.InvalidProtocolBufferException) {
+              throw (com.google.protobuf.InvalidProtocolBufferException)
+                  e.getCause();
+            }
+            throw e;
+          }
+        }
+      };
+
+      public static com.google.protobuf.Parser<Value> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Value> getParserForType() {
+        return PARSER;
+      }
+
+      public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
-    
+
     private int bitField0_;
-    // optional .xsdtypes.Day.Value value = 1;
     public static final int VALUE_FIELD_NUMBER = 1;
     private com.bol.protojx.xsdtypes.ProtoMessage.Day.Value value_;
+    /**
+     * <code>optional .xsdtypes.Day.Value value = 1;</code>
+     */
     public boolean hasValue() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>optional .xsdtypes.Day.Value value = 1;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value getValue() {
-      return value_;
+      return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance() : value_;
     }
+    /**
+     * <code>optional .xsdtypes.Day.Value value = 1;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder getValueOrBuilder() {
-      return value_;
+      return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance() : value_;
     }
-    
-    private void initFields() {
-      value_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance();
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       if (hasValue()) {
         if (!getValue().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -551,137 +810,127 @@ public final class ProtoMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, value_);
+        output.writeMessage(1, getValue());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, value_);
+          .computeMessageSize(1, getValue());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.xsdtypes.ProtoMessage.Day parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Day parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Day parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Day parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Day parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Day parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Day parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Day parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Day parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Day parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Day prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Day prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code xsdtypes.Day}
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.xsdtypes.ProtoMessage.DayOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xsdtypes.Day)
+        com.bol.protojx.xsdtypes.ProtoMessage.DayOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_fieldAccessorTable;
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.Day.class, com.bol.protojx.xsdtypes.ProtoMessage.Day.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Day.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -690,34 +939,26 @@ public final class ProtoMessage {
           getValueFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         if (valueBuilder_ == null) {
-          value_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance();
+          value_ = null;
         } else {
           valueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.Day.getDescriptor();
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Day_descriptor;
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Day getDefaultInstanceForType() {
         return com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Day build() {
         com.bol.protojx.xsdtypes.ProtoMessage.Day result = buildPartial();
         if (!result.isInitialized()) {
@@ -725,17 +966,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.xsdtypes.ProtoMessage.Day buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.xsdtypes.ProtoMessage.Day result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Day buildPartial() {
         com.bol.protojx.xsdtypes.ProtoMessage.Day result = new com.bol.protojx.xsdtypes.ProtoMessage.Day(this);
         int from_bitField0_ = bitField0_;
@@ -752,7 +983,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Day) {
           return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Day)other);
@@ -761,78 +992,67 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Day other) {
         if (other == com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance()) return this;
         if (other.hasValue()) {
           mergeValue(other.getValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (hasValue()) {
           if (!getValue().isInitialized()) {
-            
             return false;
           }
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.newBuilder();
-              if (hasValue()) {
-                subBuilder.mergeFrom(getValue());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setValue(subBuilder.buildPartial());
-              break;
-            }
+        com.bol.protojx.xsdtypes.ProtoMessage.Day parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.Day) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // optional .xsdtypes.Day.Value value = 1;
-      private com.bol.protojx.xsdtypes.ProtoMessage.Day.Value value_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.Day.Value value_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Day.Value, com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder> valueBuilder_;
+      /**
+       * <code>optional .xsdtypes.Day.Value value = 1;</code>
+       */
       public boolean hasValue() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>optional .xsdtypes.Day.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value getValue() {
         if (valueBuilder_ == null) {
-          return value_;
+          return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance() : value_;
         } else {
           return valueBuilder_.getMessage();
         }
       }
+      /**
+       * <code>optional .xsdtypes.Day.Value value = 1;</code>
+       */
       public Builder setValue(com.bol.protojx.xsdtypes.ProtoMessage.Day.Value value) {
         if (valueBuilder_ == null) {
           if (value == null) {
@@ -846,6 +1066,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Day.Value value = 1;</code>
+       */
       public Builder setValue(
           com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder builderForValue) {
         if (valueBuilder_ == null) {
@@ -857,9 +1080,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Day.Value value = 1;</code>
+       */
       public Builder mergeValue(com.bol.protojx.xsdtypes.ProtoMessage.Day.Value value) {
         if (valueBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              value_ != null &&
               value_ != com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance()) {
             value_ =
               com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.newBuilder(value_).mergeFrom(value).buildPartial();
@@ -873,9 +1100,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Day.Value value = 1;</code>
+       */
       public Builder clearValue() {
         if (valueBuilder_ == null) {
-          value_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance();
+          value_ = null;
           onChanged();
         } else {
           valueBuilder_.clear();
@@ -883,519 +1113,309 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Day.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder getValueBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getValueFieldBuilder().getBuilder();
       }
+      /**
+       * <code>optional .xsdtypes.Day.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder getValueOrBuilder() {
         if (valueBuilder_ != null) {
           return valueBuilder_.getMessageOrBuilder();
         } else {
-          return value_;
+          return value_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance() : value_;
         }
       }
+      /**
+       * <code>optional .xsdtypes.Day.Value value = 1;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Day.Value, com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder> 
           getValueFieldBuilder() {
         if (valueBuilder_ == null) {
           valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.Day.Value, com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder>(
-                  value_,
+                  getValue(),
                   getParentForChildren(),
                   isClean());
           value_ = null;
         }
         return valueBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:xsdtypes.Day)
     }
-    
-    static {
-      defaultInstance = new Day(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:xsdtypes.Day)
+    private static final com.bol.protojx.xsdtypes.ProtoMessage.Day DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.Day();
+    }
+
+    public static com.bol.protojx.xsdtypes.ProtoMessage.Day getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Day>
+        PARSER = new com.google.protobuf.AbstractParser<Day>() {
+      public Day parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new Day(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<Day> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Day> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.xsdtypes.ProtoMessage.Day getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
-  public interface TimeOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional .xsdtypes.Time.Value value = 1;
+
+  public interface TimeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xsdtypes.Time)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .xsdtypes.Time.Value value = 1;</code>
+     */
     boolean hasValue();
+    /**
+     * <code>optional .xsdtypes.Time.Value value = 1;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Time.Value getValue();
+    /**
+     * <code>optional .xsdtypes.Time.Value value = 1;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder getValueOrBuilder();
   }
-  public static final class Time extends
-      com.google.protobuf.GeneratedMessage
-      implements TimeOrBuilder {
+  /**
+   * Protobuf type {@code xsdtypes.Time}
+   */
+  public  static final class Time extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:xsdtypes.Time)
+      TimeOrBuilder {
     // Use Time.newBuilder() to construct.
-    private Time(Builder builder) {
+    private Time(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private Time(boolean noInit) {}
-    
-    private static final Time defaultInstance;
-    public static Time getDefaultInstance() {
-      return defaultInstance;
+    private Time() {
     }
-    
-    public Time getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private Time(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = value_.toBuilder();
+              }
+              value_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(value_);
+                value_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_fieldAccessorTable;
+      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.xsdtypes.ProtoMessage.Time.class, com.bol.protojx.xsdtypes.ProtoMessage.Time.Builder.class);
     }
-    
-    public interface ValueOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-      
-      // required int32 hours = 1;
+
+    public interface ValueOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:xsdtypes.Time.Value)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>required int32 hours = 1;</code>
+       *
+       * <pre>
+       * 0 .. 23
+       * </pre>
+       */
       boolean hasHours();
+      /**
+       * <code>required int32 hours = 1;</code>
+       *
+       * <pre>
+       * 0 .. 23
+       * </pre>
+       */
       int getHours();
-      
-      // required int32 minutes = 2;
+
+      /**
+       * <code>required int32 minutes = 2;</code>
+       *
+       * <pre>
+       * 0 .. 59
+       * </pre>
+       */
       boolean hasMinutes();
+      /**
+       * <code>required int32 minutes = 2;</code>
+       *
+       * <pre>
+       * 0 .. 59
+       * </pre>
+       */
       int getMinutes();
-      
-      // required int32 seconds = 3;
+
+      /**
+       * <code>required int32 seconds = 3;</code>
+       *
+       * <pre>
+       * 0 .. 59
+       * </pre>
+       */
       boolean hasSeconds();
+      /**
+       * <code>required int32 seconds = 3;</code>
+       *
+       * <pre>
+       * 0 .. 59
+       * </pre>
+       */
       int getSeconds();
-      
-      // optional int32 offset = 4;
+
+      /**
+       * <code>optional int32 offset = 4;</code>
+       *
+       * <pre>
+       * UTC timezone offset
+       * </pre>
+       */
       boolean hasOffset();
+      /**
+       * <code>optional int32 offset = 4;</code>
+       *
+       * <pre>
+       * UTC timezone offset
+       * </pre>
+       */
       int getOffset();
-      
-      // optional int32 milliseconds = 5;
+
+      /**
+       * <code>optional int32 milliseconds = 5;</code>
+       */
       boolean hasMilliseconds();
+      /**
+       * <code>optional int32 milliseconds = 5;</code>
+       */
       int getMilliseconds();
     }
-    public static final class Value extends
-        com.google.protobuf.GeneratedMessage
-        implements ValueOrBuilder {
+    /**
+     * Protobuf type {@code xsdtypes.Time.Value}
+     */
+    public  static final class Value extends
+        com.google.protobuf.GeneratedMessage implements
+        // @@protoc_insertion_point(message_implements:xsdtypes.Time.Value)
+        ValueOrBuilder {
       // Use Value.newBuilder() to construct.
-      private Value(Builder builder) {
+      private Value(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
       }
-      private Value(boolean noInit) {}
-      
-      private static final Value defaultInstance;
-      public static Value getDefaultInstance() {
-        return defaultInstance;
-      }
-      
-      public Value getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-      
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_Value_descriptor;
-      }
-      
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_Value_fieldAccessorTable;
-      }
-      
-      private int bitField0_;
-      // required int32 hours = 1;
-      public static final int HOURS_FIELD_NUMBER = 1;
-      private int hours_;
-      public boolean hasHours() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      public int getHours() {
-        return hours_;
-      }
-      
-      // required int32 minutes = 2;
-      public static final int MINUTES_FIELD_NUMBER = 2;
-      private int minutes_;
-      public boolean hasMinutes() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      public int getMinutes() {
-        return minutes_;
-      }
-      
-      // required int32 seconds = 3;
-      public static final int SECONDS_FIELD_NUMBER = 3;
-      private int seconds_;
-      public boolean hasSeconds() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      public int getSeconds() {
-        return seconds_;
-      }
-      
-      // optional int32 offset = 4;
-      public static final int OFFSET_FIELD_NUMBER = 4;
-      private int offset_;
-      public boolean hasOffset() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      public int getOffset() {
-        return offset_;
-      }
-      
-      // optional int32 milliseconds = 5;
-      public static final int MILLISECONDS_FIELD_NUMBER = 5;
-      private int milliseconds_;
-      public boolean hasMilliseconds() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      public int getMilliseconds() {
-        return milliseconds_;
-      }
-      
-      private void initFields() {
+      private Value() {
         hours_ = 0;
         minutes_ = 0;
         seconds_ = 0;
         offset_ = 0;
         milliseconds_ = 0;
       }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-        
-        if (!hasHours()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasMinutes()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        if (!hasSeconds()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-        memoizedIsInitialized = 1;
-        return true;
-      }
-      
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeInt32(1, hours_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeInt32(2, minutes_);
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          output.writeInt32(3, seconds_);
-        }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          output.writeInt32(4, offset_);
-        }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          output.writeInt32(5, milliseconds_);
-        }
-        getUnknownFields().writeTo(output);
-      }
-      
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-      
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, hours_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(2, minutes_);
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(3, seconds_);
-        }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, offset_);
-        }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, milliseconds_);
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-      
-      private static final long serialVersionUID = 0L;
+
       @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
       }
-      
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data).buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data, extensionRegistry)
-                 .buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data).buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data, extensionRegistry)
-                 .buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input).buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input, extensionRegistry)
-                 .buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        Builder builder = newBuilder();
-        if (builder.mergeDelimitedFrom(input)) {
-          return builder.buildParsed();
-        } else {
-          return null;
-        }
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        Builder builder = newBuilder();
-        if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-          return builder.buildParsed();
-        } else {
-          return null;
-        }
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input).buildParsed();
-      }
-      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
+      private Value(
           com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return newBuilder().mergeFrom(input, extensionRegistry)
-                 .buildParsed();
-      }
-      
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Time.Value prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-      
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_Value_descriptor;
-        }
-        
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_Value_fieldAccessorTable;
-        }
-        
-        // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-        
-        private Builder(BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-        
-        public Builder clear() {
-          super.clear();
-          hours_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          minutes_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000002);
-          seconds_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000004);
-          offset_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000008);
-          milliseconds_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000010);
-          return this;
-        }
-        
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-        
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDescriptor();
-        }
-        
-        public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value getDefaultInstanceForType() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance();
-        }
-        
-        public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value build() {
-          com.bol.protojx.xsdtypes.ProtoMessage.Time.Value result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-        
-        private com.bol.protojx.xsdtypes.ProtoMessage.Time.Value buildParsed()
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          com.bol.protojx.xsdtypes.ProtoMessage.Time.Value result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(
-              result).asInvalidProtocolBufferException();
-          }
-          return result;
-        }
-        
-        public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value buildPartial() {
-          com.bol.protojx.xsdtypes.ProtoMessage.Time.Value result = new com.bol.protojx.xsdtypes.ProtoMessage.Time.Value(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.hours_ = hours_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.minutes_ = minutes_;
-          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-            to_bitField0_ |= 0x00000004;
-          }
-          result.seconds_ = seconds_;
-          if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-            to_bitField0_ |= 0x00000008;
-          }
-          result.offset_ = offset_;
-          if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-            to_bitField0_ |= 0x00000010;
-          }
-          result.milliseconds_ = milliseconds_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-        
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Time.Value) {
-            return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Time.Value)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-        
-        public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Time.Value other) {
-          if (other == com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance()) return this;
-          if (other.hasHours()) {
-            setHours(other.getHours());
-          }
-          if (other.hasMinutes()) {
-            setMinutes(other.getMinutes());
-          }
-          if (other.hasSeconds()) {
-            setSeconds(other.getSeconds());
-          }
-          if (other.hasOffset()) {
-            setOffset(other.getOffset());
-          }
-          if (other.hasMilliseconds()) {
-            setMilliseconds(other.getMilliseconds());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-        
-        public final boolean isInitialized() {
-          if (!hasHours()) {
-            
-            return false;
-          }
-          if (!hasMinutes()) {
-            
-            return false;
-          }
-          if (!hasSeconds()) {
-            
-            return false;
-          }
-          return true;
-        }
-        
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder(
-              this.getUnknownFields());
-          while (true) {
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+        this();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
             int tag = input.readTag();
             switch (tag) {
               case 0:
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
+                done = true;
+                break;
               default: {
                 if (!parseUnknownField(input, unknownFields,
                                        extensionRegistry, tag)) {
-                  this.setUnknownFields(unknownFields.build());
-                  onChanged();
-                  return this;
+                  done = true;
                 }
                 break;
               }
@@ -1426,148 +1446,737 @@ public final class ProtoMessage {
               }
             }
           }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
         }
-        
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_Value_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_Value_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.class, com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder.class);
+      }
+
+      private int bitField0_;
+      public static final int HOURS_FIELD_NUMBER = 1;
+      private int hours_;
+      /**
+       * <code>required int32 hours = 1;</code>
+       *
+       * <pre>
+       * 0 .. 23
+       * </pre>
+       */
+      public boolean hasHours() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 hours = 1;</code>
+       *
+       * <pre>
+       * 0 .. 23
+       * </pre>
+       */
+      public int getHours() {
+        return hours_;
+      }
+
+      public static final int MINUTES_FIELD_NUMBER = 2;
+      private int minutes_;
+      /**
+       * <code>required int32 minutes = 2;</code>
+       *
+       * <pre>
+       * 0 .. 59
+       * </pre>
+       */
+      public boolean hasMinutes() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 minutes = 2;</code>
+       *
+       * <pre>
+       * 0 .. 59
+       * </pre>
+       */
+      public int getMinutes() {
+        return minutes_;
+      }
+
+      public static final int SECONDS_FIELD_NUMBER = 3;
+      private int seconds_;
+      /**
+       * <code>required int32 seconds = 3;</code>
+       *
+       * <pre>
+       * 0 .. 59
+       * </pre>
+       */
+      public boolean hasSeconds() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 seconds = 3;</code>
+       *
+       * <pre>
+       * 0 .. 59
+       * </pre>
+       */
+      public int getSeconds() {
+        return seconds_;
+      }
+
+      public static final int OFFSET_FIELD_NUMBER = 4;
+      private int offset_;
+      /**
+       * <code>optional int32 offset = 4;</code>
+       *
+       * <pre>
+       * UTC timezone offset
+       * </pre>
+       */
+      public boolean hasOffset() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 offset = 4;</code>
+       *
+       * <pre>
+       * UTC timezone offset
+       * </pre>
+       */
+      public int getOffset() {
+        return offset_;
+      }
+
+      public static final int MILLISECONDS_FIELD_NUMBER = 5;
+      private int milliseconds_;
+      /**
+       * <code>optional int32 milliseconds = 5;</code>
+       */
+      public boolean hasMilliseconds() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 milliseconds = 5;</code>
+       */
+      public int getMilliseconds() {
+        return milliseconds_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        if (!hasHours()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasMinutes()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasSeconds()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeInt32(1, hours_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          output.writeInt32(2, minutes_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          output.writeInt32(3, seconds_);
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          output.writeInt32(4, offset_);
+        }
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          output.writeInt32(5, milliseconds_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(1, hours_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(2, minutes_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(3, seconds_);
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(4, offset_);
+        }
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(5, milliseconds_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Time.Value prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code xsdtypes.Time.Value}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:xsdtypes.Time.Value)
+          com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_Value_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_Value_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.class, com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder.class);
+        }
+
+        // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          hours_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          minutes_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          seconds_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000004);
+          offset_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000008);
+          milliseconds_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000010);
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_Value_descriptor;
+        }
+
+        public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value getDefaultInstanceForType() {
+          return com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance();
+        }
+
+        public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value build() {
+          com.bol.protojx.xsdtypes.ProtoMessage.Time.Value result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value buildPartial() {
+          com.bol.protojx.xsdtypes.ProtoMessage.Time.Value result = new com.bol.protojx.xsdtypes.ProtoMessage.Time.Value(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.hours_ = hours_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.minutes_ = minutes_;
+          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+            to_bitField0_ |= 0x00000004;
+          }
+          result.seconds_ = seconds_;
+          if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+            to_bitField0_ |= 0x00000008;
+          }
+          result.offset_ = offset_;
+          if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+            to_bitField0_ |= 0x00000010;
+          }
+          result.milliseconds_ = milliseconds_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Time.Value) {
+            return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Time.Value)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Time.Value other) {
+          if (other == com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance()) return this;
+          if (other.hasHours()) {
+            setHours(other.getHours());
+          }
+          if (other.hasMinutes()) {
+            setMinutes(other.getMinutes());
+          }
+          if (other.hasSeconds()) {
+            setSeconds(other.getSeconds());
+          }
+          if (other.hasOffset()) {
+            setOffset(other.getOffset());
+          }
+          if (other.hasMilliseconds()) {
+            setMilliseconds(other.getMilliseconds());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          if (!hasHours()) {
+            return false;
+          }
+          if (!hasMinutes()) {
+            return false;
+          }
+          if (!hasSeconds()) {
+            return false;
+          }
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          com.bol.protojx.xsdtypes.ProtoMessage.Time.Value parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.Time.Value) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
         private int bitField0_;
-        
-        // required int32 hours = 1;
+
         private int hours_ ;
+        /**
+         * <code>required int32 hours = 1;</code>
+         *
+         * <pre>
+         * 0 .. 23
+         * </pre>
+         */
         public boolean hasHours() {
           return ((bitField0_ & 0x00000001) == 0x00000001);
         }
+        /**
+         * <code>required int32 hours = 1;</code>
+         *
+         * <pre>
+         * 0 .. 23
+         * </pre>
+         */
         public int getHours() {
           return hours_;
         }
+        /**
+         * <code>required int32 hours = 1;</code>
+         *
+         * <pre>
+         * 0 .. 23
+         * </pre>
+         */
         public Builder setHours(int value) {
           bitField0_ |= 0x00000001;
           hours_ = value;
           onChanged();
           return this;
         }
+        /**
+         * <code>required int32 hours = 1;</code>
+         *
+         * <pre>
+         * 0 .. 23
+         * </pre>
+         */
         public Builder clearHours() {
           bitField0_ = (bitField0_ & ~0x00000001);
           hours_ = 0;
           onChanged();
           return this;
         }
-        
-        // required int32 minutes = 2;
+
         private int minutes_ ;
+        /**
+         * <code>required int32 minutes = 2;</code>
+         *
+         * <pre>
+         * 0 .. 59
+         * </pre>
+         */
         public boolean hasMinutes() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
+        /**
+         * <code>required int32 minutes = 2;</code>
+         *
+         * <pre>
+         * 0 .. 59
+         * </pre>
+         */
         public int getMinutes() {
           return minutes_;
         }
+        /**
+         * <code>required int32 minutes = 2;</code>
+         *
+         * <pre>
+         * 0 .. 59
+         * </pre>
+         */
         public Builder setMinutes(int value) {
           bitField0_ |= 0x00000002;
           minutes_ = value;
           onChanged();
           return this;
         }
+        /**
+         * <code>required int32 minutes = 2;</code>
+         *
+         * <pre>
+         * 0 .. 59
+         * </pre>
+         */
         public Builder clearMinutes() {
           bitField0_ = (bitField0_ & ~0x00000002);
           minutes_ = 0;
           onChanged();
           return this;
         }
-        
-        // required int32 seconds = 3;
+
         private int seconds_ ;
+        /**
+         * <code>required int32 seconds = 3;</code>
+         *
+         * <pre>
+         * 0 .. 59
+         * </pre>
+         */
         public boolean hasSeconds() {
           return ((bitField0_ & 0x00000004) == 0x00000004);
         }
+        /**
+         * <code>required int32 seconds = 3;</code>
+         *
+         * <pre>
+         * 0 .. 59
+         * </pre>
+         */
         public int getSeconds() {
           return seconds_;
         }
+        /**
+         * <code>required int32 seconds = 3;</code>
+         *
+         * <pre>
+         * 0 .. 59
+         * </pre>
+         */
         public Builder setSeconds(int value) {
           bitField0_ |= 0x00000004;
           seconds_ = value;
           onChanged();
           return this;
         }
+        /**
+         * <code>required int32 seconds = 3;</code>
+         *
+         * <pre>
+         * 0 .. 59
+         * </pre>
+         */
         public Builder clearSeconds() {
           bitField0_ = (bitField0_ & ~0x00000004);
           seconds_ = 0;
           onChanged();
           return this;
         }
-        
-        // optional int32 offset = 4;
+
         private int offset_ ;
+        /**
+         * <code>optional int32 offset = 4;</code>
+         *
+         * <pre>
+         * UTC timezone offset
+         * </pre>
+         */
         public boolean hasOffset() {
           return ((bitField0_ & 0x00000008) == 0x00000008);
         }
+        /**
+         * <code>optional int32 offset = 4;</code>
+         *
+         * <pre>
+         * UTC timezone offset
+         * </pre>
+         */
         public int getOffset() {
           return offset_;
         }
+        /**
+         * <code>optional int32 offset = 4;</code>
+         *
+         * <pre>
+         * UTC timezone offset
+         * </pre>
+         */
         public Builder setOffset(int value) {
           bitField0_ |= 0x00000008;
           offset_ = value;
           onChanged();
           return this;
         }
+        /**
+         * <code>optional int32 offset = 4;</code>
+         *
+         * <pre>
+         * UTC timezone offset
+         * </pre>
+         */
         public Builder clearOffset() {
           bitField0_ = (bitField0_ & ~0x00000008);
           offset_ = 0;
           onChanged();
           return this;
         }
-        
-        // optional int32 milliseconds = 5;
+
         private int milliseconds_ ;
+        /**
+         * <code>optional int32 milliseconds = 5;</code>
+         */
         public boolean hasMilliseconds() {
           return ((bitField0_ & 0x00000010) == 0x00000010);
         }
+        /**
+         * <code>optional int32 milliseconds = 5;</code>
+         */
         public int getMilliseconds() {
           return milliseconds_;
         }
+        /**
+         * <code>optional int32 milliseconds = 5;</code>
+         */
         public Builder setMilliseconds(int value) {
           bitField0_ |= 0x00000010;
           milliseconds_ = value;
           onChanged();
           return this;
         }
+        /**
+         * <code>optional int32 milliseconds = 5;</code>
+         */
         public Builder clearMilliseconds() {
           bitField0_ = (bitField0_ & ~0x00000010);
           milliseconds_ = 0;
           onChanged();
           return this;
         }
-        
+
         // @@protoc_insertion_point(builder_scope:xsdtypes.Time.Value)
       }
-      
-      static {
-        defaultInstance = new Value(true);
-        defaultInstance.initFields();
-      }
-      
+
       // @@protoc_insertion_point(class_scope:xsdtypes.Time.Value)
+      private static final com.bol.protojx.xsdtypes.ProtoMessage.Time.Value DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.Time.Value();
+      }
+
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Time.Value getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Value>
+          PARSER = new com.google.protobuf.AbstractParser<Value>() {
+        public Value parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          try {
+            return new Value(input, extensionRegistry);
+          } catch (RuntimeException e) {
+            if (e.getCause() instanceof
+                com.google.protobuf.InvalidProtocolBufferException) {
+              throw (com.google.protobuf.InvalidProtocolBufferException)
+                  e.getCause();
+            }
+            throw e;
+          }
+        }
+      };
+
+      public static com.google.protobuf.Parser<Value> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Value> getParserForType() {
+        return PARSER;
+      }
+
+      public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
-    
+
     private int bitField0_;
-    // optional .xsdtypes.Time.Value value = 1;
     public static final int VALUE_FIELD_NUMBER = 1;
     private com.bol.protojx.xsdtypes.ProtoMessage.Time.Value value_;
+    /**
+     * <code>optional .xsdtypes.Time.Value value = 1;</code>
+     */
     public boolean hasValue() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>optional .xsdtypes.Time.Value value = 1;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value getValue() {
-      return value_;
+      return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance() : value_;
     }
+    /**
+     * <code>optional .xsdtypes.Time.Value value = 1;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder getValueOrBuilder() {
-      return value_;
+      return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance() : value_;
     }
-    
-    private void initFields() {
-      value_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance();
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       if (hasValue()) {
         if (!getValue().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -1577,137 +2186,127 @@ public final class ProtoMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, value_);
+        output.writeMessage(1, getValue());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, value_);
+          .computeMessageSize(1, getValue());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.xsdtypes.ProtoMessage.Time parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Time parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Time parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Time parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Time parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Time parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Time parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Time parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Time parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Time parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Time prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Time prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code xsdtypes.Time}
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.xsdtypes.ProtoMessage.TimeOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xsdtypes.Time)
+        com.bol.protojx.xsdtypes.ProtoMessage.TimeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_fieldAccessorTable;
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.Time.class, com.bol.protojx.xsdtypes.ProtoMessage.Time.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Time.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1716,34 +2315,26 @@ public final class ProtoMessage {
           getValueFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         if (valueBuilder_ == null) {
-          value_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance();
+          value_ = null;
         } else {
           valueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.Time.getDescriptor();
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Time_descriptor;
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Time getDefaultInstanceForType() {
         return com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Time build() {
         com.bol.protojx.xsdtypes.ProtoMessage.Time result = buildPartial();
         if (!result.isInitialized()) {
@@ -1751,17 +2342,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.xsdtypes.ProtoMessage.Time buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.xsdtypes.ProtoMessage.Time result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Time buildPartial() {
         com.bol.protojx.xsdtypes.ProtoMessage.Time result = new com.bol.protojx.xsdtypes.ProtoMessage.Time(this);
         int from_bitField0_ = bitField0_;
@@ -1778,7 +2359,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Time) {
           return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Time)other);
@@ -1787,78 +2368,67 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Time other) {
         if (other == com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance()) return this;
         if (other.hasValue()) {
           mergeValue(other.getValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (hasValue()) {
           if (!getValue().isInitialized()) {
-            
             return false;
           }
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.newBuilder();
-              if (hasValue()) {
-                subBuilder.mergeFrom(getValue());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setValue(subBuilder.buildPartial());
-              break;
-            }
+        com.bol.protojx.xsdtypes.ProtoMessage.Time parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.Time) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // optional .xsdtypes.Time.Value value = 1;
-      private com.bol.protojx.xsdtypes.ProtoMessage.Time.Value value_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.Time.Value value_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Time.Value, com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder> valueBuilder_;
+      /**
+       * <code>optional .xsdtypes.Time.Value value = 1;</code>
+       */
       public boolean hasValue() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>optional .xsdtypes.Time.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value getValue() {
         if (valueBuilder_ == null) {
-          return value_;
+          return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance() : value_;
         } else {
           return valueBuilder_.getMessage();
         }
       }
+      /**
+       * <code>optional .xsdtypes.Time.Value value = 1;</code>
+       */
       public Builder setValue(com.bol.protojx.xsdtypes.ProtoMessage.Time.Value value) {
         if (valueBuilder_ == null) {
           if (value == null) {
@@ -1872,6 +2442,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Time.Value value = 1;</code>
+       */
       public Builder setValue(
           com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder builderForValue) {
         if (valueBuilder_ == null) {
@@ -1883,9 +2456,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Time.Value value = 1;</code>
+       */
       public Builder mergeValue(com.bol.protojx.xsdtypes.ProtoMessage.Time.Value value) {
         if (valueBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              value_ != null &&
               value_ != com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance()) {
             value_ =
               com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.newBuilder(value_).mergeFrom(value).buildPartial();
@@ -1899,9 +2476,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Time.Value value = 1;</code>
+       */
       public Builder clearValue() {
         if (valueBuilder_ == null) {
-          value_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance();
+          value_ = null;
           onChanged();
         } else {
           valueBuilder_.clear();
@@ -1909,156 +2489,356 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Time.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder getValueBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getValueFieldBuilder().getBuilder();
       }
+      /**
+       * <code>optional .xsdtypes.Time.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder getValueOrBuilder() {
         if (valueBuilder_ != null) {
           return valueBuilder_.getMessageOrBuilder();
         } else {
-          return value_;
+          return value_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance() : value_;
         }
       }
+      /**
+       * <code>optional .xsdtypes.Time.Value value = 1;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Time.Value, com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder> 
           getValueFieldBuilder() {
         if (valueBuilder_ == null) {
           valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.Time.Value, com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder>(
-                  value_,
+                  getValue(),
                   getParentForChildren(),
                   isClean());
           value_ = null;
         }
         return valueBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:xsdtypes.Time)
     }
-    
-    static {
-      defaultInstance = new Time(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:xsdtypes.Time)
+    private static final com.bol.protojx.xsdtypes.ProtoMessage.Time DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.Time();
+    }
+
+    public static com.bol.protojx.xsdtypes.ProtoMessage.Time getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Time>
+        PARSER = new com.google.protobuf.AbstractParser<Time>() {
+      public Time parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new Time(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<Time> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Time> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.xsdtypes.ProtoMessage.Time getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
-  public interface DayTimeOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional .xsdtypes.DayTime.Value value = 1;
+
+  public interface DayTimeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xsdtypes.DayTime)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+     */
     boolean hasValue();
+    /**
+     * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value getValue();
+    /**
+     * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.DayTime.ValueOrBuilder getValueOrBuilder();
   }
-  public static final class DayTime extends
-      com.google.protobuf.GeneratedMessage
-      implements DayTimeOrBuilder {
+  /**
+   * Protobuf type {@code xsdtypes.DayTime}
+   */
+  public  static final class DayTime extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:xsdtypes.DayTime)
+      DayTimeOrBuilder {
     // Use DayTime.newBuilder() to construct.
-    private DayTime(Builder builder) {
+    private DayTime(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private DayTime(boolean noInit) {}
-    
-    private static final DayTime defaultInstance;
-    public static DayTime getDefaultInstance() {
-      return defaultInstance;
+    private DayTime() {
     }
-    
-    public DayTime getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private DayTime(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = value_.toBuilder();
+              }
+              value_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(value_);
+                value_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_fieldAccessorTable;
+      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.class, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Builder.class);
     }
-    
-    public interface ValueOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-      
-      // required .xsdtypes.Day.Value day = 1;
+
+    public interface ValueOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:xsdtypes.DayTime.Value)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>required .xsdtypes.Day.Value day = 1;</code>
+       */
       boolean hasDay();
+      /**
+       * <code>required .xsdtypes.Day.Value day = 1;</code>
+       */
       com.bol.protojx.xsdtypes.ProtoMessage.Day.Value getDay();
+      /**
+       * <code>required .xsdtypes.Day.Value day = 1;</code>
+       */
       com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder getDayOrBuilder();
-      
-      // required .xsdtypes.Time.Value time = 2;
+
+      /**
+       * <code>required .xsdtypes.Time.Value time = 2;</code>
+       */
       boolean hasTime();
+      /**
+       * <code>required .xsdtypes.Time.Value time = 2;</code>
+       */
       com.bol.protojx.xsdtypes.ProtoMessage.Time.Value getTime();
+      /**
+       * <code>required .xsdtypes.Time.Value time = 2;</code>
+       */
       com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder getTimeOrBuilder();
     }
-    public static final class Value extends
-        com.google.protobuf.GeneratedMessage
-        implements ValueOrBuilder {
+    /**
+     * Protobuf type {@code xsdtypes.DayTime.Value}
+     */
+    public  static final class Value extends
+        com.google.protobuf.GeneratedMessage implements
+        // @@protoc_insertion_point(message_implements:xsdtypes.DayTime.Value)
+        ValueOrBuilder {
       // Use Value.newBuilder() to construct.
-      private Value(Builder builder) {
+      private Value(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
       }
-      private Value(boolean noInit) {}
-      
-      private static final Value defaultInstance;
-      public static Value getDefaultInstance() {
-        return defaultInstance;
+      private Value() {
       }
-      
-      public Value getDefaultInstanceForType() {
-        return defaultInstance;
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
       }
-      
+      private Value(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+        this();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 10: {
+                com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                  subBuilder = day_.toBuilder();
+                }
+                day_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(day_);
+                  day_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000001;
+                break;
+              }
+              case 18: {
+                com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder subBuilder = null;
+                if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                  subBuilder = time_.toBuilder();
+                }
+                time_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(time_);
+                  time_ = subBuilder.buildPartial();
+                }
+                bitField0_ |= 0x00000002;
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_Value_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_Value_fieldAccessorTable;
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_Value_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.class, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.Builder.class);
       }
-      
+
       private int bitField0_;
-      // required .xsdtypes.Day.Value day = 1;
       public static final int DAY_FIELD_NUMBER = 1;
       private com.bol.protojx.xsdtypes.ProtoMessage.Day.Value day_;
+      /**
+       * <code>required .xsdtypes.Day.Value day = 1;</code>
+       */
       public boolean hasDay() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>required .xsdtypes.Day.Value day = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value getDay() {
-        return day_;
+        return day_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance() : day_;
       }
+      /**
+       * <code>required .xsdtypes.Day.Value day = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder getDayOrBuilder() {
-        return day_;
+        return day_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance() : day_;
       }
-      
-      // required .xsdtypes.Time.Value time = 2;
+
       public static final int TIME_FIELD_NUMBER = 2;
       private com.bol.protojx.xsdtypes.ProtoMessage.Time.Value time_;
+      /**
+       * <code>required .xsdtypes.Time.Value time = 2;</code>
+       */
       public boolean hasTime() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required .xsdtypes.Time.Value time = 2;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value getTime() {
-        return time_;
+        return time_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance() : time_;
       }
+      /**
+       * <code>required .xsdtypes.Time.Value time = 2;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder getTimeOrBuilder() {
-        return time_;
+        return time_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance() : time_;
       }
-      
-      private void initFields() {
-        day_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance();
-        time_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance();
-      }
+
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-        
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
         if (!hasDay()) {
           memoizedIsInitialized = 0;
           return false;
@@ -2078,144 +2858,134 @@ public final class ProtoMessage {
         memoizedIsInitialized = 1;
         return true;
       }
-      
+
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        getSerializedSize();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeMessage(1, day_);
+          output.writeMessage(1, getDay());
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeMessage(2, time_);
+          output.writeMessage(2, getTime());
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
-      
-      private int memoizedSerializedSize = -1;
+
       public int getSerializedSize() {
-        int size = memoizedSerializedSize;
+        int size = memoizedSize;
         if (size != -1) return size;
-      
+
         size = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(1, day_);
+            .computeMessageSize(1, getDay());
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
           size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, time_);
+            .computeMessageSize(2, getTime());
         }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
         return size;
       }
-      
+
       private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-      
       public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data).buildParsed();
+        return PARSER.parseFrom(data);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data, extensionRegistry)
-                 .buildParsed();
+        return PARSER.parseFrom(data, extensionRegistry);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data).buildParsed();
+        return PARSER.parseFrom(data);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data, extensionRegistry)
-                 .buildParsed();
+        return PARSER.parseFrom(data, extensionRegistry);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parseFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return newBuilder().mergeFrom(input).buildParsed();
+        return PARSER.parseFrom(input);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return newBuilder().mergeFrom(input, extensionRegistry)
-                 .buildParsed();
+        return PARSER.parseFrom(input, extensionRegistry);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
-        Builder builder = newBuilder();
-        if (builder.mergeDelimitedFrom(input)) {
-          return builder.buildParsed();
-        } else {
-          return null;
-        }
+        return PARSER.parseDelimitedFrom(input);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Builder builder = newBuilder();
-        if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-          return builder.buildParsed();
-        } else {
-          return null;
-        }
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
-        return newBuilder().mergeFrom(input).buildParsed();
+        return PARSER.parseFrom(input);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return newBuilder().mergeFrom(input, extensionRegistry)
-                 .buildParsed();
+        return PARSER.parseFrom(input, extensionRegistry);
       }
-      
-      public static Builder newBuilder() { return Builder.create(); }
+
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value prototype) {
-        return newBuilder().mergeFrom(prototype);
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
       }
-      public Builder toBuilder() { return newBuilder(this); }
-      
+      public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
       @java.lang.Override
       protected Builder newBuilderForType(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
+      /**
+       * Protobuf type {@code xsdtypes.DayTime.Value}
+       */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.bol.protojx.xsdtypes.ProtoMessage.DayTime.ValueOrBuilder {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:xsdtypes.DayTime.Value)
+          com.bol.protojx.xsdtypes.ProtoMessage.DayTime.ValueOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_Value_descriptor;
         }
-        
+
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_Value_fieldAccessorTable;
+          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_Value_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.class, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.Builder.class);
         }
-        
+
         // Construct using com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
-        
-        private Builder(BuilderParent parent) {
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
@@ -2225,40 +2995,32 @@ public final class ProtoMessage {
             getTimeFieldBuilder();
           }
         }
-        private static Builder create() {
-          return new Builder();
-        }
-        
         public Builder clear() {
           super.clear();
           if (dayBuilder_ == null) {
-            day_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance();
+            day_ = null;
           } else {
             dayBuilder_.clear();
           }
           bitField0_ = (bitField0_ & ~0x00000001);
           if (timeBuilder_ == null) {
-            time_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance();
+            time_ = null;
           } else {
             timeBuilder_.clear();
           }
           bitField0_ = (bitField0_ & ~0x00000002);
           return this;
         }
-        
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-        
+
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDescriptor();
+          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_Value_descriptor;
         }
-        
+
         public com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value getDefaultInstanceForType() {
           return com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance();
         }
-        
+
         public com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value build() {
           com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value result = buildPartial();
           if (!result.isInitialized()) {
@@ -2266,17 +3028,7 @@ public final class ProtoMessage {
           }
           return result;
         }
-        
-        private com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value buildParsed()
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(
-              result).asInvalidProtocolBufferException();
-          }
-          return result;
-        }
-        
+
         public com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value buildPartial() {
           com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value result = new com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value(this);
           int from_bitField0_ = bitField0_;
@@ -2301,7 +3053,7 @@ public final class ProtoMessage {
           onBuilt();
           return result;
         }
-        
+
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value) {
             return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value)other);
@@ -2310,7 +3062,7 @@ public final class ProtoMessage {
             return this;
           }
         }
-        
+
         public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value other) {
           if (other == com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance()) return this;
           if (other.hasDay()) {
@@ -2319,91 +3071,68 @@ public final class ProtoMessage {
           if (other.hasTime()) {
             mergeTime(other.getTime());
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
           return this;
         }
-        
+
         public final boolean isInitialized() {
           if (!hasDay()) {
-            
             return false;
           }
           if (!hasTime()) {
-            
             return false;
           }
           if (!getDay().isInitialized()) {
-            
             return false;
           }
           if (!getTime().isInitialized()) {
-            
             return false;
           }
           return true;
         }
-        
+
         public Builder mergeFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder(
-              this.getUnknownFields());
-          while (true) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  this.setUnknownFields(unknownFields.build());
-                  onChanged();
-                  return this;
-                }
-                break;
-              }
-              case 10: {
-                com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.newBuilder();
-                if (hasDay()) {
-                  subBuilder.mergeFrom(getDay());
-                }
-                input.readMessage(subBuilder, extensionRegistry);
-                setDay(subBuilder.buildPartial());
-                break;
-              }
-              case 18: {
-                com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.newBuilder();
-                if (hasTime()) {
-                  subBuilder.mergeFrom(getTime());
-                }
-                input.readMessage(subBuilder, extensionRegistry);
-                setTime(subBuilder.buildPartial());
-                break;
-              }
+          com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
             }
           }
+          return this;
         }
-        
         private int bitField0_;
-        
-        // required .xsdtypes.Day.Value day = 1;
-        private com.bol.protojx.xsdtypes.ProtoMessage.Day.Value day_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance();
+
+        private com.bol.protojx.xsdtypes.ProtoMessage.Day.Value day_ = null;
         private com.google.protobuf.SingleFieldBuilder<
             com.bol.protojx.xsdtypes.ProtoMessage.Day.Value, com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder> dayBuilder_;
+        /**
+         * <code>required .xsdtypes.Day.Value day = 1;</code>
+         */
         public boolean hasDay() {
           return ((bitField0_ & 0x00000001) == 0x00000001);
         }
+        /**
+         * <code>required .xsdtypes.Day.Value day = 1;</code>
+         */
         public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value getDay() {
           if (dayBuilder_ == null) {
-            return day_;
+            return day_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance() : day_;
           } else {
             return dayBuilder_.getMessage();
           }
         }
+        /**
+         * <code>required .xsdtypes.Day.Value day = 1;</code>
+         */
         public Builder setDay(com.bol.protojx.xsdtypes.ProtoMessage.Day.Value value) {
           if (dayBuilder_ == null) {
             if (value == null) {
@@ -2417,6 +3146,9 @@ public final class ProtoMessage {
           bitField0_ |= 0x00000001;
           return this;
         }
+        /**
+         * <code>required .xsdtypes.Day.Value day = 1;</code>
+         */
         public Builder setDay(
             com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder builderForValue) {
           if (dayBuilder_ == null) {
@@ -2428,9 +3160,13 @@ public final class ProtoMessage {
           bitField0_ |= 0x00000001;
           return this;
         }
+        /**
+         * <code>required .xsdtypes.Day.Value day = 1;</code>
+         */
         public Builder mergeDay(com.bol.protojx.xsdtypes.ProtoMessage.Day.Value value) {
           if (dayBuilder_ == null) {
             if (((bitField0_ & 0x00000001) == 0x00000001) &&
+                day_ != null &&
                 day_ != com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance()) {
               day_ =
                 com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.newBuilder(day_).mergeFrom(value).buildPartial();
@@ -2444,9 +3180,12 @@ public final class ProtoMessage {
           bitField0_ |= 0x00000001;
           return this;
         }
+        /**
+         * <code>required .xsdtypes.Day.Value day = 1;</code>
+         */
         public Builder clearDay() {
           if (dayBuilder_ == null) {
-            day_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance();
+            day_ = null;
             onChanged();
           } else {
             dayBuilder_.clear();
@@ -2454,46 +3193,64 @@ public final class ProtoMessage {
           bitField0_ = (bitField0_ & ~0x00000001);
           return this;
         }
+        /**
+         * <code>required .xsdtypes.Day.Value day = 1;</code>
+         */
         public com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder getDayBuilder() {
           bitField0_ |= 0x00000001;
           onChanged();
           return getDayFieldBuilder().getBuilder();
         }
+        /**
+         * <code>required .xsdtypes.Day.Value day = 1;</code>
+         */
         public com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder getDayOrBuilder() {
           if (dayBuilder_ != null) {
             return dayBuilder_.getMessageOrBuilder();
           } else {
-            return day_;
+            return day_ == null ?
+                com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.getDefaultInstance() : day_;
           }
         }
+        /**
+         * <code>required .xsdtypes.Day.Value day = 1;</code>
+         */
         private com.google.protobuf.SingleFieldBuilder<
             com.bol.protojx.xsdtypes.ProtoMessage.Day.Value, com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder> 
             getDayFieldBuilder() {
           if (dayBuilder_ == null) {
             dayBuilder_ = new com.google.protobuf.SingleFieldBuilder<
                 com.bol.protojx.xsdtypes.ProtoMessage.Day.Value, com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Day.ValueOrBuilder>(
-                    day_,
+                    getDay(),
                     getParentForChildren(),
                     isClean());
             day_ = null;
           }
           return dayBuilder_;
         }
-        
-        // required .xsdtypes.Time.Value time = 2;
-        private com.bol.protojx.xsdtypes.ProtoMessage.Time.Value time_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance();
+
+        private com.bol.protojx.xsdtypes.ProtoMessage.Time.Value time_ = null;
         private com.google.protobuf.SingleFieldBuilder<
             com.bol.protojx.xsdtypes.ProtoMessage.Time.Value, com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder> timeBuilder_;
+        /**
+         * <code>required .xsdtypes.Time.Value time = 2;</code>
+         */
         public boolean hasTime() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
+        /**
+         * <code>required .xsdtypes.Time.Value time = 2;</code>
+         */
         public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value getTime() {
           if (timeBuilder_ == null) {
-            return time_;
+            return time_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance() : time_;
           } else {
             return timeBuilder_.getMessage();
           }
         }
+        /**
+         * <code>required .xsdtypes.Time.Value time = 2;</code>
+         */
         public Builder setTime(com.bol.protojx.xsdtypes.ProtoMessage.Time.Value value) {
           if (timeBuilder_ == null) {
             if (value == null) {
@@ -2507,6 +3264,9 @@ public final class ProtoMessage {
           bitField0_ |= 0x00000002;
           return this;
         }
+        /**
+         * <code>required .xsdtypes.Time.Value time = 2;</code>
+         */
         public Builder setTime(
             com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder builderForValue) {
           if (timeBuilder_ == null) {
@@ -2518,9 +3278,13 @@ public final class ProtoMessage {
           bitField0_ |= 0x00000002;
           return this;
         }
+        /**
+         * <code>required .xsdtypes.Time.Value time = 2;</code>
+         */
         public Builder mergeTime(com.bol.protojx.xsdtypes.ProtoMessage.Time.Value value) {
           if (timeBuilder_ == null) {
             if (((bitField0_ & 0x00000002) == 0x00000002) &&
+                time_ != null &&
                 time_ != com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance()) {
               time_ =
                 com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.newBuilder(time_).mergeFrom(value).buildPartial();
@@ -2534,9 +3298,12 @@ public final class ProtoMessage {
           bitField0_ |= 0x00000002;
           return this;
         }
+        /**
+         * <code>required .xsdtypes.Time.Value time = 2;</code>
+         */
         public Builder clearTime() {
           if (timeBuilder_ == null) {
-            time_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance();
+            time_ = null;
             onChanged();
           } else {
             timeBuilder_.clear();
@@ -2544,65 +3311,117 @@ public final class ProtoMessage {
           bitField0_ = (bitField0_ & ~0x00000002);
           return this;
         }
+        /**
+         * <code>required .xsdtypes.Time.Value time = 2;</code>
+         */
         public com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder getTimeBuilder() {
           bitField0_ |= 0x00000002;
           onChanged();
           return getTimeFieldBuilder().getBuilder();
         }
+        /**
+         * <code>required .xsdtypes.Time.Value time = 2;</code>
+         */
         public com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder getTimeOrBuilder() {
           if (timeBuilder_ != null) {
             return timeBuilder_.getMessageOrBuilder();
           } else {
-            return time_;
+            return time_ == null ?
+                com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.getDefaultInstance() : time_;
           }
         }
+        /**
+         * <code>required .xsdtypes.Time.Value time = 2;</code>
+         */
         private com.google.protobuf.SingleFieldBuilder<
             com.bol.protojx.xsdtypes.ProtoMessage.Time.Value, com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder> 
             getTimeFieldBuilder() {
           if (timeBuilder_ == null) {
             timeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
                 com.bol.protojx.xsdtypes.ProtoMessage.Time.Value, com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Time.ValueOrBuilder>(
-                    time_,
+                    getTime(),
                     getParentForChildren(),
                     isClean());
             time_ = null;
           }
           return timeBuilder_;
         }
-        
+
         // @@protoc_insertion_point(builder_scope:xsdtypes.DayTime.Value)
       }
-      
-      static {
-        defaultInstance = new Value(true);
-        defaultInstance.initFields();
-      }
-      
+
       // @@protoc_insertion_point(class_scope:xsdtypes.DayTime.Value)
+      private static final com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value();
+      }
+
+      public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Value>
+          PARSER = new com.google.protobuf.AbstractParser<Value>() {
+        public Value parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          try {
+            return new Value(input, extensionRegistry);
+          } catch (RuntimeException e) {
+            if (e.getCause() instanceof
+                com.google.protobuf.InvalidProtocolBufferException) {
+              throw (com.google.protobuf.InvalidProtocolBufferException)
+                  e.getCause();
+            }
+            throw e;
+          }
+        }
+      };
+
+      public static com.google.protobuf.Parser<Value> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Value> getParserForType() {
+        return PARSER;
+      }
+
+      public com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
-    
+
     private int bitField0_;
-    // optional .xsdtypes.DayTime.Value value = 1;
     public static final int VALUE_FIELD_NUMBER = 1;
     private com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value value_;
+    /**
+     * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+     */
     public boolean hasValue() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value getValue() {
-      return value_;
+      return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance() : value_;
     }
+    /**
+     * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.DayTime.ValueOrBuilder getValueOrBuilder() {
-      return value_;
+      return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance() : value_;
     }
-    
-    private void initFields() {
-      value_ = com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance();
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       if (hasValue()) {
         if (!getValue().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -2612,137 +3431,127 @@ public final class ProtoMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, value_);
+        output.writeMessage(1, getValue());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, value_);
+          .computeMessageSize(1, getValue());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.DayTime prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.DayTime prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code xsdtypes.DayTime}
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.xsdtypes.ProtoMessage.DayTimeOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xsdtypes.DayTime)
+        com.bol.protojx.xsdtypes.ProtoMessage.DayTimeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_fieldAccessorTable;
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.DayTime.class, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.xsdtypes.ProtoMessage.DayTime.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2751,34 +3560,26 @@ public final class ProtoMessage {
           getValueFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         if (valueBuilder_ == null) {
-          value_ = com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance();
+          value_ = null;
         } else {
           valueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDescriptor();
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_DayTime_descriptor;
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.DayTime getDefaultInstanceForType() {
         return com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.DayTime build() {
         com.bol.protojx.xsdtypes.ProtoMessage.DayTime result = buildPartial();
         if (!result.isInitialized()) {
@@ -2786,17 +3587,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.xsdtypes.ProtoMessage.DayTime buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.xsdtypes.ProtoMessage.DayTime result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.DayTime buildPartial() {
         com.bol.protojx.xsdtypes.ProtoMessage.DayTime result = new com.bol.protojx.xsdtypes.ProtoMessage.DayTime(this);
         int from_bitField0_ = bitField0_;
@@ -2813,7 +3604,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.DayTime) {
           return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.DayTime)other);
@@ -2822,78 +3613,67 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.DayTime other) {
         if (other == com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance()) return this;
         if (other.hasValue()) {
           mergeValue(other.getValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (hasValue()) {
           if (!getValue().isInitialized()) {
-            
             return false;
           }
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.newBuilder();
-              if (hasValue()) {
-                subBuilder.mergeFrom(getValue());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setValue(subBuilder.buildPartial());
-              break;
-            }
+        com.bol.protojx.xsdtypes.ProtoMessage.DayTime parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.DayTime) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // optional .xsdtypes.DayTime.Value value = 1;
-      private com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value value_ = com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value value_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.ValueOrBuilder> valueBuilder_;
+      /**
+       * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+       */
       public boolean hasValue() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value getValue() {
         if (valueBuilder_ == null) {
-          return value_;
+          return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance() : value_;
         } else {
           return valueBuilder_.getMessage();
         }
       }
+      /**
+       * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+       */
       public Builder setValue(com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value value) {
         if (valueBuilder_ == null) {
           if (value == null) {
@@ -2907,6 +3687,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+       */
       public Builder setValue(
           com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.Builder builderForValue) {
         if (valueBuilder_ == null) {
@@ -2918,9 +3701,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+       */
       public Builder mergeValue(com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value value) {
         if (valueBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              value_ != null &&
               value_ != com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance()) {
             value_ =
               com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.newBuilder(value_).mergeFrom(value).buildPartial();
@@ -2934,9 +3721,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+       */
       public Builder clearValue() {
         if (valueBuilder_ == null) {
-          value_ = com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance();
+          value_ = null;
           onChanged();
         } else {
           valueBuilder_.clear();
@@ -2944,148 +3734,326 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.Builder getValueBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getValueFieldBuilder().getBuilder();
       }
+      /**
+       * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.DayTime.ValueOrBuilder getValueOrBuilder() {
         if (valueBuilder_ != null) {
           return valueBuilder_.getMessageOrBuilder();
         } else {
-          return value_;
+          return value_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.getDefaultInstance() : value_;
         }
       }
+      /**
+       * <code>optional .xsdtypes.DayTime.Value value = 1;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.ValueOrBuilder> 
           getValueFieldBuilder() {
         if (valueBuilder_ == null) {
           valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.ValueOrBuilder>(
-                  value_,
+                  getValue(),
                   getParentForChildren(),
                   isClean());
           value_ = null;
         }
         return valueBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:xsdtypes.DayTime)
     }
-    
-    static {
-      defaultInstance = new DayTime(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:xsdtypes.DayTime)
+    private static final com.bol.protojx.xsdtypes.ProtoMessage.DayTime DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.DayTime();
+    }
+
+    public static com.bol.protojx.xsdtypes.ProtoMessage.DayTime getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<DayTime>
+        PARSER = new com.google.protobuf.AbstractParser<DayTime>() {
+      public DayTime parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new DayTime(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<DayTime> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DayTime> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.xsdtypes.ProtoMessage.DayTime getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
-  public interface DecimalOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional .xsdtypes.Decimal.Value value = 1;
+
+  public interface DecimalOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xsdtypes.Decimal)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+     */
     boolean hasValue();
+    /**
+     * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value getValue();
+    /**
+     * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Decimal.ValueOrBuilder getValueOrBuilder();
   }
-  public static final class Decimal extends
-      com.google.protobuf.GeneratedMessage
-      implements DecimalOrBuilder {
+  /**
+   * Protobuf type {@code xsdtypes.Decimal}
+   *
+   * <pre>
+   * Maps directly to java.math.BigDecimal
+   * </pre>
+   */
+  public  static final class Decimal extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:xsdtypes.Decimal)
+      DecimalOrBuilder {
     // Use Decimal.newBuilder() to construct.
-    private Decimal(Builder builder) {
+    private Decimal(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private Decimal(boolean noInit) {}
-    
-    private static final Decimal defaultInstance;
-    public static Decimal getDefaultInstance() {
-      return defaultInstance;
+    private Decimal() {
     }
-    
-    public Decimal getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private Decimal(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = value_.toBuilder();
+              }
+              value_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(value_);
+                value_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_fieldAccessorTable;
+      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.class, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Builder.class);
     }
-    
-    public interface ValueOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-      
-      // required int64 unscaledValue = 1;
+
+    public interface ValueOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:xsdtypes.Decimal.Value)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>required int64 unscaledValue = 1;</code>
+       */
       boolean hasUnscaledValue();
+      /**
+       * <code>required int64 unscaledValue = 1;</code>
+       */
       long getUnscaledValue();
-      
-      // required int32 scale = 2;
+
+      /**
+       * <code>required int32 scale = 2;</code>
+       */
       boolean hasScale();
+      /**
+       * <code>required int32 scale = 2;</code>
+       */
       int getScale();
     }
-    public static final class Value extends
-        com.google.protobuf.GeneratedMessage
-        implements ValueOrBuilder {
+    /**
+     * Protobuf type {@code xsdtypes.Decimal.Value}
+     */
+    public  static final class Value extends
+        com.google.protobuf.GeneratedMessage implements
+        // @@protoc_insertion_point(message_implements:xsdtypes.Decimal.Value)
+        ValueOrBuilder {
       // Use Value.newBuilder() to construct.
-      private Value(Builder builder) {
+      private Value(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
       }
-      private Value(boolean noInit) {}
-      
-      private static final Value defaultInstance;
-      public static Value getDefaultInstance() {
-        return defaultInstance;
+      private Value() {
+        unscaledValue_ = 0L;
+        scale_ = 0;
       }
-      
-      public Value getDefaultInstanceForType() {
-        return defaultInstance;
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
       }
-      
+      private Value(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+        this();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 8: {
+                bitField0_ |= 0x00000001;
+                unscaledValue_ = input.readInt64();
+                break;
+              }
+              case 16: {
+                bitField0_ |= 0x00000002;
+                scale_ = input.readInt32();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw new RuntimeException(e.setUnfinishedMessage(this));
+        } catch (java.io.IOException e) {
+          throw new RuntimeException(
+              new com.google.protobuf.InvalidProtocolBufferException(
+                  e.getMessage()).setUnfinishedMessage(this));
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_Value_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_Value_fieldAccessorTable;
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_Value_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.class, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.Builder.class);
       }
-      
+
       private int bitField0_;
-      // required int64 unscaledValue = 1;
       public static final int UNSCALEDVALUE_FIELD_NUMBER = 1;
       private long unscaledValue_;
+      /**
+       * <code>required int64 unscaledValue = 1;</code>
+       */
       public boolean hasUnscaledValue() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>required int64 unscaledValue = 1;</code>
+       */
       public long getUnscaledValue() {
         return unscaledValue_;
       }
-      
-      // required int32 scale = 2;
+
       public static final int SCALE_FIELD_NUMBER = 2;
       private int scale_;
+      /**
+       * <code>required int32 scale = 2;</code>
+       */
       public boolean hasScale() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required int32 scale = 2;</code>
+       */
       public int getScale() {
         return scale_;
       }
-      
-      private void initFields() {
-        unscaledValue_ = 0L;
-        scale_ = 0;
-      }
+
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-        
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
         if (!hasUnscaledValue()) {
           memoizedIsInitialized = 0;
           return false;
@@ -3097,24 +4065,22 @@ public final class ProtoMessage {
         memoizedIsInitialized = 1;
         return true;
       }
-      
+
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        getSerializedSize();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           output.writeInt64(1, unscaledValue_);
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
           output.writeInt32(2, scale_);
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
-      
-      private int memoizedSerializedSize = -1;
+
       public int getSerializedSize() {
-        int size = memoizedSerializedSize;
+        int size = memoizedSize;
         if (size != -1) return size;
-      
+
         size = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           size += com.google.protobuf.CodedOutputStream
@@ -3124,117 +4090,109 @@ public final class ProtoMessage {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(2, scale_);
         }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
         return size;
       }
-      
+
       private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-      
       public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data).buildParsed();
+        return PARSER.parseFrom(data);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parseFrom(
           com.google.protobuf.ByteString data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data, extensionRegistry)
-                 .buildParsed();
+        return PARSER.parseFrom(data, extensionRegistry);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parseFrom(byte[] data)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data).buildParsed();
+        return PARSER.parseFrom(data);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parseFrom(
           byte[] data,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return newBuilder().mergeFrom(data, extensionRegistry)
-                 .buildParsed();
+        return PARSER.parseFrom(data, extensionRegistry);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parseFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return newBuilder().mergeFrom(input).buildParsed();
+        return PARSER.parseFrom(input);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return newBuilder().mergeFrom(input, extensionRegistry)
-                 .buildParsed();
+        return PARSER.parseFrom(input, extensionRegistry);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
-        Builder builder = newBuilder();
-        if (builder.mergeDelimitedFrom(input)) {
-          return builder.buildParsed();
-        } else {
-          return null;
-        }
+        return PARSER.parseDelimitedFrom(input);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Builder builder = newBuilder();
-        if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-          return builder.buildParsed();
-        } else {
-          return null;
-        }
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
-        return newBuilder().mergeFrom(input).buildParsed();
+        return PARSER.parseFrom(input);
       }
       public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return newBuilder().mergeFrom(input, extensionRegistry)
-                 .buildParsed();
+        return PARSER.parseFrom(input, extensionRegistry);
       }
-      
-      public static Builder newBuilder() { return Builder.create(); }
+
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value prototype) {
-        return newBuilder().mergeFrom(prototype);
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
       }
-      public Builder toBuilder() { return newBuilder(this); }
-      
+      public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
       @java.lang.Override
       protected Builder newBuilderForType(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
+      /**
+       * Protobuf type {@code xsdtypes.Decimal.Value}
+       */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.bol.protojx.xsdtypes.ProtoMessage.Decimal.ValueOrBuilder {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:xsdtypes.Decimal.Value)
+          com.bol.protojx.xsdtypes.ProtoMessage.Decimal.ValueOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_Value_descriptor;
         }
-        
+
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_Value_fieldAccessorTable;
+          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_Value_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.class, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.Builder.class);
         }
-        
+
         // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.newBuilder()
         private Builder() {
           maybeForceBuilderInitialization();
         }
-        
-        private Builder(BuilderParent parent) {
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
@@ -3242,10 +4200,6 @@ public final class ProtoMessage {
           if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           }
         }
-        private static Builder create() {
-          return new Builder();
-        }
-        
         public Builder clear() {
           super.clear();
           unscaledValue_ = 0L;
@@ -3254,20 +4208,16 @@ public final class ProtoMessage {
           bitField0_ = (bitField0_ & ~0x00000002);
           return this;
         }
-        
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-        
+
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDescriptor();
+          return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_Value_descriptor;
         }
-        
+
         public com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value getDefaultInstanceForType() {
           return com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance();
         }
-        
+
         public com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value build() {
           com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value result = buildPartial();
           if (!result.isInitialized()) {
@@ -3275,17 +4225,7 @@ public final class ProtoMessage {
           }
           return result;
         }
-        
-        private com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value buildParsed()
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(
-              result).asInvalidProtocolBufferException();
-          }
-          return result;
-        }
-        
+
         public com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value buildPartial() {
           com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value result = new com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value(this);
           int from_bitField0_ = bitField0_;
@@ -3302,7 +4242,7 @@ public final class ProtoMessage {
           onBuilt();
           return result;
         }
-        
+
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value) {
             return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value)other);
@@ -3311,7 +4251,7 @@ public final class ProtoMessage {
             return this;
           }
         }
-        
+
         public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value other) {
           if (other == com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance()) return this;
           if (other.hasUnscaledValue()) {
@@ -3320,136 +4260,179 @@ public final class ProtoMessage {
           if (other.hasScale()) {
             setScale(other.getScale());
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
           return this;
         }
-        
+
         public final boolean isInitialized() {
           if (!hasUnscaledValue()) {
-            
             return false;
           }
           if (!hasScale()) {
-            
             return false;
           }
           return true;
         }
-        
+
         public Builder mergeFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder(
-              this.getUnknownFields());
-          while (true) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  this.setUnknownFields(unknownFields.build());
-                  onChanged();
-                  return this;
-                }
-                break;
-              }
-              case 8: {
-                bitField0_ |= 0x00000001;
-                unscaledValue_ = input.readInt64();
-                break;
-              }
-              case 16: {
-                bitField0_ |= 0x00000002;
-                scale_ = input.readInt32();
-                break;
-              }
+          com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
             }
           }
+          return this;
         }
-        
         private int bitField0_;
-        
-        // required int64 unscaledValue = 1;
+
         private long unscaledValue_ ;
+        /**
+         * <code>required int64 unscaledValue = 1;</code>
+         */
         public boolean hasUnscaledValue() {
           return ((bitField0_ & 0x00000001) == 0x00000001);
         }
+        /**
+         * <code>required int64 unscaledValue = 1;</code>
+         */
         public long getUnscaledValue() {
           return unscaledValue_;
         }
+        /**
+         * <code>required int64 unscaledValue = 1;</code>
+         */
         public Builder setUnscaledValue(long value) {
           bitField0_ |= 0x00000001;
           unscaledValue_ = value;
           onChanged();
           return this;
         }
+        /**
+         * <code>required int64 unscaledValue = 1;</code>
+         */
         public Builder clearUnscaledValue() {
           bitField0_ = (bitField0_ & ~0x00000001);
           unscaledValue_ = 0L;
           onChanged();
           return this;
         }
-        
-        // required int32 scale = 2;
+
         private int scale_ ;
+        /**
+         * <code>required int32 scale = 2;</code>
+         */
         public boolean hasScale() {
           return ((bitField0_ & 0x00000002) == 0x00000002);
         }
+        /**
+         * <code>required int32 scale = 2;</code>
+         */
         public int getScale() {
           return scale_;
         }
+        /**
+         * <code>required int32 scale = 2;</code>
+         */
         public Builder setScale(int value) {
           bitField0_ |= 0x00000002;
           scale_ = value;
           onChanged();
           return this;
         }
+        /**
+         * <code>required int32 scale = 2;</code>
+         */
         public Builder clearScale() {
           bitField0_ = (bitField0_ & ~0x00000002);
           scale_ = 0;
           onChanged();
           return this;
         }
-        
+
         // @@protoc_insertion_point(builder_scope:xsdtypes.Decimal.Value)
       }
-      
-      static {
-        defaultInstance = new Value(true);
-        defaultInstance.initFields();
-      }
-      
+
       // @@protoc_insertion_point(class_scope:xsdtypes.Decimal.Value)
+      private static final com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value();
+      }
+
+      public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Value>
+          PARSER = new com.google.protobuf.AbstractParser<Value>() {
+        public Value parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          try {
+            return new Value(input, extensionRegistry);
+          } catch (RuntimeException e) {
+            if (e.getCause() instanceof
+                com.google.protobuf.InvalidProtocolBufferException) {
+              throw (com.google.protobuf.InvalidProtocolBufferException)
+                  e.getCause();
+            }
+            throw e;
+          }
+        }
+      };
+
+      public static com.google.protobuf.Parser<Value> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Value> getParserForType() {
+        return PARSER;
+      }
+
+      public com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
-    
+
     private int bitField0_;
-    // optional .xsdtypes.Decimal.Value value = 1;
     public static final int VALUE_FIELD_NUMBER = 1;
     private com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value value_;
+    /**
+     * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+     */
     public boolean hasValue() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value getValue() {
-      return value_;
+      return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance() : value_;
     }
+    /**
+     * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Decimal.ValueOrBuilder getValueOrBuilder() {
-      return value_;
+      return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance() : value_;
     }
-    
-    private void initFields() {
-      value_ = com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance();
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       if (hasValue()) {
         if (!getValue().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -3459,137 +4442,131 @@ public final class ProtoMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, value_);
+        output.writeMessage(1, getValue());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, value_);
+          .computeMessageSize(1, getValue());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Decimal prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Decimal prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code xsdtypes.Decimal}
+     *
+     * <pre>
+     * Maps directly to java.math.BigDecimal
+     * </pre>
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.xsdtypes.ProtoMessage.DecimalOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xsdtypes.Decimal)
+        com.bol.protojx.xsdtypes.ProtoMessage.DecimalOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_fieldAccessorTable;
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.Decimal.class, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Decimal.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3598,34 +4575,26 @@ public final class ProtoMessage {
           getValueFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         if (valueBuilder_ == null) {
-          value_ = com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance();
+          value_ = null;
         } else {
           valueBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDescriptor();
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Decimal_descriptor;
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Decimal getDefaultInstanceForType() {
         return com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Decimal build() {
         com.bol.protojx.xsdtypes.ProtoMessage.Decimal result = buildPartial();
         if (!result.isInitialized()) {
@@ -3633,17 +4602,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.xsdtypes.ProtoMessage.Decimal buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.xsdtypes.ProtoMessage.Decimal result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Decimal buildPartial() {
         com.bol.protojx.xsdtypes.ProtoMessage.Decimal result = new com.bol.protojx.xsdtypes.ProtoMessage.Decimal(this);
         int from_bitField0_ = bitField0_;
@@ -3660,7 +4619,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Decimal) {
           return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Decimal)other);
@@ -3669,78 +4628,67 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Decimal other) {
         if (other == com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance()) return this;
         if (other.hasValue()) {
           mergeValue(other.getValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (hasValue()) {
           if (!getValue().isInitialized()) {
-            
             return false;
           }
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.newBuilder();
-              if (hasValue()) {
-                subBuilder.mergeFrom(getValue());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setValue(subBuilder.buildPartial());
-              break;
-            }
+        com.bol.protojx.xsdtypes.ProtoMessage.Decimal parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.Decimal) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // optional .xsdtypes.Decimal.Value value = 1;
-      private com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value value_ = com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value value_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.ValueOrBuilder> valueBuilder_;
+      /**
+       * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+       */
       public boolean hasValue() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value getValue() {
         if (valueBuilder_ == null) {
-          return value_;
+          return value_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance() : value_;
         } else {
           return valueBuilder_.getMessage();
         }
       }
+      /**
+       * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+       */
       public Builder setValue(com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value value) {
         if (valueBuilder_ == null) {
           if (value == null) {
@@ -3754,6 +4702,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+       */
       public Builder setValue(
           com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.Builder builderForValue) {
         if (valueBuilder_ == null) {
@@ -3765,9 +4716,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+       */
       public Builder mergeValue(com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value value) {
         if (valueBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              value_ != null &&
               value_ != com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance()) {
             value_ =
               com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.newBuilder(value_).mergeFrom(value).buildPartial();
@@ -3781,9 +4736,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+       */
       public Builder clearValue() {
         if (valueBuilder_ == null) {
-          value_ = com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance();
+          value_ = null;
           onChanged();
         } else {
           valueBuilder_.clear();
@@ -3791,231 +4749,332 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.Builder getValueBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getValueFieldBuilder().getBuilder();
       }
+      /**
+       * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Decimal.ValueOrBuilder getValueOrBuilder() {
         if (valueBuilder_ != null) {
           return valueBuilder_.getMessageOrBuilder();
         } else {
-          return value_;
+          return value_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.getDefaultInstance() : value_;
         }
       }
+      /**
+       * <code>optional .xsdtypes.Decimal.Value value = 1;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.ValueOrBuilder> 
           getValueFieldBuilder() {
         if (valueBuilder_ == null) {
           valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.ValueOrBuilder>(
-                  value_,
+                  getValue(),
                   getParentForChildren(),
                   isClean());
           value_ = null;
         }
         return valueBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:xsdtypes.Decimal)
     }
-    
-    static {
-      defaultInstance = new Decimal(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:xsdtypes.Decimal)
+    private static final com.bol.protojx.xsdtypes.ProtoMessage.Decimal DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.Decimal();
+    }
+
+    public static com.bol.protojx.xsdtypes.ProtoMessage.Decimal getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Decimal>
+        PARSER = new com.google.protobuf.AbstractParser<Decimal>() {
+      public Decimal parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new Decimal(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<Decimal> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Decimal> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.xsdtypes.ProtoMessage.Decimal getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
-  public interface Integer64OrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional int64 value = 1;
+
+  public interface Integer64OrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xsdtypes.Integer64)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int64 value = 1;</code>
+     */
     boolean hasValue();
+    /**
+     * <code>optional int64 value = 1;</code>
+     */
     long getValue();
   }
-  public static final class Integer64 extends
-      com.google.protobuf.GeneratedMessage
-      implements Integer64OrBuilder {
+  /**
+   * Protobuf type {@code xsdtypes.Integer64}
+   *
+   * <pre>
+   * Maps to java.lang.Integer and java.lang.Long
+   * These messages exist for fields that need to
+   * communicate a null-override value.
+   * </pre>
+   */
+  public  static final class Integer64 extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:xsdtypes.Integer64)
+      Integer64OrBuilder {
     // Use Integer64.newBuilder() to construct.
-    private Integer64(Builder builder) {
+    private Integer64(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private Integer64(boolean noInit) {}
-    
-    private static final Integer64 defaultInstance;
-    public static Integer64 getDefaultInstance() {
-      return defaultInstance;
+    private Integer64() {
+      value_ = 0L;
     }
-    
-    public Integer64 getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private Integer64(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer64_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer64_fieldAccessorTable;
+      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer64_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.xsdtypes.ProtoMessage.Integer64.class, com.bol.protojx.xsdtypes.ProtoMessage.Integer64.Builder.class);
     }
-    
+
     private int bitField0_;
-    // optional int64 value = 1;
     public static final int VALUE_FIELD_NUMBER = 1;
     private long value_;
+    /**
+     * <code>optional int64 value = 1;</code>
+     */
     public boolean hasValue() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>optional int64 value = 1;</code>
+     */
     public long getValue() {
       return value_;
     }
-    
-    private void initFields() {
-      value_ = 0L;
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, value_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Integer64 prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Integer64 prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code xsdtypes.Integer64}
+     *
+     * <pre>
+     * Maps to java.lang.Integer and java.lang.Long
+     * These messages exist for fields that need to
+     * communicate a null-override value.
+     * </pre>
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.xsdtypes.ProtoMessage.Integer64OrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xsdtypes.Integer64)
+        com.bol.protojx.xsdtypes.ProtoMessage.Integer64OrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer64_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer64_fieldAccessorTable;
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer64_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.Integer64.class, com.bol.protojx.xsdtypes.ProtoMessage.Integer64.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Integer64.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -4023,30 +5082,22 @@ public final class ProtoMessage {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         value_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDescriptor();
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer64_descriptor;
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer64 getDefaultInstanceForType() {
         return com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer64 build() {
         com.bol.protojx.xsdtypes.ProtoMessage.Integer64 result = buildPartial();
         if (!result.isInitialized()) {
@@ -4054,17 +5105,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.xsdtypes.ProtoMessage.Integer64 buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.xsdtypes.ProtoMessage.Integer64 result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer64 buildPartial() {
         com.bol.protojx.xsdtypes.ProtoMessage.Integer64 result = new com.bol.protojx.xsdtypes.ProtoMessage.Integer64(this);
         int from_bitField0_ = bitField0_;
@@ -4077,7 +5118,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Integer64) {
           return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Integer64)other);
@@ -4086,274 +5127,350 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Integer64 other) {
         if (other == com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance()) return this;
         if (other.hasValue()) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              value_ = input.readInt64();
-              break;
-            }
+        com.bol.protojx.xsdtypes.ProtoMessage.Integer64 parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.Integer64) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // optional int64 value = 1;
+
       private long value_ ;
+      /**
+       * <code>optional int64 value = 1;</code>
+       */
       public boolean hasValue() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>optional int64 value = 1;</code>
+       */
       public long getValue() {
         return value_;
       }
+      /**
+       * <code>optional int64 value = 1;</code>
+       */
       public Builder setValue(long value) {
         bitField0_ |= 0x00000001;
         value_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional int64 value = 1;</code>
+       */
       public Builder clearValue() {
         bitField0_ = (bitField0_ & ~0x00000001);
         value_ = 0L;
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:xsdtypes.Integer64)
     }
-    
-    static {
-      defaultInstance = new Integer64(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:xsdtypes.Integer64)
+    private static final com.bol.protojx.xsdtypes.ProtoMessage.Integer64 DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.Integer64();
+    }
+
+    public static com.bol.protojx.xsdtypes.ProtoMessage.Integer64 getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Integer64>
+        PARSER = new com.google.protobuf.AbstractParser<Integer64>() {
+      public Integer64 parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new Integer64(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<Integer64> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Integer64> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.xsdtypes.ProtoMessage.Integer64 getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
-  public interface Integer32OrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional int32 value = 1;
+
+  public interface Integer32OrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xsdtypes.Integer32)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 value = 1;</code>
+     */
     boolean hasValue();
+    /**
+     * <code>optional int32 value = 1;</code>
+     */
     int getValue();
   }
-  public static final class Integer32 extends
-      com.google.protobuf.GeneratedMessage
-      implements Integer32OrBuilder {
+  /**
+   * Protobuf type {@code xsdtypes.Integer32}
+   */
+  public  static final class Integer32 extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:xsdtypes.Integer32)
+      Integer32OrBuilder {
     // Use Integer32.newBuilder() to construct.
-    private Integer32(Builder builder) {
+    private Integer32(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private Integer32(boolean noInit) {}
-    
-    private static final Integer32 defaultInstance;
-    public static Integer32 getDefaultInstance() {
-      return defaultInstance;
+    private Integer32() {
+      value_ = 0;
     }
-    
-    public Integer32 getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private Integer32(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer32_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer32_fieldAccessorTable;
+      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer32_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.xsdtypes.ProtoMessage.Integer32.class, com.bol.protojx.xsdtypes.ProtoMessage.Integer32.Builder.class);
     }
-    
+
     private int bitField0_;
-    // optional int32 value = 1;
     public static final int VALUE_FIELD_NUMBER = 1;
     private int value_;
+    /**
+     * <code>optional int32 value = 1;</code>
+     */
     public boolean hasValue() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>optional int32 value = 1;</code>
+     */
     public int getValue() {
       return value_;
     }
-    
-    private void initFields() {
-      value_ = 0;
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, value_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Integer32 prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Integer32 prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code xsdtypes.Integer32}
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.xsdtypes.ProtoMessage.Integer32OrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xsdtypes.Integer32)
+        com.bol.protojx.xsdtypes.ProtoMessage.Integer32OrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer32_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer32_fieldAccessorTable;
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer32_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.Integer32.class, com.bol.protojx.xsdtypes.ProtoMessage.Integer32.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Integer32.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -4361,30 +5478,22 @@ public final class ProtoMessage {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         value_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDescriptor();
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Integer32_descriptor;
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer32 getDefaultInstanceForType() {
         return com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer32 build() {
         com.bol.protojx.xsdtypes.ProtoMessage.Integer32 result = buildPartial();
         if (!result.isInitialized()) {
@@ -4392,17 +5501,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.xsdtypes.ProtoMessage.Integer32 buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.xsdtypes.ProtoMessage.Integer32 result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer32 buildPartial() {
         com.bol.protojx.xsdtypes.ProtoMessage.Integer32 result = new com.bol.protojx.xsdtypes.ProtoMessage.Integer32(this);
         int from_bitField0_ = bitField0_;
@@ -4415,7 +5514,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Integer32) {
           return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Integer32)other);
@@ -4424,274 +5523,362 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Integer32 other) {
         if (other == com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance()) return this;
         if (other.hasValue()) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              value_ = input.readInt32();
-              break;
-            }
+        com.bol.protojx.xsdtypes.ProtoMessage.Integer32 parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.Integer32) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // optional int32 value = 1;
+
       private int value_ ;
+      /**
+       * <code>optional int32 value = 1;</code>
+       */
       public boolean hasValue() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>optional int32 value = 1;</code>
+       */
       public int getValue() {
         return value_;
       }
+      /**
+       * <code>optional int32 value = 1;</code>
+       */
       public Builder setValue(int value) {
         bitField0_ |= 0x00000001;
         value_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional int32 value = 1;</code>
+       */
       public Builder clearValue() {
         bitField0_ = (bitField0_ & ~0x00000001);
         value_ = 0;
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:xsdtypes.Integer32)
     }
-    
-    static {
-      defaultInstance = new Integer32(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:xsdtypes.Integer32)
+    private static final com.bol.protojx.xsdtypes.ProtoMessage.Integer32 DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.Integer32();
+    }
+
+    public static com.bol.protojx.xsdtypes.ProtoMessage.Integer32 getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Integer32>
+        PARSER = new com.google.protobuf.AbstractParser<Integer32>() {
+      public Integer32 parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new Integer32(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<Integer32> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Integer32> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.xsdtypes.ProtoMessage.Integer32 getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
-  public interface BoolOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional bool value = 1;
+
+  public interface BoolOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xsdtypes.Bool)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional bool value = 1;</code>
+     */
     boolean hasValue();
+    /**
+     * <code>optional bool value = 1;</code>
+     */
     boolean getValue();
   }
-  public static final class Bool extends
-      com.google.protobuf.GeneratedMessage
-      implements BoolOrBuilder {
+  /**
+   * Protobuf type {@code xsdtypes.Bool}
+   *
+   * <pre>
+   * Maps to java.lang.Boolean
+   * This message exist for fields that need to
+   * communicate a null-override value.
+   * </pre>
+   */
+  public  static final class Bool extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:xsdtypes.Bool)
+      BoolOrBuilder {
     // Use Bool.newBuilder() to construct.
-    private Bool(Builder builder) {
+    private Bool(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private Bool(boolean noInit) {}
-    
-    private static final Bool defaultInstance;
-    public static Bool getDefaultInstance() {
-      return defaultInstance;
+    private Bool() {
+      value_ = false;
     }
-    
-    public Bool getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private Bool(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              value_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Bool_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Bool_fieldAccessorTable;
+      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Bool_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.xsdtypes.ProtoMessage.Bool.class, com.bol.protojx.xsdtypes.ProtoMessage.Bool.Builder.class);
     }
-    
+
     private int bitField0_;
-    // optional bool value = 1;
     public static final int VALUE_FIELD_NUMBER = 1;
     private boolean value_;
+    /**
+     * <code>optional bool value = 1;</code>
+     */
     public boolean hasValue() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>optional bool value = 1;</code>
+     */
     public boolean getValue() {
       return value_;
     }
-    
-    private void initFields() {
-      value_ = false;
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBool(1, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, value_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.xsdtypes.ProtoMessage.Bool parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Bool parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Bool parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Bool parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Bool parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Bool parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Bool parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Bool parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Bool parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Bool parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Bool prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Bool prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code xsdtypes.Bool}
+     *
+     * <pre>
+     * Maps to java.lang.Boolean
+     * This message exist for fields that need to
+     * communicate a null-override value.
+     * </pre>
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.xsdtypes.ProtoMessage.BoolOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xsdtypes.Bool)
+        com.bol.protojx.xsdtypes.ProtoMessage.BoolOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Bool_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Bool_fieldAccessorTable;
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Bool_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.Bool.class, com.bol.protojx.xsdtypes.ProtoMessage.Bool.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Bool.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -4699,30 +5886,22 @@ public final class ProtoMessage {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         value_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDescriptor();
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Bool_descriptor;
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Bool getDefaultInstanceForType() {
         return com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Bool build() {
         com.bol.protojx.xsdtypes.ProtoMessage.Bool result = buildPartial();
         if (!result.isInitialized()) {
@@ -4730,17 +5909,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.xsdtypes.ProtoMessage.Bool buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.xsdtypes.ProtoMessage.Bool result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Bool buildPartial() {
         com.bol.protojx.xsdtypes.ProtoMessage.Bool result = new com.bol.protojx.xsdtypes.ProtoMessage.Bool(this);
         int from_bitField0_ = bitField0_;
@@ -4753,7 +5922,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Bool) {
           return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Bool)other);
@@ -4762,296 +5931,394 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Bool other) {
         if (other == com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance()) return this;
         if (other.hasValue()) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              value_ = input.readBool();
-              break;
-            }
+        com.bol.protojx.xsdtypes.ProtoMessage.Bool parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.Bool) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // optional bool value = 1;
+
       private boolean value_ ;
+      /**
+       * <code>optional bool value = 1;</code>
+       */
       public boolean hasValue() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>optional bool value = 1;</code>
+       */
       public boolean getValue() {
         return value_;
       }
+      /**
+       * <code>optional bool value = 1;</code>
+       */
       public Builder setValue(boolean value) {
         bitField0_ |= 0x00000001;
         value_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>optional bool value = 1;</code>
+       */
       public Builder clearValue() {
         bitField0_ = (bitField0_ & ~0x00000001);
         value_ = false;
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:xsdtypes.Bool)
     }
-    
-    static {
-      defaultInstance = new Bool(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:xsdtypes.Bool)
+    private static final com.bol.protojx.xsdtypes.ProtoMessage.Bool DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.Bool();
+    }
+
+    public static com.bol.protojx.xsdtypes.ProtoMessage.Bool getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Bool>
+        PARSER = new com.google.protobuf.AbstractParser<Bool>() {
+      public Bool parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new Bool(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<Bool> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Bool> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.xsdtypes.ProtoMessage.Bool getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
-  public interface CharsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional string value = 1;
+
+  public interface CharsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:xsdtypes.Chars)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string value = 1;</code>
+     */
     boolean hasValue();
-    String getValue();
+    /**
+     * <code>optional string value = 1;</code>
+     */
+    java.lang.String getValue();
+    /**
+     * <code>optional string value = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getValueBytes();
   }
-  public static final class Chars extends
-      com.google.protobuf.GeneratedMessage
-      implements CharsOrBuilder {
+  /**
+   * Protobuf type {@code xsdtypes.Chars}
+   *
+   * <pre>
+   * Maps to java.lang.String
+   * This message exist for fields that need to
+   * communicate a null-override value.
+   * </pre>
+   */
+  public  static final class Chars extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:xsdtypes.Chars)
+      CharsOrBuilder {
     // Use Chars.newBuilder() to construct.
-    private Chars(Builder builder) {
+    private Chars(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private Chars(boolean noInit) {}
-    
-    private static final Chars defaultInstance;
-    public static Chars getDefaultInstance() {
-      return defaultInstance;
+    private Chars() {
+      value_ = "";
     }
-    
-    public Chars getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private Chars(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              value_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Chars_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Chars_fieldAccessorTable;
+      return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Chars_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.xsdtypes.ProtoMessage.Chars.class, com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder.class);
     }
-    
+
     private int bitField0_;
-    // optional string value = 1;
     public static final int VALUE_FIELD_NUMBER = 1;
-    private java.lang.Object value_;
+    private volatile java.lang.Object value_;
+    /**
+     * <code>optional string value = 1;</code>
+     */
     public boolean hasValue() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getValue() {
+    /**
+     * <code>optional string value = 1;</code>
+     */
+    public java.lang.String getValue() {
       java.lang.Object ref = value_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           value_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getValueBytes() {
+    /**
+     * <code>optional string value = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getValueBytes() {
       java.lang.Object ref = value_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         value_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
-    private void initFields() {
-      value_ = "";
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getValueBytes());
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getValueBytes());
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, value_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.xsdtypes.ProtoMessage.Chars parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Chars parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Chars parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Chars parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Chars parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Chars parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Chars parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Chars parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Chars parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.xsdtypes.ProtoMessage.Chars parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Chars prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.xsdtypes.ProtoMessage.Chars prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code xsdtypes.Chars}
+     *
+     * <pre>
+     * Maps to java.lang.String
+     * This message exist for fields that need to
+     * communicate a null-override value.
+     * </pre>
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:xsdtypes.Chars)
+        com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Chars_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Chars_fieldAccessorTable;
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Chars_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.xsdtypes.ProtoMessage.Chars.class, com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.xsdtypes.ProtoMessage.Chars.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -5059,30 +6326,22 @@ public final class ProtoMessage {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         value_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDescriptor();
+        return com.bol.protojx.xsdtypes.ProtoMessage.internal_static_xsdtypes_Chars_descriptor;
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Chars getDefaultInstanceForType() {
         return com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Chars build() {
         com.bol.protojx.xsdtypes.ProtoMessage.Chars result = buildPartial();
         if (!result.isInitialized()) {
@@ -5090,17 +6349,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.xsdtypes.ProtoMessage.Chars buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.xsdtypes.ProtoMessage.Chars result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.xsdtypes.ProtoMessage.Chars buildPartial() {
         com.bol.protojx.xsdtypes.ProtoMessage.Chars result = new com.bol.protojx.xsdtypes.ProtoMessage.Chars(this);
         int from_bitField0_ = bitField0_;
@@ -5113,7 +6362,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.xsdtypes.ProtoMessage.Chars) {
           return mergeFrom((com.bol.protojx.xsdtypes.ProtoMessage.Chars)other);
@@ -5122,70 +6371,87 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.xsdtypes.ProtoMessage.Chars other) {
         if (other == com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance()) return this;
         if (other.hasValue()) {
-          setValue(other.getValue());
+          bitField0_ |= 0x00000001;
+          value_ = other.value_;
+          onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              value_ = input.readBytes();
-              break;
-            }
+        com.bol.protojx.xsdtypes.ProtoMessage.Chars parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.xsdtypes.ProtoMessage.Chars) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // optional string value = 1;
+
       private java.lang.Object value_ = "";
+      /**
+       * <code>optional string value = 1;</code>
+       */
       public boolean hasValue() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getValue() {
+      /**
+       * <code>optional string value = 1;</code>
+       */
+      public java.lang.String getValue() {
         java.lang.Object ref = value_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          value_ = s;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            value_ = s;
+          }
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setValue(String value) {
+      /**
+       * <code>optional string value = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getValueBytes() {
+        java.lang.Object ref = value_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          value_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string value = 1;</code>
+       */
+      public Builder setValue(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -5194,29 +6460,76 @@ public final class ProtoMessage {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional string value = 1;</code>
+       */
       public Builder clearValue() {
         bitField0_ = (bitField0_ & ~0x00000001);
         value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
       }
-      void setValue(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>optional string value = 1;</code>
+       */
+      public Builder setValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         value_ = value;
         onChanged();
+        return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:xsdtypes.Chars)
     }
-    
-    static {
-      defaultInstance = new Chars(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:xsdtypes.Chars)
+    private static final com.bol.protojx.xsdtypes.ProtoMessage.Chars DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.xsdtypes.ProtoMessage.Chars();
+    }
+
+    public static com.bol.protojx.xsdtypes.ProtoMessage.Chars getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Chars>
+        PARSER = new com.google.protobuf.AbstractParser<Chars>() {
+      public Chars parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new Chars(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<Chars> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Chars> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.xsdtypes.ProtoMessage.Chars getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_xsdtypes_Day_descriptor;
   private static
@@ -5277,7 +6590,7 @@ public final class ProtoMessage {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_xsdtypes_Chars_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -5305,114 +6618,90 @@ public final class ProtoMessage {
       "rotoMessage"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_xsdtypes_Day_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_xsdtypes_Day_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_Day_descriptor,
-              new java.lang.String[] { "Value", },
-              com.bol.protojx.xsdtypes.ProtoMessage.Day.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.Day.Builder.class);
-          internal_static_xsdtypes_Day_Value_descriptor =
-            internal_static_xsdtypes_Day_descriptor.getNestedTypes().get(0);
-          internal_static_xsdtypes_Day_Value_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_Day_Value_descriptor,
-              new java.lang.String[] { "Year", "Month", "DayInMonth", },
-              com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.Day.Value.Builder.class);
-          internal_static_xsdtypes_Time_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_xsdtypes_Time_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_Time_descriptor,
-              new java.lang.String[] { "Value", },
-              com.bol.protojx.xsdtypes.ProtoMessage.Time.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.Time.Builder.class);
-          internal_static_xsdtypes_Time_Value_descriptor =
-            internal_static_xsdtypes_Time_descriptor.getNestedTypes().get(0);
-          internal_static_xsdtypes_Time_Value_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_Time_Value_descriptor,
-              new java.lang.String[] { "Hours", "Minutes", "Seconds", "Offset", "Milliseconds", },
-              com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.Time.Value.Builder.class);
-          internal_static_xsdtypes_DayTime_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_xsdtypes_DayTime_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_DayTime_descriptor,
-              new java.lang.String[] { "Value", },
-              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Builder.class);
-          internal_static_xsdtypes_DayTime_Value_descriptor =
-            internal_static_xsdtypes_DayTime_descriptor.getNestedTypes().get(0);
-          internal_static_xsdtypes_DayTime_Value_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_DayTime_Value_descriptor,
-              new java.lang.String[] { "Day", "Time", },
-              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Value.Builder.class);
-          internal_static_xsdtypes_Decimal_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_xsdtypes_Decimal_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_Decimal_descriptor,
-              new java.lang.String[] { "Value", },
-              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Builder.class);
-          internal_static_xsdtypes_Decimal_Value_descriptor =
-            internal_static_xsdtypes_Decimal_descriptor.getNestedTypes().get(0);
-          internal_static_xsdtypes_Decimal_Value_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_Decimal_Value_descriptor,
-              new java.lang.String[] { "UnscaledValue", "Scale", },
-              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Value.Builder.class);
-          internal_static_xsdtypes_Integer64_descriptor =
-            getDescriptor().getMessageTypes().get(4);
-          internal_static_xsdtypes_Integer64_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_Integer64_descriptor,
-              new java.lang.String[] { "Value", },
-              com.bol.protojx.xsdtypes.ProtoMessage.Integer64.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.Integer64.Builder.class);
-          internal_static_xsdtypes_Integer32_descriptor =
-            getDescriptor().getMessageTypes().get(5);
-          internal_static_xsdtypes_Integer32_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_Integer32_descriptor,
-              new java.lang.String[] { "Value", },
-              com.bol.protojx.xsdtypes.ProtoMessage.Integer32.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.Integer32.Builder.class);
-          internal_static_xsdtypes_Bool_descriptor =
-            getDescriptor().getMessageTypes().get(6);
-          internal_static_xsdtypes_Bool_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_Bool_descriptor,
-              new java.lang.String[] { "Value", },
-              com.bol.protojx.xsdtypes.ProtoMessage.Bool.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.Bool.Builder.class);
-          internal_static_xsdtypes_Chars_descriptor =
-            getDescriptor().getMessageTypes().get(7);
-          internal_static_xsdtypes_Chars_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_xsdtypes_Chars_descriptor,
-              new java.lang.String[] { "Value", },
-              com.bol.protojx.xsdtypes.ProtoMessage.Chars.class,
-              com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder.class);
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_xsdtypes_Day_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_xsdtypes_Day_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_Day_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_xsdtypes_Day_Value_descriptor =
+      internal_static_xsdtypes_Day_descriptor.getNestedTypes().get(0);
+    internal_static_xsdtypes_Day_Value_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_Day_Value_descriptor,
+        new java.lang.String[] { "Year", "Month", "DayInMonth", });
+    internal_static_xsdtypes_Time_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_xsdtypes_Time_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_Time_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_xsdtypes_Time_Value_descriptor =
+      internal_static_xsdtypes_Time_descriptor.getNestedTypes().get(0);
+    internal_static_xsdtypes_Time_Value_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_Time_Value_descriptor,
+        new java.lang.String[] { "Hours", "Minutes", "Seconds", "Offset", "Milliseconds", });
+    internal_static_xsdtypes_DayTime_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_xsdtypes_DayTime_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_DayTime_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_xsdtypes_DayTime_Value_descriptor =
+      internal_static_xsdtypes_DayTime_descriptor.getNestedTypes().get(0);
+    internal_static_xsdtypes_DayTime_Value_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_DayTime_Value_descriptor,
+        new java.lang.String[] { "Day", "Time", });
+    internal_static_xsdtypes_Decimal_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_xsdtypes_Decimal_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_Decimal_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_xsdtypes_Decimal_Value_descriptor =
+      internal_static_xsdtypes_Decimal_descriptor.getNestedTypes().get(0);
+    internal_static_xsdtypes_Decimal_Value_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_Decimal_Value_descriptor,
+        new java.lang.String[] { "UnscaledValue", "Scale", });
+    internal_static_xsdtypes_Integer64_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_xsdtypes_Integer64_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_Integer64_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_xsdtypes_Integer32_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_xsdtypes_Integer32_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_Integer32_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_xsdtypes_Bool_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_xsdtypes_Bool_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_Bool_descriptor,
+        new java.lang.String[] { "Value", });
+    internal_static_xsdtypes_Chars_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_xsdtypes_Chars_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_xsdtypes_Chars_descriptor,
+        new java.lang.String[] { "Value", });
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }

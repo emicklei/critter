@@ -17,10 +17,13 @@ import java.util.Map;
  */
 public class Inspector {
 
+    final int NoIndex = -1;
+
     Definitions messageDefinitions;
     UnknownFieldSet fieldSet;
     String messageName;
     String fieldName = ""; // if not empty then the valueString will show the value of the field in the fieldset.
+    int fieldIndex = NoIndex;
 
     /**
      * Reads one protocol buffers message.
@@ -63,18 +66,8 @@ public class Inspector {
         if (token.length() == 0) {
             return Optional.absent();
         }
-        // token is either digits (index) or string (label)
-        int indexToken = 0;
-        boolean isIndex = false;
-        try {
-            indexToken = Integer.parseInt(token);
-        } catch (NumberFormatException ex) {
-            isIndex = false;
-        }
         this.fieldName = token;
-        if (tokens.length == index + 1) {
-            return Optional.of(this);
-        }
+        int indexInFieldValue = this.nextTokenAsIndex(index, tokens);
 
         Optional<FieldElement> element = this.messageDefinitions.fieldElementNamed(this.messageName, token);
         if (!element.isPresent()) {
@@ -89,11 +82,40 @@ public class Inspector {
             } catch (IOException e) {
                 return Optional.absent();
             }
-            return sub.pathFindIn(index + 1, tokens);
+            if (NoIndex == indexInFieldValue) {
+                // non-list value
+                return sub.pathFindIn(index + 1, tokens);
+            }
+            // the path expects to see a repeated value and wants the value at indexInFieldValue
+            // the sub inspector has read the container of the value
+            sub.fieldIndex = indexInFieldValue;
+            return sub.pathFindIn(index + 2, tokens);
         }
         return Optional.of(this);
     }
 
+    private int nextTokenAsIndex(int index, String[] tokens) {
+        int next = index + 1;
+        if (next >= tokens.length) {
+            return NoIndex;
+        }
+        // token is either digits (index) or string (label)
+        int indexToken = 0;
+        boolean isIndex = true;
+        try {
+            indexToken = Integer.parseInt(tokens[next]);
+        } catch (NumberFormatException ex) {
+            isIndex = false;
+        }
+        return isIndex ? indexToken : NoIndex;
+    }
+
+    /**
+     * return the String representation of the current fieldName in the field Set.
+     * if not fieldName was set then return a verbose explanation of the message.
+     *
+     * @return
+     */
     public String toString() {
         if (this.fieldName.length() > 0) {
             Optional<FieldElement> element = this.messageDefinitions.fieldElementNamed(this.messageName, this.fieldName);
@@ -104,7 +126,7 @@ public class Inspector {
             if (element.get().type() instanceof DataType.ScalarType) {
                 return this.toStringOf((DataType.ScalarType) element.get().type(), field);
             }
-            return "non-scalar-type TODO";
+            // non-scalar-type , the path is probably too short
         }
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<Integer, UnknownFieldSet.Field> each : this.fieldSet.asMap().entrySet()) {
@@ -116,14 +138,19 @@ public class Inspector {
                 sb.append(" (");
                 sb.append(e.get().type());
                 sb.append(") = ");
-                sb.append("?");
+                sb.append(explainField(each.getValue()));
                 sb.append("\n");
             }
         }
         return sb.toString();
     }
 
-
+    /**
+     * create a new field set by reading bytes from a list of ByteString.
+     *
+     * @param lengthDelimited
+     * @throws IOException
+     */
     private void read(List<ByteString> lengthDelimited) throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         for (ByteString each : lengthDelimited) {
@@ -132,6 +159,13 @@ public class Inspector {
         read(bos.toByteArray());
     }
 
+    /**
+     * return the String representation of a scalar value.
+     *
+     * @param type
+     * @param field
+     * @return
+     */
     private String toStringOf(DataType.ScalarType type, UnknownFieldSet.Field field) {
         switch (type) {
             case BOOL:
@@ -151,5 +185,43 @@ public class Inspector {
                 // TODO
                 return "a " + type.toString();
         }
+    }
+
+    /**
+     * return an explanation of the field ; this is used when the protobufpath is invalid.
+     *
+     * @param field
+     * @return
+     */
+    private String explainField(UnknownFieldSet.Field field) {
+        if (!field.getFixed32List().isEmpty()) {
+            if (field.getFixed32List().size() == 1) {
+                return String.valueOf(field.getFixed32List().get(0)) + "(fixed32)";
+            }
+            return field.getFixed32List().toString();
+        }
+        if (!field.getFixed64List().isEmpty()) {
+            if (field.getFixed64List().size() == 1) {
+                return String.valueOf(field.getFixed64List().get(0)) + "(fixed64)";
+            }
+            return field.getFixed64List().toString();
+        }
+        if (!field.getGroupList().isEmpty()) {
+            // TODO
+            return "group";
+        }
+        if (!field.getVarintList().isEmpty()) {
+            if (field.getVarintList().size() == 1) {
+                return String.valueOf(field.getVarintList().get(0)) + "(varint)";
+            }
+            return field.getVarintList().toString();
+        }
+        if (!field.getLengthDelimitedList().isEmpty()) {
+            if (field.getLengthDelimitedList().size() == 1) {
+                return field.getLengthDelimitedList().get(0).toStringUtf8() + " (length delimited)";
+            }
+            return "" + field.getLengthDelimitedList().size() + " (length delimited list size)";
+        }
+        return "(can't explain this)";
     }
 }

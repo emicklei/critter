@@ -8,513 +8,1072 @@ public final class ProtoMessage {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface SomeComplexTypeOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // required string stringElement = 1 [default = "hello"];
+  public interface SomeComplexTypeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:test.binding.SomeComplexType)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required string stringElement = 1 [default = "hello"];</code>
+     */
     boolean hasStringElement();
-    String getStringElement();
-    
-    // required bool booleanElement = 2 [default = true];
+    /**
+     * <code>required string stringElement = 1 [default = "hello"];</code>
+     */
+    java.lang.String getStringElement();
+    /**
+     * <code>required string stringElement = 1 [default = "hello"];</code>
+     */
+    com.google.protobuf.ByteString
+        getStringElementBytes();
+
+    /**
+     * <code>required bool booleanElement = 2 [default = true];</code>
+     */
     boolean hasBooleanElement();
+    /**
+     * <code>required bool booleanElement = 2 [default = true];</code>
+     */
     boolean getBooleanElement();
-    
-    // required int32 intElement = 3 [default = 42];
+
+    /**
+     * <code>required int32 intElement = 3 [default = 42];</code>
+     */
     boolean hasIntElement();
+    /**
+     * <code>required int32 intElement = 3 [default = 42];</code>
+     */
     int getIntElement();
-    
-    // required float floatElement = 4;
+
+    /**
+     * <code>required float floatElement = 4;</code>
+     */
     boolean hasFloatElement();
+    /**
+     * <code>required float floatElement = 4;</code>
+     */
     float getFloatElement();
-    
-    // required int64 longElement = 5;
+
+    /**
+     * <code>required int64 longElement = 5;</code>
+     */
     boolean hasLongElement();
+    /**
+     * <code>required int64 longElement = 5;</code>
+     */
     long getLongElement();
-    
-    // repeated int64 longId = 6;
+
+    /**
+     * <code>repeated int64 longId = 6;</code>
+     */
     java.util.List<java.lang.Long> getLongIdList();
+    /**
+     * <code>repeated int64 longId = 6;</code>
+     */
     int getLongIdCount();
+    /**
+     * <code>repeated int64 longId = 6;</code>
+     */
     long getLongId(int index);
-    
-    // required .xsdtypes.Integer64 integer64Element = 7;
+
+    /**
+     * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+     */
     boolean hasInteger64Element();
+    /**
+     * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Integer64 getInteger64Element();
+    /**
+     * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Integer64OrBuilder getInteger64ElementOrBuilder();
-    
-    // required .xsdtypes.Integer32 integer32Element = 8;
+
+    /**
+     * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+     */
     boolean hasInteger32Element();
+    /**
+     * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Integer32 getInteger32Element();
+    /**
+     * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Integer32OrBuilder getInteger32ElementOrBuilder();
-    
-    // required .xsdtypes.Bool boolElement = 9;
+
+    /**
+     * <code>required .xsdtypes.Bool boolElement = 9;</code>
+     */
     boolean hasBoolElement();
+    /**
+     * <code>required .xsdtypes.Bool boolElement = 9;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Bool getBoolElement();
+    /**
+     * <code>required .xsdtypes.Bool boolElement = 9;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.BoolOrBuilder getBoolElementOrBuilder();
-    
-    // required .xsdtypes.Chars charsElement = 10;
+
+    /**
+     * <code>required .xsdtypes.Chars charsElement = 10;</code>
+     */
     boolean hasCharsElement();
+    /**
+     * <code>required .xsdtypes.Chars charsElement = 10;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Chars getCharsElement();
+    /**
+     * <code>required .xsdtypes.Chars charsElement = 10;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder getCharsElementOrBuilder();
-    
-    // required .xsdtypes.Time timeElement = 11;
+
+    /**
+     * <code>required .xsdtypes.Time timeElement = 11;</code>
+     */
     boolean hasTimeElement();
+    /**
+     * <code>required .xsdtypes.Time timeElement = 11;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Time getTimeElement();
+    /**
+     * <code>required .xsdtypes.Time timeElement = 11;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.TimeOrBuilder getTimeElementOrBuilder();
-    
-    // required .xsdtypes.Day dateElement = 12;
+
+    /**
+     * <code>required .xsdtypes.Day dateElement = 12;</code>
+     */
     boolean hasDateElement();
+    /**
+     * <code>required .xsdtypes.Day dateElement = 12;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Day getDateElement();
+    /**
+     * <code>required .xsdtypes.Day dateElement = 12;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.DayOrBuilder getDateElementOrBuilder();
-    
-    // required string tokenElement = 13;
+
+    /**
+     * <code>required string tokenElement = 13;</code>
+     */
     boolean hasTokenElement();
-    String getTokenElement();
-    
-    // required .xsdtypes.DayTime dateTimeElement = 14;
+    /**
+     * <code>required string tokenElement = 13;</code>
+     */
+    java.lang.String getTokenElement();
+    /**
+     * <code>required string tokenElement = 13;</code>
+     */
+    com.google.protobuf.ByteString
+        getTokenElementBytes();
+
+    /**
+     * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+     */
     boolean hasDateTimeElement();
+    /**
+     * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.DayTime getDateTimeElement();
+    /**
+     * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.DayTimeOrBuilder getDateTimeElementOrBuilder();
-    
-    // optional string optionalElement = 15;
+
+    /**
+     * <code>optional string optionalElement = 15;</code>
+     */
     boolean hasOptionalElement();
-    String getOptionalElement();
-    
-    // required string defaultableElement = 16 [default = "DEFAULT"];
+    /**
+     * <code>optional string optionalElement = 15;</code>
+     */
+    java.lang.String getOptionalElement();
+    /**
+     * <code>optional string optionalElement = 15;</code>
+     */
+    com.google.protobuf.ByteString
+        getOptionalElementBytes();
+
+    /**
+     * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+     */
     boolean hasDefaultableElement();
-    String getDefaultableElement();
-    
-    // required .test.binding.OtherComplexType otherElement = 17;
+    /**
+     * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+     */
+    java.lang.String getDefaultableElement();
+    /**
+     * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+     */
+    com.google.protobuf.ByteString
+        getDefaultableElementBytes();
+
+    /**
+     * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+     */
     boolean hasOtherElement();
+    /**
+     * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+     */
     com.bol.protojx.test.binding.ProtoMessage.OtherComplexType getOtherElement();
+    /**
+     * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+     */
     com.bol.protojx.test.binding.ProtoMessage.OtherComplexTypeOrBuilder getOtherElementOrBuilder();
-    
-    // required .test.binding.nestedTypeElement nestedTypeElement = 18;
+
+    /**
+     * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+     */
     boolean hasNestedTypeElement();
+    /**
+     * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+     */
     com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement getNestedTypeElement();
+    /**
+     * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+     */
     com.bol.protojx.test.binding.ProtoMessage.nestedTypeElementOrBuilder getNestedTypeElementOrBuilder();
-    
-    // required string STRING = 19;
+
+    /**
+     * <code>required string STRING = 19;</code>
+     */
     boolean hasSTRING();
-    String getSTRING();
-    
-    // repeated .test.binding.ItemType items = 20;
+    /**
+     * <code>required string STRING = 19;</code>
+     */
+    java.lang.String getSTRING();
+    /**
+     * <code>required string STRING = 19;</code>
+     */
+    com.google.protobuf.ByteString
+        getSTRINGBytes();
+
+    /**
+     * <code>repeated .test.binding.ItemType items = 20;</code>
+     */
     java.util.List<com.bol.protojx.test.binding.ProtoMessage.ItemType> 
         getItemsList();
+    /**
+     * <code>repeated .test.binding.ItemType items = 20;</code>
+     */
     com.bol.protojx.test.binding.ProtoMessage.ItemType getItems(int index);
+    /**
+     * <code>repeated .test.binding.ItemType items = 20;</code>
+     */
     int getItemsCount();
+    /**
+     * <code>repeated .test.binding.ItemType items = 20;</code>
+     */
     java.util.List<? extends com.bol.protojx.test.binding.ProtoMessage.ItemTypeOrBuilder> 
         getItemsOrBuilderList();
+    /**
+     * <code>repeated .test.binding.ItemType items = 20;</code>
+     */
     com.bol.protojx.test.binding.ProtoMessage.ItemTypeOrBuilder getItemsOrBuilder(
         int index);
   }
-  public static final class SomeComplexType extends
-      com.google.protobuf.GeneratedMessage
-      implements SomeComplexTypeOrBuilder {
+  /**
+   * Protobuf type {@code test.binding.SomeComplexType}
+   */
+  public  static final class SomeComplexType extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:test.binding.SomeComplexType)
+      SomeComplexTypeOrBuilder {
     // Use SomeComplexType.newBuilder() to construct.
-    private SomeComplexType(Builder builder) {
+    private SomeComplexType(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private SomeComplexType(boolean noInit) {}
-    
-    private static final SomeComplexType defaultInstance;
-    public static SomeComplexType getDefaultInstance() {
-      return defaultInstance;
+    private SomeComplexType() {
+      stringElement_ = "hello";
+      booleanElement_ = true;
+      intElement_ = 42;
+      floatElement_ = 0F;
+      longElement_ = 0L;
+      longId_ = java.util.Collections.emptyList();
+      tokenElement_ = "";
+      optionalElement_ = "";
+      defaultableElement_ = "DEFAULT";
+      sTRING_ = "";
+      items_ = java.util.Collections.emptyList();
     }
-    
-    public SomeComplexType getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private SomeComplexType(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              stringElement_ = bs;
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              booleanElement_ = input.readBool();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              intElement_ = input.readInt32();
+              break;
+            }
+            case 37: {
+              bitField0_ |= 0x00000008;
+              floatElement_ = input.readFloat();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              longElement_ = input.readInt64();
+              break;
+            }
+            case 48: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                longId_ = new java.util.ArrayList<java.lang.Long>();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              longId_.add(input.readInt64());
+              break;
+            }
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020) && input.getBytesUntilLimit() > 0) {
+                longId_ = new java.util.ArrayList<java.lang.Long>();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                longId_.add(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 58: {
+              com.bol.protojx.xsdtypes.ProtoMessage.Integer64.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                subBuilder = integer64Element_.toBuilder();
+              }
+              integer64Element_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Integer64.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(integer64Element_);
+                integer64Element_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000020;
+              break;
+            }
+            case 66: {
+              com.bol.protojx.xsdtypes.ProtoMessage.Integer32.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                subBuilder = integer32Element_.toBuilder();
+              }
+              integer32Element_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Integer32.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(integer32Element_);
+                integer32Element_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
+              break;
+            }
+            case 74: {
+              com.bol.protojx.xsdtypes.ProtoMessage.Bool.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000080) == 0x00000080)) {
+                subBuilder = boolElement_.toBuilder();
+              }
+              boolElement_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Bool.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(boolElement_);
+                boolElement_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000080;
+              break;
+            }
+            case 82: {
+              com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000100) == 0x00000100)) {
+                subBuilder = charsElement_.toBuilder();
+              }
+              charsElement_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Chars.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(charsElement_);
+                charsElement_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000100;
+              break;
+            }
+            case 90: {
+              com.bol.protojx.xsdtypes.ProtoMessage.Time.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000200) == 0x00000200)) {
+                subBuilder = timeElement_.toBuilder();
+              }
+              timeElement_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Time.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(timeElement_);
+                timeElement_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000200;
+              break;
+            }
+            case 98: {
+              com.bol.protojx.xsdtypes.ProtoMessage.Day.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000400) == 0x00000400)) {
+                subBuilder = dateElement_.toBuilder();
+              }
+              dateElement_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Day.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(dateElement_);
+                dateElement_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000400;
+              break;
+            }
+            case 106: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000800;
+              tokenElement_ = bs;
+              break;
+            }
+            case 114: {
+              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Builder subBuilder = null;
+              if (((bitField0_ & 0x00001000) == 0x00001000)) {
+                subBuilder = dateTimeElement_.toBuilder();
+              }
+              dateTimeElement_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.DayTime.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(dateTimeElement_);
+                dateTimeElement_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00001000;
+              break;
+            }
+            case 122: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00002000;
+              optionalElement_ = bs;
+              break;
+            }
+            case 130: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00004000;
+              defaultableElement_ = bs;
+              break;
+            }
+            case 138: {
+              com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.Builder subBuilder = null;
+              if (((bitField0_ & 0x00008000) == 0x00008000)) {
+                subBuilder = otherElement_.toBuilder();
+              }
+              otherElement_ = input.readMessage(com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(otherElement_);
+                otherElement_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00008000;
+              break;
+            }
+            case 146: {
+              com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.Builder subBuilder = null;
+              if (((bitField0_ & 0x00010000) == 0x00010000)) {
+                subBuilder = nestedTypeElement_.toBuilder();
+              }
+              nestedTypeElement_ = input.readMessage(com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(nestedTypeElement_);
+                nestedTypeElement_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00010000;
+              break;
+            }
+            case 154: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00020000;
+              sTRING_ = bs;
+              break;
+            }
+            case 162: {
+              if (!((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+                items_ = new java.util.ArrayList<com.bol.protojx.test.binding.ProtoMessage.ItemType>();
+                mutable_bitField0_ |= 0x00080000;
+              }
+              items_.add(input.readMessage(com.bol.protojx.test.binding.ProtoMessage.ItemType.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          longId_ = java.util.Collections.unmodifiableList(longId_);
+        }
+        if (((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
+          items_ = java.util.Collections.unmodifiableList(items_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_SomeComplexType_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_SomeComplexType_fieldAccessorTable;
+      return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_SomeComplexType_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.test.binding.ProtoMessage.SomeComplexType.class, com.bol.protojx.test.binding.ProtoMessage.SomeComplexType.Builder.class);
     }
-    
+
     private int bitField0_;
-    // required string stringElement = 1 [default = "hello"];
     public static final int STRINGELEMENT_FIELD_NUMBER = 1;
-    private java.lang.Object stringElement_;
+    private volatile java.lang.Object stringElement_;
+    /**
+     * <code>required string stringElement = 1 [default = "hello"];</code>
+     */
     public boolean hasStringElement() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-    public String getStringElement() {
+    /**
+     * <code>required string stringElement = 1 [default = "hello"];</code>
+     */
+    public java.lang.String getStringElement() {
       java.lang.Object ref = stringElement_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           stringElement_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getStringElementBytes() {
+    /**
+     * <code>required string stringElement = 1 [default = "hello"];</code>
+     */
+    public com.google.protobuf.ByteString
+        getStringElementBytes() {
       java.lang.Object ref = stringElement_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         stringElement_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
-    // required bool booleanElement = 2 [default = true];
+
     public static final int BOOLEANELEMENT_FIELD_NUMBER = 2;
     private boolean booleanElement_;
+    /**
+     * <code>required bool booleanElement = 2 [default = true];</code>
+     */
     public boolean hasBooleanElement() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
+    /**
+     * <code>required bool booleanElement = 2 [default = true];</code>
+     */
     public boolean getBooleanElement() {
       return booleanElement_;
     }
-    
-    // required int32 intElement = 3 [default = 42];
+
     public static final int INTELEMENT_FIELD_NUMBER = 3;
     private int intElement_;
+    /**
+     * <code>required int32 intElement = 3 [default = 42];</code>
+     */
     public boolean hasIntElement() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
+    /**
+     * <code>required int32 intElement = 3 [default = 42];</code>
+     */
     public int getIntElement() {
       return intElement_;
     }
-    
-    // required float floatElement = 4;
+
     public static final int FLOATELEMENT_FIELD_NUMBER = 4;
     private float floatElement_;
+    /**
+     * <code>required float floatElement = 4;</code>
+     */
     public boolean hasFloatElement() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
+    /**
+     * <code>required float floatElement = 4;</code>
+     */
     public float getFloatElement() {
       return floatElement_;
     }
-    
-    // required int64 longElement = 5;
+
     public static final int LONGELEMENT_FIELD_NUMBER = 5;
     private long longElement_;
+    /**
+     * <code>required int64 longElement = 5;</code>
+     */
     public boolean hasLongElement() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
+    /**
+     * <code>required int64 longElement = 5;</code>
+     */
     public long getLongElement() {
       return longElement_;
     }
-    
-    // repeated int64 longId = 6;
+
     public static final int LONGID_FIELD_NUMBER = 6;
     private java.util.List<java.lang.Long> longId_;
+    /**
+     * <code>repeated int64 longId = 6;</code>
+     */
     public java.util.List<java.lang.Long>
         getLongIdList() {
       return longId_;
     }
+    /**
+     * <code>repeated int64 longId = 6;</code>
+     */
     public int getLongIdCount() {
       return longId_.size();
     }
+    /**
+     * <code>repeated int64 longId = 6;</code>
+     */
     public long getLongId(int index) {
       return longId_.get(index);
     }
-    
-    // required .xsdtypes.Integer64 integer64Element = 7;
+
     public static final int INTEGER64ELEMENT_FIELD_NUMBER = 7;
     private com.bol.protojx.xsdtypes.ProtoMessage.Integer64 integer64Element_;
+    /**
+     * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+     */
     public boolean hasInteger64Element() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
+    /**
+     * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Integer64 getInteger64Element() {
-      return integer64Element_;
+      return integer64Element_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance() : integer64Element_;
     }
+    /**
+     * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Integer64OrBuilder getInteger64ElementOrBuilder() {
-      return integer64Element_;
+      return integer64Element_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance() : integer64Element_;
     }
-    
-    // required .xsdtypes.Integer32 integer32Element = 8;
+
     public static final int INTEGER32ELEMENT_FIELD_NUMBER = 8;
     private com.bol.protojx.xsdtypes.ProtoMessage.Integer32 integer32Element_;
+    /**
+     * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+     */
     public boolean hasInteger32Element() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
+    /**
+     * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Integer32 getInteger32Element() {
-      return integer32Element_;
+      return integer32Element_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance() : integer32Element_;
     }
+    /**
+     * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Integer32OrBuilder getInteger32ElementOrBuilder() {
-      return integer32Element_;
+      return integer32Element_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance() : integer32Element_;
     }
-    
-    // required .xsdtypes.Bool boolElement = 9;
+
     public static final int BOOLELEMENT_FIELD_NUMBER = 9;
     private com.bol.protojx.xsdtypes.ProtoMessage.Bool boolElement_;
+    /**
+     * <code>required .xsdtypes.Bool boolElement = 9;</code>
+     */
     public boolean hasBoolElement() {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
+    /**
+     * <code>required .xsdtypes.Bool boolElement = 9;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Bool getBoolElement() {
-      return boolElement_;
+      return boolElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance() : boolElement_;
     }
+    /**
+     * <code>required .xsdtypes.Bool boolElement = 9;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.BoolOrBuilder getBoolElementOrBuilder() {
-      return boolElement_;
+      return boolElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance() : boolElement_;
     }
-    
-    // required .xsdtypes.Chars charsElement = 10;
+
     public static final int CHARSELEMENT_FIELD_NUMBER = 10;
     private com.bol.protojx.xsdtypes.ProtoMessage.Chars charsElement_;
+    /**
+     * <code>required .xsdtypes.Chars charsElement = 10;</code>
+     */
     public boolean hasCharsElement() {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
+    /**
+     * <code>required .xsdtypes.Chars charsElement = 10;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Chars getCharsElement() {
-      return charsElement_;
+      return charsElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance() : charsElement_;
     }
+    /**
+     * <code>required .xsdtypes.Chars charsElement = 10;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder getCharsElementOrBuilder() {
-      return charsElement_;
+      return charsElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance() : charsElement_;
     }
-    
-    // required .xsdtypes.Time timeElement = 11;
+
     public static final int TIMEELEMENT_FIELD_NUMBER = 11;
     private com.bol.protojx.xsdtypes.ProtoMessage.Time timeElement_;
+    /**
+     * <code>required .xsdtypes.Time timeElement = 11;</code>
+     */
     public boolean hasTimeElement() {
       return ((bitField0_ & 0x00000200) == 0x00000200);
     }
+    /**
+     * <code>required .xsdtypes.Time timeElement = 11;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Time getTimeElement() {
-      return timeElement_;
+      return timeElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance() : timeElement_;
     }
+    /**
+     * <code>required .xsdtypes.Time timeElement = 11;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.TimeOrBuilder getTimeElementOrBuilder() {
-      return timeElement_;
+      return timeElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance() : timeElement_;
     }
-    
-    // required .xsdtypes.Day dateElement = 12;
+
     public static final int DATEELEMENT_FIELD_NUMBER = 12;
     private com.bol.protojx.xsdtypes.ProtoMessage.Day dateElement_;
+    /**
+     * <code>required .xsdtypes.Day dateElement = 12;</code>
+     */
     public boolean hasDateElement() {
       return ((bitField0_ & 0x00000400) == 0x00000400);
     }
+    /**
+     * <code>required .xsdtypes.Day dateElement = 12;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Day getDateElement() {
-      return dateElement_;
+      return dateElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance() : dateElement_;
     }
+    /**
+     * <code>required .xsdtypes.Day dateElement = 12;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.DayOrBuilder getDateElementOrBuilder() {
-      return dateElement_;
+      return dateElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance() : dateElement_;
     }
-    
-    // required string tokenElement = 13;
+
     public static final int TOKENELEMENT_FIELD_NUMBER = 13;
-    private java.lang.Object tokenElement_;
+    private volatile java.lang.Object tokenElement_;
+    /**
+     * <code>required string tokenElement = 13;</code>
+     */
     public boolean hasTokenElement() {
       return ((bitField0_ & 0x00000800) == 0x00000800);
     }
-    public String getTokenElement() {
+    /**
+     * <code>required string tokenElement = 13;</code>
+     */
+    public java.lang.String getTokenElement() {
       java.lang.Object ref = tokenElement_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           tokenElement_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getTokenElementBytes() {
+    /**
+     * <code>required string tokenElement = 13;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTokenElementBytes() {
       java.lang.Object ref = tokenElement_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         tokenElement_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
-    // required .xsdtypes.DayTime dateTimeElement = 14;
+
     public static final int DATETIMEELEMENT_FIELD_NUMBER = 14;
     private com.bol.protojx.xsdtypes.ProtoMessage.DayTime dateTimeElement_;
+    /**
+     * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+     */
     public boolean hasDateTimeElement() {
       return ((bitField0_ & 0x00001000) == 0x00001000);
     }
+    /**
+     * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.DayTime getDateTimeElement() {
-      return dateTimeElement_;
+      return dateTimeElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance() : dateTimeElement_;
     }
+    /**
+     * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.DayTimeOrBuilder getDateTimeElementOrBuilder() {
-      return dateTimeElement_;
+      return dateTimeElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance() : dateTimeElement_;
     }
-    
-    // optional string optionalElement = 15;
+
     public static final int OPTIONALELEMENT_FIELD_NUMBER = 15;
-    private java.lang.Object optionalElement_;
+    private volatile java.lang.Object optionalElement_;
+    /**
+     * <code>optional string optionalElement = 15;</code>
+     */
     public boolean hasOptionalElement() {
       return ((bitField0_ & 0x00002000) == 0x00002000);
     }
-    public String getOptionalElement() {
+    /**
+     * <code>optional string optionalElement = 15;</code>
+     */
+    public java.lang.String getOptionalElement() {
       java.lang.Object ref = optionalElement_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           optionalElement_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getOptionalElementBytes() {
+    /**
+     * <code>optional string optionalElement = 15;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOptionalElementBytes() {
       java.lang.Object ref = optionalElement_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         optionalElement_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
-    // required string defaultableElement = 16 [default = "DEFAULT"];
+
     public static final int DEFAULTABLEELEMENT_FIELD_NUMBER = 16;
-    private java.lang.Object defaultableElement_;
+    private volatile java.lang.Object defaultableElement_;
+    /**
+     * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+     */
     public boolean hasDefaultableElement() {
       return ((bitField0_ & 0x00004000) == 0x00004000);
     }
-    public String getDefaultableElement() {
+    /**
+     * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+     */
+    public java.lang.String getDefaultableElement() {
       java.lang.Object ref = defaultableElement_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           defaultableElement_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getDefaultableElementBytes() {
+    /**
+     * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+     */
+    public com.google.protobuf.ByteString
+        getDefaultableElementBytes() {
       java.lang.Object ref = defaultableElement_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         defaultableElement_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
-    // required .test.binding.OtherComplexType otherElement = 17;
+
     public static final int OTHERELEMENT_FIELD_NUMBER = 17;
     private com.bol.protojx.test.binding.ProtoMessage.OtherComplexType otherElement_;
+    /**
+     * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+     */
     public boolean hasOtherElement() {
       return ((bitField0_ & 0x00008000) == 0x00008000);
     }
+    /**
+     * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+     */
     public com.bol.protojx.test.binding.ProtoMessage.OtherComplexType getOtherElement() {
-      return otherElement_;
+      return otherElement_ == null ? com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance() : otherElement_;
     }
+    /**
+     * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+     */
     public com.bol.protojx.test.binding.ProtoMessage.OtherComplexTypeOrBuilder getOtherElementOrBuilder() {
-      return otherElement_;
+      return otherElement_ == null ? com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance() : otherElement_;
     }
-    
-    // required .test.binding.nestedTypeElement nestedTypeElement = 18;
+
     public static final int NESTEDTYPEELEMENT_FIELD_NUMBER = 18;
     private com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement nestedTypeElement_;
+    /**
+     * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+     */
     public boolean hasNestedTypeElement() {
       return ((bitField0_ & 0x00010000) == 0x00010000);
     }
+    /**
+     * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+     */
     public com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement getNestedTypeElement() {
-      return nestedTypeElement_;
+      return nestedTypeElement_ == null ? com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance() : nestedTypeElement_;
     }
+    /**
+     * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+     */
     public com.bol.protojx.test.binding.ProtoMessage.nestedTypeElementOrBuilder getNestedTypeElementOrBuilder() {
-      return nestedTypeElement_;
+      return nestedTypeElement_ == null ? com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance() : nestedTypeElement_;
     }
-    
-    // required string STRING = 19;
+
     public static final int STRING_FIELD_NUMBER = 19;
-    private java.lang.Object sTRING_;
+    private volatile java.lang.Object sTRING_;
+    /**
+     * <code>required string STRING = 19;</code>
+     */
     public boolean hasSTRING() {
       return ((bitField0_ & 0x00020000) == 0x00020000);
     }
-    public String getSTRING() {
+    /**
+     * <code>required string STRING = 19;</code>
+     */
+    public java.lang.String getSTRING() {
       java.lang.Object ref = sTRING_;
-      if (ref instanceof String) {
-        return (String) ref;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
           sTRING_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getSTRINGBytes() {
+    /**
+     * <code>required string STRING = 19;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSTRINGBytes() {
       java.lang.Object ref = sTRING_;
-      if (ref instanceof String) {
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
         sTRING_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
-    
-    // repeated .test.binding.ItemType items = 20;
+
     public static final int ITEMS_FIELD_NUMBER = 20;
     private java.util.List<com.bol.protojx.test.binding.ProtoMessage.ItemType> items_;
+    /**
+     * <code>repeated .test.binding.ItemType items = 20;</code>
+     */
     public java.util.List<com.bol.protojx.test.binding.ProtoMessage.ItemType> getItemsList() {
       return items_;
     }
+    /**
+     * <code>repeated .test.binding.ItemType items = 20;</code>
+     */
     public java.util.List<? extends com.bol.protojx.test.binding.ProtoMessage.ItemTypeOrBuilder> 
         getItemsOrBuilderList() {
       return items_;
     }
+    /**
+     * <code>repeated .test.binding.ItemType items = 20;</code>
+     */
     public int getItemsCount() {
       return items_.size();
     }
+    /**
+     * <code>repeated .test.binding.ItemType items = 20;</code>
+     */
     public com.bol.protojx.test.binding.ProtoMessage.ItemType getItems(int index) {
       return items_.get(index);
     }
+    /**
+     * <code>repeated .test.binding.ItemType items = 20;</code>
+     */
     public com.bol.protojx.test.binding.ProtoMessage.ItemTypeOrBuilder getItemsOrBuilder(
         int index) {
       return items_.get(index);
     }
-    
-    private void initFields() {
-      stringElement_ = "hello";
-      booleanElement_ = true;
-      intElement_ = 42;
-      floatElement_ = 0F;
-      longElement_ = 0L;
-      longId_ = java.util.Collections.emptyList();;
-      integer64Element_ = com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance();
-      integer32Element_ = com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance();
-      boolElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance();
-      charsElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance();
-      timeElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance();
-      dateElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance();
-      tokenElement_ = "";
-      dateTimeElement_ = com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance();
-      optionalElement_ = "";
-      defaultableElement_ = "DEFAULT";
-      otherElement_ = com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance();
-      nestedTypeElement_ = com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance();
-      sTRING_ = "";
-      items_ = java.util.Collections.emptyList();
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       if (!hasStringElement()) {
         memoizedIsInitialized = 0;
         return false;
@@ -608,12 +1167,11 @@ public final class ProtoMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getStringElementBytes());
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, stringElement_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBool(2, booleanElement_);
@@ -631,59 +1189,57 @@ public final class ProtoMessage {
         output.writeInt64(6, longId_.get(i));
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeMessage(7, integer64Element_);
+        output.writeMessage(7, getInteger64Element());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeMessage(8, integer32Element_);
+        output.writeMessage(8, getInteger32Element());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeMessage(9, boolElement_);
+        output.writeMessage(9, getBoolElement());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeMessage(10, charsElement_);
+        output.writeMessage(10, getCharsElement());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeMessage(11, timeElement_);
+        output.writeMessage(11, getTimeElement());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeMessage(12, dateElement_);
+        output.writeMessage(12, getDateElement());
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        output.writeBytes(13, getTokenElementBytes());
+        com.google.protobuf.GeneratedMessage.writeString(output, 13, tokenElement_);
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
-        output.writeMessage(14, dateTimeElement_);
+        output.writeMessage(14, getDateTimeElement());
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        output.writeBytes(15, getOptionalElementBytes());
+        com.google.protobuf.GeneratedMessage.writeString(output, 15, optionalElement_);
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        output.writeBytes(16, getDefaultableElementBytes());
+        com.google.protobuf.GeneratedMessage.writeString(output, 16, defaultableElement_);
       }
       if (((bitField0_ & 0x00008000) == 0x00008000)) {
-        output.writeMessage(17, otherElement_);
+        output.writeMessage(17, getOtherElement());
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
-        output.writeMessage(18, nestedTypeElement_);
+        output.writeMessage(18, getNestedTypeElement());
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
-        output.writeBytes(19, getSTRINGBytes());
+        com.google.protobuf.GeneratedMessage.writeString(output, 19, sTRING_);
       }
       for (int i = 0; i < items_.size(); i++) {
         output.writeMessage(20, items_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getStringElementBytes());
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, stringElement_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -712,171 +1268,159 @@ public final class ProtoMessage {
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, integer64Element_);
+          .computeMessageSize(7, getInteger64Element());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, integer32Element_);
+          .computeMessageSize(8, getInteger32Element());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, boolElement_);
+          .computeMessageSize(9, getBoolElement());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, charsElement_);
+          .computeMessageSize(10, getCharsElement());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, timeElement_);
+          .computeMessageSize(11, getTimeElement());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(12, dateElement_);
+          .computeMessageSize(12, getDateElement());
       }
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(13, getTokenElementBytes());
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(13, tokenElement_);
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(14, dateTimeElement_);
+          .computeMessageSize(14, getDateTimeElement());
       }
       if (((bitField0_ & 0x00002000) == 0x00002000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(15, getOptionalElementBytes());
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(15, optionalElement_);
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(16, getDefaultableElementBytes());
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(16, defaultableElement_);
       }
       if (((bitField0_ & 0x00008000) == 0x00008000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(17, otherElement_);
+          .computeMessageSize(17, getOtherElement());
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(18, nestedTypeElement_);
+          .computeMessageSize(18, getNestedTypeElement());
       }
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(19, getSTRINGBytes());
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(19, sTRING_);
       }
       for (int i = 0; i < items_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(20, items_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.test.binding.ProtoMessage.SomeComplexType prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.test.binding.ProtoMessage.SomeComplexType prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code test.binding.SomeComplexType}
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.test.binding.ProtoMessage.SomeComplexTypeOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:test.binding.SomeComplexType)
+        com.bol.protojx.test.binding.ProtoMessage.SomeComplexTypeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_SomeComplexType_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_SomeComplexType_fieldAccessorTable;
+        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_SomeComplexType_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.test.binding.ProtoMessage.SomeComplexType.class, com.bol.protojx.test.binding.ProtoMessage.SomeComplexType.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.test.binding.ProtoMessage.SomeComplexType.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -894,10 +1438,6 @@ public final class ProtoMessage {
           getItemsFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         stringElement_ = "hello";
@@ -910,40 +1450,40 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000008);
         longElement_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000010);
-        longId_ = java.util.Collections.emptyList();;
+        longId_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000020);
         if (integer64ElementBuilder_ == null) {
-          integer64Element_ = com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance();
+          integer64Element_ = null;
         } else {
           integer64ElementBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000040);
         if (integer32ElementBuilder_ == null) {
-          integer32Element_ = com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance();
+          integer32Element_ = null;
         } else {
           integer32ElementBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000080);
         if (boolElementBuilder_ == null) {
-          boolElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance();
+          boolElement_ = null;
         } else {
           boolElementBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000100);
         if (charsElementBuilder_ == null) {
-          charsElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance();
+          charsElement_ = null;
         } else {
           charsElementBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000200);
         if (timeElementBuilder_ == null) {
-          timeElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance();
+          timeElement_ = null;
         } else {
           timeElementBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000400);
         if (dateElementBuilder_ == null) {
-          dateElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance();
+          dateElement_ = null;
         } else {
           dateElementBuilder_.clear();
         }
@@ -951,7 +1491,7 @@ public final class ProtoMessage {
         tokenElement_ = "";
         bitField0_ = (bitField0_ & ~0x00001000);
         if (dateTimeElementBuilder_ == null) {
-          dateTimeElement_ = com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance();
+          dateTimeElement_ = null;
         } else {
           dateTimeElementBuilder_.clear();
         }
@@ -961,13 +1501,13 @@ public final class ProtoMessage {
         defaultableElement_ = "DEFAULT";
         bitField0_ = (bitField0_ & ~0x00008000);
         if (otherElementBuilder_ == null) {
-          otherElement_ = com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance();
+          otherElement_ = null;
         } else {
           otherElementBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00010000);
         if (nestedTypeElementBuilder_ == null) {
-          nestedTypeElement_ = com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance();
+          nestedTypeElement_ = null;
         } else {
           nestedTypeElementBuilder_.clear();
         }
@@ -982,20 +1522,16 @@ public final class ProtoMessage {
         }
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.test.binding.ProtoMessage.SomeComplexType.getDescriptor();
+        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_SomeComplexType_descriptor;
       }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.SomeComplexType getDefaultInstanceForType() {
         return com.bol.protojx.test.binding.ProtoMessage.SomeComplexType.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.SomeComplexType build() {
         com.bol.protojx.test.binding.ProtoMessage.SomeComplexType result = buildPartial();
         if (!result.isInitialized()) {
@@ -1003,17 +1539,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.test.binding.ProtoMessage.SomeComplexType buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.test.binding.ProtoMessage.SomeComplexType result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.SomeComplexType buildPartial() {
         com.bol.protojx.test.binding.ProtoMessage.SomeComplexType result = new com.bol.protojx.test.binding.ProtoMessage.SomeComplexType(this);
         int from_bitField0_ = bitField0_;
@@ -1144,7 +1670,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.test.binding.ProtoMessage.SomeComplexType) {
           return mergeFrom((com.bol.protojx.test.binding.ProtoMessage.SomeComplexType)other);
@@ -1153,11 +1679,13 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.test.binding.ProtoMessage.SomeComplexType other) {
         if (other == com.bol.protojx.test.binding.ProtoMessage.SomeComplexType.getDefaultInstance()) return this;
         if (other.hasStringElement()) {
-          setStringElement(other.getStringElement());
+          bitField0_ |= 0x00000001;
+          stringElement_ = other.stringElement_;
+          onChanged();
         }
         if (other.hasBooleanElement()) {
           setBooleanElement(other.getBooleanElement());
@@ -1200,16 +1728,22 @@ public final class ProtoMessage {
           mergeDateElement(other.getDateElement());
         }
         if (other.hasTokenElement()) {
-          setTokenElement(other.getTokenElement());
+          bitField0_ |= 0x00001000;
+          tokenElement_ = other.tokenElement_;
+          onChanged();
         }
         if (other.hasDateTimeElement()) {
           mergeDateTimeElement(other.getDateTimeElement());
         }
         if (other.hasOptionalElement()) {
-          setOptionalElement(other.getOptionalElement());
+          bitField0_ |= 0x00004000;
+          optionalElement_ = other.optionalElement_;
+          onChanged();
         }
         if (other.hasDefaultableElement()) {
-          setDefaultableElement(other.getDefaultableElement());
+          bitField0_ |= 0x00008000;
+          defaultableElement_ = other.defaultableElement_;
+          onChanged();
         }
         if (other.hasOtherElement()) {
           mergeOtherElement(other.getOtherElement());
@@ -1218,7 +1752,9 @@ public final class ProtoMessage {
           mergeNestedTypeElement(other.getNestedTypeElement());
         }
         if (other.hasSTRING()) {
-          setSTRING(other.getSTRING());
+          bitField0_ |= 0x00040000;
+          sTRING_ = other.sTRING_;
+          onChanged();
         }
         if (itemsBuilder_ == null) {
           if (!other.items_.isEmpty()) {
@@ -1246,295 +1782,147 @@ public final class ProtoMessage {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasStringElement()) {
-          
           return false;
         }
         if (!hasBooleanElement()) {
-          
           return false;
         }
         if (!hasIntElement()) {
-          
           return false;
         }
         if (!hasFloatElement()) {
-          
           return false;
         }
         if (!hasLongElement()) {
-          
           return false;
         }
         if (!hasInteger64Element()) {
-          
           return false;
         }
         if (!hasInteger32Element()) {
-          
           return false;
         }
         if (!hasBoolElement()) {
-          
           return false;
         }
         if (!hasCharsElement()) {
-          
           return false;
         }
         if (!hasTimeElement()) {
-          
           return false;
         }
         if (!hasDateElement()) {
-          
           return false;
         }
         if (!hasTokenElement()) {
-          
           return false;
         }
         if (!hasDateTimeElement()) {
-          
           return false;
         }
         if (!hasDefaultableElement()) {
-          
           return false;
         }
         if (!hasOtherElement()) {
-          
           return false;
         }
         if (!hasNestedTypeElement()) {
-          
           return false;
         }
         if (!hasSTRING()) {
-          
           return false;
         }
         if (!getTimeElement().isInitialized()) {
-          
           return false;
         }
         if (!getDateElement().isInitialized()) {
-          
           return false;
         }
         if (!getDateTimeElement().isInitialized()) {
-          
           return false;
         }
         if (!getNestedTypeElement().isInitialized()) {
-          
           return false;
         }
         for (int i = 0; i < getItemsCount(); i++) {
           if (!getItems(i).isInitialized()) {
-            
             return false;
           }
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              stringElement_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              booleanElement_ = input.readBool();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              intElement_ = input.readInt32();
-              break;
-            }
-            case 37: {
-              bitField0_ |= 0x00000008;
-              floatElement_ = input.readFloat();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              longElement_ = input.readInt64();
-              break;
-            }
-            case 48: {
-              ensureLongIdIsMutable();
-              longId_.add(input.readInt64());
-              break;
-            }
-            case 50: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              while (input.getBytesUntilLimit() > 0) {
-                addLongId(input.readInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 58: {
-              com.bol.protojx.xsdtypes.ProtoMessage.Integer64.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Integer64.newBuilder();
-              if (hasInteger64Element()) {
-                subBuilder.mergeFrom(getInteger64Element());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setInteger64Element(subBuilder.buildPartial());
-              break;
-            }
-            case 66: {
-              com.bol.protojx.xsdtypes.ProtoMessage.Integer32.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Integer32.newBuilder();
-              if (hasInteger32Element()) {
-                subBuilder.mergeFrom(getInteger32Element());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setInteger32Element(subBuilder.buildPartial());
-              break;
-            }
-            case 74: {
-              com.bol.protojx.xsdtypes.ProtoMessage.Bool.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Bool.newBuilder();
-              if (hasBoolElement()) {
-                subBuilder.mergeFrom(getBoolElement());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setBoolElement(subBuilder.buildPartial());
-              break;
-            }
-            case 82: {
-              com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Chars.newBuilder();
-              if (hasCharsElement()) {
-                subBuilder.mergeFrom(getCharsElement());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setCharsElement(subBuilder.buildPartial());
-              break;
-            }
-            case 90: {
-              com.bol.protojx.xsdtypes.ProtoMessage.Time.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Time.newBuilder();
-              if (hasTimeElement()) {
-                subBuilder.mergeFrom(getTimeElement());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setTimeElement(subBuilder.buildPartial());
-              break;
-            }
-            case 98: {
-              com.bol.protojx.xsdtypes.ProtoMessage.Day.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Day.newBuilder();
-              if (hasDateElement()) {
-                subBuilder.mergeFrom(getDateElement());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setDateElement(subBuilder.buildPartial());
-              break;
-            }
-            case 106: {
-              bitField0_ |= 0x00001000;
-              tokenElement_ = input.readBytes();
-              break;
-            }
-            case 114: {
-              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.DayTime.newBuilder();
-              if (hasDateTimeElement()) {
-                subBuilder.mergeFrom(getDateTimeElement());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setDateTimeElement(subBuilder.buildPartial());
-              break;
-            }
-            case 122: {
-              bitField0_ |= 0x00004000;
-              optionalElement_ = input.readBytes();
-              break;
-            }
-            case 130: {
-              bitField0_ |= 0x00008000;
-              defaultableElement_ = input.readBytes();
-              break;
-            }
-            case 138: {
-              com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.Builder subBuilder = com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.newBuilder();
-              if (hasOtherElement()) {
-                subBuilder.mergeFrom(getOtherElement());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setOtherElement(subBuilder.buildPartial());
-              break;
-            }
-            case 146: {
-              com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.Builder subBuilder = com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.newBuilder();
-              if (hasNestedTypeElement()) {
-                subBuilder.mergeFrom(getNestedTypeElement());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setNestedTypeElement(subBuilder.buildPartial());
-              break;
-            }
-            case 154: {
-              bitField0_ |= 0x00040000;
-              sTRING_ = input.readBytes();
-              break;
-            }
-            case 162: {
-              com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder subBuilder = com.bol.protojx.test.binding.ProtoMessage.ItemType.newBuilder();
-              input.readMessage(subBuilder, extensionRegistry);
-              addItems(subBuilder.buildPartial());
-              break;
-            }
+        com.bol.protojx.test.binding.ProtoMessage.SomeComplexType parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.test.binding.ProtoMessage.SomeComplexType) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // required string stringElement = 1 [default = "hello"];
+
       private java.lang.Object stringElement_ = "hello";
+      /**
+       * <code>required string stringElement = 1 [default = "hello"];</code>
+       */
       public boolean hasStringElement() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-      public String getStringElement() {
+      /**
+       * <code>required string stringElement = 1 [default = "hello"];</code>
+       */
+      public java.lang.String getStringElement() {
         java.lang.Object ref = stringElement_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          stringElement_ = s;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            stringElement_ = s;
+          }
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setStringElement(String value) {
+      /**
+       * <code>required string stringElement = 1 [default = "hello"];</code>
+       */
+      public com.google.protobuf.ByteString
+          getStringElementBytes() {
+        java.lang.Object ref = stringElement_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stringElement_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string stringElement = 1 [default = "hello"];</code>
+       */
+      public Builder setStringElement(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1543,120 +1931,186 @@ public final class ProtoMessage {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string stringElement = 1 [default = "hello"];</code>
+       */
       public Builder clearStringElement() {
         bitField0_ = (bitField0_ & ~0x00000001);
         stringElement_ = getDefaultInstance().getStringElement();
         onChanged();
         return this;
       }
-      void setStringElement(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00000001;
+      /**
+       * <code>required string stringElement = 1 [default = "hello"];</code>
+       */
+      public Builder setStringElementBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         stringElement_ = value;
         onChanged();
+        return this;
       }
-      
-      // required bool booleanElement = 2 [default = true];
+
       private boolean booleanElement_ = true;
+      /**
+       * <code>required bool booleanElement = 2 [default = true];</code>
+       */
       public boolean hasBooleanElement() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
+      /**
+       * <code>required bool booleanElement = 2 [default = true];</code>
+       */
       public boolean getBooleanElement() {
         return booleanElement_;
       }
+      /**
+       * <code>required bool booleanElement = 2 [default = true];</code>
+       */
       public Builder setBooleanElement(boolean value) {
         bitField0_ |= 0x00000002;
         booleanElement_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required bool booleanElement = 2 [default = true];</code>
+       */
       public Builder clearBooleanElement() {
         bitField0_ = (bitField0_ & ~0x00000002);
         booleanElement_ = true;
         onChanged();
         return this;
       }
-      
-      // required int32 intElement = 3 [default = 42];
+
       private int intElement_ = 42;
+      /**
+       * <code>required int32 intElement = 3 [default = 42];</code>
+       */
       public boolean hasIntElement() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
+      /**
+       * <code>required int32 intElement = 3 [default = 42];</code>
+       */
       public int getIntElement() {
         return intElement_;
       }
+      /**
+       * <code>required int32 intElement = 3 [default = 42];</code>
+       */
       public Builder setIntElement(int value) {
         bitField0_ |= 0x00000004;
         intElement_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int32 intElement = 3 [default = 42];</code>
+       */
       public Builder clearIntElement() {
         bitField0_ = (bitField0_ & ~0x00000004);
         intElement_ = 42;
         onChanged();
         return this;
       }
-      
-      // required float floatElement = 4;
+
       private float floatElement_ ;
+      /**
+       * <code>required float floatElement = 4;</code>
+       */
       public boolean hasFloatElement() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
+      /**
+       * <code>required float floatElement = 4;</code>
+       */
       public float getFloatElement() {
         return floatElement_;
       }
+      /**
+       * <code>required float floatElement = 4;</code>
+       */
       public Builder setFloatElement(float value) {
         bitField0_ |= 0x00000008;
         floatElement_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required float floatElement = 4;</code>
+       */
       public Builder clearFloatElement() {
         bitField0_ = (bitField0_ & ~0x00000008);
         floatElement_ = 0F;
         onChanged();
         return this;
       }
-      
-      // required int64 longElement = 5;
+
       private long longElement_ ;
+      /**
+       * <code>required int64 longElement = 5;</code>
+       */
       public boolean hasLongElement() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
+      /**
+       * <code>required int64 longElement = 5;</code>
+       */
       public long getLongElement() {
         return longElement_;
       }
+      /**
+       * <code>required int64 longElement = 5;</code>
+       */
       public Builder setLongElement(long value) {
         bitField0_ |= 0x00000010;
         longElement_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int64 longElement = 5;</code>
+       */
       public Builder clearLongElement() {
         bitField0_ = (bitField0_ & ~0x00000010);
         longElement_ = 0L;
         onChanged();
         return this;
       }
-      
-      // repeated int64 longId = 6;
-      private java.util.List<java.lang.Long> longId_ = java.util.Collections.emptyList();;
+
+      private java.util.List<java.lang.Long> longId_ = java.util.Collections.emptyList();
       private void ensureLongIdIsMutable() {
         if (!((bitField0_ & 0x00000020) == 0x00000020)) {
           longId_ = new java.util.ArrayList<java.lang.Long>(longId_);
           bitField0_ |= 0x00000020;
          }
       }
+      /**
+       * <code>repeated int64 longId = 6;</code>
+       */
       public java.util.List<java.lang.Long>
           getLongIdList() {
         return java.util.Collections.unmodifiableList(longId_);
       }
+      /**
+       * <code>repeated int64 longId = 6;</code>
+       */
       public int getLongIdCount() {
         return longId_.size();
       }
+      /**
+       * <code>repeated int64 longId = 6;</code>
+       */
       public long getLongId(int index) {
         return longId_.get(index);
       }
+      /**
+       * <code>repeated int64 longId = 6;</code>
+       */
       public Builder setLongId(
           int index, long value) {
         ensureLongIdIsMutable();
@@ -1664,40 +2118,58 @@ public final class ProtoMessage {
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated int64 longId = 6;</code>
+       */
       public Builder addLongId(long value) {
         ensureLongIdIsMutable();
         longId_.add(value);
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated int64 longId = 6;</code>
+       */
       public Builder addAllLongId(
           java.lang.Iterable<? extends java.lang.Long> values) {
         ensureLongIdIsMutable();
-        super.addAll(values, longId_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, longId_);
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated int64 longId = 6;</code>
+       */
       public Builder clearLongId() {
-        longId_ = java.util.Collections.emptyList();;
+        longId_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
-      
-      // required .xsdtypes.Integer64 integer64Element = 7;
-      private com.bol.protojx.xsdtypes.ProtoMessage.Integer64 integer64Element_ = com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.Integer64 integer64Element_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Integer64, com.bol.protojx.xsdtypes.ProtoMessage.Integer64.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Integer64OrBuilder> integer64ElementBuilder_;
+      /**
+       * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+       */
       public boolean hasInteger64Element() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
+      /**
+       * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer64 getInteger64Element() {
         if (integer64ElementBuilder_ == null) {
-          return integer64Element_;
+          return integer64Element_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance() : integer64Element_;
         } else {
           return integer64ElementBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+       */
       public Builder setInteger64Element(com.bol.protojx.xsdtypes.ProtoMessage.Integer64 value) {
         if (integer64ElementBuilder_ == null) {
           if (value == null) {
@@ -1711,6 +2183,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000040;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+       */
       public Builder setInteger64Element(
           com.bol.protojx.xsdtypes.ProtoMessage.Integer64.Builder builderForValue) {
         if (integer64ElementBuilder_ == null) {
@@ -1722,9 +2197,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000040;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+       */
       public Builder mergeInteger64Element(com.bol.protojx.xsdtypes.ProtoMessage.Integer64 value) {
         if (integer64ElementBuilder_ == null) {
           if (((bitField0_ & 0x00000040) == 0x00000040) &&
+              integer64Element_ != null &&
               integer64Element_ != com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance()) {
             integer64Element_ =
               com.bol.protojx.xsdtypes.ProtoMessage.Integer64.newBuilder(integer64Element_).mergeFrom(value).buildPartial();
@@ -1738,9 +2217,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000040;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+       */
       public Builder clearInteger64Element() {
         if (integer64ElementBuilder_ == null) {
-          integer64Element_ = com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance();
+          integer64Element_ = null;
           onChanged();
         } else {
           integer64ElementBuilder_.clear();
@@ -1748,46 +2230,64 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer64.Builder getInteger64ElementBuilder() {
         bitField0_ |= 0x00000040;
         onChanged();
         return getInteger64ElementFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer64OrBuilder getInteger64ElementOrBuilder() {
         if (integer64ElementBuilder_ != null) {
           return integer64ElementBuilder_.getMessageOrBuilder();
         } else {
-          return integer64Element_;
+          return integer64Element_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.Integer64.getDefaultInstance() : integer64Element_;
         }
       }
+      /**
+       * <code>required .xsdtypes.Integer64 integer64Element = 7;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Integer64, com.bol.protojx.xsdtypes.ProtoMessage.Integer64.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Integer64OrBuilder> 
           getInteger64ElementFieldBuilder() {
         if (integer64ElementBuilder_ == null) {
           integer64ElementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.Integer64, com.bol.protojx.xsdtypes.ProtoMessage.Integer64.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Integer64OrBuilder>(
-                  integer64Element_,
+                  getInteger64Element(),
                   getParentForChildren(),
                   isClean());
           integer64Element_ = null;
         }
         return integer64ElementBuilder_;
       }
-      
-      // required .xsdtypes.Integer32 integer32Element = 8;
-      private com.bol.protojx.xsdtypes.ProtoMessage.Integer32 integer32Element_ = com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.Integer32 integer32Element_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Integer32, com.bol.protojx.xsdtypes.ProtoMessage.Integer32.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Integer32OrBuilder> integer32ElementBuilder_;
+      /**
+       * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+       */
       public boolean hasInteger32Element() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
+      /**
+       * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer32 getInteger32Element() {
         if (integer32ElementBuilder_ == null) {
-          return integer32Element_;
+          return integer32Element_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance() : integer32Element_;
         } else {
           return integer32ElementBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+       */
       public Builder setInteger32Element(com.bol.protojx.xsdtypes.ProtoMessage.Integer32 value) {
         if (integer32ElementBuilder_ == null) {
           if (value == null) {
@@ -1801,6 +2301,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000080;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+       */
       public Builder setInteger32Element(
           com.bol.protojx.xsdtypes.ProtoMessage.Integer32.Builder builderForValue) {
         if (integer32ElementBuilder_ == null) {
@@ -1812,9 +2315,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000080;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+       */
       public Builder mergeInteger32Element(com.bol.protojx.xsdtypes.ProtoMessage.Integer32 value) {
         if (integer32ElementBuilder_ == null) {
           if (((bitField0_ & 0x00000080) == 0x00000080) &&
+              integer32Element_ != null &&
               integer32Element_ != com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance()) {
             integer32Element_ =
               com.bol.protojx.xsdtypes.ProtoMessage.Integer32.newBuilder(integer32Element_).mergeFrom(value).buildPartial();
@@ -1828,9 +2335,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000080;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+       */
       public Builder clearInteger32Element() {
         if (integer32ElementBuilder_ == null) {
-          integer32Element_ = com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance();
+          integer32Element_ = null;
           onChanged();
         } else {
           integer32ElementBuilder_.clear();
@@ -1838,46 +2348,64 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer32.Builder getInteger32ElementBuilder() {
         bitField0_ |= 0x00000080;
         onChanged();
         return getInteger32ElementFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Integer32OrBuilder getInteger32ElementOrBuilder() {
         if (integer32ElementBuilder_ != null) {
           return integer32ElementBuilder_.getMessageOrBuilder();
         } else {
-          return integer32Element_;
+          return integer32Element_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.Integer32.getDefaultInstance() : integer32Element_;
         }
       }
+      /**
+       * <code>required .xsdtypes.Integer32 integer32Element = 8;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Integer32, com.bol.protojx.xsdtypes.ProtoMessage.Integer32.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Integer32OrBuilder> 
           getInteger32ElementFieldBuilder() {
         if (integer32ElementBuilder_ == null) {
           integer32ElementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.Integer32, com.bol.protojx.xsdtypes.ProtoMessage.Integer32.Builder, com.bol.protojx.xsdtypes.ProtoMessage.Integer32OrBuilder>(
-                  integer32Element_,
+                  getInteger32Element(),
                   getParentForChildren(),
                   isClean());
           integer32Element_ = null;
         }
         return integer32ElementBuilder_;
       }
-      
-      // required .xsdtypes.Bool boolElement = 9;
-      private com.bol.protojx.xsdtypes.ProtoMessage.Bool boolElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.Bool boolElement_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Bool, com.bol.protojx.xsdtypes.ProtoMessage.Bool.Builder, com.bol.protojx.xsdtypes.ProtoMessage.BoolOrBuilder> boolElementBuilder_;
+      /**
+       * <code>required .xsdtypes.Bool boolElement = 9;</code>
+       */
       public boolean hasBoolElement() {
         return ((bitField0_ & 0x00000100) == 0x00000100);
       }
+      /**
+       * <code>required .xsdtypes.Bool boolElement = 9;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Bool getBoolElement() {
         if (boolElementBuilder_ == null) {
-          return boolElement_;
+          return boolElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance() : boolElement_;
         } else {
           return boolElementBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .xsdtypes.Bool boolElement = 9;</code>
+       */
       public Builder setBoolElement(com.bol.protojx.xsdtypes.ProtoMessage.Bool value) {
         if (boolElementBuilder_ == null) {
           if (value == null) {
@@ -1891,6 +2419,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000100;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Bool boolElement = 9;</code>
+       */
       public Builder setBoolElement(
           com.bol.protojx.xsdtypes.ProtoMessage.Bool.Builder builderForValue) {
         if (boolElementBuilder_ == null) {
@@ -1902,9 +2433,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000100;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Bool boolElement = 9;</code>
+       */
       public Builder mergeBoolElement(com.bol.protojx.xsdtypes.ProtoMessage.Bool value) {
         if (boolElementBuilder_ == null) {
           if (((bitField0_ & 0x00000100) == 0x00000100) &&
+              boolElement_ != null &&
               boolElement_ != com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance()) {
             boolElement_ =
               com.bol.protojx.xsdtypes.ProtoMessage.Bool.newBuilder(boolElement_).mergeFrom(value).buildPartial();
@@ -1918,9 +2453,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000100;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Bool boolElement = 9;</code>
+       */
       public Builder clearBoolElement() {
         if (boolElementBuilder_ == null) {
-          boolElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance();
+          boolElement_ = null;
           onChanged();
         } else {
           boolElementBuilder_.clear();
@@ -1928,46 +2466,64 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Bool boolElement = 9;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Bool.Builder getBoolElementBuilder() {
         bitField0_ |= 0x00000100;
         onChanged();
         return getBoolElementFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .xsdtypes.Bool boolElement = 9;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.BoolOrBuilder getBoolElementOrBuilder() {
         if (boolElementBuilder_ != null) {
           return boolElementBuilder_.getMessageOrBuilder();
         } else {
-          return boolElement_;
+          return boolElement_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.Bool.getDefaultInstance() : boolElement_;
         }
       }
+      /**
+       * <code>required .xsdtypes.Bool boolElement = 9;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Bool, com.bol.protojx.xsdtypes.ProtoMessage.Bool.Builder, com.bol.protojx.xsdtypes.ProtoMessage.BoolOrBuilder> 
           getBoolElementFieldBuilder() {
         if (boolElementBuilder_ == null) {
           boolElementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.Bool, com.bol.protojx.xsdtypes.ProtoMessage.Bool.Builder, com.bol.protojx.xsdtypes.ProtoMessage.BoolOrBuilder>(
-                  boolElement_,
+                  getBoolElement(),
                   getParentForChildren(),
                   isClean());
           boolElement_ = null;
         }
         return boolElementBuilder_;
       }
-      
-      // required .xsdtypes.Chars charsElement = 10;
-      private com.bol.protojx.xsdtypes.ProtoMessage.Chars charsElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.Chars charsElement_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Chars, com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder, com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder> charsElementBuilder_;
+      /**
+       * <code>required .xsdtypes.Chars charsElement = 10;</code>
+       */
       public boolean hasCharsElement() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
+      /**
+       * <code>required .xsdtypes.Chars charsElement = 10;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Chars getCharsElement() {
         if (charsElementBuilder_ == null) {
-          return charsElement_;
+          return charsElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance() : charsElement_;
         } else {
           return charsElementBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .xsdtypes.Chars charsElement = 10;</code>
+       */
       public Builder setCharsElement(com.bol.protojx.xsdtypes.ProtoMessage.Chars value) {
         if (charsElementBuilder_ == null) {
           if (value == null) {
@@ -1981,6 +2537,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000200;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Chars charsElement = 10;</code>
+       */
       public Builder setCharsElement(
           com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder builderForValue) {
         if (charsElementBuilder_ == null) {
@@ -1992,9 +2551,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000200;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Chars charsElement = 10;</code>
+       */
       public Builder mergeCharsElement(com.bol.protojx.xsdtypes.ProtoMessage.Chars value) {
         if (charsElementBuilder_ == null) {
           if (((bitField0_ & 0x00000200) == 0x00000200) &&
+              charsElement_ != null &&
               charsElement_ != com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance()) {
             charsElement_ =
               com.bol.protojx.xsdtypes.ProtoMessage.Chars.newBuilder(charsElement_).mergeFrom(value).buildPartial();
@@ -2008,9 +2571,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000200;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Chars charsElement = 10;</code>
+       */
       public Builder clearCharsElement() {
         if (charsElementBuilder_ == null) {
-          charsElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance();
+          charsElement_ = null;
           onChanged();
         } else {
           charsElementBuilder_.clear();
@@ -2018,46 +2584,64 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Chars charsElement = 10;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder getCharsElementBuilder() {
         bitField0_ |= 0x00000200;
         onChanged();
         return getCharsElementFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .xsdtypes.Chars charsElement = 10;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder getCharsElementOrBuilder() {
         if (charsElementBuilder_ != null) {
           return charsElementBuilder_.getMessageOrBuilder();
         } else {
-          return charsElement_;
+          return charsElement_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance() : charsElement_;
         }
       }
+      /**
+       * <code>required .xsdtypes.Chars charsElement = 10;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Chars, com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder, com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder> 
           getCharsElementFieldBuilder() {
         if (charsElementBuilder_ == null) {
           charsElementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.Chars, com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder, com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder>(
-                  charsElement_,
+                  getCharsElement(),
                   getParentForChildren(),
                   isClean());
           charsElement_ = null;
         }
         return charsElementBuilder_;
       }
-      
-      // required .xsdtypes.Time timeElement = 11;
-      private com.bol.protojx.xsdtypes.ProtoMessage.Time timeElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.Time timeElement_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Time, com.bol.protojx.xsdtypes.ProtoMessage.Time.Builder, com.bol.protojx.xsdtypes.ProtoMessage.TimeOrBuilder> timeElementBuilder_;
+      /**
+       * <code>required .xsdtypes.Time timeElement = 11;</code>
+       */
       public boolean hasTimeElement() {
         return ((bitField0_ & 0x00000400) == 0x00000400);
       }
+      /**
+       * <code>required .xsdtypes.Time timeElement = 11;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Time getTimeElement() {
         if (timeElementBuilder_ == null) {
-          return timeElement_;
+          return timeElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance() : timeElement_;
         } else {
           return timeElementBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .xsdtypes.Time timeElement = 11;</code>
+       */
       public Builder setTimeElement(com.bol.protojx.xsdtypes.ProtoMessage.Time value) {
         if (timeElementBuilder_ == null) {
           if (value == null) {
@@ -2071,6 +2655,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000400;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Time timeElement = 11;</code>
+       */
       public Builder setTimeElement(
           com.bol.protojx.xsdtypes.ProtoMessage.Time.Builder builderForValue) {
         if (timeElementBuilder_ == null) {
@@ -2082,9 +2669,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000400;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Time timeElement = 11;</code>
+       */
       public Builder mergeTimeElement(com.bol.protojx.xsdtypes.ProtoMessage.Time value) {
         if (timeElementBuilder_ == null) {
           if (((bitField0_ & 0x00000400) == 0x00000400) &&
+              timeElement_ != null &&
               timeElement_ != com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance()) {
             timeElement_ =
               com.bol.protojx.xsdtypes.ProtoMessage.Time.newBuilder(timeElement_).mergeFrom(value).buildPartial();
@@ -2098,9 +2689,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000400;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Time timeElement = 11;</code>
+       */
       public Builder clearTimeElement() {
         if (timeElementBuilder_ == null) {
-          timeElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance();
+          timeElement_ = null;
           onChanged();
         } else {
           timeElementBuilder_.clear();
@@ -2108,46 +2702,64 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Time timeElement = 11;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Time.Builder getTimeElementBuilder() {
         bitField0_ |= 0x00000400;
         onChanged();
         return getTimeElementFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .xsdtypes.Time timeElement = 11;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.TimeOrBuilder getTimeElementOrBuilder() {
         if (timeElementBuilder_ != null) {
           return timeElementBuilder_.getMessageOrBuilder();
         } else {
-          return timeElement_;
+          return timeElement_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.Time.getDefaultInstance() : timeElement_;
         }
       }
+      /**
+       * <code>required .xsdtypes.Time timeElement = 11;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Time, com.bol.protojx.xsdtypes.ProtoMessage.Time.Builder, com.bol.protojx.xsdtypes.ProtoMessage.TimeOrBuilder> 
           getTimeElementFieldBuilder() {
         if (timeElementBuilder_ == null) {
           timeElementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.Time, com.bol.protojx.xsdtypes.ProtoMessage.Time.Builder, com.bol.protojx.xsdtypes.ProtoMessage.TimeOrBuilder>(
-                  timeElement_,
+                  getTimeElement(),
                   getParentForChildren(),
                   isClean());
           timeElement_ = null;
         }
         return timeElementBuilder_;
       }
-      
-      // required .xsdtypes.Day dateElement = 12;
-      private com.bol.protojx.xsdtypes.ProtoMessage.Day dateElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.Day dateElement_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Day, com.bol.protojx.xsdtypes.ProtoMessage.Day.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DayOrBuilder> dateElementBuilder_;
+      /**
+       * <code>required .xsdtypes.Day dateElement = 12;</code>
+       */
       public boolean hasDateElement() {
         return ((bitField0_ & 0x00000800) == 0x00000800);
       }
+      /**
+       * <code>required .xsdtypes.Day dateElement = 12;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Day getDateElement() {
         if (dateElementBuilder_ == null) {
-          return dateElement_;
+          return dateElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance() : dateElement_;
         } else {
           return dateElementBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .xsdtypes.Day dateElement = 12;</code>
+       */
       public Builder setDateElement(com.bol.protojx.xsdtypes.ProtoMessage.Day value) {
         if (dateElementBuilder_ == null) {
           if (value == null) {
@@ -2161,6 +2773,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000800;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Day dateElement = 12;</code>
+       */
       public Builder setDateElement(
           com.bol.protojx.xsdtypes.ProtoMessage.Day.Builder builderForValue) {
         if (dateElementBuilder_ == null) {
@@ -2172,9 +2787,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000800;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Day dateElement = 12;</code>
+       */
       public Builder mergeDateElement(com.bol.protojx.xsdtypes.ProtoMessage.Day value) {
         if (dateElementBuilder_ == null) {
           if (((bitField0_ & 0x00000800) == 0x00000800) &&
+              dateElement_ != null &&
               dateElement_ != com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance()) {
             dateElement_ =
               com.bol.protojx.xsdtypes.ProtoMessage.Day.newBuilder(dateElement_).mergeFrom(value).buildPartial();
@@ -2188,9 +2807,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000800;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Day dateElement = 12;</code>
+       */
       public Builder clearDateElement() {
         if (dateElementBuilder_ == null) {
-          dateElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance();
+          dateElement_ = null;
           onChanged();
         } else {
           dateElementBuilder_.clear();
@@ -2198,48 +2820,87 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
+      /**
+       * <code>required .xsdtypes.Day dateElement = 12;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Day.Builder getDateElementBuilder() {
         bitField0_ |= 0x00000800;
         onChanged();
         return getDateElementFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .xsdtypes.Day dateElement = 12;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.DayOrBuilder getDateElementOrBuilder() {
         if (dateElementBuilder_ != null) {
           return dateElementBuilder_.getMessageOrBuilder();
         } else {
-          return dateElement_;
+          return dateElement_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.Day.getDefaultInstance() : dateElement_;
         }
       }
+      /**
+       * <code>required .xsdtypes.Day dateElement = 12;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Day, com.bol.protojx.xsdtypes.ProtoMessage.Day.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DayOrBuilder> 
           getDateElementFieldBuilder() {
         if (dateElementBuilder_ == null) {
           dateElementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.Day, com.bol.protojx.xsdtypes.ProtoMessage.Day.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DayOrBuilder>(
-                  dateElement_,
+                  getDateElement(),
                   getParentForChildren(),
                   isClean());
           dateElement_ = null;
         }
         return dateElementBuilder_;
       }
-      
-      // required string tokenElement = 13;
+
       private java.lang.Object tokenElement_ = "";
+      /**
+       * <code>required string tokenElement = 13;</code>
+       */
       public boolean hasTokenElement() {
         return ((bitField0_ & 0x00001000) == 0x00001000);
       }
-      public String getTokenElement() {
+      /**
+       * <code>required string tokenElement = 13;</code>
+       */
+      public java.lang.String getTokenElement() {
         java.lang.Object ref = tokenElement_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          tokenElement_ = s;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            tokenElement_ = s;
+          }
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setTokenElement(String value) {
+      /**
+       * <code>required string tokenElement = 13;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTokenElementBytes() {
+        java.lang.Object ref = tokenElement_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tokenElement_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string tokenElement = 13;</code>
+       */
+      public Builder setTokenElement(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2248,32 +2909,51 @@ public final class ProtoMessage {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string tokenElement = 13;</code>
+       */
       public Builder clearTokenElement() {
         bitField0_ = (bitField0_ & ~0x00001000);
         tokenElement_ = getDefaultInstance().getTokenElement();
         onChanged();
         return this;
       }
-      void setTokenElement(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00001000;
+      /**
+       * <code>required string tokenElement = 13;</code>
+       */
+      public Builder setTokenElementBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00001000;
         tokenElement_ = value;
         onChanged();
+        return this;
       }
-      
-      // required .xsdtypes.DayTime dateTimeElement = 14;
-      private com.bol.protojx.xsdtypes.ProtoMessage.DayTime dateTimeElement_ = com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.DayTime dateTimeElement_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.DayTime, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DayTimeOrBuilder> dateTimeElementBuilder_;
+      /**
+       * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+       */
       public boolean hasDateTimeElement() {
         return ((bitField0_ & 0x00002000) == 0x00002000);
       }
+      /**
+       * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.DayTime getDateTimeElement() {
         if (dateTimeElementBuilder_ == null) {
-          return dateTimeElement_;
+          return dateTimeElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance() : dateTimeElement_;
         } else {
           return dateTimeElementBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+       */
       public Builder setDateTimeElement(com.bol.protojx.xsdtypes.ProtoMessage.DayTime value) {
         if (dateTimeElementBuilder_ == null) {
           if (value == null) {
@@ -2287,6 +2967,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00002000;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+       */
       public Builder setDateTimeElement(
           com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Builder builderForValue) {
         if (dateTimeElementBuilder_ == null) {
@@ -2298,9 +2981,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00002000;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+       */
       public Builder mergeDateTimeElement(com.bol.protojx.xsdtypes.ProtoMessage.DayTime value) {
         if (dateTimeElementBuilder_ == null) {
           if (((bitField0_ & 0x00002000) == 0x00002000) &&
+              dateTimeElement_ != null &&
               dateTimeElement_ != com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance()) {
             dateTimeElement_ =
               com.bol.protojx.xsdtypes.ProtoMessage.DayTime.newBuilder(dateTimeElement_).mergeFrom(value).buildPartial();
@@ -2314,9 +3001,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00002000;
         return this;
       }
+      /**
+       * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+       */
       public Builder clearDateTimeElement() {
         if (dateTimeElementBuilder_ == null) {
-          dateTimeElement_ = com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance();
+          dateTimeElement_ = null;
           onChanged();
         } else {
           dateTimeElementBuilder_.clear();
@@ -2324,48 +3014,87 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00002000);
         return this;
       }
+      /**
+       * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Builder getDateTimeElementBuilder() {
         bitField0_ |= 0x00002000;
         onChanged();
         return getDateTimeElementFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.DayTimeOrBuilder getDateTimeElementOrBuilder() {
         if (dateTimeElementBuilder_ != null) {
           return dateTimeElementBuilder_.getMessageOrBuilder();
         } else {
-          return dateTimeElement_;
+          return dateTimeElement_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.DayTime.getDefaultInstance() : dateTimeElement_;
         }
       }
+      /**
+       * <code>required .xsdtypes.DayTime dateTimeElement = 14;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.DayTime, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DayTimeOrBuilder> 
           getDateTimeElementFieldBuilder() {
         if (dateTimeElementBuilder_ == null) {
           dateTimeElementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.DayTime, com.bol.protojx.xsdtypes.ProtoMessage.DayTime.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DayTimeOrBuilder>(
-                  dateTimeElement_,
+                  getDateTimeElement(),
                   getParentForChildren(),
                   isClean());
           dateTimeElement_ = null;
         }
         return dateTimeElementBuilder_;
       }
-      
-      // optional string optionalElement = 15;
+
       private java.lang.Object optionalElement_ = "";
+      /**
+       * <code>optional string optionalElement = 15;</code>
+       */
       public boolean hasOptionalElement() {
         return ((bitField0_ & 0x00004000) == 0x00004000);
       }
-      public String getOptionalElement() {
+      /**
+       * <code>optional string optionalElement = 15;</code>
+       */
+      public java.lang.String getOptionalElement() {
         java.lang.Object ref = optionalElement_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          optionalElement_ = s;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            optionalElement_ = s;
+          }
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setOptionalElement(String value) {
+      /**
+       * <code>optional string optionalElement = 15;</code>
+       */
+      public com.google.protobuf.ByteString
+          getOptionalElementBytes() {
+        java.lang.Object ref = optionalElement_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          optionalElement_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string optionalElement = 15;</code>
+       */
+      public Builder setOptionalElement(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2374,34 +3103,74 @@ public final class ProtoMessage {
         onChanged();
         return this;
       }
+      /**
+       * <code>optional string optionalElement = 15;</code>
+       */
       public Builder clearOptionalElement() {
         bitField0_ = (bitField0_ & ~0x00004000);
         optionalElement_ = getDefaultInstance().getOptionalElement();
         onChanged();
         return this;
       }
-      void setOptionalElement(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00004000;
+      /**
+       * <code>optional string optionalElement = 15;</code>
+       */
+      public Builder setOptionalElementBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00004000;
         optionalElement_ = value;
         onChanged();
+        return this;
       }
-      
-      // required string defaultableElement = 16 [default = "DEFAULT"];
+
       private java.lang.Object defaultableElement_ = "DEFAULT";
+      /**
+       * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+       */
       public boolean hasDefaultableElement() {
         return ((bitField0_ & 0x00008000) == 0x00008000);
       }
-      public String getDefaultableElement() {
+      /**
+       * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+       */
+      public java.lang.String getDefaultableElement() {
         java.lang.Object ref = defaultableElement_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          defaultableElement_ = s;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            defaultableElement_ = s;
+          }
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setDefaultableElement(String value) {
+      /**
+       * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+       */
+      public com.google.protobuf.ByteString
+          getDefaultableElementBytes() {
+        java.lang.Object ref = defaultableElement_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          defaultableElement_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+       */
+      public Builder setDefaultableElement(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2410,32 +3179,51 @@ public final class ProtoMessage {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+       */
       public Builder clearDefaultableElement() {
         bitField0_ = (bitField0_ & ~0x00008000);
         defaultableElement_ = getDefaultInstance().getDefaultableElement();
         onChanged();
         return this;
       }
-      void setDefaultableElement(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00008000;
+      /**
+       * <code>required string defaultableElement = 16 [default = "DEFAULT"];</code>
+       */
+      public Builder setDefaultableElementBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00008000;
         defaultableElement_ = value;
         onChanged();
+        return this;
       }
-      
-      // required .test.binding.OtherComplexType otherElement = 17;
-      private com.bol.protojx.test.binding.ProtoMessage.OtherComplexType otherElement_ = com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance();
+
+      private com.bol.protojx.test.binding.ProtoMessage.OtherComplexType otherElement_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.test.binding.ProtoMessage.OtherComplexType, com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.Builder, com.bol.protojx.test.binding.ProtoMessage.OtherComplexTypeOrBuilder> otherElementBuilder_;
+      /**
+       * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+       */
       public boolean hasOtherElement() {
         return ((bitField0_ & 0x00010000) == 0x00010000);
       }
+      /**
+       * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.OtherComplexType getOtherElement() {
         if (otherElementBuilder_ == null) {
-          return otherElement_;
+          return otherElement_ == null ? com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance() : otherElement_;
         } else {
           return otherElementBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+       */
       public Builder setOtherElement(com.bol.protojx.test.binding.ProtoMessage.OtherComplexType value) {
         if (otherElementBuilder_ == null) {
           if (value == null) {
@@ -2449,6 +3237,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00010000;
         return this;
       }
+      /**
+       * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+       */
       public Builder setOtherElement(
           com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.Builder builderForValue) {
         if (otherElementBuilder_ == null) {
@@ -2460,9 +3251,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00010000;
         return this;
       }
+      /**
+       * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+       */
       public Builder mergeOtherElement(com.bol.protojx.test.binding.ProtoMessage.OtherComplexType value) {
         if (otherElementBuilder_ == null) {
           if (((bitField0_ & 0x00010000) == 0x00010000) &&
+              otherElement_ != null &&
               otherElement_ != com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance()) {
             otherElement_ =
               com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.newBuilder(otherElement_).mergeFrom(value).buildPartial();
@@ -2476,9 +3271,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00010000;
         return this;
       }
+      /**
+       * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+       */
       public Builder clearOtherElement() {
         if (otherElementBuilder_ == null) {
-          otherElement_ = com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance();
+          otherElement_ = null;
           onChanged();
         } else {
           otherElementBuilder_.clear();
@@ -2486,46 +3284,64 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00010000);
         return this;
       }
+      /**
+       * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.Builder getOtherElementBuilder() {
         bitField0_ |= 0x00010000;
         onChanged();
         return getOtherElementFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.OtherComplexTypeOrBuilder getOtherElementOrBuilder() {
         if (otherElementBuilder_ != null) {
           return otherElementBuilder_.getMessageOrBuilder();
         } else {
-          return otherElement_;
+          return otherElement_ == null ?
+              com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance() : otherElement_;
         }
       }
+      /**
+       * <code>required .test.binding.OtherComplexType otherElement = 17;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.test.binding.ProtoMessage.OtherComplexType, com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.Builder, com.bol.protojx.test.binding.ProtoMessage.OtherComplexTypeOrBuilder> 
           getOtherElementFieldBuilder() {
         if (otherElementBuilder_ == null) {
           otherElementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.test.binding.ProtoMessage.OtherComplexType, com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.Builder, com.bol.protojx.test.binding.ProtoMessage.OtherComplexTypeOrBuilder>(
-                  otherElement_,
+                  getOtherElement(),
                   getParentForChildren(),
                   isClean());
           otherElement_ = null;
         }
         return otherElementBuilder_;
       }
-      
-      // required .test.binding.nestedTypeElement nestedTypeElement = 18;
-      private com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement nestedTypeElement_ = com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance();
+
+      private com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement nestedTypeElement_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement, com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.Builder, com.bol.protojx.test.binding.ProtoMessage.nestedTypeElementOrBuilder> nestedTypeElementBuilder_;
+      /**
+       * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+       */
       public boolean hasNestedTypeElement() {
         return ((bitField0_ & 0x00020000) == 0x00020000);
       }
+      /**
+       * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement getNestedTypeElement() {
         if (nestedTypeElementBuilder_ == null) {
-          return nestedTypeElement_;
+          return nestedTypeElement_ == null ? com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance() : nestedTypeElement_;
         } else {
           return nestedTypeElementBuilder_.getMessage();
         }
       }
+      /**
+       * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+       */
       public Builder setNestedTypeElement(com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement value) {
         if (nestedTypeElementBuilder_ == null) {
           if (value == null) {
@@ -2539,6 +3355,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00020000;
         return this;
       }
+      /**
+       * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+       */
       public Builder setNestedTypeElement(
           com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.Builder builderForValue) {
         if (nestedTypeElementBuilder_ == null) {
@@ -2550,9 +3369,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00020000;
         return this;
       }
+      /**
+       * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+       */
       public Builder mergeNestedTypeElement(com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement value) {
         if (nestedTypeElementBuilder_ == null) {
           if (((bitField0_ & 0x00020000) == 0x00020000) &&
+              nestedTypeElement_ != null &&
               nestedTypeElement_ != com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance()) {
             nestedTypeElement_ =
               com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.newBuilder(nestedTypeElement_).mergeFrom(value).buildPartial();
@@ -2566,9 +3389,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00020000;
         return this;
       }
+      /**
+       * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+       */
       public Builder clearNestedTypeElement() {
         if (nestedTypeElementBuilder_ == null) {
-          nestedTypeElement_ = com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance();
+          nestedTypeElement_ = null;
           onChanged();
         } else {
           nestedTypeElementBuilder_.clear();
@@ -2576,48 +3402,87 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00020000);
         return this;
       }
+      /**
+       * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.Builder getNestedTypeElementBuilder() {
         bitField0_ |= 0x00020000;
         onChanged();
         return getNestedTypeElementFieldBuilder().getBuilder();
       }
+      /**
+       * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.nestedTypeElementOrBuilder getNestedTypeElementOrBuilder() {
         if (nestedTypeElementBuilder_ != null) {
           return nestedTypeElementBuilder_.getMessageOrBuilder();
         } else {
-          return nestedTypeElement_;
+          return nestedTypeElement_ == null ?
+              com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance() : nestedTypeElement_;
         }
       }
+      /**
+       * <code>required .test.binding.nestedTypeElement nestedTypeElement = 18;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement, com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.Builder, com.bol.protojx.test.binding.ProtoMessage.nestedTypeElementOrBuilder> 
           getNestedTypeElementFieldBuilder() {
         if (nestedTypeElementBuilder_ == null) {
           nestedTypeElementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement, com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.Builder, com.bol.protojx.test.binding.ProtoMessage.nestedTypeElementOrBuilder>(
-                  nestedTypeElement_,
+                  getNestedTypeElement(),
                   getParentForChildren(),
                   isClean());
           nestedTypeElement_ = null;
         }
         return nestedTypeElementBuilder_;
       }
-      
-      // required string STRING = 19;
+
       private java.lang.Object sTRING_ = "";
+      /**
+       * <code>required string STRING = 19;</code>
+       */
       public boolean hasSTRING() {
         return ((bitField0_ & 0x00040000) == 0x00040000);
       }
-      public String getSTRING() {
+      /**
+       * <code>required string STRING = 19;</code>
+       */
+      public java.lang.String getSTRING() {
         java.lang.Object ref = sTRING_;
-        if (!(ref instanceof String)) {
-          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          sTRING_ = s;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            sTRING_ = s;
+          }
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
-      public Builder setSTRING(String value) {
+      /**
+       * <code>required string STRING = 19;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSTRINGBytes() {
+        java.lang.Object ref = sTRING_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sTRING_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string STRING = 19;</code>
+       */
+      public Builder setSTRING(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2626,19 +3491,29 @@ public final class ProtoMessage {
         onChanged();
         return this;
       }
+      /**
+       * <code>required string STRING = 19;</code>
+       */
       public Builder clearSTRING() {
         bitField0_ = (bitField0_ & ~0x00040000);
         sTRING_ = getDefaultInstance().getSTRING();
         onChanged();
         return this;
       }
-      void setSTRING(com.google.protobuf.ByteString value) {
-        bitField0_ |= 0x00040000;
+      /**
+       * <code>required string STRING = 19;</code>
+       */
+      public Builder setSTRINGBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00040000;
         sTRING_ = value;
         onChanged();
+        return this;
       }
-      
-      // repeated .test.binding.ItemType items = 20;
+
       private java.util.List<com.bol.protojx.test.binding.ProtoMessage.ItemType> items_ =
         java.util.Collections.emptyList();
       private void ensureItemsIsMutable() {
@@ -2647,10 +3522,13 @@ public final class ProtoMessage {
           bitField0_ |= 0x00080000;
          }
       }
-      
+
       private com.google.protobuf.RepeatedFieldBuilder<
           com.bol.protojx.test.binding.ProtoMessage.ItemType, com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder, com.bol.protojx.test.binding.ProtoMessage.ItemTypeOrBuilder> itemsBuilder_;
-      
+
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public java.util.List<com.bol.protojx.test.binding.ProtoMessage.ItemType> getItemsList() {
         if (itemsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(items_);
@@ -2658,6 +3536,9 @@ public final class ProtoMessage {
           return itemsBuilder_.getMessageList();
         }
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public int getItemsCount() {
         if (itemsBuilder_ == null) {
           return items_.size();
@@ -2665,6 +3546,9 @@ public final class ProtoMessage {
           return itemsBuilder_.getCount();
         }
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.ItemType getItems(int index) {
         if (itemsBuilder_ == null) {
           return items_.get(index);
@@ -2672,6 +3556,9 @@ public final class ProtoMessage {
           return itemsBuilder_.getMessage(index);
         }
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public Builder setItems(
           int index, com.bol.protojx.test.binding.ProtoMessage.ItemType value) {
         if (itemsBuilder_ == null) {
@@ -2686,6 +3573,9 @@ public final class ProtoMessage {
         }
         return this;
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public Builder setItems(
           int index, com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder builderForValue) {
         if (itemsBuilder_ == null) {
@@ -2697,6 +3587,9 @@ public final class ProtoMessage {
         }
         return this;
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public Builder addItems(com.bol.protojx.test.binding.ProtoMessage.ItemType value) {
         if (itemsBuilder_ == null) {
           if (value == null) {
@@ -2710,6 +3603,9 @@ public final class ProtoMessage {
         }
         return this;
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public Builder addItems(
           int index, com.bol.protojx.test.binding.ProtoMessage.ItemType value) {
         if (itemsBuilder_ == null) {
@@ -2724,6 +3620,9 @@ public final class ProtoMessage {
         }
         return this;
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public Builder addItems(
           com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder builderForValue) {
         if (itemsBuilder_ == null) {
@@ -2735,6 +3634,9 @@ public final class ProtoMessage {
         }
         return this;
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public Builder addItems(
           int index, com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder builderForValue) {
         if (itemsBuilder_ == null) {
@@ -2746,17 +3648,24 @@ public final class ProtoMessage {
         }
         return this;
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public Builder addAllItems(
           java.lang.Iterable<? extends com.bol.protojx.test.binding.ProtoMessage.ItemType> values) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
-          super.addAll(values, items_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, items_);
           onChanged();
         } else {
           itemsBuilder_.addAllMessages(values);
         }
         return this;
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public Builder clearItems() {
         if (itemsBuilder_ == null) {
           items_ = java.util.Collections.emptyList();
@@ -2767,6 +3676,9 @@ public final class ProtoMessage {
         }
         return this;
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public Builder removeItems(int index) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
@@ -2777,10 +3689,16 @@ public final class ProtoMessage {
         }
         return this;
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder getItemsBuilder(
           int index) {
         return getItemsFieldBuilder().getBuilder(index);
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.ItemTypeOrBuilder getItemsOrBuilder(
           int index) {
         if (itemsBuilder_ == null) {
@@ -2788,6 +3706,9 @@ public final class ProtoMessage {
           return itemsBuilder_.getMessageOrBuilder(index);
         }
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public java.util.List<? extends com.bol.protojx.test.binding.ProtoMessage.ItemTypeOrBuilder> 
            getItemsOrBuilderList() {
         if (itemsBuilder_ != null) {
@@ -2796,15 +3717,24 @@ public final class ProtoMessage {
           return java.util.Collections.unmodifiableList(items_);
         }
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder addItemsBuilder() {
         return getItemsFieldBuilder().addBuilder(
             com.bol.protojx.test.binding.ProtoMessage.ItemType.getDefaultInstance());
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder addItemsBuilder(
           int index) {
         return getItemsFieldBuilder().addBuilder(
             index, com.bol.protojx.test.binding.ProtoMessage.ItemType.getDefaultInstance());
       }
+      /**
+       * <code>repeated .test.binding.ItemType items = 20;</code>
+       */
       public java.util.List<com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder> 
            getItemsBuilderList() {
         return getItemsFieldBuilder().getBuilderList();
@@ -2823,215 +3753,319 @@ public final class ProtoMessage {
         }
         return itemsBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:test.binding.SomeComplexType)
     }
-    
-    static {
-      defaultInstance = new SomeComplexType(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:test.binding.SomeComplexType)
+    private static final com.bol.protojx.test.binding.ProtoMessage.SomeComplexType DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.test.binding.ProtoMessage.SomeComplexType();
+    }
+
+    public static com.bol.protojx.test.binding.ProtoMessage.SomeComplexType getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<SomeComplexType>
+        PARSER = new com.google.protobuf.AbstractParser<SomeComplexType>() {
+      public SomeComplexType parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new SomeComplexType(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<SomeComplexType> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SomeComplexType> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.test.binding.ProtoMessage.SomeComplexType getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
-  public interface OtherComplexTypeOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // repeated string textItem = 1;
-    java.util.List<String> getTextItemList();
+
+  public interface OtherComplexTypeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:test.binding.OtherComplexType)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string textItem = 1;</code>
+     */
+    com.google.protobuf.ProtocolStringList
+        getTextItemList();
+    /**
+     * <code>repeated string textItem = 1;</code>
+     */
     int getTextItemCount();
-    String getTextItem(int index);
+    /**
+     * <code>repeated string textItem = 1;</code>
+     */
+    java.lang.String getTextItem(int index);
+    /**
+     * <code>repeated string textItem = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getTextItemBytes(int index);
   }
-  public static final class OtherComplexType extends
-      com.google.protobuf.GeneratedMessage
-      implements OtherComplexTypeOrBuilder {
+  /**
+   * Protobuf type {@code test.binding.OtherComplexType}
+   */
+  public  static final class OtherComplexType extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:test.binding.OtherComplexType)
+      OtherComplexTypeOrBuilder {
     // Use OtherComplexType.newBuilder() to construct.
-    private OtherComplexType(Builder builder) {
+    private OtherComplexType(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private OtherComplexType(boolean noInit) {}
-    
-    private static final OtherComplexType defaultInstance;
-    public static OtherComplexType getDefaultInstance() {
-      return defaultInstance;
+    private OtherComplexType() {
+      textItem_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
-    
-    public OtherComplexType getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private OtherComplexType(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                textItem_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              textItem_.add(bs);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          textItem_ = textItem_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_OtherComplexType_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_OtherComplexType_fieldAccessorTable;
+      return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_OtherComplexType_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.class, com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.Builder.class);
     }
-    
-    // repeated string textItem = 1;
+
     public static final int TEXTITEM_FIELD_NUMBER = 1;
     private com.google.protobuf.LazyStringList textItem_;
-    public java.util.List<String>
+    /**
+     * <code>repeated string textItem = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
         getTextItemList() {
       return textItem_;
     }
+    /**
+     * <code>repeated string textItem = 1;</code>
+     */
     public int getTextItemCount() {
       return textItem_.size();
     }
-    public String getTextItem(int index) {
+    /**
+     * <code>repeated string textItem = 1;</code>
+     */
+    public java.lang.String getTextItem(int index) {
       return textItem_.get(index);
     }
-    
-    private void initFields() {
-      textItem_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    /**
+     * <code>repeated string textItem = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTextItemBytes(int index) {
+      return textItem_.getByteString(index);
     }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       for (int i = 0; i < textItem_.size(); i++) {
-        output.writeBytes(1, textItem_.getByteString(i));
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, textItem_.getRaw(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       {
         int dataSize = 0;
         for (int i = 0; i < textItem_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(textItem_.getByteString(i));
+          dataSize += computeStringSizeNoTag(textItem_.getRaw(i));
         }
         size += dataSize;
         size += 1 * getTextItemList().size();
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.test.binding.ProtoMessage.OtherComplexType prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.test.binding.ProtoMessage.OtherComplexType prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code test.binding.OtherComplexType}
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.test.binding.ProtoMessage.OtherComplexTypeOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:test.binding.OtherComplexType)
+        com.bol.protojx.test.binding.ProtoMessage.OtherComplexTypeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_OtherComplexType_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_OtherComplexType_fieldAccessorTable;
+        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_OtherComplexType_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.class, com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3039,30 +4073,22 @@ public final class ProtoMessage {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         textItem_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDescriptor();
+        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_OtherComplexType_descriptor;
       }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.OtherComplexType getDefaultInstanceForType() {
         return com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.OtherComplexType build() {
         com.bol.protojx.test.binding.ProtoMessage.OtherComplexType result = buildPartial();
         if (!result.isInitialized()) {
@@ -3070,30 +4096,19 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.test.binding.ProtoMessage.OtherComplexType buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.test.binding.ProtoMessage.OtherComplexType result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.OtherComplexType buildPartial() {
         com.bol.protojx.test.binding.ProtoMessage.OtherComplexType result = new com.bol.protojx.test.binding.ProtoMessage.OtherComplexType(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          textItem_ = new com.google.protobuf.UnmodifiableLazyStringList(
-              textItem_);
+          textItem_ = textItem_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.textItem_ = textItem_;
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.test.binding.ProtoMessage.OtherComplexType) {
           return mergeFrom((com.bol.protojx.test.binding.ProtoMessage.OtherComplexType)other);
@@ -3102,7 +4117,7 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.test.binding.ProtoMessage.OtherComplexType other) {
         if (other == com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.getDefaultInstance()) return this;
         if (!other.textItem_.isEmpty()) {
@@ -3115,49 +4130,34 @@ public final class ProtoMessage {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              ensureTextItemIsMutable();
-              textItem_.add(input.readBytes());
-              break;
-            }
+        com.bol.protojx.test.binding.ProtoMessage.OtherComplexType parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.test.binding.ProtoMessage.OtherComplexType) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // repeated string textItem = 1;
+
       private com.google.protobuf.LazyStringList textItem_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureTextItemIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3165,18 +4165,37 @@ public final class ProtoMessage {
           bitField0_ |= 0x00000001;
          }
       }
-      public java.util.List<String>
+      /**
+       * <code>repeated string textItem = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
           getTextItemList() {
-        return java.util.Collections.unmodifiableList(textItem_);
+        return textItem_.getUnmodifiableView();
       }
+      /**
+       * <code>repeated string textItem = 1;</code>
+       */
       public int getTextItemCount() {
         return textItem_.size();
       }
-      public String getTextItem(int index) {
+      /**
+       * <code>repeated string textItem = 1;</code>
+       */
+      public java.lang.String getTextItem(int index) {
         return textItem_.get(index);
       }
+      /**
+       * <code>repeated string textItem = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTextItemBytes(int index) {
+        return textItem_.getByteString(index);
+      }
+      /**
+       * <code>repeated string textItem = 1;</code>
+       */
       public Builder setTextItem(
-          int index, String value) {
+          int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3185,7 +4204,11 @@ public final class ProtoMessage {
         onChanged();
         return this;
       }
-      public Builder addTextItem(String value) {
+      /**
+       * <code>repeated string textItem = 1;</code>
+       */
+      public Builder addTextItem(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3194,90 +4217,194 @@ public final class ProtoMessage {
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated string textItem = 1;</code>
+       */
       public Builder addAllTextItem(
-          java.lang.Iterable<String> values) {
+          java.lang.Iterable<java.lang.String> values) {
         ensureTextItemIsMutable();
-        super.addAll(values, textItem_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, textItem_);
         onChanged();
         return this;
       }
+      /**
+       * <code>repeated string textItem = 1;</code>
+       */
       public Builder clearTextItem() {
         textItem_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
-      void addTextItem(com.google.protobuf.ByteString value) {
-        ensureTextItemIsMutable();
+      /**
+       * <code>repeated string textItem = 1;</code>
+       */
+      public Builder addTextItemBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTextItemIsMutable();
         textItem_.add(value);
         onChanged();
+        return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:test.binding.OtherComplexType)
     }
-    
-    static {
-      defaultInstance = new OtherComplexType(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:test.binding.OtherComplexType)
+    private static final com.bol.protojx.test.binding.ProtoMessage.OtherComplexType DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.test.binding.ProtoMessage.OtherComplexType();
+    }
+
+    public static com.bol.protojx.test.binding.ProtoMessage.OtherComplexType getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<OtherComplexType>
+        PARSER = new com.google.protobuf.AbstractParser<OtherComplexType>() {
+      public OtherComplexType parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new OtherComplexType(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<OtherComplexType> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OtherComplexType> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.test.binding.ProtoMessage.OtherComplexType getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
-  public interface ItemTypeOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // required int32 id = 1;
+
+  public interface ItemTypeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:test.binding.ItemType)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 id = 1;</code>
+     */
     boolean hasId();
+    /**
+     * <code>required int32 id = 1;</code>
+     */
     int getId();
   }
-  public static final class ItemType extends
-      com.google.protobuf.GeneratedMessage
-      implements ItemTypeOrBuilder {
+  /**
+   * Protobuf type {@code test.binding.ItemType}
+   */
+  public  static final class ItemType extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:test.binding.ItemType)
+      ItemTypeOrBuilder {
     // Use ItemType.newBuilder() to construct.
-    private ItemType(Builder builder) {
+    private ItemType(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private ItemType(boolean noInit) {}
-    
-    private static final ItemType defaultInstance;
-    public static ItemType getDefaultInstance() {
-      return defaultInstance;
+    private ItemType() {
+      id_ = 0;
     }
-    
-    public ItemType getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private ItemType(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_ItemType_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_ItemType_fieldAccessorTable;
+      return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_ItemType_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.test.binding.ProtoMessage.ItemType.class, com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder.class);
     }
-    
+
     private int bitField0_;
-    // required int32 id = 1;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
+    /**
+     * <code>required int32 id = 1;</code>
+     */
     public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>required int32 id = 1;</code>
+     */
     public int getId() {
       return id_;
     }
-    
-    private void initFields() {
-      id_ = 0;
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       if (!hasId()) {
         memoizedIsInitialized = 0;
         return false;
@@ -3285,137 +4412,127 @@ public final class ProtoMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, id_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.test.binding.ProtoMessage.ItemType parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.ItemType parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.ItemType parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.ItemType parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.ItemType parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.ItemType parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.ItemType parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.ItemType parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.ItemType parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.ItemType parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.test.binding.ProtoMessage.ItemType prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.test.binding.ProtoMessage.ItemType prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code test.binding.ItemType}
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.test.binding.ProtoMessage.ItemTypeOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:test.binding.ItemType)
+        com.bol.protojx.test.binding.ProtoMessage.ItemTypeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_ItemType_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_ItemType_fieldAccessorTable;
+        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_ItemType_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.test.binding.ProtoMessage.ItemType.class, com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.test.binding.ProtoMessage.ItemType.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3423,30 +4540,22 @@ public final class ProtoMessage {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.test.binding.ProtoMessage.ItemType.getDescriptor();
+        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_ItemType_descriptor;
       }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.ItemType getDefaultInstanceForType() {
         return com.bol.protojx.test.binding.ProtoMessage.ItemType.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.ItemType build() {
         com.bol.protojx.test.binding.ProtoMessage.ItemType result = buildPartial();
         if (!result.isInitialized()) {
@@ -3454,17 +4563,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.test.binding.ProtoMessage.ItemType buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.test.binding.ProtoMessage.ItemType result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.ItemType buildPartial() {
         com.bol.protojx.test.binding.ProtoMessage.ItemType result = new com.bol.protojx.test.binding.ProtoMessage.ItemType(this);
         int from_bitField0_ = bitField0_;
@@ -3477,7 +4576,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.test.binding.ProtoMessage.ItemType) {
           return mergeFrom((com.bol.protojx.test.binding.ProtoMessage.ItemType)other);
@@ -3486,148 +4585,246 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.test.binding.ProtoMessage.ItemType other) {
         if (other == com.bol.protojx.test.binding.ProtoMessage.ItemType.getDefaultInstance()) return this;
         if (other.hasId()) {
           setId(other.getId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (!hasId()) {
-          
           return false;
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              id_ = input.readInt32();
-              break;
-            }
+        com.bol.protojx.test.binding.ProtoMessage.ItemType parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.test.binding.ProtoMessage.ItemType) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // required int32 id = 1;
+
       private int id_ ;
+      /**
+       * <code>required int32 id = 1;</code>
+       */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>required int32 id = 1;</code>
+       */
       public int getId() {
         return id_;
       }
+      /**
+       * <code>required int32 id = 1;</code>
+       */
       public Builder setId(int value) {
         bitField0_ |= 0x00000001;
         id_ = value;
         onChanged();
         return this;
       }
+      /**
+       * <code>required int32 id = 1;</code>
+       */
       public Builder clearId() {
         bitField0_ = (bitField0_ & ~0x00000001);
         id_ = 0;
         onChanged();
         return this;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:test.binding.ItemType)
     }
-    
-    static {
-      defaultInstance = new ItemType(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:test.binding.ItemType)
+    private static final com.bol.protojx.test.binding.ProtoMessage.ItemType DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.test.binding.ProtoMessage.ItemType();
+    }
+
+    public static com.bol.protojx.test.binding.ProtoMessage.ItemType getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ItemType>
+        PARSER = new com.google.protobuf.AbstractParser<ItemType>() {
+      public ItemType parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new ItemType(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<ItemType> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ItemType> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.test.binding.ProtoMessage.ItemType getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
-  public interface nestedTypeElementOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-    
-    // optional .xsdtypes.Decimal decimalElement = 1;
+
+  public interface nestedTypeElementOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:test.binding.nestedTypeElement)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+     */
     boolean hasDecimalElement();
+    /**
+     * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.Decimal getDecimalElement();
+    /**
+     * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+     */
     com.bol.protojx.xsdtypes.ProtoMessage.DecimalOrBuilder getDecimalElementOrBuilder();
   }
-  public static final class nestedTypeElement extends
-      com.google.protobuf.GeneratedMessage
-      implements nestedTypeElementOrBuilder {
+  /**
+   * Protobuf type {@code test.binding.nestedTypeElement}
+   */
+  public  static final class nestedTypeElement extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:test.binding.nestedTypeElement)
+      nestedTypeElementOrBuilder {
     // Use nestedTypeElement.newBuilder() to construct.
-    private nestedTypeElement(Builder builder) {
+    private nestedTypeElement(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
     }
-    private nestedTypeElement(boolean noInit) {}
-    
-    private static final nestedTypeElement defaultInstance;
-    public static nestedTypeElement getDefaultInstance() {
-      return defaultInstance;
+    private nestedTypeElement() {
     }
-    
-    public nestedTypeElement getDefaultInstanceForType() {
-      return defaultInstance;
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
-    
+    private nestedTypeElement(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = decimalElement_.toBuilder();
+              }
+              decimalElement_ = input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Decimal.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(decimalElement_);
+                decimalElement_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_nestedTypeElement_descriptor;
     }
-    
+
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_nestedTypeElement_fieldAccessorTable;
+      return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_nestedTypeElement_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.class, com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.Builder.class);
     }
-    
+
     private int bitField0_;
-    // optional .xsdtypes.Decimal decimalElement = 1;
     public static final int DECIMALELEMENT_FIELD_NUMBER = 1;
     private com.bol.protojx.xsdtypes.ProtoMessage.Decimal decimalElement_;
+    /**
+     * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+     */
     public boolean hasDecimalElement() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
+    /**
+     * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.Decimal getDecimalElement() {
-      return decimalElement_;
+      return decimalElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance() : decimalElement_;
     }
+    /**
+     * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+     */
     public com.bol.protojx.xsdtypes.ProtoMessage.DecimalOrBuilder getDecimalElementOrBuilder() {
-      return decimalElement_;
+      return decimalElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance() : decimalElement_;
     }
-    
-    private void initFields() {
-      decimalElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance();
-    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-      
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
       if (hasDecimalElement()) {
         if (!getDecimalElement().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -3637,137 +4834,127 @@ public final class ProtoMessage {
       memoizedIsInitialized = 1;
       return true;
     }
-    
+
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, decimalElement_);
+        output.writeMessage(1, getDecimalElement());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
-    
-    private int memoizedSerializedSize = -1;
+
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
-    
+
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, decimalElement_);
+          .computeMessageSize(1, getDecimalElement());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
-    
+
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-    
     public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data).buildParsed();
+      return PARSER.parseFrom(data);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return newBuilder().mergeFrom(data, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(data, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      Builder builder = newBuilder();
-      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
-        return builder.buildParsed();
-      } else {
-        return null;
-      }
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input).buildParsed();
+      return PARSER.parseFrom(input);
     }
     public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return newBuilder().mergeFrom(input, extensionRegistry)
-               .buildParsed();
+      return PARSER.parseFrom(input, extensionRegistry);
     }
-    
-    public static Builder newBuilder() { return Builder.create(); }
+
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
-    
+    public static Builder newBuilder(com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
     @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
+    /**
+     * Protobuf type {@code test.binding.nestedTypeElement}
+     */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.bol.protojx.test.binding.ProtoMessage.nestedTypeElementOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:test.binding.nestedTypeElement)
+        com.bol.protojx.test.binding.ProtoMessage.nestedTypeElementOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_nestedTypeElement_descriptor;
       }
-      
+
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_nestedTypeElement_fieldAccessorTable;
+        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_nestedTypeElement_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.class, com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.Builder.class);
       }
-      
+
       // Construct using com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
-      
-      private Builder(BuilderParent parent) {
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3776,34 +4963,26 @@ public final class ProtoMessage {
           getDecimalElementFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-      
       public Builder clear() {
         super.clear();
         if (decimalElementBuilder_ == null) {
-          decimalElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance();
+          decimalElement_ = null;
         } else {
           decimalElementBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
-      
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-      
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDescriptor();
+        return com.bol.protojx.test.binding.ProtoMessage.internal_static_test_binding_nestedTypeElement_descriptor;
       }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement getDefaultInstanceForType() {
         return com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance();
       }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement build() {
         com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement result = buildPartial();
         if (!result.isInitialized()) {
@@ -3811,17 +4990,7 @@ public final class ProtoMessage {
         }
         return result;
       }
-      
-      private com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement buildParsed()
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(
-            result).asInvalidProtocolBufferException();
-        }
-        return result;
-      }
-      
+
       public com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement buildPartial() {
         com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement result = new com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement(this);
         int from_bitField0_ = bitField0_;
@@ -3838,7 +5007,7 @@ public final class ProtoMessage {
         onBuilt();
         return result;
       }
-      
+
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement) {
           return mergeFrom((com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement)other);
@@ -3847,78 +5016,67 @@ public final class ProtoMessage {
           return this;
         }
       }
-      
+
       public Builder mergeFrom(com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement other) {
         if (other == com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.getDefaultInstance()) return this;
         if (other.hasDecimalElement()) {
           mergeDecimalElement(other.getDecimalElement());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
-      
+
       public final boolean isInitialized() {
         if (hasDecimalElement()) {
           if (!getDecimalElement().isInitialized()) {
-            
             return false;
           }
         }
         return true;
       }
-      
+
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder(
-            this.getUnknownFields());
-        while (true) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              this.setUnknownFields(unknownFields.build());
-              onChanged();
-              return this;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                this.setUnknownFields(unknownFields.build());
-                onChanged();
-                return this;
-              }
-              break;
-            }
-            case 10: {
-              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Builder subBuilder = com.bol.protojx.xsdtypes.ProtoMessage.Decimal.newBuilder();
-              if (hasDecimalElement()) {
-                subBuilder.mergeFrom(getDecimalElement());
-              }
-              input.readMessage(subBuilder, extensionRegistry);
-              setDecimalElement(subBuilder.buildPartial());
-              break;
-            }
+        com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
           }
         }
+        return this;
       }
-      
       private int bitField0_;
-      
-      // optional .xsdtypes.Decimal decimalElement = 1;
-      private com.bol.protojx.xsdtypes.ProtoMessage.Decimal decimalElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance();
+
+      private com.bol.protojx.xsdtypes.ProtoMessage.Decimal decimalElement_ = null;
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Decimal, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DecimalOrBuilder> decimalElementBuilder_;
+      /**
+       * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+       */
       public boolean hasDecimalElement() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
+      /**
+       * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Decimal getDecimalElement() {
         if (decimalElementBuilder_ == null) {
-          return decimalElement_;
+          return decimalElement_ == null ? com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance() : decimalElement_;
         } else {
           return decimalElementBuilder_.getMessage();
         }
       }
+      /**
+       * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+       */
       public Builder setDecimalElement(com.bol.protojx.xsdtypes.ProtoMessage.Decimal value) {
         if (decimalElementBuilder_ == null) {
           if (value == null) {
@@ -3932,6 +5090,9 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+       */
       public Builder setDecimalElement(
           com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Builder builderForValue) {
         if (decimalElementBuilder_ == null) {
@@ -3943,9 +5104,13 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+       */
       public Builder mergeDecimalElement(com.bol.protojx.xsdtypes.ProtoMessage.Decimal value) {
         if (decimalElementBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              decimalElement_ != null &&
               decimalElement_ != com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance()) {
             decimalElement_ =
               com.bol.protojx.xsdtypes.ProtoMessage.Decimal.newBuilder(decimalElement_).mergeFrom(value).buildPartial();
@@ -3959,9 +5124,12 @@ public final class ProtoMessage {
         bitField0_ |= 0x00000001;
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+       */
       public Builder clearDecimalElement() {
         if (decimalElementBuilder_ == null) {
-          decimalElement_ = com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance();
+          decimalElement_ = null;
           onChanged();
         } else {
           decimalElementBuilder_.clear();
@@ -3969,43 +5137,89 @@ public final class ProtoMessage {
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
+      /**
+       * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Builder getDecimalElementBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getDecimalElementFieldBuilder().getBuilder();
       }
+      /**
+       * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+       */
       public com.bol.protojx.xsdtypes.ProtoMessage.DecimalOrBuilder getDecimalElementOrBuilder() {
         if (decimalElementBuilder_ != null) {
           return decimalElementBuilder_.getMessageOrBuilder();
         } else {
-          return decimalElement_;
+          return decimalElement_ == null ?
+              com.bol.protojx.xsdtypes.ProtoMessage.Decimal.getDefaultInstance() : decimalElement_;
         }
       }
+      /**
+       * <code>optional .xsdtypes.Decimal decimalElement = 1;</code>
+       */
       private com.google.protobuf.SingleFieldBuilder<
           com.bol.protojx.xsdtypes.ProtoMessage.Decimal, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DecimalOrBuilder> 
           getDecimalElementFieldBuilder() {
         if (decimalElementBuilder_ == null) {
           decimalElementBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.bol.protojx.xsdtypes.ProtoMessage.Decimal, com.bol.protojx.xsdtypes.ProtoMessage.Decimal.Builder, com.bol.protojx.xsdtypes.ProtoMessage.DecimalOrBuilder>(
-                  decimalElement_,
+                  getDecimalElement(),
                   getParentForChildren(),
                   isClean());
           decimalElement_ = null;
         }
         return decimalElementBuilder_;
       }
-      
+
       // @@protoc_insertion_point(builder_scope:test.binding.nestedTypeElement)
     }
-    
-    static {
-      defaultInstance = new nestedTypeElement(true);
-      defaultInstance.initFields();
-    }
-    
+
     // @@protoc_insertion_point(class_scope:test.binding.nestedTypeElement)
+    private static final com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement();
+    }
+
+    public static com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<nestedTypeElement>
+        PARSER = new com.google.protobuf.AbstractParser<nestedTypeElement>() {
+      public nestedTypeElement parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new nestedTypeElement(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<nestedTypeElement> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<nestedTypeElement> getParserForType() {
+      return PARSER;
+    }
+
+    public com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
-  
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_test_binding_SomeComplexType_descriptor;
   private static
@@ -4026,7 +5240,7 @@ public final class ProtoMessage {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_test_binding_nestedTypeElement_fieldAccessorTable;
-  
+
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
@@ -4061,51 +5275,44 @@ public final class ProtoMessage {
       "ngB\014ProtoMessage"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_test_binding_SomeComplexType_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_test_binding_SomeComplexType_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_test_binding_SomeComplexType_descriptor,
-              new java.lang.String[] { "StringElement", "BooleanElement", "IntElement", "FloatElement", "LongElement", "LongId", "Integer64Element", "Integer32Element", "BoolElement", "CharsElement", "TimeElement", "DateElement", "TokenElement", "DateTimeElement", "OptionalElement", "DefaultableElement", "OtherElement", "NestedTypeElement", "STRING", "Items", },
-              com.bol.protojx.test.binding.ProtoMessage.SomeComplexType.class,
-              com.bol.protojx.test.binding.ProtoMessage.SomeComplexType.Builder.class);
-          internal_static_test_binding_OtherComplexType_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_test_binding_OtherComplexType_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_test_binding_OtherComplexType_descriptor,
-              new java.lang.String[] { "TextItem", },
-              com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.class,
-              com.bol.protojx.test.binding.ProtoMessage.OtherComplexType.Builder.class);
-          internal_static_test_binding_ItemType_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_test_binding_ItemType_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_test_binding_ItemType_descriptor,
-              new java.lang.String[] { "Id", },
-              com.bol.protojx.test.binding.ProtoMessage.ItemType.class,
-              com.bol.protojx.test.binding.ProtoMessage.ItemType.Builder.class);
-          internal_static_test_binding_nestedTypeElement_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_test_binding_nestedTypeElement_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_test_binding_nestedTypeElement_descriptor,
-              new java.lang.String[] { "DecimalElement", },
-              com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.class,
-              com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.Builder.class);
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.bol.protojx.xsdtypes.ProtoMessage.getDescriptor(),
         }, assigner);
+    internal_static_test_binding_SomeComplexType_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_test_binding_SomeComplexType_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_test_binding_SomeComplexType_descriptor,
+        new java.lang.String[] { "StringElement", "BooleanElement", "IntElement", "FloatElement", "LongElement", "LongId", "Integer64Element", "Integer32Element", "BoolElement", "CharsElement", "TimeElement", "DateElement", "TokenElement", "DateTimeElement", "OptionalElement", "DefaultableElement", "OtherElement", "NestedTypeElement", "STRING", "Items", });
+    internal_static_test_binding_OtherComplexType_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_test_binding_OtherComplexType_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_test_binding_OtherComplexType_descriptor,
+        new java.lang.String[] { "TextItem", });
+    internal_static_test_binding_ItemType_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_test_binding_ItemType_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_test_binding_ItemType_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_test_binding_nestedTypeElement_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_test_binding_nestedTypeElement_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_test_binding_nestedTypeElement_descriptor,
+        new java.lang.String[] { "DecimalElement", });
+    com.bol.protojx.xsdtypes.ProtoMessage.getDescriptor();
   }
-  
+
   // @@protoc_insertion_point(outer_class_scope)
 }
