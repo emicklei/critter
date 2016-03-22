@@ -32,6 +32,10 @@ public class ProtobufPathTest {
                 .setNestedTypeElement(newNested())
                 .setSTRING("HELLO")
                 .setTokenElement("token")
+                .addItems(com.bol.protojx.test.binding.ProtoMessage.ItemType.newBuilder().setId(42))
+                .addChars(ProtoMessage.Chars.newBuilder().setValue("three"))
+                .addLongId(42)
+                .addLongId(84)
                 .build();
         byte[] payload = st.toByteArray();
         String messageType = "test.binding.SomeComplexType";
@@ -49,11 +53,25 @@ public class ProtobufPathTest {
                 ".dateElement.value.year", "2016",
                 ".dateElement.value.year", "2016",
                 ".dateElement.value.year", "2016",
-                ".defaultableElement", "missing"//,
-                //".otherElement.0", "one"
+                ".defaultableElement", "missing",
+                ".otherElement.textItem.0", "one",
+                ".otherElement.textItem.1", "two",
+                ".nestedTypeElement.decimalElement.value.unscaledValue", "161",
+                ".nestedTypeElement.decimalElement.value.scale", "2",
+                ".items.0.id", "42",
+                ".chars.0.value", "three",
+                ".longId.1", "84"
         };
         for (int c = 0; c < fixtures.length; c += 2) {
             new Sample(newDefinitions(), messageType, payload, fixtures[c], fixtures[c + 1]).check();
+        }
+        String[] failures = new String[]{
+                ".items.0", Inspector.InvalidPath,
+                "..", Inspector.InvalidPath,
+                ".x", Inspector.InvalidPath,
+        };
+        for (int c = 0; c < failures.length; c += 2) {
+            new Sample(newDefinitions(), messageType, payload, failures[c], failures[c + 1]).check();
         }
     }
 

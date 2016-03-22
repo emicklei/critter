@@ -271,6 +271,30 @@ public final class ProtoMessage {
      */
     com.bol.protojx.test.binding.ProtoMessage.ItemTypeOrBuilder getItemsOrBuilder(
         int index);
+
+    /**
+     * <code>repeated .xsdtypes.Chars chars = 21;</code>
+     */
+    java.util.List<com.bol.protojx.xsdtypes.ProtoMessage.Chars> 
+        getCharsList();
+    /**
+     * <code>repeated .xsdtypes.Chars chars = 21;</code>
+     */
+    com.bol.protojx.xsdtypes.ProtoMessage.Chars getChars(int index);
+    /**
+     * <code>repeated .xsdtypes.Chars chars = 21;</code>
+     */
+    int getCharsCount();
+    /**
+     * <code>repeated .xsdtypes.Chars chars = 21;</code>
+     */
+    java.util.List<? extends com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder> 
+        getCharsOrBuilderList();
+    /**
+     * <code>repeated .xsdtypes.Chars chars = 21;</code>
+     */
+    com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder getCharsOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code test.binding.SomeComplexType}
@@ -295,6 +319,7 @@ public final class ProtoMessage {
       defaultableElement_ = "DEFAULT";
       sTRING_ = "";
       items_ = java.util.Collections.emptyList();
+      chars_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -520,6 +545,14 @@ public final class ProtoMessage {
               items_.add(input.readMessage(com.bol.protojx.test.binding.ProtoMessage.ItemType.parser(), extensionRegistry));
               break;
             }
+            case 170: {
+              if (!((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+                chars_ = new java.util.ArrayList<com.bol.protojx.xsdtypes.ProtoMessage.Chars>();
+                mutable_bitField0_ |= 0x00100000;
+              }
+              chars_.add(input.readMessage(com.bol.protojx.xsdtypes.ProtoMessage.Chars.parser(), extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -534,6 +567,9 @@ public final class ProtoMessage {
         }
         if (((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
           items_ = java.util.Collections.unmodifiableList(items_);
+        }
+        if (((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+          chars_ = java.util.Collections.unmodifiableList(chars_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1068,6 +1104,41 @@ public final class ProtoMessage {
       return items_.get(index);
     }
 
+    public static final int CHARS_FIELD_NUMBER = 21;
+    private java.util.List<com.bol.protojx.xsdtypes.ProtoMessage.Chars> chars_;
+    /**
+     * <code>repeated .xsdtypes.Chars chars = 21;</code>
+     */
+    public java.util.List<com.bol.protojx.xsdtypes.ProtoMessage.Chars> getCharsList() {
+      return chars_;
+    }
+    /**
+     * <code>repeated .xsdtypes.Chars chars = 21;</code>
+     */
+    public java.util.List<? extends com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder> 
+        getCharsOrBuilderList() {
+      return chars_;
+    }
+    /**
+     * <code>repeated .xsdtypes.Chars chars = 21;</code>
+     */
+    public int getCharsCount() {
+      return chars_.size();
+    }
+    /**
+     * <code>repeated .xsdtypes.Chars chars = 21;</code>
+     */
+    public com.bol.protojx.xsdtypes.ProtoMessage.Chars getChars(int index) {
+      return chars_.get(index);
+    }
+    /**
+     * <code>repeated .xsdtypes.Chars chars = 21;</code>
+     */
+    public com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder getCharsOrBuilder(
+        int index) {
+      return chars_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1230,6 +1301,9 @@ public final class ProtoMessage {
       for (int i = 0; i < items_.size(); i++) {
         output.writeMessage(20, items_.get(i));
       }
+      for (int i = 0; i < chars_.size(); i++) {
+        output.writeMessage(21, chars_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1317,6 +1391,10 @@ public final class ProtoMessage {
       for (int i = 0; i < items_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(20, items_.get(i));
+      }
+      for (int i = 0; i < chars_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(21, chars_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1436,6 +1514,7 @@ public final class ProtoMessage {
           getOtherElementFieldBuilder();
           getNestedTypeElementFieldBuilder();
           getItemsFieldBuilder();
+          getCharsFieldBuilder();
         }
       }
       public Builder clear() {
@@ -1519,6 +1598,12 @@ public final class ProtoMessage {
           bitField0_ = (bitField0_ & ~0x00080000);
         } else {
           itemsBuilder_.clear();
+        }
+        if (charsBuilder_ == null) {
+          chars_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00100000);
+        } else {
+          charsBuilder_.clear();
         }
         return this;
       }
@@ -1666,6 +1751,15 @@ public final class ProtoMessage {
         } else {
           result.items_ = itemsBuilder_.build();
         }
+        if (charsBuilder_ == null) {
+          if (((bitField0_ & 0x00100000) == 0x00100000)) {
+            chars_ = java.util.Collections.unmodifiableList(chars_);
+            bitField0_ = (bitField0_ & ~0x00100000);
+          }
+          result.chars_ = chars_;
+        } else {
+          result.chars_ = charsBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1779,6 +1873,32 @@ public final class ProtoMessage {
                    getItemsFieldBuilder() : null;
             } else {
               itemsBuilder_.addAllMessages(other.items_);
+            }
+          }
+        }
+        if (charsBuilder_ == null) {
+          if (!other.chars_.isEmpty()) {
+            if (chars_.isEmpty()) {
+              chars_ = other.chars_;
+              bitField0_ = (bitField0_ & ~0x00100000);
+            } else {
+              ensureCharsIsMutable();
+              chars_.addAll(other.chars_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.chars_.isEmpty()) {
+            if (charsBuilder_.isEmpty()) {
+              charsBuilder_.dispose();
+              charsBuilder_ = null;
+              chars_ = other.chars_;
+              bitField0_ = (bitField0_ & ~0x00100000);
+              charsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getCharsFieldBuilder() : null;
+            } else {
+              charsBuilder_.addAllMessages(other.chars_);
             }
           }
         }
@@ -3754,6 +3874,246 @@ public final class ProtoMessage {
         return itemsBuilder_;
       }
 
+      private java.util.List<com.bol.protojx.xsdtypes.ProtoMessage.Chars> chars_ =
+        java.util.Collections.emptyList();
+      private void ensureCharsIsMutable() {
+        if (!((bitField0_ & 0x00100000) == 0x00100000)) {
+          chars_ = new java.util.ArrayList<com.bol.protojx.xsdtypes.ProtoMessage.Chars>(chars_);
+          bitField0_ |= 0x00100000;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.bol.protojx.xsdtypes.ProtoMessage.Chars, com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder, com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder> charsBuilder_;
+
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public java.util.List<com.bol.protojx.xsdtypes.ProtoMessage.Chars> getCharsList() {
+        if (charsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(chars_);
+        } else {
+          return charsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public int getCharsCount() {
+        if (charsBuilder_ == null) {
+          return chars_.size();
+        } else {
+          return charsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public com.bol.protojx.xsdtypes.ProtoMessage.Chars getChars(int index) {
+        if (charsBuilder_ == null) {
+          return chars_.get(index);
+        } else {
+          return charsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public Builder setChars(
+          int index, com.bol.protojx.xsdtypes.ProtoMessage.Chars value) {
+        if (charsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCharsIsMutable();
+          chars_.set(index, value);
+          onChanged();
+        } else {
+          charsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public Builder setChars(
+          int index, com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder builderForValue) {
+        if (charsBuilder_ == null) {
+          ensureCharsIsMutable();
+          chars_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          charsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public Builder addChars(com.bol.protojx.xsdtypes.ProtoMessage.Chars value) {
+        if (charsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCharsIsMutable();
+          chars_.add(value);
+          onChanged();
+        } else {
+          charsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public Builder addChars(
+          int index, com.bol.protojx.xsdtypes.ProtoMessage.Chars value) {
+        if (charsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCharsIsMutable();
+          chars_.add(index, value);
+          onChanged();
+        } else {
+          charsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public Builder addChars(
+          com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder builderForValue) {
+        if (charsBuilder_ == null) {
+          ensureCharsIsMutable();
+          chars_.add(builderForValue.build());
+          onChanged();
+        } else {
+          charsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public Builder addChars(
+          int index, com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder builderForValue) {
+        if (charsBuilder_ == null) {
+          ensureCharsIsMutable();
+          chars_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          charsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public Builder addAllChars(
+          java.lang.Iterable<? extends com.bol.protojx.xsdtypes.ProtoMessage.Chars> values) {
+        if (charsBuilder_ == null) {
+          ensureCharsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, chars_);
+          onChanged();
+        } else {
+          charsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public Builder clearChars() {
+        if (charsBuilder_ == null) {
+          chars_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00100000);
+          onChanged();
+        } else {
+          charsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public Builder removeChars(int index) {
+        if (charsBuilder_ == null) {
+          ensureCharsIsMutable();
+          chars_.remove(index);
+          onChanged();
+        } else {
+          charsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder getCharsBuilder(
+          int index) {
+        return getCharsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder getCharsOrBuilder(
+          int index) {
+        if (charsBuilder_ == null) {
+          return chars_.get(index);  } else {
+          return charsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public java.util.List<? extends com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder> 
+           getCharsOrBuilderList() {
+        if (charsBuilder_ != null) {
+          return charsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(chars_);
+        }
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder addCharsBuilder() {
+        return getCharsFieldBuilder().addBuilder(
+            com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder addCharsBuilder(
+          int index) {
+        return getCharsFieldBuilder().addBuilder(
+            index, com.bol.protojx.xsdtypes.ProtoMessage.Chars.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .xsdtypes.Chars chars = 21;</code>
+       */
+      public java.util.List<com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder> 
+           getCharsBuilderList() {
+        return getCharsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.bol.protojx.xsdtypes.ProtoMessage.Chars, com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder, com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder> 
+          getCharsFieldBuilder() {
+        if (charsBuilder_ == null) {
+          charsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.bol.protojx.xsdtypes.ProtoMessage.Chars, com.bol.protojx.xsdtypes.ProtoMessage.Chars.Builder, com.bol.protojx.xsdtypes.ProtoMessage.CharsOrBuilder>(
+                  chars_,
+                  ((bitField0_ & 0x00100000) == 0x00100000),
+                  getParentForChildren(),
+                  isClean());
+          chars_ = null;
+        }
+        return charsBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:test.binding.SomeComplexType)
     }
 
@@ -5250,7 +5610,7 @@ public final class ProtoMessage {
   static {
     java.lang.String[] descriptorData = {
       "\n\025SomeComplexType.proto\022\014test.binding\032\026b" +
-      "ol-xsdtypes-1.6.proto\"\274\005\n\017SomeComplexTyp" +
+      "ol-xsdtypes-1.6.proto\"\334\005\n\017SomeComplexTyp" +
       "e\022\034\n\rstringElement\030\001 \002(\t:\005hello\022\034\n\016boole" +
       "anElement\030\002 \002(\010:\004true\022\026\n\nintElement\030\003 \002(" +
       "\005:\00242\022\024\n\014floatElement\030\004 \002(\002\022\023\n\013longEleme" +
@@ -5268,11 +5628,12 @@ public final class ProtoMessage {
       "mplexType\022:\n\021nestedTypeElement\030\022 \002(\0132\037.t" +
       "est.binding.nestedTypeElement\022\016\n\006STRING\030" +
       "\023 \002(\t\022%\n\005items\030\024 \003(\0132\026.test.binding.Item" +
-      "Type\"$\n\020OtherComplexType\022\020\n\010textItem\030\001 \003",
-      "(\t\"\026\n\010ItemType\022\n\n\002id\030\001 \002(\005\">\n\021nestedType" +
-      "Element\022)\n\016decimalElement\030\001 \001(\0132\021.xsdtyp" +
-      "es.DecimalB,\n\034com.bol.protojx.test.bindi" +
-      "ngB\014ProtoMessage"
+      "Type\022\036\n\005chars\030\025 \003(\0132\017.xsdtypes.Chars\"$\n\020",
+      "OtherComplexType\022\020\n\010textItem\030\001 \003(\t\"\026\n\010It" +
+      "emType\022\n\n\002id\030\001 \002(\005\">\n\021nestedTypeElement\022" +
+      ")\n\016decimalElement\030\001 \001(\0132\021.xsdtypes.Decim" +
+      "alB,\n\034com.bol.protojx.test.bindingB\014Prot" +
+      "oMessage"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5292,7 +5653,7 @@ public final class ProtoMessage {
     internal_static_test_binding_SomeComplexType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_test_binding_SomeComplexType_descriptor,
-        new java.lang.String[] { "StringElement", "BooleanElement", "IntElement", "FloatElement", "LongElement", "LongId", "Integer64Element", "Integer32Element", "BoolElement", "CharsElement", "TimeElement", "DateElement", "TokenElement", "DateTimeElement", "OptionalElement", "DefaultableElement", "OtherElement", "NestedTypeElement", "STRING", "Items", });
+        new java.lang.String[] { "StringElement", "BooleanElement", "IntElement", "FloatElement", "LongElement", "LongId", "Integer64Element", "Integer32Element", "BoolElement", "CharsElement", "TimeElement", "DateElement", "TokenElement", "DateTimeElement", "OptionalElement", "DefaultableElement", "OtherElement", "NestedTypeElement", "STRING", "Items", "Chars", });
     internal_static_test_binding_OtherComplexType_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_test_binding_OtherComplexType_fieldAccessorTable = new

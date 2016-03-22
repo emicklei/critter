@@ -91,7 +91,9 @@ public class Definitions {
         if (this.elementMap.containsKey(nested)) {
             return nested;
         }
-        String namespaceSibling = qualifiedName.split("\\.")[0] + "." + typeName;
+        // take namespace part
+        String namespace = qualifiedName.substring(0, qualifiedName.lastIndexOf("."));
+        String namespaceSibling = namespace + "." + typeName;
         if (this.elementMap.containsKey(namespaceSibling)) {
             return namespaceSibling;
         }

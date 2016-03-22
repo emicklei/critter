@@ -17,7 +17,8 @@ import java.util.Map;
  */
 public class Inspector {
 
-    final int NoIndex = -1;
+    static final int NoIndex = -1;
+    public static final String InvalidPath = "** invalid path **";
 
     Definitions messageDefinitions;
     UnknownFieldSet fieldSet;
@@ -48,26 +49,33 @@ public class Inspector {
      */
     public String path(String dottedPath) {
         if (dottedPath == null || dottedPath.length() == 0) {
-            return "";
+            return InvalidPath;
         }
         String[] tokens = dottedPath.split("\\.");
         Optional<Inspector> sub = this.pathFindIn(1, tokens); // because of .dot start with 1
         if (!sub.isPresent()) {
-            return "";
+            return InvalidPath;
         }
         return sub.get().toString();
     }
 
     private Optional<Inspector> pathFindIn(int index, String[] tokens) {
-        if (index >= tokens.length) {
+        if (index == tokens.length) {
+            return Optional.of(this);
+        }
+        if (index > tokens.length) {
             return Optional.absent();
         }
         String token = tokens[index];
         if (token.length() == 0) {
             return Optional.absent();
         }
+        this.fieldIndex = this.tokenAsIndex(index, tokens);
+        if (NoIndex != this.fieldIndex) {
+            // found index
+            return this.pathFindIn(index + 1, tokens);
+        }
         this.fieldName = token;
-        int indexInFieldValue = this.nextTokenAsIndex(index, tokens);
 
         Optional<FieldElement> element = this.messageDefinitions.fieldElementNamed(this.messageName, token);
         if (!element.isPresent()) {
@@ -78,32 +86,24 @@ public class Inspector {
             String qName = this.messageDefinitions.qualifiedNameInNamespaceOf(((DataType.NamedType) element.get().type()).name(), this.messageName);
             Inspector sub = this.messageDefinitions.newInspector(qName);
             try {
-                sub.read(field.getLengthDelimitedList());
+                sub.readAll(field.getLengthDelimitedList());
             } catch (IOException e) {
                 return Optional.absent();
             }
-            if (NoIndex == indexInFieldValue) {
-                // non-list value
-                return sub.pathFindIn(index + 1, tokens);
-            }
-            // the path expects to see a repeated value and wants the value at indexInFieldValue
-            // the sub inspector has read the container of the value
-            sub.fieldIndex = indexInFieldValue;
-            return sub.pathFindIn(index + 2, tokens);
+            return sub.pathFindIn(index + 1, tokens);
         }
-        return Optional.of(this);
+        return this.pathFindIn(index + 1, tokens);
     }
 
-    private int nextTokenAsIndex(int index, String[] tokens) {
-        int next = index + 1;
-        if (next >= tokens.length) {
+    private int tokenAsIndex(int index, String[] tokens) {
+        if (index >= tokens.length) {
             return NoIndex;
         }
         // token is either digits (index) or string (label)
         int indexToken = 0;
         boolean isIndex = true;
         try {
-            indexToken = Integer.parseInt(tokens[next]);
+            indexToken = Integer.parseInt(tokens[index]);
         } catch (NumberFormatException ex) {
             isIndex = false;
         }
@@ -117,10 +117,22 @@ public class Inspector {
      * @return
      */
     public String toString() {
+        if (this.fieldIndex != NoIndex) {
+            Optional<FieldElement> element = this.messageDefinitions.fieldElementNamed(this.messageName, this.fieldName);
+            if (!element.isPresent()) {
+                return InvalidPath;
+            }
+            UnknownFieldSet.Field list = this.fieldSet.getField(element.get().tag());
+            return this.toStringOf(element.get().type(), list, this.fieldIndex);
+//
+//            //return toStringOf(element.get().type(),list)
+//            ByteString bs = list.getLengthDelimitedList().get(this.fieldIndex);
+//            return bs.toStringUtf8();
+        }
         if (this.fieldName.length() > 0) {
             Optional<FieldElement> element = this.messageDefinitions.fieldElementNamed(this.messageName, this.fieldName);
             if (!element.isPresent()) {
-                return "";
+                return InvalidPath;
             }
             UnknownFieldSet.Field field = this.fieldSet.getField(element.get().tag());
             if (element.get().type() instanceof DataType.ScalarType) {
@@ -128,21 +140,19 @@ public class Inspector {
             }
             // non-scalar-type , the path is probably too short
         }
-        StringBuilder sb = new StringBuilder();
-        for (Map.Entry<Integer, UnknownFieldSet.Field> each : this.fieldSet.asMap().entrySet()) {
-            Optional<FieldElement> e = this.messageDefinitions.fieldElementAt(this.messageName, each.getKey());
-            if (e.isPresent()) {
-                sb.append(each.getKey());
-                sb.append(" : ");
-                sb.append(e.get().name());
-                sb.append(" (");
-                sb.append(e.get().type());
-                sb.append(") = ");
-                sb.append(explainField(each.getValue()));
-                sb.append("\n");
+        return InvalidPath;
+    }
+
+    private String toStringOf(DataType type, UnknownFieldSet.Field list, int index) {
+        if (type instanceof DataType.ScalarType) {
+            switch ((DataType.ScalarType) type) {
+                case INT64:
+                    return String.valueOf(list.getVarintList().get(index));
+                case STRING:
+                    return list.getLengthDelimitedList().get(index).toStringUtf8();
             }
         }
-        return sb.toString();
+        return type.toString();
     }
 
     /**
@@ -151,7 +161,7 @@ public class Inspector {
      * @param lengthDelimited
      * @throws IOException
      */
-    private void read(List<ByteString> lengthDelimited) throws IOException {
+    private void readAll(List<ByteString> lengthDelimited) throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         for (ByteString each : lengthDelimited) {
             each.writeTo(bos);

@@ -33,6 +33,7 @@ message SomeComplexType {
     required nestedTypeElement nestedTypeElement = 18;
     required string STRING = 19;
     repeated ItemType items = 20;
+    repeated xsdtypes.Chars chars = 21;
 }
 
 message OtherComplexType {
