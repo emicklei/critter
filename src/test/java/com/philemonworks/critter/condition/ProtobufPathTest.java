@@ -3,6 +3,7 @@ package com.philemonworks.critter.condition;
 import com.bol.protojx.xsdtypes.ProtoMessage;
 import com.philemonworks.critter.proto.Definitions;
 import com.philemonworks.critter.proto.Inspector;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
@@ -100,7 +101,7 @@ public class ProtobufPathTest {
     }
 
 
-    @Test
+    @Ignore
     public void dayTime() throws Exception {
         Definitions d = newDefinitions();
         new Sample(d, "xsdtypes.DayTime", newDayTime_1967_12_20_8_41_42().toByteArray(), ".value.time.hours", "8").check();
