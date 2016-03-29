@@ -1,5 +1,6 @@
 package com.philemonworks.critter.condition;
 
+import com.philemonworks.critter.proto.Inspector;
 import com.philemonworks.critter.rule.RuleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,14 +11,8 @@ import org.slf4j.LoggerFactory;
 public class ProtobufPath implements Condition {
     private static final Logger LOG = LoggerFactory.getLogger(XPath.class);
 
-    // all required message definitions from .proto
-    String proto;
-
-    // addresses to fetch the .proto content ; comma separated list
-    String protoURLs;
-
     // name of the message
-    String protoMessageName;
+    String name;
 
     // dotted path
     String expression;
@@ -29,14 +24,27 @@ public class ProtobufPath implements Condition {
     public boolean test(RuleContext ctx) {
         String contentType = ctx.httpContext.getRequest().getHeaderValue("Content-Type");
         if (!"application/octet-stream".equals(contentType)) {
+            LOG.debug("got {} want {}", contentType, "application/octet-stream");
             return false;
         }
-        //ctx.httpContext.getRequest()
-        return false;
+        byte[] data = ctx.httpContext.getRequest().getEntity(byte[].class);
+        LOG.debug("data size {}", data.length);
+        Inspector inspector = ctx.protoDefinitions.newInspector(this.name);
+        boolean ok = inspector.read(data);
+        if (!ok) {
+            LOG.debug("unable to read protobuf message data");
+            return false;
+        }
+        String value = inspector.path(this.expression);
+        LOG.debug("inspector for {} on {} returns {}", this.expression, this.name, value);
+        return value.matches(this.matches);
     }
 
     @Override
     public String explain() {
-        return null;
+        return "the protobuf path expression [" +
+                expression + "] on the request body of message type [" +
+                this.name + "] matches [" +
+                matches + "]";
     }
 }

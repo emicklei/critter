@@ -1,9 +1,11 @@
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="rule" type="rule"/>
 
     <xs:complexType name="rule">
         <xs:annotation>
-            <xs:documentation>Critter example Rule if all the conditions are met then perform all the actions</xs:documentation>
+            <xs:documentation>Critter example Rule if all the conditions are met then perform all the actions
+            </xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="conditions" type="conditions"/>
@@ -24,6 +26,7 @@
             <xs:element name="xpath" type="xpath"/>
             <xs:element name="equals" type="equals"/>
             <xs:element name="not" type="not"/>
+            <xs:element name="protobufpath" type="protobufpath"/>
         </xs:choice>
     </xs:complexType>
 
@@ -63,7 +66,8 @@
 
     <xs:complexType name="header">
         <xs:annotation>
-            <xs:documentation>true if the specified Header (by name) of the request matches the given value</xs:documentation>
+            <xs:documentation>true if the specified Header (by name) of the request matches the given value
+            </xs:documentation>
         </xs:annotation>
         <xs:attribute type="xs:string" name="name"/>
         <xs:attribute type="matches" name="matches"/>
@@ -71,7 +75,9 @@
 
     <xs:complexType name="basicauthentication">
         <xs:annotation>
-            <xs:documentation>true if the Authorization header matches the Base64 encoded version of username:password combination</xs:documentation>
+            <xs:documentation>true if the Authorization header matches the Base64 encoded version of username:password
+                combination
+            </xs:documentation>
         </xs:annotation>
         <xs:attribute type="xs:string" name="username"/>
         <xs:attribute type="xs:string" name="password"/>
@@ -79,8 +85,21 @@
 
     <xs:complexType name="xpath">
         <xs:annotation>
-            <xs:documentation>true if the Xpath expression matches the body of the request (content-type must be application/xml)</xs:documentation>
+            <xs:documentation>true if the Xpath expression matches the body of the request (content-type must be
+                application/xml)
+            </xs:documentation>
         </xs:annotation>
+        <xs:attribute type="xs:string" name="expression"/>
+        <xs:attribute type="xs:short" name="matches"/>
+    </xs:complexType>
+
+    <xs:complexType name="protobufpath">
+        <xs:annotation>
+            <xs:documentation>true if the Protobuf path expression matches the body of the request (content-type must be
+                application/octet-stream)
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute type="xs:string" name="name"/>
         <xs:attribute type="xs:string" name="expression"/>
         <xs:attribute type="xs:short" name="matches"/>
     </xs:complexType>
@@ -127,7 +146,8 @@
 
     <xs:complexType name="scheme">
         <xs:annotation>
-            <xs:documentation>change the scheme of the request, e.g. http->https. Must be put before a forward</xs:documentation>
+            <xs:documentation>change the scheme of the request, e.g. http->https. Must be put before a forward
+            </xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:extension base="xs:string">
@@ -151,7 +171,8 @@
 
     <xs:complexType name="delay">
         <xs:annotation>
-            <xs:documentation>make the proxy wait for a number of milliseconds during processing of the request</xs:documentation>
+            <xs:documentation>make the proxy wait for a number of milliseconds during processing of the request
+            </xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:extension base="xs:string">
@@ -175,7 +196,8 @@
 
     <xs:complexType name="status">
         <xs:annotation>
-            <xs:documentation>set the status code of the response that will be send back to the client</xs:documentation>
+            <xs:documentation>set the status code of the response that will be send back to the client
+            </xs:documentation>
         </xs:annotation>
         <xs:simpleContent>
             <xs:extension base="xs:string">
@@ -186,7 +208,8 @@
 
     <xs:complexType name="responsebody">
         <xs:annotation>
-            <xs:documentation>set the response body that will be send back to the client , status code is optional</xs:documentation>
+            <xs:documentation>set the response body that will be send back to the client , status code is optional
+            </xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element type="xs:string" name="body"/>
@@ -208,7 +231,8 @@
 
     <xs:complexType name="trace">
         <xs:annotation>
-            <xs:documentation>dump information about the request or response (depends on location w.r.t forward)</xs:documentation>
+            <xs:documentation>dump information about the request or response (depends on location w.r.t forward)
+            </xs:documentation>
         </xs:annotation>
     </xs:complexType>
 

@@ -10,9 +10,15 @@ import com.squareup.protoparser.FieldElement;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 /**
+ * Inspector can produces a String representation of a value
+ * found by navigating a datastructure using a JSON path notation:
+ * <p/>
+ * each path starts with a dot, the root
+ * next in the path is either a field name or an index into an array-like field
+ * <p/>
+ * <p/>
  * Created by emicklei on 01/03/16.
  */
 public class Inspector {
@@ -59,6 +65,13 @@ public class Inspector {
         return sub.get().toString();
     }
 
+    /**
+     * pathFindIn returns an Inspector on the object referred to by navigating the tokens (field names and indices).
+     *
+     * @param index
+     * @param tokens
+     * @return
+     */
     private Optional<Inspector> pathFindIn(int index, String[] tokens) {
         if (index == tokens.length) {
             return Optional.of(this);
@@ -95,19 +108,20 @@ public class Inspector {
         return this.pathFindIn(index + 1, tokens);
     }
 
+    /**
+     * If tokens[index] represents an index in an array type field (because
+     *
+     * @param index  , must be 0 < tokens.length
+     * @param tokens
+     * @return
+     */
     private int tokenAsIndex(int index, String[] tokens) {
-        if (index >= tokens.length) {
+        // token is either digits (index) or string (label)
+        try {
+            return Integer.parseInt(tokens[index]);
+        } catch (NumberFormatException ex) {
             return NoIndex;
         }
-        // token is either digits (index) or string (label)
-        int indexToken = 0;
-        boolean isIndex = true;
-        try {
-            indexToken = Integer.parseInt(tokens[index]);
-        } catch (NumberFormatException ex) {
-            isIndex = false;
-        }
-        return isIndex ? indexToken : NoIndex;
     }
 
     /**
@@ -124,10 +138,6 @@ public class Inspector {
             }
             UnknownFieldSet.Field list = this.fieldSet.getField(element.get().tag());
             return this.toStringOf(element.get().type(), list, this.fieldIndex);
-//
-//            //return toStringOf(element.get().type(),list)
-//            ByteString bs = list.getLengthDelimitedList().get(this.fieldIndex);
-//            return bs.toStringUtf8();
         }
         if (this.fieldName.length() > 0) {
             Optional<FieldElement> element = this.messageDefinitions.fieldElementNamed(this.messageName, this.fieldName);
@@ -192,8 +202,7 @@ public class Inspector {
             case STRING:
                 return field.getLengthDelimitedList().get(0).toStringUtf8();
             default:
-                // TODO
-                return "a " + type.toString();
+                return this.explainField(field);
         }
     }
 
@@ -218,7 +227,7 @@ public class Inspector {
         }
         if (!field.getGroupList().isEmpty()) {
             // TODO
-            return "group";
+            return "(group)";
         }
         if (!field.getVarintList().isEmpty()) {
             if (field.getVarintList().size() == 1) {

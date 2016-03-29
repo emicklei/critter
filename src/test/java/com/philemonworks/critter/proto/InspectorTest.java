@@ -1,9 +1,9 @@
-package com.philemonworks.critter.condition;
+package com.philemonworks.critter.proto;
 
 import com.bol.protojx.xsdtypes.ProtoMessage;
 import com.philemonworks.critter.proto.Definitions;
 import com.philemonworks.critter.proto.Inspector;
-import org.junit.Ignore;
+import org.jboss.netty.handler.codec.base64.Base64;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
@@ -11,7 +11,7 @@ import static junit.framework.Assert.assertEquals;
 /**
  * Created by emicklei on 25/02/16.
  */
-public class ProtobufPathTest {
+public class InspectorTest {
 
     @Test
     public void someComplexType() {
@@ -27,7 +27,7 @@ public class ProtobufPathTest {
                 .setCharsElement(ProtoMessage.Chars.newBuilder().setValue("hello proto"))
                 .setTimeElement(newTime_8_38_42())
                 .setDateElement(newDay_2016_3_18())
-                .setDateTimeElement(newDayTime_1967_12_20_8_41_42())
+                .setDateTimeElement(newDayTime_2016_12_20_8_41_42())
                 .setDefaultableElement("missing")
                 .setOtherElement(newOther_one_two())
                 .setNestedTypeElement(newNested())
@@ -54,6 +54,7 @@ public class ProtobufPathTest {
                 ".dateElement.value.year", "2016",
                 ".dateElement.value.year", "2016",
                 ".dateElement.value.year", "2016",
+                ".dateTimeElement.value.day.year", "2016",
                 ".defaultableElement", "missing",
                 ".otherElement.textItem.0", "one",
                 ".otherElement.textItem.1", "two",
@@ -70,6 +71,8 @@ public class ProtobufPathTest {
                 ".items.0", Inspector.InvalidPath,
                 "..", Inspector.InvalidPath,
                 ".x", Inspector.InvalidPath,
+                "", Inspector.InvalidPath,
+                ".stringElement.unexpected", Inspector.InvalidPath,
         };
         for (int c = 0; c < failures.length; c += 2) {
             new Sample(newDefinitions(), messageType, payload, failures[c], failures[c + 1]).check();
@@ -101,10 +104,10 @@ public class ProtobufPathTest {
     }
 
 
-    @Ignore
+    @Test
     public void dayTime() throws Exception {
         Definitions d = newDefinitions();
-        new Sample(d, "xsdtypes.DayTime", newDayTime_1967_12_20_8_41_42().toByteArray(), ".value.time.hours", "8").check();
+        new Sample(d, "xsdtypes.DayTime", newDayTime_2016_12_20_8_41_42().toByteArray(), ".value.time.hours", "8").check();
     }
 
     @Test
@@ -146,10 +149,10 @@ public class ProtobufPathTest {
         return d;
     }
 
-    private ProtoMessage.DayTime newDayTime_1967_12_20_8_41_42() {
+    private ProtoMessage.DayTime newDayTime_2016_12_20_8_41_42() {
         return ProtoMessage.DayTime.newBuilder()
                 .setValue(ProtoMessage.DayTime.Value.newBuilder()
-                        .setDay(ProtoMessage.Day.Value.newBuilder().setYear(1967).setMonth(12).setDayInMonth(20))
+                        .setDay(ProtoMessage.Day.Value.newBuilder().setYear(2016).setMonth(12).setDayInMonth(20))
                         .setTime(ProtoMessage.Time.Value.newBuilder().setHours(8).setMinutes(41).setSeconds(42))).build();
     }
 
