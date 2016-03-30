@@ -230,6 +230,7 @@
                 </executions>
                 <configuration>
                     <imageName>critter/critter:${project.version}</imageName>
+                    <forceTags>true</forceTags>
                     <dockerDirectory>docker</dockerDirectory>
                     <resources>
                         <resource>
