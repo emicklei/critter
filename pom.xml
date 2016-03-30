@@ -12,6 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <dockerImageTag>critter/critter:${project.version}</dockerImageTag>
     </properties>
 
     <dependencies>
@@ -207,6 +208,26 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.3.2</version>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                     <execution>
+                        <id>tag-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>tag</goal>
+                        </goals>
+                        <configuration>
+                            <image>critter/critter:${project.version}</image>
+                            <newName>${dockerImageTag}</newName>
+                        </configuration>
+                    </execution>
+                </executions>
                 <configuration>
                     <imageName>critter/critter:${project.version}</imageName>
                     <dockerDirectory>docker</dockerDirectory>
