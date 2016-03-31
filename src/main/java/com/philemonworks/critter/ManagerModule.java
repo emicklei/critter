@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import com.philemonworks.critter.proto.Definitions;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,10 +22,10 @@ import com.philemonworks.critter.dao.sql.RuleDaoSqlImpl;
 import com.philemonworks.critter.db.DbCreator;
 
 /**
-* Represents the Critter manager module.
-*
-* @author jcraane
-*/
+ * Represents the Critter manager module.
+ *
+ * @author jcraane
+ */
 final class ManagerModule extends AbstractModule {
     private static final Logger LOG = LoggerFactory.getLogger(ManagerModule.class);
     private final Properties properties;
@@ -37,9 +38,9 @@ final class ManagerModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        
+
         Names.bindProperties(binder(), properties);
-        
+
         RuleDao ruleDao;
         RecordingDao recordingDao;
         if (Boolean.parseBoolean(properties.getProperty("rule.database.h2.enabled"))) {
@@ -56,10 +57,13 @@ final class ManagerModule extends AbstractModule {
             ruleDao = new RuleDaoMemoryImpl();
             recordingDao = new RecordingDaoMemoryImpl();
         }
-        
+
         this.bind(TrafficManager.class).toInstance(trafficManager);
         this.bind(RuleDao.class).toInstance(ruleDao);
         this.bind(RecordingDao.class).toInstance(recordingDao);
+        this.bind(Definitions.class)
+                .annotatedWith(Names.named("SharedDefinitions"))
+                .toInstance(new Definitions());
     }
 
     private DataSource createAndBindDataSource() {

@@ -19,9 +19,6 @@ public class TrafficModule extends AbstractModule {
         bind(TrafficResource.class);
         bind(JMXAction.class);
         bind(AdminUIResource.class);
-        bind(Definitions.class)
-                .annotatedWith(Names.named("SharedDefinitions"))
-                .toInstance(new Definitions());
         bind(ProtoResource.class);
     }
 }
