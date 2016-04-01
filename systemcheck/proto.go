@@ -14,12 +14,12 @@ func main() {
 	api := NewClient("http://localhost:8877", new(http.Client))
 	f, _ := os.Open("../src/test/resources/bol-xsdtypes-1.6.proto")
 	defer f.Close()
-	cfg := NewConfig("/proto")
+	cfg := NewConfig("/rules/fixed-1/proto")
 	cfg.BodyReader = f
 	r := api.POST(t, cfg)
 	Dump(t, r)
 
-	cfg = NewConfig("/proto/xsdtypes.DayTime")
+	cfg = NewConfig("/rules/fixed-1/proto/xsdtypes.DayTime")
 	r = api.GET(t, cfg)
 	Dump(t, r)
 }

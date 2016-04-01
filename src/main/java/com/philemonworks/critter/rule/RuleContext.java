@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.ws.rs.core.Response;
 
 import com.philemonworks.critter.proto.Definitions;
+import com.philemonworks.critter.proto.DefinitionsPerRule;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,13 +19,16 @@ import com.sun.jersey.api.core.HttpContext;
 
 public class RuleContext implements ScriptContext {
     private static final Logger LOG = LoggerFactory.getLogger(ScriptContext.class);
+    public Rule rule;
     public HttpContext httpContext;
     public HttpClient httpClient;
     public URI forwardURI;
     public HttpRequestBase forwardMethod;
     public Response forwardResponse;
     public Response proxyResponse;
-    public Definitions protoDefinitions;
+
+    // for access by ProtobufPath
+    public DefinitionsPerRule protoDefinitions;
 
     // for Record action
     public Date requestReceivedDate = new Date();

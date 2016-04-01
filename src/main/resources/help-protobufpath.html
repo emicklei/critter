@@ -1,0 +1,38 @@
+<h3>Working with ProtocolBuffers messages</h3>
+
+<h4>Condition</h4>
+<p>
+<pre>
+&lt;protobufpath name="bindings.Type" expression=".path.to.field" matches="expected" /&gt;
+</pre>
+</p>
+
+
+<h4>Definitions</h4>
+<p>
+    ProtocolBuffers message are transported in a compact binary format.
+    The format does not include metadata about the values; field names of the structure is not part of the message.
+    In order for Critter to interpret the message, the definition of that message (including all its dependencies) must
+    be registered.
+    Registration of message definitions is done using a REST api ; it is (currently) not part of the rule definition.
+</p>
+<ul>
+    <li>
+        <pre>POST /rules/{id}/proto</pre>
+        <p>
+            Register all message definitions by sending the contents of the <strong>.proto</strong> file.
+        </p>
+    </li>
+    <li>
+        <pre>GET /rules/{id}/proto/{messageType}</pre>
+        <p>
+            Return the definition of a messageType registered for a given rule.
+        </p>
+    </li>
+    <li>
+        <pre>GET /rules/{id}/proto</pre>
+        <p>
+            Report on all registered message types and provide examples to access their values.
+        </p>
+    </li>
+</ul>

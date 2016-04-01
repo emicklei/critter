@@ -5,8 +5,7 @@ import com.squareup.protoparser.*;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -17,8 +16,22 @@ import java.util.concurrent.ConcurrentMap;
  */
 public class Definitions {
 
-    private ConcurrentMap<String, MessageElement> elementMap = new ConcurrentHashMap<String, MessageElement>();
+    private Map<String, MessageElement> elementMap = new HashMap<String, MessageElement>();
 
+    // TEMP
+    public String explainAll() {
+        StringBuilder sb = new StringBuilder();
+        for (String messageName : elementMap.keySet()) {
+            sb.append("\n-----------\n");
+            sb.append(messageName);
+            sb.append("\n-----------\n");
+            for (String path : this.allPathsOfMessage(messageName)) {
+                sb.append(path);
+                sb.append("\n");
+            }
+        }
+        return sb.toString();
+    }
 
     public List<String> allPathsOfMessage(String messageName) {
         List<String> paths = new ArrayList<String>();

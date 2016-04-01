@@ -29,9 +29,8 @@ public class ProtobufPath implements Condition {
         }
         byte[] data = ctx.httpContext.getRequest().getEntity(byte[].class);
         LOG.debug("data size {}", data.length);
-        Inspector inspector = ctx.protoDefinitions.newInspector(this.name);
-        boolean ok = inspector.read(data);
-        if (!ok) {
+        Inspector inspector = ctx.protoDefinitions.getDefinitions(ctx.rule.id).newInspector(this.name);
+        if (!inspector.read(data)) {
             LOG.debug("unable to read protobuf message data");
             return false;
         }

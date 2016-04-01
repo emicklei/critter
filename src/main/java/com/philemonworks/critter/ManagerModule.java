@@ -5,6 +5,7 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import com.philemonworks.critter.proto.Definitions;
+import com.philemonworks.critter.proto.DefinitionsPerRule;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,9 +62,7 @@ final class ManagerModule extends AbstractModule {
         this.bind(TrafficManager.class).toInstance(trafficManager);
         this.bind(RuleDao.class).toInstance(ruleDao);
         this.bind(RecordingDao.class).toInstance(recordingDao);
-        this.bind(Definitions.class)
-                .annotatedWith(Names.named("SharedDefinitions"))
-                .toInstance(new Definitions());
+        this.bind(DefinitionsPerRule.class).toInstance(new DefinitionsPerRule());
     }
 
     private DataSource createAndBindDataSource() {

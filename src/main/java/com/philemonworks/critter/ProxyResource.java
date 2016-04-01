@@ -15,6 +15,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
 import com.philemonworks.critter.proto.Definitions;
+import com.philemonworks.critter.proto.DefinitionsPerRule;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -45,8 +46,7 @@ public class ProxyResource {
     @Inject
     private HttpClient httpClient;
     @Inject
-    @Named("SharedDefinitions")
-    private Definitions protoDefinitions;
+    private DefinitionsPerRule protoDefinitions;
 
     @GET
     public Response handleGet(@Context HttpContext httpContext) {
