@@ -93,6 +93,7 @@ public class RuleConverter {
         xs.alias("respond", Respond.class);
 
         xs.alias("responsebody", ResponseBody.class);
+        xs.useAttributeFor(ResponseBody.class, "base64");
 
         xs.alias("responseheader", ResponseHeader.class);
         xs.useAttributeFor(ResponseHeader.class, "add");

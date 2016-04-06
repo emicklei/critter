@@ -11,6 +11,7 @@ import java.io.IOException;
 public class ResponseBody implements Action {
 
     public String body;
+    public boolean base64;
 
     @Override
     public void perform(RuleContext context) {
