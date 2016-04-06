@@ -16,6 +16,11 @@
     be registered.
     Registration of message definitions is done using a REST api ; it is (currently) not part of the rule definition.
 </p>
+<p>
+    Request messages are sent using the
+<pre>Content-Type: application/octet-stream</pre> and optionally using
+<pre>Accept-Encoding: base64</pre>.
+</p>
 <ul>
     <li>
         <pre>POST /rules/{id}/proto</pre>

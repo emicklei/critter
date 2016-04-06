@@ -99,7 +99,7 @@
                 application/octet-stream)
             </xs:documentation>
         </xs:annotation>
-        <xs:attribute type="xs:string" name="name"/>
+        <xs:attribute type="xs:string" name="messageName"/>
         <xs:attribute type="xs:string" name="expression"/>
         <xs:attribute type="xs:short" name="matches"/>
     </xs:complexType>
@@ -125,11 +125,12 @@
             <xs:element name="basicauthentication" type="basicauthentication"/>
             <xs:element name="xpath" type="xpath"/>
             <xs:element name="equals" type="equals"/>
+            <xs:element name="protobufpath" type="protobufpath"/>
         </xs:choice>
     </xs:complexType>
 
     <xs:complexType name="actions">
-        <xs:sequence>
+        <xs:choice maxOccurs="unbounded">
             <xs:element name="scheme" type="scheme" minOccurs="0"/>
             <xs:element name="port" type="portAction" minOccurs="0"/>
             <xs:element name="delay" type="delay" minOccurs="0"/>
@@ -141,7 +142,7 @@
             <xs:element name="respond" type="respond" minOccurs="0"/>
             <xs:element name="trace" type="trace" minOccurs="0"/>
             <xs:element name="record" type="record" minOccurs="0"/>
-        </xs:sequence>
+        </xs:choice>
     </xs:complexType>
 
     <xs:complexType name="scheme">

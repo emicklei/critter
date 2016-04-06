@@ -18,6 +18,17 @@ public class Definitions {
 
     private Map<String, MessageElement> elementMap = new HashMap<String, MessageElement>();
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append('[');
+        for (String messageName : elementMap.keySet()) {
+            sb.append(messageName);
+            sb.append(",");
+        }
+        sb.append(']');
+        return sb.toString();
+    }
+
     // TEMP
     public String explainAll() {
         StringBuilder sb = new StringBuilder();
@@ -143,7 +154,7 @@ public class Definitions {
                 }
             }
             return true;
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             return false;
         }
     }

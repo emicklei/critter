@@ -31,10 +31,12 @@ final class ManagerModule extends AbstractModule {
     private static final Logger LOG = LoggerFactory.getLogger(ManagerModule.class);
     private final Properties properties;
     private final TrafficManager trafficManager;
+    private final DefinitionsPerRule definitionsPerRule;
 
     ManagerModule(final Properties properties, final TrafficManager trafficManager) {
         this.properties = properties;
         this.trafficManager = trafficManager;
+        this.definitionsPerRule = new DefinitionsPerRule();
     }
 
     @Override
@@ -62,7 +64,7 @@ final class ManagerModule extends AbstractModule {
         this.bind(TrafficManager.class).toInstance(trafficManager);
         this.bind(RuleDao.class).toInstance(ruleDao);
         this.bind(RecordingDao.class).toInstance(recordingDao);
-        this.bind(DefinitionsPerRule.class).toInstance(new DefinitionsPerRule());
+        this.bind(DefinitionsPerRule.class).toInstance(this.definitionsPerRule);
     }
 
     private DataSource createAndBindDataSource() {

@@ -90,7 +90,7 @@ public class AdminUIResource {
 		String rulexml = null;
 		try {
 			rulexml = decoded.substring(eq+1);
-			Rule rule = (Rule)RuleConverter.fromXml(rulexml);
+			Rule rule = (Rule)RuleConverter.fromXml(rulexml, true);
             saveRuleIfItDoesNotExist(rule);
         } catch (Exception ex) {
             LOG.error("new rule contains errors:", ex);

@@ -6,6 +6,8 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.UnknownFieldSet;
 import com.squareup.protoparser.DataType;
 import com.squareup.protoparser.FieldElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -22,6 +24,7 @@ import java.util.List;
  * Created by emicklei on 01/03/16.
  */
 public class Inspector {
+    private static final Logger log = LoggerFactory.getLogger(Inspector.class);
 
     static final int NoIndex = -1;
     public static final String InvalidPath = "** invalid path **";
@@ -92,6 +95,7 @@ public class Inspector {
 
         Optional<FieldElement> element = this.messageDefinitions.fieldElementNamed(this.messageName, token);
         if (!element.isPresent()) {
+            log.debug("no fieldelement for {} # {} in {}", this.messageName, token, this.messageDefinitions);
             return Optional.absent();
         }
         UnknownFieldSet.Field field = this.fieldSet.getField(element.get().tag());
@@ -101,6 +105,7 @@ public class Inspector {
             try {
                 sub.readAll(field.getLengthDelimitedList());
             } catch (IOException e) {
+                log.debug("cannot read field {} ({})", element.get().name(), qName);
                 return Optional.absent();
             }
             return sub.pathFindIn(index + 1, tokens);
@@ -134,6 +139,7 @@ public class Inspector {
         if (this.fieldIndex != NoIndex) {
             Optional<FieldElement> element = this.messageDefinitions.fieldElementNamed(this.messageName, this.fieldName);
             if (!element.isPresent()) {
+                log.debug("no field element for {} # {}", this.messageName, this.fieldName);
                 return InvalidPath;
             }
             UnknownFieldSet.Field list = this.fieldSet.getField(element.get().tag());
@@ -142,6 +148,7 @@ public class Inspector {
         if (this.fieldName.length() > 0) {
             Optional<FieldElement> element = this.messageDefinitions.fieldElementNamed(this.messageName, this.fieldName);
             if (!element.isPresent()) {
+                log.debug("no field element for {} # {}", this.messageName, this.fieldName);
                 return InvalidPath;
             }
             UnknownFieldSet.Field field = this.fieldSet.getField(element.get().tag());

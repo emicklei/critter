@@ -18,7 +18,7 @@ public class Record implements Action {
 
     @Override
     public String explain() {
-        return "record the request + response";
+        return "record the request (+ response)";
     }
 
     @Override
@@ -53,16 +53,17 @@ public class Record implements Action {
 
     private void copyResponseData(RuleContext context, Recording record, RecordingInput tester) {
         // see if a response is available
-        if (context.forwardResponse != null) {
-            tester.responsecontenttype = (String) context.forwardResponse.getMetadata().getFirst("Content-Type");
-            if (tester.hasTextualResponseContent()) {
-                Object e = context.forwardResponse.getEntity();
-                if (e instanceof InputStream) {
-                    record.responseContent = this.readStringContents((InputStream) e);
-                }
-                if (e instanceof String) {
-                    record.responseContent = (String) e;
-                }
+        if (context.forwardResponse == null) {
+            return;
+        }
+        tester.responsecontenttype = (String) context.forwardResponse.getMetadata().getFirst("Content-Type");
+        if (tester.hasTextualResponseContent()) {
+            Object e = context.forwardResponse.getEntity();
+            if (e instanceof InputStream) {
+                record.responseContent = this.readStringContents((InputStream) e);
+            }
+            if (e instanceof String) {
+                record.responseContent = (String) e;
             }
         }
         for (Entry<String, List<Object>> each : context.forwardResponse.getMetadata().entrySet()) {

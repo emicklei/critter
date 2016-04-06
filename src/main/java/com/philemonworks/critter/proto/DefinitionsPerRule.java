@@ -1,10 +1,13 @@
 package com.philemonworks.critter.proto;
 
+import com.google.inject.Singleton;
+
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by emicklei on 01/04/16.
  */
+@Singleton
 public class DefinitionsPerRule {
     private ConcurrentHashMap<String, Definitions> definitions = new ConcurrentHashMap<String, Definitions>();
 

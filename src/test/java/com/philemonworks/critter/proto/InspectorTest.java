@@ -1,9 +1,11 @@
 package com.philemonworks.critter.proto;
 
 import com.bol.protojx.xsdtypes.ProtoMessage;
+import com.google.protobuf.GeneratedMessage;
 import com.philemonworks.critter.proto.Definitions;
 import com.philemonworks.critter.proto.Inspector;
 import org.jboss.netty.handler.codec.base64.Base64;
+import org.jboss.netty.handler.codec.base64.Base64Encoder;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
@@ -118,6 +120,12 @@ public class InspectorTest {
         new Sample(d, "xsdtypes.Time", newTime_8_38_42().toByteArray(), ".value.seconds", "42").check();
     }
 
+
+    @Test
+    public void dumpHexes() {
+        System.out.println("DayTime=" + toHex(newDayTime_2016_12_20_8_41_42()));
+    }
+
     /////////// Helpers ---------------
 
     public static class Sample {
@@ -206,5 +214,9 @@ public class InspectorTest {
     private com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement newNested() {
         return com.bol.protojx.test.binding.ProtoMessage.nestedTypeElement.newBuilder()
                 .setDecimalElement(toDecimal(1.61f)).build();
+    }
+
+    private String toHex(GeneratedMessage m) {
+        return java.util.Base64.getEncoder().encodeToString(m.toByteArray());
     }
 }

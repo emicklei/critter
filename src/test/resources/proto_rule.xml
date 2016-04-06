@@ -1,6 +1,0 @@
-<rule id="myrule">
-    <conditions>
-        <protobufpath name="xsdtype.DayTime" expression=".value.day.year" matches="2016"/>
-    </conditions>
-    <actions></actions>
-</rule>

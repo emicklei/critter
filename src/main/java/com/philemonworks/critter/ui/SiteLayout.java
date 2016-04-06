@@ -1,7 +1,6 @@
 package com.philemonworks.critter.ui;
 
-import static org.rendersnake.HtmlAttributesFactory.dataRole;
-import static org.rendersnake.HtmlAttributesFactory.id;
+import static org.rendersnake.HtmlAttributesFactory.*;
 
 import java.io.IOException;
 
@@ -17,6 +16,7 @@ public class SiteLayout extends RenderableWrapper {
     }
 
     @Override
+    // @formatter:off
     public void renderOn(HtmlCanvas html) throws IOException {
         html
             .html()
@@ -25,6 +25,7 @@ public class SiteLayout extends RenderableWrapper {
                 .render(JQueryLibrary.mobileTheme("1.2.0"))
                 .render(JQueryLibrary.core("1.8.2"))
                 .render(JQueryLibrary.mobile("1.2.0"))
+                // .script(src("https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"))._script()
                 .macros().stylesheet("/ui/traffic.css")
                 ._head()
                     .body()

@@ -39,7 +39,7 @@ public class RuleTest {
 
     @Test
     public void testProtobufPath_DayTime() {
-        Rule r = (Rule) RuleConverter.fromXml(getClass().getResourceAsStream("/proto_rule.xml"));
+        Rule r = (Rule) RuleConverter.fromXml(getClass().getResourceAsStream("/proto_rule_daytime.xml"));
         System.out.println(r.explain());
     }
 }

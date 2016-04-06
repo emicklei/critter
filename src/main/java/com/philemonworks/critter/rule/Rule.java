@@ -16,6 +16,7 @@ public class Rule implements Condition, Action {
     public boolean enabled = true;
     protected List<Condition> conditions = new ArrayList<Condition>();
     protected List<Action> actions = new ArrayList<Action>();
+    public boolean invalid = false;
 
     public List<Condition> getConditions() {
         if (conditions == null)
@@ -31,7 +32,9 @@ public class Rule implements Condition, Action {
 
     @Override
     public boolean test(RuleContext context) {
+        if (invalid) return false;
         if (conditions == null) return true;
+        context.rule = this;
         for (Condition each : conditions) {
             final boolean matches = each.test(context);
             LOG.trace("condition [{}] matches:{}", each.explain(), matches);

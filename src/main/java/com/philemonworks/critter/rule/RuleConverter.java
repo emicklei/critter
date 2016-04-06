@@ -32,6 +32,7 @@ public class RuleConverter {
         xs.alias("rule", Rule.class);
         xs.useAttributeFor(Rule.class, "id");
         xs.useAttributeFor(Rule.class, "enabled");
+        xs.omitField(Rule.class, "invalid");
 
         // conditions
         xs.alias("host", Host.class);
@@ -70,7 +71,7 @@ public class RuleConverter {
         xs.useAttributeFor(XPath.class, "matches");
 
         xs.alias("protobufpath", ProtobufPath.class);
-        xs.useAttributeFor(ProtobufPath.class, "name");
+        xs.useAttributeFor(ProtobufPath.class, "messageName");
         xs.useAttributeFor(ProtobufPath.class, "expression");
         xs.useAttributeFor(ProtobufPath.class, "matches");
 
@@ -118,11 +119,22 @@ public class RuleConverter {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return fromXml(stringWriter.toString());
+        return fromXml(stringWriter.toString(), true);
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> T fromXml(final String xml) {
+    public static <T> T fromXml(final String xml, boolean doValidate) {
+        if (doValidate) {
+            String errorMessage = validateXML(xml);
+            if (errorMessage.length() > 0) {
+                throw new RuntimeException(errorMessage);
+            }
+        }
+        T object = (T) getXStream().fromXML(xml);
+        return object;
+    }
+
+    public static String validateXML(final String xml) {
         SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         ErrorCollector errorHandler = new ErrorCollector();
         try {
@@ -131,21 +143,15 @@ public class RuleConverter {
             validator.setErrorHandler(errorHandler);
             validator.validate(new StreamSource(new StringReader(xml)));
         } catch (SAXException e) {
-            System.err.println("whoeps: saxe: " + e.getMessage());
             throw new RuntimeException(e);
         } catch (IOException e) {
-            System.err.println("whoeps ioe: " + e.getMessage());
+            throw new RuntimeException(e);
         }
-
         if (errorHandler.exceptions.size() > 0) {
             LOG.error("there are validation exceptions: {}", errorHandler.exceptions);
-            throw new RuntimeException(StringUtils.join(errorHandler.exceptions, "<br>"));
+            return StringUtils.join(errorHandler.exceptions, "<br>");
         }
-
-        T object = (T) getXStream().fromXML(xml);
-        LOG.debug("the object T: {}", toXml(object));
-
-        return object;
+        return ""; // valid
     }
 
     public static String toXml(Object o) {

@@ -8,6 +8,8 @@ import com.philemonworks.critter.dao.sql.support.ParamBinder;
 import com.philemonworks.critter.dao.sql.support.RowMapper;
 import com.philemonworks.critter.rule.Rule;
 import com.philemonworks.critter.rule.RuleConverter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -22,6 +24,8 @@ import java.util.List;
  * @author jcraane
  */
 public class RuleDaoSqlImpl implements RuleDao {
+    private static final Logger LOG = LoggerFactory.getLogger(RuleDaoSqlImpl.class);
+
     private static final String INSERT = "INSERT INTO rules(id, rule_xml) values(?, ?);";
     private static final String UPDATE = "UPDATE rules set rule_xml = ? where id = ?";
     private static final String SELECT_ALL = "SELECT id, rule_xml FROM rules";
@@ -84,7 +88,13 @@ public class RuleDaoSqlImpl implements RuleDao {
         @Override
         public Rule map(final ResultSet rs) throws SQLException, IOException {
             final String xml = Utils.clobToString(rs.getClob("rule_xml"));
-            return RuleConverter.fromXml(xml);
+            String errorMessage = RuleConverter.validateXML(xml);
+            Rule rule = RuleConverter.fromXml(xml, false);
+            if (errorMessage.length() > 0) {
+                rule.enabled = false;
+                rule.invalid = true;
+            }
+            return rule;
         }
     }
 

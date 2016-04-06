@@ -1,0 +1,9 @@
+<rule id="daytime" enabled="true">
+    <conditions>
+        <protobufpath messageName="xsdtypes.DayTime" expression=".value.day.year" matches="2016"/>
+    </conditions>
+    <actions>
+        <record/>
+        <status code="204"/>
+    </actions>
+</rule>
