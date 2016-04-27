@@ -14,6 +14,7 @@ public class Rule implements Condition, Action {
 
     public String id;
     public boolean enabled = true;
+    public boolean tracing = false;
     protected List<Condition> conditions = new ArrayList<Condition>();
     protected List<Action> actions = new ArrayList<Action>();
     public boolean invalid = false;
@@ -37,7 +38,9 @@ public class Rule implements Condition, Action {
         context.rule = this;
         for (Condition each : conditions) {
             final boolean matches = each.test(context);
-            LOG.trace("condition [{}] matches:{}", each.explain(), matches);
+            if (tracing) {
+                LOG.info("rule={} condition={} matches={}", id, each.explain(), matches);
+            }
             if (!matches) return false;
         }
         return true;
@@ -48,7 +51,9 @@ public class Rule implements Condition, Action {
         if (actions == null) return;
         context.rule = this;
         for (Action each : actions) {
-            LOG.trace("perform [{},{}]", each, each.explain());
+            if (tracing) {
+                LOG.info("rule={} perform={}", id, each.explain());
+            }
             each.perform(context);
         }
     }

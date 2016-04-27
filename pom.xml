@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.philemonworks</groupId>
     <artifactId>critter</artifactId>
-    <version>1.4.2</version>
+    <version>1.4.3</version>
     <packaging>jar</packaging>
     <name>critter</name>
     <url>http://maven.apache.org</url>
@@ -114,6 +114,20 @@
             <artifactId>jamon</artifactId>
             <version>2.7</version>
         </dependency>
+
+        <!-- Redis logging
+        <dependency>
+            <groupId>com.ryantenney.log4j</groupId>
+            <artifactId>redis-appender</artifactId>
+            <version>1.0.3-bolcom</version>
+        </dependency>
+        <dependency>
+            <groupId>com.bol.logstash.log4j</groupId>
+            <artifactId>jsonevent-layout</artifactId>
+            <version>1.8</version>
+        </dependency>
+        -->
+
     </dependencies>
     <repositories>
         <repository>

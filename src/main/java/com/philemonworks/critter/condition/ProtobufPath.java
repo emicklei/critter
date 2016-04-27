@@ -1,5 +1,6 @@
 package com.philemonworks.critter.condition;
 
+import com.philemonworks.critter.proto.Definitions;
 import com.philemonworks.critter.proto.Inspector;
 import com.philemonworks.critter.rule.RuleContext;
 import org.slf4j.Logger;
@@ -11,7 +12,7 @@ import java.util.Base64;
  * Created by emicklei on 25/02/16.
  */
 public class ProtobufPath implements Condition {
-    private static final Logger LOG = LoggerFactory.getLogger(XPath.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ProtobufPath.class);
 
     // name of the message
     String messageName = "** missing messageName **";
@@ -26,30 +27,45 @@ public class ProtobufPath implements Condition {
     public boolean test(RuleContext ctx) {
         String contentType = ctx.httpContext.getRequest().getHeaderValue("Content-Type");
         if (!"application/octet-stream".equals(contentType)) {
-            LOG.debug("got {} want {}", contentType, "application/octet-stream");
-            return false;
+            if (ctx.rule.tracing) {
+                LOG.info("rule={} contentType={} expected={}", ctx.rule.id, contentType, "application/octet-stream");
+                return false;
+            }
         }
         byte[] data = ctx.httpContext.getRequest().getEntity(byte[].class);
 
         // see if we need to decode it
-        String acceptEncoding = ctx.httpContext.getRequest().getHeaderValue("Content-Type");
-        if (acceptEncoding.length() > 0) {
-            if (!"base64".equals(acceptEncoding)) {
-                LOG.debug("got {} want {}", acceptEncoding, "base64");
+        String contentEncoding = ctx.httpContext.getRequest().getHeaderValue("Content-Encoding");
+        if (contentEncoding != null && contentEncoding.length() > 0) {
+            if (!"base64".equals(contentEncoding)) {
+                if (ctx.rule.tracing) {
+                    LOG.info("rule={} acceptEncoding={} expected={}", ctx.rule.id, contentEncoding, "base64");
+                }
                 return false;
             }
             data = Base64.getDecoder().decode(data);
         }
-        if (LOG.isDebugEnabled()) {
-            LOG.debug("data base64:{}, data size:{}", new String(Base64.getEncoder().encode(data)), data.length);
+        if (ctx.rule.tracing) {
+            LOG.info("rule={} data-base64={} data-size={}", ctx.rule.id, new String(Base64.getEncoder().encode(data)), data.length);
         }
-        Inspector inspector = ctx.protoDefinitions.getDefinitions(ctx.rule.id).newInspector(this.messageName);
+        Definitions defs = ctx.protoDefinitions.getDefinitions(ctx.rule.id);
+        if (defs.isEmpty()) {
+            if (ctx.rule.tracing) {
+                LOG.info("rule={} missing definitions", ctx.rule.id);
+            }
+            return false;
+        }
+        Inspector inspector = defs.newInspector(this.messageName);
         if (!inspector.read(data)) {
-            LOG.debug("unable to read protobuf message data");
+            if (ctx.rule.tracing) {
+                LOG.info("rule={} error=unable to read protobuf message data (definitions uploaded?)", ctx.rule.id);
+            }
             return false;
         }
         String value = inspector.path(this.expression);
-        LOG.debug("inspector for {} on {} returns {}", this.expression, this.messageName, value);
+        if (ctx.rule.tracing) {
+            LOG.debug("rule={} messageName={} expression={} value={}", ctx.rule.id, this.messageName, this.expression, value);
+        }
         return value.matches(this.matches);
     }
 

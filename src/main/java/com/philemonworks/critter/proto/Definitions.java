@@ -18,6 +18,10 @@ public class Definitions {
 
     private Map<String, MessageElement> elementMap = new HashMap<String, MessageElement>();
 
+    public boolean isEmpty() {
+        return this.elementMap.isEmpty();
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append('[');
