@@ -126,7 +126,7 @@ public class ProxyResource {
                     .p().write("You have reached the endpoint of the")
                     .h2().content("Critter Http Proxy Server.")
                     .br()
-                    .write("If you are looking for the Admin console then use a different port (probably 8899).")
+                    .write("If you are looking for the Admin console then use a different port (probably 8877).")
                     ._p()
                     .p().content("Have a nice day")
                     ._body()._html();
