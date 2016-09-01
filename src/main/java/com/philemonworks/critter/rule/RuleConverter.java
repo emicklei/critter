@@ -32,6 +32,7 @@ public class RuleConverter {
         xs.alias("rule", Rule.class);
         xs.useAttributeFor(Rule.class, "id");
         xs.useAttributeFor(Rule.class, "enabled");
+        xs.useAttributeFor(Rule.class, "tracing");
         xs.omitField(Rule.class, "invalid");
 
         // conditions
@@ -93,6 +94,7 @@ public class RuleConverter {
         xs.alias("respond", Respond.class);
 
         xs.alias("responsebody", ResponseBody.class);
+        xs.useAttributeFor(ResponseBody.class, "base64");
 
         xs.alias("responseheader", ResponseHeader.class);
         xs.useAttributeFor(ResponseHeader.class, "add");

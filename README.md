@@ -71,15 +71,13 @@ Default content is
 
 ## Start using Docker
 
-First follow [Installation from source](#installation-from-source)
+Build a new image
 
-After that you can build the docker image
-
-	docker build --rm -t critter .
+	mvn clean package docker:build
 
 And run it
 
-	docker run --name critter -P critter
+	docker run --name critter -P critter/critter:1.4.0
 
 Use `docker ps` to find out to which host ports critter has been bound
 
@@ -98,7 +96,8 @@ If you require to connect to the outside world through a proxy, there are multip
 
 	https_proxy=http://192.168.128.1:1234
     http_proxy=http://192.168.128.1:1234    
-    no_proxy=www.google.nl,www.yahoo.com       
+    no_proxy=www.google.nl,www.yahoo.com  
+    h2=false
 
 * Use non-standard environment variables (where standard environmental variables cannot be used):
 

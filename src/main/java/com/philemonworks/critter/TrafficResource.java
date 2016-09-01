@@ -41,11 +41,19 @@ import java.util.List;
 public class TrafficResource {
     private static final Logger LOG = LoggerFactory.getLogger(TrafficResource.class);
 
-    @Inject TrafficManager trafficManager;
-    @Inject LoggerManager loggerManager;
-    @Inject @Named("Proxy") HttpServer proxyServer;
-    @Inject @Named("proxy.host") String proxyHost;
-    @Inject @Named("traffic.port") String port;
+    @Inject
+    TrafficManager trafficManager;
+    @Inject
+    LoggerManager loggerManager;
+    @Inject
+    @Named("Proxy")
+    HttpServer proxyServer;
+    @Inject
+    @Named("proxy.host")
+    String proxyHost;
+    @Inject
+    @Named("traffic.port")
+    String port;
 
     @GET
     @Produces("text/html")
@@ -54,13 +62,13 @@ public class TrafficResource {
         try {
             rules = trafficManager.getAllRules();
         } catch (Exception ex) {
-            LOG.error("Failed to retrieve rules",ex);
+            LOG.error("Failed to retrieve rules", ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         HtmlCanvas html = new HtmlCanvas();
         html.getPageContext()
-            .withObject("rules", rules)
-            .withBoolean("proxy.started", this.proxyServer.isStarted());
+                .withObject("rules", rules)
+                .withBoolean("proxy.started", this.proxyServer.isStarted());
         html.render(new SiteLayout(new HomePage()));
         return Response.ok().entity(html.toHtml()).build();
     }
@@ -76,7 +84,7 @@ public class TrafficResource {
             if (null != rule)
                 xml = RuleConverter.toXml(rule);
         } catch (Exception ex) {
-            LOG.error("Failed to retrieve rule:"+id,ex);
+            LOG.error("Failed to retrieve rule:" + id, ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         if (null == rule) {
@@ -98,7 +106,7 @@ public class TrafficResource {
                 trafficManager.addOrReplaceRule(rule);
             }
         } catch (Exception ex) {
-            LOG.error("Failed to enable rule:"+id,ex);
+            LOG.error("Failed to enable rule:" + id, ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         if (null == rule) {
@@ -119,7 +127,50 @@ public class TrafficResource {
                 trafficManager.addOrReplaceRule(rule);
             }
         } catch (Exception ex) {
-            LOG.error("Failed to disable rule:"+id,ex);
+            LOG.error("Failed to disable rule:" + id, ex);
+            return Response.serverError().entity(ex.getMessage()).build();
+        }
+        if (null == rule) {
+            return Response.status(404).build();
+        } else {
+            return Response.ok().build();
+        }
+    }
+
+    @POST
+    @Path("/rules/{id}/trace-on")
+    public Response traceOnRule(@PathParam("id") String id) {
+        Rule rule = null;
+        try {
+            rule = this.trafficManager.getRule(id);
+            if (null != rule) {
+                // TODO: Afstemmen Ernest m.b.t. cached rules in MongoDb en enabled/disablen van rules.
+                rule.tracing = true;
+                trafficManager.addOrReplaceRule(rule);
+            }
+        } catch (Exception ex) {
+            LOG.error("Failed to trace-on rule:" + id, ex);
+            return Response.serverError().entity(ex.getMessage()).build();
+        }
+        if (null == rule) {
+            return Response.status(404).build();
+        } else {
+            return Response.ok().build();
+        }
+    }
+
+    @POST
+    @Path("/rules/{id}/trace-off")
+    public Response traceOffRule(@PathParam("id") String id) {
+        Rule rule = null;
+        try {
+            rule = this.trafficManager.getRule(id);
+            if (null != rule) {
+                rule.tracing = false;
+                trafficManager.addOrReplaceRule(rule);
+            }
+        } catch (Exception ex) {
+            LOG.error("Failed to trace-off rule:" + id, ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         if (null == rule) {
@@ -135,7 +186,7 @@ public class TrafficResource {
         try {
             this.trafficManager.deleteRule(id);
         } catch (Exception ex) {
-            LOG.error("Failed to delete rule:"+id,ex);
+            LOG.error("Failed to delete rule:" + id, ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         return Response.ok().build();
@@ -150,7 +201,7 @@ public class TrafficResource {
             String xml = RuleConverter.toXml(rules);
             return Response.ok().entity(xml).build();
         } catch (Exception ex) {
-            LOG.error("Failed to retrieve rules",ex);
+            LOG.error("Failed to retrieve rules", ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
     }
@@ -176,15 +227,15 @@ public class TrafficResource {
             @PathParam("host") String host,
             @PathParam("method") String method,
             @QueryParam("path") @DefaultValue("") String path,
-            @QueryParam("query") @DefaultValue("")  String query,
-            @QueryParam("limit") @DefaultValue("0")  int howMany
+            @QueryParam("query") @DefaultValue("") String query,
+            @QueryParam("limit") @DefaultValue("0") int howMany
     ) {
         try {
-            List<Recording> records = this.trafficManager.recordingDao.search(host,method,path,query,howMany);
+            List<Recording> records = this.trafficManager.recordingDao.search(host, method, path, query, howMany);
             String xml = RecordingConverter.toXml(records);
             return Response.ok().entity(xml).build();
         } catch (Exception ex) {
-            LOG.error("Failed to retrieve recordings",ex);
+            LOG.error("Failed to retrieve recordings", ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
     }
@@ -197,7 +248,7 @@ public class TrafficResource {
             this.trafficManager.recordingDao.deleteRecordingsByHost(host);
             return Response.ok().build();
         } catch (Exception ex) {
-            LOG.error("Failed to delete recordings",ex);
+            LOG.error("Failed to delete recordings", ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
     }
@@ -210,19 +261,19 @@ public class TrafficResource {
         try {
             Object oneOrMoreRules = RuleConverter.fromXml(inputStream);
             if (oneOrMoreRules instanceof Rule) {
-            	Rule rule = (Rule)oneOrMoreRules;
-            	this.trafficManager.addOrReplaceRule(rule);
-            	uri = this.buildURI("/rules/" + (rule.id.replaceAll("\\s","%20")));
+                Rule rule = (Rule) oneOrMoreRules;
+                this.trafficManager.addOrReplaceRule(rule);
+                uri = this.buildURI("/rules/" + (rule.id.replaceAll("\\s", "%20")));
             } else { // it must be a list
-            	@SuppressWarnings("unchecked")
-                List<Rule> rules = (List<Rule>)oneOrMoreRules;
-            	for (Rule each : rules) {
-            		this.trafficManager.addOrReplaceRule(each);
-            	}
-            	uri = this.buildURI("/rules");
+                @SuppressWarnings("unchecked")
+                List<Rule> rules = (List<Rule>) oneOrMoreRules;
+                for (Rule each : rules) {
+                    this.trafficManager.addOrReplaceRule(each);
+                }
+                uri = this.buildURI("/rules");
             }
         } catch (Exception ex) {
-            LOG.error("Failed to create rule",ex);
+            LOG.error("Failed to create rule", ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         return Response.created(uri).build();
@@ -235,12 +286,12 @@ public class TrafficResource {
         Rule rule = null;
         URI uri = null;
         try {
-            rule = (Rule)RuleConverter.fromXml(inputStream);
+            rule = (Rule) RuleConverter.fromXml(inputStream);
             rule.id = id;
             this.trafficManager.addOrReplaceRule(rule);
             uri = this.buildURI("/rules/" + URLEncoder.encode(rule.id, "utf8"));
         } catch (Exception ex) {
-            LOG.error("Failed to create rule:"+id,ex);
+            LOG.error("Failed to create rule:" + id, ex);
             return Response.serverError().entity(ex.getMessage()).build();
         }
         return Response.created(uri).build();
@@ -256,7 +307,7 @@ public class TrafficResource {
     }
 
     private URI buildURI(String path) throws URISyntaxException {
-    	return new URI("http://" + proxyHost + ":" + port + path);
+        return new URI("http://" + proxyHost + ":" + port + path);
     }
 
     @POST
@@ -279,7 +330,7 @@ public class TrafficResource {
     public Response help() throws IOException {
         HtmlCanvas html = new HtmlCanvas();
         html.getPageContext()
-            .withBoolean("proxy.started", this.proxyServer.isStarted());
+                .withBoolean("proxy.started", this.proxyServer.isStarted());
         html.render(new SiteLayout(new HelpPage()));
         return Response.ok().entity(html.toHtml()).build();
     }
@@ -289,7 +340,7 @@ public class TrafficResource {
     @Produces("text/plain")
     public Response startUpProxyServer() {
         this.proxyServer.startUp();
-        return Response.ok("proxy server is started:"+this.proxyServer.isStarted()).build();
+        return Response.ok("proxy server is started:" + this.proxyServer.isStarted()).build();
     }
 
     @POST
@@ -297,7 +348,7 @@ public class TrafficResource {
     @Produces("text/plain")
     public Response shutDownProxyServer() {
         this.proxyServer.shutDown();
-        return Response.ok("proxy server is started:"+this.proxyServer.isStarted()).build();
+        return Response.ok("proxy server is started:" + this.proxyServer.isStarted()).build();
     }
 
     @GET
@@ -306,7 +357,7 @@ public class TrafficResource {
     public Response statistics(@QueryParam("flush") @DefaultValue("false") boolean doFlush) throws IOException {
         if (doFlush) MonitorFactory.reset();
         HtmlCanvas html = new HtmlCanvas();
-        html.html().body().write(MonitorFactory.getReport(),false)._body()._html();
+        html.html().body().write(MonitorFactory.getReport(), false)._body()._html();
         return Response.ok().entity(html.toHtml()).build();
     }
 }

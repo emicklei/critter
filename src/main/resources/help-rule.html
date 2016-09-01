@@ -1,15 +1,15 @@
 <h3>Rules</h3>
 
 <p>
-A rule can have actions that change the request, headers, body or those of the response.
-All its actions are performed in the order as listed in the rule.
-A rule has a name and can be disabled. Rules are defined in XML.
-Rules are managed (crud) using the REST interface of the traffic service.
+    A rule can have actions that change the request, headers, body or those of the response.
+    All its actions are performed in the order as listed in the rule.
+    A rule has a name and can be disabled. Rules are defined in XML.
+    Rules are managed (crud) using the REST interface of the traffic service.
 </p>
 
 <h4>Basic structure of a Rule</h4>
 <pre>
-&lt;rule id=&quot;my-rule&quot;&gt;
+&lt;rule id=&quot;my-rule&quot;&gt; enabled=&quot;true&quot;&gt; tracing=&quot;false&quot;&gt;
     &lt;conditions&gt;
     ...
     &lt;/conditions&gt;
@@ -18,3 +18,9 @@ Rules are managed (crud) using the REST interface of the traffic service.
     &lt;/actions&gt;    
 &lt;/rule&gt;
 </pre>
+
+<h4>Rule status</h4>
+<p>
+    A rule can be disabled which means it will not be used by critter on an incoming request.
+    Activity of a rule can be traced. If tracing is on then information about its use is logged.
+</p>

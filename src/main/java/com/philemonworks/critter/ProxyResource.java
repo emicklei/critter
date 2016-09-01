@@ -69,36 +69,46 @@ public class ProxyResource {
     }
 
     private Response performActionsFor(HttpContext httpContext, HttpRequestBase requestBase) {
-        ContainerRequest containerRequest = (ContainerRequest) httpContext.getRequest();
-        URI forwardUri = (URI) containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
-        if (forwardUri != null) LOG.debug(requestBase.getMethod() + " " + forwardUri);
-
-        Monitor proxyMon = MonitorFactory.start(forwardUri == null ? "/" : forwardUri.getHost());
         try {
-            RuleContext ruleContext = new RuleContext();
-            ruleContext.recordingDao = trafficManager.recordingDao;
-            ruleContext.httpClient = httpClient;
-            ruleContext.httpContext = httpContext;
-            ruleContext.forwardMethod = requestBase;
-            ruleContext.forwardURI = forwardUri;
-            ruleContext.protoDefinitions = this.protoDefinitions;
+            ContainerRequest containerRequest = (ContainerRequest) httpContext.getRequest();
+            URI forwardUri = (URI) containerRequest.getProperties().get(ProxyFilter.UNPROXIED_URI);
+            if (forwardUri != null) LOG.debug(requestBase.getMethod() + " " + forwardUri);
 
-            if (null == forwardUri) {
-                this.handleEmptyDestination(ruleContext);
-            } else {
-                detectAndApplyRule(ruleContext);
+            Monitor proxyMon = MonitorFactory.start(forwardUri == null ? "/" : forwardUri.getHost());
+            try {
+                RuleContext ruleContext = new RuleContext();
+                ruleContext.recordingDao = trafficManager.recordingDao;
+                ruleContext.httpClient = httpClient;
+                ruleContext.httpContext = httpContext;
+                ruleContext.forwardMethod = requestBase;
+                ruleContext.forwardURI = forwardUri;
+                ruleContext.protoDefinitions = this.protoDefinitions;
+
+                if (null == forwardUri) {
+                    this.handleEmptyDestination(ruleContext);
+                } else {
+                    detectAndApplyRule(ruleContext);
+                }
+                return ruleContext.proxyResponse;
+            } finally {
+                proxyMon.stop();
             }
-            return ruleContext.proxyResponse;
-        } finally {
-            proxyMon.stop();
+        } catch (Exception ex) {
+            LOG.error("performActionsFor failed", ex);
+            return Response.serverError().entity(ex.toString()).build();
         }
     }
 
     private void detectAndApplyRule(RuleContext ruleContext) {
-        Rule rule = this.trafficManager.detectRule(ruleContext);
+        Rule rule = null;
+        Monitor mon = MonitorFactory.start("--critter.detect");
+        try {
+            rule = this.trafficManager.detectRule(ruleContext);
+        } finally {
+            mon.stop();
+        }
         if (null == rule) {
-            LOG.debug("No rule detected");
-            Monitor mon = MonitorFactory.start("--critter.passthrough");
+            mon = MonitorFactory.start("--critter.passthrough");
             try {
                 new Forward().perform(ruleContext);
                 new Respond().perform(ruleContext);
@@ -106,8 +116,7 @@ public class ProxyResource {
                 mon.stop();
             }
         } else {
-            LOG.debug("Apply rule {}", rule.id);
-            Monitor mon = MonitorFactory.start("--critter.rule." + rule.id);
+            mon = MonitorFactory.start("--critter.perform." + rule.id);
             try {
                 this.trafficManager.performRule(rule, ruleContext);
             } finally {

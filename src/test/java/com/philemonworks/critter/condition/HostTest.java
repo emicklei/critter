@@ -2,6 +2,7 @@ package com.philemonworks.critter.condition;
 
 import java.net.URI;
 
+import com.philemonworks.critter.rule.Rule;
 import com.philemonworks.critter.rule.RuleContext;
 import junit.framework.TestCase;
 
@@ -9,6 +10,7 @@ public class HostTest extends TestCase {
 
     public void testHostConditionShouldTestTrueIfHostMatches() throws Exception {
         RuleContext context = new RuleContext();
+        context.rule = new Rule();
         context.forwardURI = new URI("http://www.bol.com:8080/");
 
         Host hostCondition = new Host();
@@ -19,6 +21,7 @@ public class HostTest extends TestCase {
 
     public void testHostConditionShouldTestFalseIfHostNotMatches() throws Exception {
         RuleContext context = new RuleContext();
+        context.rule = new Rule();
         context.forwardURI = new URI("http://www.bol2.com:8080/");
 
         Host hostCondition = new Host();

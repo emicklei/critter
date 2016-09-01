@@ -47,6 +47,7 @@ final class ManagerModule extends AbstractModule {
         RuleDao ruleDao;
         RecordingDao recordingDao;
         if (Boolean.parseBoolean(properties.getProperty("rule.database.h2.enabled"))) {
+            LOG.info("Using in H2 rules database");
             ruleDao = new RuleDaoSqlImpl();
             recordingDao = new RecordingDaoMemoryImpl(); //new RecordingDaoSqlImpl();
             DbCreator.create(createAndBindDataSource());
