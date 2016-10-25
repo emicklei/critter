@@ -75,9 +75,9 @@ Build a new image
 
 	mvn clean package docker:build
 
-And run it
+And run it (see pom.xml for the exact version)
 
-	docker run --name critter -P critter/critter:1.4.0
+	docker run --name critter -P critter/critter:1.4.4
 
 Use `docker ps` to find out to which host ports critter has been bound
 
