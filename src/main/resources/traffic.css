@@ -1,26 +1,41 @@
 .rule-enabled {
-	background-color: #BDF4CB;
+    background-color: #BDF4CB;
 }
-.rule-disabled {
-	background-color: #FFBBBB;
-}
-#centered {
-	width: 940px;
-	margin-left:auto;
-	margin-right:auto;
-	text-align:left;
-}
-pre {
-	font-size:large;
-}
-#alertmessage {
-	font-size:large;
-	color: yellow  ;
-}
-h3 { color: lightblue; }
 
-pre { font-size:large ; background-color:gray; padding: 4px}
+.rule-disabled {
+    background-color: #FFBBBB;
+}
+
+#centered {
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+pre {
+    font-size: large;
+}
+
+#alertmessage {
+    font-size: large;
+    color: yellow;
+}
+
+h3 {
+    color: lightblue;
+}
+
+pre {
+    font-size: large;
+    background-color: gray;
+    padding: 4px
+}
 
 .ui-li-desc {
-	white-space: normal;
+    white-space: normal;
+}
+
+strong {
+    color: darkgreen;
 }
