@@ -1,27 +1,29 @@
 package com.philemonworks.critter.condition;
 
 import com.philemonworks.critter.rule.RuleContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.nio.charset.Charset;
 
 public class RequestBody implements Condition {
+    private static final Logger LOG = LoggerFactory.getLogger(RequestBody.class);
 
-    public String body;
-    
+    public String matches;
+
     @Override
     public String explain() {
-        return "the request body matches [" + body + "]";
+        return "the request matches matches [" + matches + "]";
     }
 
     @Override
     public boolean test(RuleContext ctx) {
-        // Depending on content type, use different match strategy
-        String contentType = ctx.httpContext.getRequest().getHeaderValue("Content-Type");
-        if ("application/xml".equals(contentType.toLowerCase())) {
-            // Parse Xml
-        } else if ("application/json".equals(contentType.toLowerCase())) {
-            // Parse Json
-        } else if ("application/octet-stream".equals(contentType.toLowerCase())) {
-            // Use HEX compare
+        String payload = new String(ctx.getRequestEntityContent(), Charset.forName("UTF-8"));
+        boolean ok = payload.matches(matches);
+
+        if (ctx.rule.tracing) {
+            LOG.info("rule={} requestbody={} matches={} test={}", ctx.rule.id, payload, matches, ok);
         }
-        return false;
+        return ok;
     }
 }

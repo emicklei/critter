@@ -1,16 +1,10 @@
 package com.philemonworks.critter;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.UnknownHostException;
-import java.util.List;
-import java.util.Map.Entry;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-import javax.ws.rs.core.Response;
-
+import com.jamonapi.MonitorFactory;
+import com.philemonworks.critter.httpclient.NoRedirectStrategy;
+import com.philemonworks.critter.httpclient.ProxyRoutePlanner;
+import com.sun.jersey.api.core.HttpContext;
+import com.sun.jersey.spi.container.ContainerRequest;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
@@ -23,11 +17,15 @@ import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jamonapi.MonitorFactory;
-import com.philemonworks.critter.httpclient.NoRedirectStrategy;
-import com.philemonworks.critter.httpclient.ProxyRoutePlanner;
-import com.sun.jersey.api.core.HttpContext;
-import com.sun.jersey.spi.container.ContainerRequest;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import javax.ws.rs.core.Response;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.net.URI;
+import java.net.UnknownHostException;
+import java.util.List;
+import java.util.Map.Entry;
 
 @Singleton
 public class HttpClient {
@@ -54,18 +52,14 @@ public class HttpClient {
         //@formatter:on        
     }
 
-    public Response forward(HttpContext ctx, HttpRequestBase forwardRequest, URI forwardURI) {
+    public Response forward(HttpContext ctx, HttpRequestBase forwardRequest, URI forwardURI, byte[] requestEntityContent) {
         // get
         ContainerRequest containerRequest = (ContainerRequest) ctx.getRequest();
         forwardRequest.setURI(forwardURI);
-        
+
         if (forwardRequest instanceof HttpEntityEnclosingRequestBase) {
             HttpEntityEnclosingRequestBase encloser = (HttpEntityEnclosingRequestBase) forwardRequest;
-            String lengthString = containerRequest.getHeaderValue("Content-Length");
-            int length = 0;
-            if (lengthString != null)
-                length = Integer.parseInt(lengthString);
-            encloser.setEntity(new InputStreamEntity(containerRequest.getEntityInputStream(), length));
+            encloser.setEntity(new InputStreamEntity(new ByteArrayInputStream(requestEntityContent), requestEntityContent.length));
         }
 
         // copy headers
@@ -85,7 +79,7 @@ public class HttpClient {
         try {
             forwardResponse = httpClient.execute(forwardRequest);
         } catch (UnknownHostException uhe) {
-            return Response.status(404).entity("Unknown host: "+uhe.getMessage()).build();
+            return Response.status(404).entity("Unknown host: " + uhe.getMessage()).build();
         } catch (Exception ex) {
             LOG.error(forwardRequest.getRequestLine().toString()); // not the whole stack
             LOG.trace(forwardRequest.getRequestLine().toString(), ex); // with the whole stack

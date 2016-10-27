@@ -1,25 +1,20 @@
 package com.philemonworks.critter.ui.fixed;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import javax.ws.rs.core.HttpHeaders;
-
 import com.philemonworks.critter.action.Respond;
 import com.philemonworks.critter.action.ResponseBody;
 import com.philemonworks.critter.action.ResponseHeader;
-import com.philemonworks.critter.condition.Host;
-import com.philemonworks.critter.condition.Method;
-import com.philemonworks.critter.condition.Path;
-import com.philemonworks.critter.condition.RequestBody;
-import com.philemonworks.critter.condition.RequestHeader;
+import com.philemonworks.critter.condition.*;
 import com.philemonworks.critter.rule.Rule;
 
+import javax.ws.rs.core.HttpHeaders;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class FixedResponseBuilder {
-    
+
     public Rule buildRuleFrom(RecordingInput input) {
         Rule r = new Rule();
-        
+
         if (input.hasId()) {
             r.id = input.id;
         }
@@ -54,7 +49,7 @@ public class FixedResponseBuilder {
             h.matches = input.accepttype;
             r.getConditions().add(h);
         }
-        if (input.hasResponseContentType() && input.hasResponsecontent()){
+        if (input.hasResponseContentType() && input.hasResponsecontent()) {
             ResponseHeader h = new ResponseHeader();
             h.with("add", HttpHeaders.CONTENT_TYPE + ": " + input.responsecontenttype);
             r.getActions().add(h);
@@ -64,11 +59,11 @@ public class FixedResponseBuilder {
             rb.body = input.responsecontent;
             r.getActions().add(rb);
         }
-        if (input.hasRequestContent()) {
-            RequestBody rb = new RequestBody();
-            rb.body = input.requestcontent;
-            r.getConditions().add(rb);
-        }
+//        if (input.hasRequestContent()) {
+//            RequestBody rb = new RequestBody();
+//            rb.matches = input.requestcontent;
+//            r.getConditions().add(rb);
+//        }
         r.getActions().add(new Respond());
         return r;
     }

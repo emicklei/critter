@@ -77,6 +77,8 @@ public class RuleConverter {
         xs.useAttributeFor(ProtobufPath.class, "matches");
 
         xs.alias("requestbody", RequestBody.class);
+        xs.useAttributeFor(RequestBody.class, "matches");
+
         xs.alias("script", Script.class);
 
         // actions

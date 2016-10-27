@@ -1,21 +1,18 @@
 package com.philemonworks.critter.rule;
 
-import java.net.URI;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.ws.rs.core.Response;
-
-import com.philemonworks.critter.proto.Definitions;
+import com.philemonworks.critter.HttpClient;
+import com.philemonworks.critter.dao.RecordingDao;
 import com.philemonworks.critter.proto.DefinitionsPerRule;
+import com.sun.jersey.api.core.HttpContext;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.philemonworks.critter.HttpClient;
-import com.philemonworks.critter.dao.RecordingDao;
-import com.sun.jersey.api.core.HttpContext;
+import javax.ws.rs.core.Response;
+import java.net.URI;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RuleContext implements ScriptContext {
     private static final Logger LOG = LoggerFactory.getLogger(ScriptContext.class);
@@ -26,6 +23,8 @@ public class RuleContext implements ScriptContext {
     public HttpRequestBase forwardMethod;
     public Response forwardResponse;
     public Response proxyResponse;
+    // this caches the request entity stream contents
+    public byte[] requestEntityContent;
 
     // for access by ProtobufPath
     public DefinitionsPerRule protoDefinitions;
@@ -76,5 +75,12 @@ public class RuleContext implements ScriptContext {
     @Override
     public void log(String what) {
         LOG.debug(what);
+    }
+
+    public byte[] getRequestEntityContent() {
+        if (null == requestEntityContent) {
+            this.requestEntityContent = this.httpContext.getRequest().getEntity(byte[].class);
+        }
+        return this.requestEntityContent;
     }
 }

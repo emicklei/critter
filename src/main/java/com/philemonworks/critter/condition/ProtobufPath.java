@@ -32,7 +32,7 @@ public class ProtobufPath implements Condition {
                 return false;
             }
         }
-        byte[] data = ctx.httpContext.getRequest().getEntity(byte[].class);
+        byte[] data = ctx.getRequestEntityContent();
 
         // see if we need to decode it
         String contentEncoding = ctx.httpContext.getRequest().getHeaderValue("Content-Encoding");

@@ -2,17 +2,19 @@ package com.philemonworks.critter.action;
 
 import com.philemonworks.critter.rule.RuleContext;
 
-public class Forward extends RuleIngredient implements Action { 
+public class Forward extends RuleIngredient implements Action {
 
-	@Override
-	public void perform(RuleContext context) {
-		context.forwardResponse = context.httpClient.forward(
-		        context.httpContext, 
-		        context.forwardMethod,
-		        context.forwardURI);
-	}
-	@Override
-	public String explain() {
-		return "forward the request to the remote host";
-	}	
+    @Override
+    public void perform(RuleContext context) {
+        context.forwardResponse = context.httpClient.forward(
+                context.httpContext,
+                context.forwardMethod,
+                context.forwardURI,
+                context.getRequestEntityContent());
+    }
+
+    @Override
+    public String explain() {
+        return "forward the request to the remote host";
+    }
 }

@@ -28,6 +28,7 @@
             <xs:element name="equals" type="equals"/>
             <xs:element name="not" type="not"/>
             <xs:element name="protobufpath" type="protobufpath"/>
+            <xs:element name="requestbody" type="requestbody"/>
         </xs:choice>
     </xs:complexType>
 
@@ -54,6 +55,13 @@
     <xs:complexType name="path">
         <xs:annotation>
             <xs:documentation>true if the URL path of the request matches the given value</xs:documentation>
+        </xs:annotation>
+        <xs:attribute type="matches" name="matches"/>
+    </xs:complexType>
+
+    <xs:complexType name="requestbody">
+        <xs:annotation>
+            <xs:documentation>true if the body content of the request matches the given value</xs:documentation>
         </xs:annotation>
         <xs:attribute type="matches" name="matches"/>
     </xs:complexType>
@@ -127,6 +135,7 @@
             <xs:element name="xpath" type="xpath"/>
             <xs:element name="equals" type="equals"/>
             <xs:element name="protobufpath" type="protobufpath"/>
+            <xs:element name="requestbody" type="requestbody"/>
         </xs:choice>
     </xs:complexType>
 
