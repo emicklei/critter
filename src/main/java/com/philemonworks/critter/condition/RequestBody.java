@@ -13,7 +13,7 @@ public class RequestBody implements Condition {
 
     @Override
     public String explain() {
-        return "the request body matches matches [" + matches + "]";
+        return "the request body matches [" + matches + "]";
     }
 
     @Override
