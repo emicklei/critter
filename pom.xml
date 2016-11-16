@@ -65,18 +65,7 @@
         <dependency>
             <groupId>org.rendershark</groupId>
             <artifactId>rendershark</artifactId>
-            <version>0.7.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.rendersnake</groupId>
-                    <artifactId>rendersnake</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.rendersnake</groupId>
-            <artifactId>rendersnake</artifactId>
-            <version>1.9.0</version>
+            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
